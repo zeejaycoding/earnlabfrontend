@@ -1,0 +1,357 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --bg-primary: #0D0F1E;
+    --bg-secondary: #16192E;
+    --bg-tertiary: #1E2133;
+    --bg-card: #181A2C;
+    --bg-item: #151728;
+
+    --color-green: #0AC07D;
+    --color-blue: #30334A;
+    --color-text-dim: #B3B6C7;
+    --color-text-muted: #6B6E8A;
+
+    --gradient-green: linear-gradient(337.7deg, rgba(255, 255, 255, 0) 40.23%, rgba(255, 255, 255, 0.6) 125.94%), #0AC07D;
+    --gradient-cashout: linear-gradient(12.07deg, rgba(255, 255, 255, 0) 16.27%, rgba(255, 255, 255, 0.4) 93.68%), #099F86;
+    --gradient-premium: linear-gradient(3.74deg, rgba(118, 163, 220, 0) 3.38%, #13243A 201.62%);
+
+    --faq-top-wave-1: #0D0F1E;
+    --faq-top-wave-2: #0B0D18;
+    --deep-wave-1: #101324;
+    --deep-wave-2: #0D0F1E;
+}
+
+body {
+    font-family: var(--font-manrope), sans-serif;
+}
+
+/* Set dark background on root elements to prevent white flash on iOS */
+/*html,
+body {
+    background-color: #000000;
+}
+*/
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+    width: 0px;
+    /* Chrome, Safari */
+    height: 0px;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Smooth infinite scroll animation for earnings ticker */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+.animate-scroll-left {
+    animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-left:hover {
+    animation-play-state: paused;
+}
+
+/* Fade in animation for modals */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+}
+
+/* Fade in animation for leaderboard rows */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in-up 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+/* Custom Toast Notification Styles */
+.Toastify__toast-container {
+    padding: 0;
+    width: auto;
+}
+
+.Toastify__toast {
+    padding: 16px 20px !important;
+    border-radius: 12px !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(24, 195, 167, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    margin-bottom: 12px !important;
+    min-width: 300px !important;
+    background: linear-gradient(135deg, #1A1D2E 0%, #151728 100%) !important;
+}
+
+/* Cookie Consent slide up animation */
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+}
+
+/* ── Landing Page Animations ── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes partnerScrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-slideRight {
+    animation: slideRight 30s linear infinite;
+}
+
+.animate-slideLeft {
+    animation: slideLeft 30s linear infinite;
+}
+
+.animate-partner-scroll-right {
+    animation: partnerScrollRight 32s linear infinite;
+}
+
+.animate-partner-scroll-right:hover {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-partner-scroll-right {
+        animation: none;
+        transform: translateX(0);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Success Toast */
+.Toastify__toast--success {
+    background: linear-gradient(135deg, #1A1D2E 0%, #151728 100%) !important;
+    color: #18C3A7 !important;
+    border: 1px solid rgba(24, 195, 167, 0.5) !important;
+}
+
+.Toastify__toast--success .Toastify__toast-icon {
+    color: #18C3A7 !important;
+}
+
+/* Error Toast */
+.Toastify__toast--error {
+    background: linear-gradient(135deg, #1A1D2E 0%, #151728 100%) !important;
+    color: #FF6B6B !important;
+    border: 1px solid rgba(255, 107, 107, 0.5) !important;
+}
+
+.Toastify__toast--error .Toastify__toast-icon {
+    color: #FF6B6B !important;
+}
+
+.Toastify__toast--error svg {
+    color: #FF6B6B !important;
+}
+
+/* Warning Toast */
+.Toastify__toast--warning {
+    background: linear-gradient(135deg, #1A1D2E 0%, #151728 100%) !important;
+    color: #FFA500 !important;
+    border: 1px solid rgba(255, 165, 0, 0.5) !important;
+}
+
+.Toastify__toast--warning .Toastify__toast-icon {
+    color: #FFA500 !important;
+}
+
+/* Info Toast */
+.Toastify__toast--info {
+    background: linear-gradient(135deg, #1A1D2E 0%, #151728 100%) !important;
+    color: #18C3A7 !important;
+    border: 1px solid rgba(24, 195, 167, 0.5) !important;
+}
+
+.Toastify__toast--info .Toastify__toast-icon {
+    color: #18C3A7 !important;
+}
+
+/* Close Button */
+.Toastify__close-button {
+    color: rgba(24, 195, 167, 0.7) !important;
+    opacity: 1 !important;
+}
+
+.Toastify__close-button:hover {
+    color: #18C3A7 !important;
+}
+
+/* Override default react-toastify styles */
+.Toastify__toast-body {
+    color: inherit !important;
+}
+
+/* Dark mode (default) — vars already defined in :root above */
+html.dark {
+  --bg: #0D0F1E;
+  --text: #8C9DB6;
+  color-scheme: dark;
+}
+
+/* Light mode overrides */
+html:not(.dark) {
+  --bg-primary: #F0F2F8;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E8EAF2;
+  --bg-card: #F5F6FA;
+  --bg-item: #EBEDF5;
+
+  --color-blue: #C8CBDE;
+  --color-text-dim: #3D4066;
+  --color-text-muted: #6B6E8A;
+
+  --bg: #F0F2F8;
+  --text: #1A1D2E;
+  color-scheme: light;
+
+  --faq-top-wave-1: #F0F2F8;
+  --faq-top-wave-2: #EBEDF5;
+  --deep-wave-1: #E8EAF2;
+  --deep-wave-2: #F0F2F8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── CSS-level safety net for structural elements ──
+   JS (ThemeStyleInjector) handles individual components;
+   these catch the page shell to avoid visible flicker. */
+html:not(.dark) body { background-color: #F0F2F8 !important; color: #1A1D2E !important; }
+html:not(.dark) header[style*="background"] { background: #FFFFFF !important; border-bottom: 1px solid #C8CBDE !important; }
+html:not(.dark) footer { background-color: #EBEDF5 !important; }
+html:not(.dark) nav[class*="bg-[#"] { background-color: #FFFFFF !important; }
+html:not(.dark) nav[style*="background"] { background-color: #FFFFFF !important; border-top: 1px solid #C8CBDE !important; }
+
+/* Inline-style dark section overrides */
+html:not(.dark) section[style*="background"] { background: #F0F2F8 !important; background-color: #F0F2F8 !important; }
+
+/* SVG gradient stops — make them light */
+html:not(.dark) stop { stop-color: #E8EAF2 !important; }
+
+/* Force specific elements to be light mode explicitly */
+html:not(.dark) .landing-testimonial-card {
+  background-color: #FFFFFF !important;
+  border-color: #EBEDF5 !important;
+}
+html:not(.dark) .landing-testimonial-nav {
+  background-color: #FFFFFF !important;
+  color: #1A1D2E !important;
+}
+html:not(.dark) .landing-faq-wrapper {
+  background: linear-gradient(180deg, #F0F2F8 0%, #E8EAF2 50%, #F0F2F8 100%) !important;
+}
+html:not(.dark) .landing-reward-card {
+  background-color: #FFFFFF !important;
+}

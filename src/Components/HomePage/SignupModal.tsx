@@ -1,0 +1,400 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { X, Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
+
+import GoogleImg from "../../../public/assets/g.png";
+import FbImg from "../../../public/assets/fb.png";
+import WeldImg from "../../../public/assets/weld.png";
+import { useSignUp } from "@clerk/nextjs";
+
+const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
+
+declare global {
+  interface Window {
+    google?: {
+      accounts: {
+        id: {
+          initialize: (config: any) => void;
+          renderButton: (element: HTMLElement, config: any) => void;
+          prompt: () => void;
+        };
+      };
+    };
+  }
+}
+
+export default function SignUpModal({
+  isOpen,
+  onClose,
+  onSignIn,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onSignIn: () => void;
+}) {
+  const [showPassword, setShowPassword] = useState(false);
+  const { signUp, isLoaded } = useSignUp();
+  const redirectAfter = `${typeof window !== "undefined" ? window.location.origin : ""}/home`;
+  const [oauthLoading, setOauthLoading] = useState<string | null>(null);
+  const [googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [modalScale, setModalScale] = useState(1);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const updateScale = () => {
+      if (!modalRef.current) return;
+      const scaleY = (window.innerHeight * 0.95) / modalRef.current.offsetHeight;
+      const scaleX = (window.innerWidth * 0.95) / modalRef.current.offsetWidth;
+      setModalScale(Math.min(1, scaleY, scaleX));
+    };
+    const id = setTimeout(updateScale, 50);
+    window.addEventListener("resize", updateScale);
+    return () => { clearTimeout(id); window.removeEventListener("resize", updateScale); };
+  }, [isOpen]);
+
+  // Load Google Sign-In script for direct OAuth
+  useEffect(() => {
+    if (!isOpen || !googleClientId || googleScriptLoaded) return;
+
+    const existingScript = document.querySelector('script[src="https://accounts.google.com/gsi/client"]');
+    if (existingScript) {
+      setGoogleScriptLoaded(true);
+      initializeGoogleButton();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://accounts.google.com/gsi/client';
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      setGoogleScriptLoaded(true);
+      initializeGoogleButton();
+    };
+    document.body.appendChild(script);
+  }, [isOpen, googleScriptLoaded]);
+
+  useEffect(() => {
+    if (isOpen && googleScriptLoaded) {
+      setTimeout(() => initializeGoogleButton(), 100);
+    }
+  }, [isOpen, googleScriptLoaded]);
+
+  const initializeGoogleButton = () => {
+    if (window.google && googleClientId) {
+      window.google.accounts.id.initialize({
+        client_id: googleClientId,
+        callback: handleGoogleCallback,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+      });
+    }
+  };
+
+  const handleGoogleClick = () => {
+    if (window.google) {
+      window.google.accounts.id.prompt();
+    }
+  };
+
+  const handleGoogleCallback = async (response: any) => {
+    console.log("[SignUp Modal] Google callback received");
+    setOauthLoading("google");
+    setError(null);
+
+    try {
+      const res = await fetch(`${apiBase}/api/v1/auth/google`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          credential: response.credential,
+          clientId: googleClientId,
+        }),
+      });
+
+      const data = await res.json();
+      console.log("[SignUp Modal] Google auth response:", res.status);
+
+      if (res.ok && data.token) {
+        localStorage.setItem("token", data.token);
+        if (data.user) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+        }
+        try {
+          const evt = new CustomEvent("app-auth-changed", {
+            detail: { token: data.token, user: data.user },
+          });
+          window.dispatchEvent(evt);
+        } catch {}
+        console.log("[SignUp Modal] ✅ Sign up successful!");
+        onClose();
+        router.push("/home");
+      } else {
+        setError(data.message || "Google sign-up failed");
+      }
+    } catch (err: any) {
+      console.error("[SignUp Modal] Google auth error:", err);
+      setError("Failed to connect to server");
+    } finally {
+      setOauthLoading(null);
+    }
+  };
+
+  // Facebook OAuth via Clerk
+  const handleFacebookOAuth = async () => {
+    console.debug("Facebook OAuth signup clicked", { isLoaded, signUpPresent: !!signUp });
+
+    if (!isLoaded || !signUp) {
+      setError("Authentication system is loading. Please wait a moment and try again.");
+      return;
+    }
+
+    setOauthLoading("facebook");
+    setError(null);
+    try {
+      console.log("Starting Facebook OAuth signup");
+      await signUp.authenticateWithRedirect({
+        strategy: "oauth_facebook" as any,
+        redirectUrl: redirectAfter,
+        redirectUrlComplete: redirectAfter,
+      });
+    } catch (err: any) {
+      console.error("Facebook OAuth signup redirect failed", err);
+      let errorMessage = "Sign-up failed. Please try again.";
+      if (err?.message) {
+        if (err.message.includes("not enabled")) {
+          errorMessage = "Facebook sign-up is not enabled. Please contact support.";
+        } else if (err.message.includes("popup")) {
+          errorMessage = "Pop-up was blocked. Please allow pop-ups and try again.";
+        } else {
+          errorMessage = err.message;
+        }
+      }
+      setError(errorMessage);
+    } finally {
+      setOauthLoading(null);
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-4">
+      <div
+        ref={modalRef}
+        style={{ transform: `scale(${modalScale})`, transformOrigin: "center center" }}
+        className="relative w-full max-w-[560px] md:max-w-[940px] bg-[#0D0F1E] border border-[#1C2033] rounded-2xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.55)]"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px] md:min-h-[540px]">
+          {/* Left visual panel */}
+          <div className="hidden md:block relative bg-[#11172A]">
+            <img
+              src="/assets/signup.jpeg"
+              alt="LabWards sign-up"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,79,89,0.22),rgba(13,15,30,0.55))]" />
+          </div>
+
+          {/* Right form panel */}
+          <div className="relative bg-[#0D0F1E] px-5 sm:px-7 md:px-10 py-4 md:py-6 flex flex-col">
+            <button
+              onClick={onClose}
+              className="absolute right-4 top-3 w-7 h-7 rounded-full bg-[#1C2033] hover:bg-[#2A2E45] text-[#8C8FA8] hover:text-white transition-colors flex items-center justify-center"
+              aria-label="Close sign up modal"
+            >
+              <X size={14} />
+            </button>
+
+            <div className="w-full max-w-[430px] mx-auto pt-3 md:pt-1 flex-1 flex flex-col">
+              <h2 className="text-white text-[46px] font-bold leading-[1] mb-5">Sign up</h2>
+
+              <div className="flex items-center gap-3 bg-[#151728] border border-[#1C2033] rounded-[10px] px-4 py-2.5 mb-5">
+                <div className="flex items-center shrink-0">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-[#151728] shadow-sm" />
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-[#151728] -ml-3 shadow-sm" />
+                  <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100&h=100" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-[#151728] -ml-3 shadow-sm" />
+                </div>
+                <p className="text-[#8C9DB6] text-[13px] font-medium leading-tight">Thousands just earned — don&apos;t miss your first payout 🚀</p>
+              </div>
+
+              {error && <div className="text-red-400 text-sm mb-4">{error}</div>}
+
+              <label className="text-white text-[14px] font-medium mb-2">Email Address</label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Enter your email address"
+                className="w-full h-[48px] px-4 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0] mb-4"
+              />
+
+              <label className="text-white text-[14px] font-medium mb-2">Password</label>
+              <div className="relative mb-4">
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="w-full h-[48px] px-4 pr-11 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0]"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6E8A] hover:text-[#9BA0C2] transition-colors"
+                  aria-label="Toggle password visibility"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+
+              <button
+                disabled={loading}
+                onClick={async () => {
+                  setError(null);
+                  if (!email || !password) {
+                    setError("Please fill email and password.");
+                    return;
+                  }
+
+                  const baseUsername = email.split("@")[0] || "user";
+                  const generatedUsername =
+                    baseUsername.replace(/[^a-zA-Z0-9_]/g, "").slice(0, 20) || `user${Date.now().toString().slice(-6)}`;
+
+                  setLoading(true);
+                  try {
+                    const res = await fetch(`${apiBase}/api/v1/auth/register`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        username: generatedUsername,
+                        email,
+                        password,
+                        agreedToTerms: true,
+                      }),
+                    });
+                    const data = await res.json();
+                    if (!res.ok) {
+                      setError(data?.message || "Registration failed");
+                      setLoading(false);
+                      return;
+                    }
+
+                    if (data.token) {
+                      if (typeof window !== "undefined") {
+                        localStorage.setItem("token", data.token);
+                        if (data.user) {
+                          localStorage.setItem("user", JSON.stringify(data.user));
+                        }
+                      }
+                      try {
+                        const evt = new CustomEvent("app-auth-changed", {
+                          detail: { token: data.token, user: data.user },
+                        });
+                        window.dispatchEvent(evt);
+                      } catch {}
+                    }
+
+                    onClose();
+                    router.push("/home");
+                  } catch (e: any) {
+                    setError(e?.message || "Network error");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+                className="w-full h-[50px] rounded-[10px] font-semibold text-white shadow-[0px_8px_24px_rgba(9,159,134,0.35)] transition-all active:scale-[0.99] bg-[linear-gradient(135deg,#0BBFA0_0%,#079E85_100%)] hover:opacity-90 disabled:opacity-70 disabled:cursor-wait"
+              >
+                {loading ? "Creating account..." : "Sign up"}
+              </button>
+
+              <div className="flex items-center gap-3 my-5">
+                <div className="h-px flex-1 bg-[#1E2238]" />
+                <span className="text-[#7D8099] text-[30px] leading-none">Or</span>
+                <div className="h-px flex-1 bg-[#1E2238]" />
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <button
+                  type="button"
+                  className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#0BBFA055] hover:bg-[#1A1E32] transition-all"
+                >
+                  <Image src={WeldImg} alt="Worldcoin" width={18} height={18} />
+                  <span className="text-[#9093AC] text-[14px] font-medium">Sign up via Worldcoin</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleGoogleClick}
+                  disabled={!googleScriptLoaded || !!oauthLoading}
+                  className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#4285F455] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
+                >
+                  <Image src={GoogleImg} alt="Google" width={18} height={18} />
+                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "google" ? "Redirecting..." : "Sign up via Google"}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleFacebookOAuth}
+                  disabled={!isLoaded || !!oauthLoading}
+                  className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#1877F255] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
+                >
+                  <Image src={FbImg} alt="Facebook" width={18} height={18} />
+                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "facebook" ? "Redirecting..." : "Sign up via Facebook"}</span>
+                </button>
+              </div>
+
+              <p className="text-center text-[16px] text-[#6B6E8A] mt-6">
+                Already have an account yet?{" "}
+                <button onClick={onSignIn} className="text-white font-bold hover:text-[#0BBFA0] transition-colors">
+                  Sign in
+                </button>
+              </p>
+
+              <div className="flex flex-col items-center gap-2 mt-5 md:mt-6">
+                <div className="flex items-center gap-1">
+                  {[0, 1, 2, 3].map((i) => (
+                    <svg key={i} width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                      <rect width="24" height="24" rx="3" fill="#00B67A" />
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" />
+                    </svg>
+                  ))}
+                  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect width="24" height="24" rx="3" fill="#303346" />
+                    <clipPath id="signup-half-clip">
+                      <rect x="0" y="0" width="12" height="24" />
+                    </clipPath>
+                    <rect width="24" height="24" rx="3" fill="#00B67A" clipPath="url(#signup-half-clip)" />
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" />
+                  </svg>
+                </div>
+                <p className="text-[#B3B6C7] text-[13px] font-semibold">
+                  <span className="text-white">TrustScore 4.5</span> | 200 reviews
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  );
+}
