@@ -2300,5 +2300,91 @@
   "last30DaysEarned": "Ganado en los últimos 30 días",
   "lifetimeRevenue": "Ingresos de por vida",
   "earningsOnHold": "Ganancias retenidas"
-}
+},
+   "homepage": {
+    "welcomeBack": "Bienvenido de nuevo",
+    "welcomeDescription": "Sigue tu progreso, revisa tus actividades recientes y administra tus recompensas desde tus paneles personales",
+
+    "dailyStreak": "Racha diaria",
+    "dailyBonus": "Bono diario",
+    "totalEarned": "Ganancias totales",
+    "currentRank": "Tu rango actual",
+    "numberOfTasks": "Número de tareas",
+
+    "slightlyHigher": "Ligeramente superior al promedio",
+
+    "offersAvailable": "Ofertas disponibles",
+    "playAndEarn": "Juega y gana",
+    "farmLobby": "Lobby de granja",
+    "turboChange": "Cambio Turbo",
+    "presMark": "Marca Pres",
+    "desc": "Juega durante 5 minutos y gana hasta $3",
+
+    "offerFallbackTitle": "Oferta",
+    "offerFallbackDescription": "Completa esta oferta y gana recompensas"
+  },
+
+  "earningsPage": {
+    "goHome": "Ir al inicio",
+    "openNotifications": "Abrir notificaciones",
+    "openWallet": "Abrir billetera",
+    "goCashout": "Ir a retirar",
+    "cashout": "Retirar",
+    "openAccount": "Abrir cuenta",
+
+    "userWithdrew": "El usuario retiró",
+    "userEarned": "El usuario ganó",
+    "offerWalls": "Muros de ofertas",
+
+    "viewAll": "Ver todo",
+
+    "featured": "Destacado",
+    "survey": "Encuesta",
+
+    "noFeaturedResults": "No hay resultados destacados para el filtro seleccionado.",
+    "noProvidersFound": "No se encontraron proveedores para el filtro seleccionado.",
+
+    "categories": {
+      "viewAll": "Ver todo",
+      "fastCompletion": "Finalización rápida",
+      "signUpTrial": "Prueba de registro",
+      "saveMoney": "Ahorrar dinero",
+      "casino": "Casino",
+      "puzzle": "Rompecabezas",
+      "sweepstake": "Sorteo"
+    },
+
+    "searchPlaceholder": "Buscar juego o proveedor",
+
+    "sort": {
+      "sortBy": "Ordenar por",
+      "default": "Ordenar por",
+      "lowToHigh": "Precio: de menor a mayor",
+      "highToLow": "Precio: de mayor a menor",
+      "popular": "Popularidad",
+      "short": "Ordenar",
+      "low": "Bajo",
+      "high": "Alto"
+    },
+
+    "providers": {
+      "all": "Proveedores",
+      "single": "Proveedor",
+      "monlix": "Monlix",
+      "mylead": "MyLead",
+      "gemiad": "GemiAd",
+      "nortik": "Nortik",
+      "cpxResearch": "CPX Research"
+    },
+
+    "games": {
+      "tileTapMaster": "Tile Tap Master",
+      "goblinsWoods": "Bosque de Goblins",
+      "slot": "Tragamonedas",
+      "angryBird": "Angry Bird",
+      "screwOutFactory": "Fábrica Screw Out",
+      "bigGiant": "Gran Gigante"
+    }
+  }
+
 }

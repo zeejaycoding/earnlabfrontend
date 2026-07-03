@@ -6,6 +6,7 @@ import en from "./en/landing.json";
 import urL from "./ur/common.json";
 import ur from "./ur/landing.json";
 import es from "./es/landing.json";
+import fr from "./fr/landing.json";
 
 import ar from "./ar/landing.json";
 
@@ -15,6 +16,7 @@ const resources = {
   urL: { translation: urL },
   ar: { translation: ar },
   es: { translation: es },
+  fr: { translation: fr },
 };
 
 if (!i18n.isInitialized) {
