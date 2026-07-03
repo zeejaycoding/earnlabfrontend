@@ -6,12 +6,16 @@ import Link from "next/link";
 import { FaTelegramPlane, FaDiscord, FaTwitter } from "react-icons/fa";
 import { Zap, Heart, ArrowRight, Mail } from "lucide-react";
 import Logo from "../../../public/assets/logo.png";
+import { useTranslation } from "react-i18next";
+
 
 interface FooterProps {
     onOpenLogin?: () => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
+    const {t} = useTranslation();
+
     const handleGetStarted = () => {
         // Scroll to top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,6 +29,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
     };
 
     return (
+        
         <footer className="w-full bg-gradient-to-b from-[#0A0C1A] via-[#0D0F1E] to-[#000000] text-white px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative overflow-hidden">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -37,14 +42,14 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
                 <div className="mb-16 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-2xl border border-emerald-500/20 p-8 md:p-12 hover:border-emerald-500/50 transition-all duration-300">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Ready to Start Earning?</h3>
-                            <p className="text-[#9CA3AF]">Join thousands of users making real money today</p>
+                            <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">{t("footer1.cta.title")}</h3>
+                            <p className="text-[#9CA3AF]">{t("footer1.cta.description")}</p>
                         </div>
                         <button 
                             onClick={handleGetStarted}
                             className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 rounded-lg font-semibold whitespace-nowrap transition-all duration-300 transform hover:scale-105 shadow-lg shadow-emerald-500/20"
                         >
-                            Get Started <ArrowRight className="w-5 h-5" />
+                            {t("footer1.cta.button")} <ArrowRight className="w-5 h-5" />
                         </button>
                     </div>
                 </div>
@@ -62,11 +67,11 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
                         className="object-contain mb-4"
                     />
                     <p className="text-sm text-[#9CA3AF] leading-relaxed mb-6">
-                        Turn your free time into real rewards. Complete tasks, surveys, and offers to earn money.
+                        {t("footer1.brandDescription")}
                     </p>
                     <div className="flex items-center gap-3 text-sm text-[#9CA3AF]">
                         <Heart className="w-4 h-4 text-emerald-400" />
-                        <span>Made with passion for our community</span>
+                        <span>{t("footer1.madeWithPassion")}</span>
                     </div>
                 </div>
 
@@ -74,29 +79,29 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
                 <div>
                     <h4 className="text-white font-bold mb-6 flex items-center gap-2">
                         <Zap className="w-5 h-5 text-emerald-400" />
-                        Product
+                        {t("footer1.sections.product")}
                     </h4>
                     <ul className="space-y-3 text-sm">
-                        <li><Link href="/games" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Games</Link></li>
-                        <li><Link href="/tasks-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Tasks</Link></li>
-                        <li><Link href="/surveys-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Surveys</Link></li>
-                        <li><Link href="/rewards-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Rewards</Link></li>
+                        <li><Link href="/games" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.games")}</Link></li>
+                        <li><Link href="/tasks-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.tasks")}</Link></li>
+                        <li><Link href="/surveys-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.surveys")}</Link></li>
+                        <li><Link href="/rewards-info" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.rewards")}</Link></li>
                     </ul>
                 </div>
 
                 {/* Support Links */}
                 <div>
-                    <h4 className="text-white font-bold mb-6">Support</h4>
+                    <h4 className="text-white font-bold mb-6">{t("footer1.sections.support")}</h4>
                     <ul className="space-y-3 text-sm">
-                        <li><Link href="/help-center" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Help Center</Link></li>
-                        <li><Link href="/contact" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">Contact Us</Link></li>
-                        <li><Link href="/faq" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">FAQ</Link></li>
+                        <li><Link href="/help-center" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.helpCenter")}</Link></li>
+                        <li><Link href="/contact" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.contactUs")}</Link></li>
+                        <li><Link href="/faq" className="text-[#9CA3AF] hover:text-emerald-400 transition-colors">{t("footer1.links.faq")}</Link></li>
                     </ul>
                 </div>
 
                 {/* Social & Contact */}
                 <div>
-                    <h4 className="text-white font-bold mb-6">Connect</h4>
+                    <h4 className="text-white font-bold mb-6">{t("footer1.sections.connect")}</h4>
                     <div className="flex gap-3 mb-6">
                         <a href="https://t.me/labwardscom" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-[#1A1D2E] border border-[#2A2D3E] flex items-center justify-center text-[#9CA3AF] hover:text-emerald-400 hover:border-emerald-400 transition-all">
                             <FaTelegramPlane className="w-5 h-5" />
@@ -119,11 +124,11 @@ const Footer: React.FC<FooterProps> = ({ onOpenLogin }) => {
 
             {/* Bottom Section */}
             <div className="flex flex-col md:flex-row justify-between items-center text-sm text-[#9CA3AF] mt-12 pt-8 gap-4">
-                <p>© 2025 LabWards. All rights reserved.</p>
+                <p>{t("footer1.copyright")}</p>
                 <div className="flex gap-6">
-                    <Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link>
-                    <Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link>
-                    <Link href="/cookies" className="hover:text-emerald-400 transition-colors">Cookie Policy</Link>
+                    <Link href="/terms" className="hover:text-emerald-400 transition-colors">{t("footer1.links.terms")}</Link>
+                    <Link href="/privacy" className="hover:text-emerald-400 transition-colors">{t("footer1.links.privacy")}</Link>
+                    <Link href="/cookies" className="hover:text-emerald-400 transition-colors">{t("footer1.links.cookies")}</Link>
                 </div>
             </div>
             </div>

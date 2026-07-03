@@ -2,6 +2,7 @@
 import React from "react";
 import { ChevronLeft, ChevronRight, Disc, MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 interface BonusCardProps {
   title: string;
@@ -49,14 +50,16 @@ const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText
 
 const BonusSection: React.FC = () => {
   const router = useRouter();
+    const { t } = useTranslation();
+
 
   return (
     <section className="w-full mt-8 sm:mt-12 max-w-[1440px] mx-auto pb-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-6 md:px-10">
         <BonusCard
-          title="Sign up bonus"
-          subtitle="Win up to $30"
-          buttonText="Spin"
+                    title={t("bonus.sign_up_bonus.title")}
+          subtitle={t("bonus.sign_up_bonus.subtitle")}
+          buttonText={t("bonus.sign_up_bonus.button")}
           accentColor="#0AC07D"
           onClick={() => router.push("/bonus")}
           icon={
@@ -64,9 +67,9 @@ const BonusSection: React.FC = () => {
           }
         />
         <BonusCard
-          title="7 days Streak"
-          subtitle="Earn $1 daily to keep up with streak"
-          buttonText="Go to streak"
+          title={t("bonus.streak.title")}
+          subtitle={t("bonus.streak.subtitle")}
+          buttonText={t("bonus.streak.button")}
           accentColor="#0AC07D"
           onClick={() => router.push("/streak")}
           icon={<
@@ -75,9 +78,10 @@ const BonusSection: React.FC = () => {
           }
         />
         <BonusCard
-          title="Verification"
-          subtitle="Win $0.2 each"
-          buttonText="Go to Verification"
+                    title={t("bonus.verification.title")}
+          subtitle={t("bonus.verification.subtitle")}
+          buttonText={t("bonus.verification.button")}
+
           accentColor="#0AC07D"
           onClick={() => router.push("/verification")}
           icon={<

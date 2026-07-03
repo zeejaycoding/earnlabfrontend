@@ -8,6 +8,7 @@ import GoogleImg from "../../../public/assets/g.png";
 import FbImg from "../../../public/assets/fb.png";
 import WeldImg from "../../../public/assets/weld.png";
 import { useSignUp } from "@clerk/nextjs";
+import { useTranslation } from "react-i18next";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
@@ -48,6 +49,7 @@ export default function SignUpModal({
   const router = useRouter();
   const modalRef = useRef<HTMLDivElement>(null);
   const [modalScale, setModalScale] = useState(1);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isOpen) {
@@ -149,11 +151,11 @@ export default function SignUpModal({
         onClose();
         router.push("/home");
       } else {
-        setError(data.message || "Google sign-up failed");
+        setError(data.message || t("signup.google_signup_failed"));
       }
     } catch (err: any) {
       console.error("[SignUp Modal] Google auth error:", err);
-      setError("Failed to connect to server");
+      setError(t("signup.server_error"));
     } finally {
       setOauthLoading(null);
     }
@@ -164,7 +166,7 @@ export default function SignUpModal({
     console.debug("Facebook OAuth signup clicked", { isLoaded, signUpPresent: !!signUp });
 
     if (!isLoaded || !signUp) {
-      setError("Authentication system is loading. Please wait a moment and try again.");
+      setError(t("signup.auth_loading"));
       return;
     }
 
@@ -179,12 +181,12 @@ export default function SignUpModal({
       });
     } catch (err: any) {
       console.error("Facebook OAuth signup redirect failed", err);
-      let errorMessage = "Sign-up failed. Please try again.";
+      let errorMessage = t("signup.facebook_signup_failed");
       if (err?.message) {
         if (err.message.includes("not enabled")) {
-          errorMessage = "Facebook sign-up is not enabled. Please contact support.";
+          errorMessage = t("signup.facebook_disabled");
         } else if (err.message.includes("popup")) {
-          errorMessage = "Pop-up was blocked. Please allow pop-ups and try again.";
+          errorMessage = t("signup.popup_blocked");
         } else {
           errorMessage = err.message;
         }
@@ -226,7 +228,7 @@ export default function SignUpModal({
             </button>
 
             <div className="w-full max-w-[430px] mx-auto pt-3 md:pt-1 flex-1 flex flex-col">
-              <h2 className="text-white text-[46px] font-bold leading-[1] mb-5">Sign up</h2>
+              <h2 className="text-white text-[46px] font-bold leading-[1] mb-5">{t("signup.title")}</h2>
 
               <div className="flex items-center gap-3 bg-[#151728] border border-[#1C2033] rounded-[10px] px-4 py-2.5 mb-5">
                 <div className="flex items-center shrink-0">
@@ -234,27 +236,27 @@ export default function SignUpModal({
                   <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-[#151728] -ml-3 shadow-sm" />
                   <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100&h=100" alt="" className="w-9 h-9 rounded-full object-cover border-2 border-[#151728] -ml-3 shadow-sm" />
                 </div>
-                <p className="text-[#8C9DB6] text-[13px] font-medium leading-tight">Thousands just earned — don&apos;t miss your first payout 🚀</p>
+                <p className="text-[#8C9DB6] text-[13px] font-medium leading-tight">  {t("signup.banner")}</p>
               </div>
 
               {error && <div className="text-red-400 text-sm mb-4">{error}</div>}
 
-              <label className="text-white text-[14px] font-medium mb-2">Email Address</label>
+              <label className="text-white text-[14px] font-medium mb-2">{t("signup.email")}</label>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t("signup.email_placeholder")}
                 className="w-full h-[48px] px-4 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0] mb-4"
               />
 
-              <label className="text-white text-[14px] font-medium mb-2">Password</label>
+              <label className="text-white text-[14px] font-medium mb-2">{t("signup.password")}</label>
               <div className="relative mb-4">
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type={showPassword ? "text" : "password"}
-                  placeholder="Password"
+                  placeholder={t("signup.password_placeholder")}
                   className="w-full h-[48px] px-4 pr-11 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0]"
                 />
                 <button
@@ -272,7 +274,7 @@ export default function SignUpModal({
                 onClick={async () => {
                   setError(null);
                   if (!email || !password) {
-                    setError("Please fill email and password.");
+                    setError(t("signup.fill_fields"));
                     return;
                   }
 
@@ -294,7 +296,7 @@ export default function SignUpModal({
                     });
                     const data = await res.json();
                     if (!res.ok) {
-                      setError(data?.message || "Registration failed");
+                      setError(data?.message || t("signup.failed"));
                       setLoading(false);
                       return;
                     }
@@ -317,19 +319,19 @@ export default function SignUpModal({
                     onClose();
                     router.push("/home");
                   } catch (e: any) {
-                    setError(e?.message || "Network error");
+                    setError(e?.message || t("signup.network_error"));
                   } finally {
                     setLoading(false);
                   }
                 }}
                 className="w-full h-[50px] rounded-[10px] font-semibold text-white shadow-[0px_8px_24px_rgba(9,159,134,0.35)] transition-all active:scale-[0.99] bg-[linear-gradient(135deg,#0BBFA0_0%,#079E85_100%)] hover:opacity-90 disabled:opacity-70 disabled:cursor-wait"
               >
-                {loading ? "Creating account..." : "Sign up"}
+                {loading ? t("signup.creating_account") : t("signup.title")}
               </button>
 
               <div className="flex items-center gap-3 my-5">
                 <div className="h-px flex-1 bg-[#1E2238]" />
-                <span className="text-[#7D8099] text-[30px] leading-none">Or</span>
+                <span className="text-[#7D8099] text-[30px] leading-none">{t("signup.or")}</span>
                 <div className="h-px flex-1 bg-[#1E2238]" />
               </div>
 
@@ -339,7 +341,7 @@ export default function SignUpModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#0BBFA055] hover:bg-[#1A1E32] transition-all"
                 >
                   <Image src={WeldImg} alt="Worldcoin" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">Sign up via Worldcoin</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium">{t("signup.worldcoin")}</span>
                 </button>
 
                 <button
@@ -349,7 +351,9 @@ export default function SignUpModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#4285F455] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
                 >
                   <Image src={GoogleImg} alt="Google" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "google" ? "Redirecting..." : "Sign up via Google"}</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "google"
+    ? t("signup.redirecting")
+    : t("signup.google")}</span>
                 </button>
 
                 <button
@@ -359,14 +363,16 @@ export default function SignUpModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#1877F255] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
                 >
                   <Image src={FbImg} alt="Facebook" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "facebook" ? "Redirecting..." : "Sign up via Facebook"}</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "facebook"
+    ? t("signup.redirecting")
+    : t("signup.facebook")}</span>
                 </button>
               </div>
 
               <p className="text-center text-[16px] text-[#6B6E8A] mt-6">
-                Already have an account yet?{" "}
+                 {t("signup.have_account")}{" "}
                 <button onClick={onSignIn} className="text-white font-bold hover:text-[#0BBFA0] transition-colors">
-                  Sign in
+                  {t("signup.signin")}
                 </button>
               </p>
 
@@ -388,7 +394,7 @@ export default function SignUpModal({
                   </svg>
                 </div>
                 <p className="text-[#B3B6C7] text-[13px] font-semibold">
-                  <span className="text-white">TrustScore 4.5</span> | 200 reviews
+                  <span className="text-white">{t("signup.trust_score")}</span> | {t("signup.reviews")}
                 </p>
               </div>
               </div>

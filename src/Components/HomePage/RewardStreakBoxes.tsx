@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Flame, Gift, Trophy, Zap, Star, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface RewardBox {
   id: string;
@@ -14,6 +15,7 @@ interface RewardBox {
 }
 
 const RewardStreakBoxes: React.FC = () => {
+  const {t} = useTranslation();
   const [streak, setStreak] = useState(0);
   const [dailyBonus, setDailyBonus] = useState(0);
   const [totalEarned, setTotalEarned] = useState(0);
@@ -36,7 +38,7 @@ const RewardStreakBoxes: React.FC = () => {
             setStreak(data.profile.streak || 0);
             setDailyBonus(data.profile.dailyBonus || 0);
             setTotalEarned(data.profile.totalEarnedCents || 0);
-            setRank(data.profile.rank || "Bronze");
+            setRank(data.profile.rank || t("rewardStreakBoxes.ranks.bronze"));
           }
         }
       } catch (err) {
@@ -50,8 +52,8 @@ const RewardStreakBoxes: React.FC = () => {
   const boxes: RewardBox[] = [
     {
       id: "streak",
-      title: "Daily Streak",
-      value: `${streak} Days`,
+      title: t("rewardStreakBoxes.dailyStreak"),
+      value: `${streak} ${t("rewardStreakBoxes.days")}`,
       icon: <Flame className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: "text-orange-400",
       bgColor: "bg-orange-500/10",
@@ -59,7 +61,7 @@ const RewardStreakBoxes: React.FC = () => {
     },
     {
       id: "bonus",
-      title: "Daily Bonus",
+      title: t("rewardStreakBoxes.dailyBonus"),
       value: `$${(dailyBonus / 100).toFixed(2)}`,
       icon: <Gift className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: "text-emerald-400",
@@ -68,7 +70,7 @@ const RewardStreakBoxes: React.FC = () => {
     },
     {
       id: "earned",
-      title: "Total Earned",
+      title: t("rewardStreakBoxes.totalEarned"),
       value: `$${(totalEarned / 100).toFixed(2)}`,
       icon: <Trophy className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: "text-yellow-400",
@@ -77,7 +79,7 @@ const RewardStreakBoxes: React.FC = () => {
     },
     {
       id: "rank",
-      title: "Your Rank",
+      title: t("rewardStreakBoxes.yourRank"),
       value: rank,
       icon: <Award className="w-4 h-4 sm:w-5 sm:h-5" />,
       color: "text-purple-400",

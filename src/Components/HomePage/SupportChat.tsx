@@ -5,11 +5,10 @@ import Image from "next/image";
 import { useSocket } from "@/contexts/SocketProvider";
 import { toast } from "@/utils/toast";
 import LogoImg from "../../../public/assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-const WELCOME_MESSAGE =
-  "Before contacting our live support, kindly check the help desk link. You might find an immediate answer to your issue or question there!";
 
 interface Message {
   _id?: string;
@@ -120,6 +119,7 @@ function SendIconSmall() {
 }
 
 const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
+  const {t} = useTranslation();
   const [rooms, setRooms] = useState<ChatRoom[]>([]);
   const [activeRoomId, setActiveRoomId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -129,6 +129,8 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const shouldStickToBottomRef = useRef(true);
   const lastMessageTailKeyRef = useRef("");
+
+  const WELCOME_MESSAGE = t("supportChat.welcomeMessage");
 
   const getToken = () =>
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -225,7 +227,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
   const handleSend = async () => {
     if (!input.trim()) return;
     const token = getToken();
-    if (!token) { toast.warn("Please sign in to contact support."); return; }
+    if (!token) { toast.warn(t("supportChat.signInRequired")); return; }
     setSending(true);
     try {
       const body: any = { text: input.trim() };
@@ -289,13 +291,13 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             className="font-bold text-[20px] text-white flex-1 tracking-[0.02em]"
             style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}
           >
-            Support
+            {t("supportChat.header.title")}
           </span>
           <button
             onClick={onClose}
             className="flex items-center justify-center rounded-[5px] bg-[#8C8FA8] shrink-0 hover:bg-[#a0a3bb] transition-colors"
             style={{ width: 24, height: 24 }}
-            aria-label="Close"
+            aria-label= {t("supportChat.header.close")}
           >
             <XIcon />
           </button>
@@ -310,7 +312,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             className="font-bold text-[18px] text-white"
             style={{ fontFamily: "'Manrope', sans-serif" }}
           >
-            In need of help?
+             {t("supportChat.helpSection.title")}
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-[#14A28A]" />
@@ -318,7 +320,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
               className="text-[#14A28A] text-sm"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              Our support is online
+              {t("supportChat.helpSection.online")}
             </span>
           </div>
           <a
@@ -332,7 +334,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
               className="text-white text-sm font-medium"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              FAQ
+              {t("supportChat.helpSection.faq")}
             </span>
           </a>
         </div>
@@ -394,7 +396,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
                     <div className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0" style={{ width: 24, height: 24, background: "#151728" }}>
                       <Image src={LogoImg} alt="Support" width={18} height={18} className="object-contain" />
                     </div>
-                    <span className="text-[#8C8FA8] text-xs">Support</span>
+                    <span className="text-[#8C8FA8] text-xs">{t("supportChat.header.title")}</span>
                     {msg.createdAt && (
                       <span className="text-[#8C8FA8] text-xs">
                         {new Date(msg.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
@@ -435,7 +437,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Enter your message...."
+            placeholder={t("supportChat.input.placeholder")}
             disabled={sending}
             className="flex-1 bg-transparent outline-none text-white placeholder-[#50536F] text-[14px]"
             style={{ fontFamily: "'Manrope', sans-serif" }}

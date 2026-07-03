@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
+import { useTranslation } from "react-i18next";
 
 const DISCORD_URL =
   process.env.NEXT_PUBLIC_DISCORD_URL ||
@@ -74,6 +75,7 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
 
 export default function VerificationPage() {
   const router = useRouter();
+   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0D0F1E] text-gray-900 dark:text-white flex flex-col">
@@ -91,7 +93,7 @@ export default function VerificationPage() {
           </button>
 
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            Verification
+            {t("verification.title")}
           </h1>
         </div>
 
@@ -100,10 +102,10 @@ export default function VerificationPage() {
 
           {/* TELEGRAM */}
           <VerificationCard
-            title="Telegram"
-            subtitle="Join our Telegram"
-            reward="$0.05"
-            buttonText="Join Now"
+            title={t("verification.telegram_title")}
+            subtitle={t("verification.telegram_sub")}
+            reward={t("verification.reward")}
+            buttonText={t("verification.join")}
             icon={
               <div className="relative w-6 h-6">
                 <img
@@ -121,10 +123,10 @@ export default function VerificationPage() {
 
           {/* X */}
           <VerificationCard
-            title="Follow on X"
-            subtitle="Follow us on X"
-            reward="$0.05"
-            buttonText="Follow"
+            title={t("verification.x_title")}
+            subtitle={t("verification.x_sub")}
+            reward={t("verification.reward")}
+            buttonText={t("verification.follow")}
             icon={
               <div className="relative w-6 h-6">
                 <img
@@ -142,10 +144,10 @@ export default function VerificationPage() {
 
           {/* DISCORD */}
           <VerificationCard
-            title="Discord"
-            subtitle="Join us on Discord"
-            reward="$0.05"
-            buttonText="Join"
+            title={t("verification.discord_title")}
+            subtitle={t("verification.discord_sub")}
+            reward={t("verification.reward")}
+            buttonText={t("verification.join")}
             icon={
               <div className="relative w-6 h-6">
                 <img

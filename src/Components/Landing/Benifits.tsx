@@ -13,6 +13,9 @@ import DogeImg from "../../../public/assets/dolar.png";
 import SolanaImg from "../../../public/assets/sol.png";
 
 import IconTop from "../../../public/assets/benifits.png";
+import { useTranslation } from "react-i18next";
+const {t} = useTranslation();
+
 
 type Benefit = {
   id: number;
@@ -21,17 +24,19 @@ type Benefit = {
 };
 
 const benefits: Benefit[] = [
-  { id: 1, name: "PayPal", icon: PaypalImg },
-  { id: 2, name: "VISA", icon: VisaImg },
-  { id: 3, name: "Amazon", icon: AmazonImg },
-  { id: 4, name: "Worldcoin", icon: WorldcoinImg },
-  { id: 5, name: "Bitcoin", icon: BitcoinImg },
-  { id: 6, name: "Litecoin", icon: LitecoinImg },
-  { id: 7, name: "Dogecoin", icon: DogeImg },
-  { id: 8, name: "Solana", icon: SolanaImg },
+  { id: 1, name: t("benefits.paymentMethods.paypal"), icon: PaypalImg },
+  { id: 2, name: t("benefits.paymentMethods.visa"), icon: VisaImg },
+  { id: 3, name: t("benefits.paymentMethods.amazon"), icon: AmazonImg },
+  { id: 4, name: t("benefits.paymentMethods.worldcoin"), icon: WorldcoinImg },
+  { id: 5, name: t("benefits.paymentMethods.bitcoin"), icon: BitcoinImg },
+  { id: 6, name: t("benefits.paymentMethods.litecoin"), icon: LitecoinImg },
+  { id: 7, name: t("benefits.paymentMethods.dogecoin"), icon: DogeImg },
+  { id: 8, name: t("benefits.paymentMethods.solana"), icon: SolanaImg },
 ];
 
 const Benefits: React.FC = () => {
+  const {t} = useTranslation();
+
   return (
     <section className="w-full bg-gradient-to-b from-[#0A0C1A] via-[#0f0f1a] to-[#0A0C1A] text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -48,14 +53,14 @@ const Benefits: React.FC = () => {
               <Gift className="w-6 h-6 text-emerald-400" />
             </div>
             <span className="uppercase tracking-widest text-sm font-semibold text-emerald-400">
-              Multiple Payout Options
+              {t("benefits.badge")}
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-            Get Paid Your Way
+            {t("benefits.title")}
           </h2>
           <p className="text-lg text-[#9CA3AF] leading-relaxed">
-            Choose from multiple withdrawal methods and get your rewards instantly. We support all major payment platforms.
+            {t("benefits.description")}
           </p>
         </div>
 
@@ -91,8 +96,8 @@ const Benefits: React.FC = () => {
               <Zap className="w-6 h-6 text-emerald-400" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">Instant Payouts</h3>
-              <p className="text-sm text-[#9CA3AF]">Get your rewards instantly with our fast processing system</p>
+              <h3 className="text-lg font-semibold text-white mb-1">{t("benefits.features.instantPayouts.title")}</h3>
+              <p className="text-sm text-[#9CA3AF]">{t("benefits.features.instantPayouts.description")}</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -100,8 +105,8 @@ const Benefits: React.FC = () => {
               <TrendingUp className="w-6 h-6 text-blue-400" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">No Hidden Fees</h3>
-              <p className="text-sm text-[#9CA3AF]">Transparent pricing with zero hidden charges</p>
+              <h3 className="text-lg font-semibold text-white mb-1">{t("benefits.features.noHiddenFees.title")}</h3>
+              <p className="text-sm text-[#9CA3AF]">{t("benefits.features.noHiddenFees.description")}</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
@@ -109,8 +114,8 @@ const Benefits: React.FC = () => {
               <Gift className="w-6 h-6 text-purple-400" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">Flexible Options</h3>
-              <p className="text-sm text-[#9CA3AF]">Choose the payment method that works best for you</p>
+              <h3 className="text-lg font-semibold text-white mb-1">{t("benefits.features.flexibleOptions.title")}</h3>
+              <p className="text-sm text-[#9CA3AF]">{t("benefits.features.flexibleOptions.description")}</p>
             </div>
           </div>
         </div>

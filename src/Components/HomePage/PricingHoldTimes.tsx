@@ -2,6 +2,8 @@
 
 import React from "react";
 import { Zap, Clock, FileCheck, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 
 interface HoldTier {
   icon: React.ReactNode;
@@ -13,11 +15,12 @@ interface HoldTier {
 }
 
 const PricingHoldTimes: React.FC = () => {
+  const { t } = useTranslation();
   const tiers: HoldTier[] = [
     {
       icon: <Zap className="w-5 h-5" />,
-      amount: "Under $5",
-      holdTime: "Instant Credit",
+      amount:t("pricingHoldTimes.tiers.under5"),
+      holdTime: t("pricingHoldTimes.tiers.instantCredit"),
       color: "text-emerald-400",
       bgColor: "bg-emerald-500/10",
       borderColor: "border-emerald-500/20",
@@ -25,7 +28,7 @@ const PricingHoldTimes: React.FC = () => {
     {
       icon: <Clock className="w-5 h-5" />,
       amount: "$10 – $15",
-      holdTime: "15 Days Hold",
+      holdTime: t("pricingHoldTimes.tiers.hold15Days"),
       color: "text-blue-400",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
@@ -33,7 +36,7 @@ const PricingHoldTimes: React.FC = () => {
     {
       icon: <Clock className="w-5 h-5" />,
       amount: "$15 – $25",
-      holdTime: "25 Days Hold",
+      holdTime:t("pricingHoldTimes.tiers.hold25Days"),
       color: "text-yellow-400",
       bgColor: "bg-yellow-500/10",
       borderColor: "border-yellow-500/20",
@@ -41,7 +44,7 @@ const PricingHoldTimes: React.FC = () => {
     {
       icon: <Clock className="w-5 h-5" />,
       amount: "$25+",
-      holdTime: "35 Days Hold",
+      holdTime: t("pricingHoldTimes.tiers.hold35Days"),
       color: "text-orange-400",
       bgColor: "bg-orange-500/10",
       borderColor: "border-orange-500/20",
@@ -56,8 +59,8 @@ const PricingHoldTimes: React.FC = () => {
           <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
         </div>
         <div>
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">Pricing & Hold Times</h2>
-          <p className="text-xs sm:text-sm text-[#9CA3AF]">Understand when your rewards become available</p>
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">{t("pricingHoldTimes.title")}</h2>
+          <p className="text-xs sm:text-sm text-[#9CA3AF]">{t("pricingHoldTimes.subtitle")}</p>
         </div>
       </div>
 
@@ -93,9 +96,9 @@ const PricingHoldTimes: React.FC = () => {
           <FileCheck className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
         </div>
         <div>
-          <p className="text-xs sm:text-sm text-white font-medium mb-0.5 sm:mb-1">Speed Up Your Approvals</p>
+          <p className="text-xs sm:text-sm text-white font-medium mb-0.5 sm:mb-1">{t("pricingHoldTimes.speedUpTitle")}</p>
           <p className="text-xs sm:text-sm text-[#9CA3AF]">
-            Submit proof for offers to get faster approval and reduce hold times. Verified submissions can be processed instantly!
+            {t("pricingHoldTimes.speedUpDescription")}
           </p>
         </div>
       </div>

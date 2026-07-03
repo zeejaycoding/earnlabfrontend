@@ -6,6 +6,7 @@ import Image from "next/image";
 import Select, { SingleValue } from "react-select";
 import ReactCountryFlag from "react-country-flag";
 import { BiSolidMessageRoundedAdd } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 import AnaImg from "../../../public/assets/anna.png";
 
@@ -90,16 +91,17 @@ const languageOptions: OptionType[] = [
 
 const ChatRoom: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
       sender: "system",
-      text: "We typically reply you under 30 minutes. Feel free to drop your questions",
+      text: t("chat_room.system_message"),
     },
     {
       id: 2,
       sender: "agent",
-      text: "Hello, Thanks for reaching out to Support! How can we help you today?",
+      text: t("chat_room.agent_message"),
     },
   ]);
   const [input, setInput] = useState("");
@@ -134,7 +136,7 @@ const ChatRoom: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-between mt-2">
-              <span className="font-semibold text-sm">Chat room</span>
+              <span className="font-semibold text-sm">{t("chat_room.title")}</span>
               <Select
                 className="w-[130px] text-xs"
                 options={languageOptions}
@@ -199,7 +201,7 @@ const ChatRoom: React.FC = () => {
                         )}
                       </div>
                       <span className="text-xs text-gray-300">
-                        {msg.sender === "agent" ? "Anna" : "Adio Bustin"}
+                        {msg.sender === "agent" ? t("chat_room.agent_name") : t("chat_room.user_name")}
                       </span>
                     </div>
 
@@ -218,7 +220,7 @@ const ChatRoom: React.FC = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Enter your message..."
+              placeholder={t("chat_room.input_placeholder")}
               className="flex-1 px-3 py-2 bg-[#26293E] text-white text-sm rounded-md outline-none"
             />
             <button

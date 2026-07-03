@@ -3,6 +3,8 @@
 import React, { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import { ArrowRight, Layers } from "lucide-react";
 import ProviderCard from "../Shared/NewProviderCard";
+import { useTranslation } from "react-i18next";
+  const { t } = useTranslation();
 
 type OfferWallSortBy = "rating_desc" | "rating_asc" | "name_asc" | "name_desc";
 
@@ -31,77 +33,77 @@ interface Offerwall {
 const sampleOfferwalls: Offerwall[] = [
   {
     _id: "sample-1",
-    name: "Block Blast",
+    name: t("offerWalls.blockBlast.name"),
     color: "#3BF7B1",
     metadata: {
       logoUrl: "/game-mocks/block-blast.png",
-      description: "Match blocks and clear lines for huge rewards",
+      description: t("offerWalls.blockBlast.description"),
       amount: "$1.20",
       rating: 4.8,
     },
   },
   {
     _id: "sample-2",
-    name: "Quest Master",
+    name: t("offerWalls.questMaster.name"),
     color: "#FFB800",
     metadata: {
       logoUrl: "/game-mocks/quest-master.png",
-      description: "Embark on an epic adventure and earn points",
+      description: t("offerWalls.questMaster.description"),
       amount: "$2.50",
       rating: 4.9,
     },
   },
   {
     _id: "sample-3",
-    name: "Harvest Valley",
+    name: t("offerWalls.harvestValley.name"),
     color: "#00E0FF",
     metadata: {
       logoUrl: "/game-mocks/harvest-valley.png",
-      description: "Build your dream farm and harvest daily cash",
+      description: t("offerWalls.harvestValley.description"),
       amount: "$0.75",
       rating: 4.5,
     },
   },
   {
     _id: "sample-4",
-    name: "Turbo Drift",
+    name: t("offerWalls.turboDrift.name"),
     color: "#FF2E63",
     metadata: {
       logoUrl: "/game-mocks/turbo-drift.png",
-      description: "Race through the city and collect nitro coins",
+      description: t("offerWalls.turboDrift.description"),
       amount: "$1.80",
       rating: 4.7,
     },
   },
   {
     _id: "sample-5",
-    name: "Jackpot Spin",
+    name: t("offerWalls.jackpotSpin.name"),
     color: "#B656FF",
     metadata: {
       logoUrl: "/game-mocks/jackpot-spin.png",
-      description: "Spin the premium reels for a chance to win big",
+      description: t("offerWalls.jackpotSpin.description"),
       amount: "$3.00",
       rating: 4.6,
     },
   },
   {
     _id: "sample-6",
-    name: "Star Voyage",
+    name: t("offerWalls.starVoyage.name"),
     color: "#FF6B6B",
     metadata: {
       logoUrl: "/game-mocks/star-voyage.png",
-      description: "Explore the galaxy and find hidden space treasures",
+      description: t("offerWalls.starVoyage.description"),
       amount: "$2.10",
       rating: 4.8,
     },
   },
   {
     _id: "sample-7",
-    name: "Monster Squad",
+    name: t("offerWalls.monsterSquad.name"),
     color: "#72E53E",
     metadata: {
       logoUrl: "/img22.png",
-      description: "Collect rare monsters and battle for rewards",
+      description: t("offerWalls.monsterSquad.description"),
       amount: "$0.90",
       rating: 4.4,
     },
@@ -162,12 +164,12 @@ const useHorizontalSlider = () => {
 };
 
 const OfferWalls: React.FC<OfferWallsProps> = ({
-  title = "Offer Walls",
-  subtitle = "Complete offers to earn bigger rewards",
+  title = t("offerWalls.title"),
+  subtitle = t("offerWalls.subtitle"),
   sortBy = "rating_desc",
   limit = 10,
   showViewAll = false,
-  viewAllLabel = "View all",
+  viewAllLabel = t("offerWalls.viewAllLabel"),
   onViewAll,
 }) => {
   const [providers, setProviders] = useState<Offerwall[]>([]);
@@ -218,7 +220,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
         setProviders(finalWalls);
         setLoadError(false);
       } catch (err) {
-        console.error("Failed to fetch offerwalls:", err);
+        console.error(t("offerWalls.failError"), err);
         setProviders([]);
         setLoadError(true);
       } finally {
@@ -270,7 +272,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
             </p>
             {loadError && (
               <p className="text-[#8C8FA8] text-[11px] sm:text-xs mt-1" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                We couldn't load offerwalls right now. Please try again in a moment.
+                {t("offerWalls.loadError")}
               </p>
             )}
           </div>
@@ -283,7 +285,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
               onClick={scrollPrev}
               disabled={!canPrev}
               className="w-5 h-5 flex items-center justify-center disabled:opacity-35 text-[#8C8FA8] hover:text-white transition-colors"
-              aria-label="Previous"
+              aria-label= {t("previous")}
             >
               <ArrowRight size={16} className="rotate-180" />
             </button>
@@ -293,7 +295,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
               onClick={scrollNext}
               disabled={!canNext}
               className="w-5 h-5 flex items-center justify-center disabled:opacity-35 text-[#8C8FA8] hover:text-white transition-colors"
-              aria-label="Next"
+              aria-label={t("buttons.next")}
             >
               <ArrowRight size={16} />
             </button>
@@ -331,7 +333,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
               p.metadata?.pointsMultiplier && p.metadata.pointsMultiplier > 1
                 ? ((p.metadata.pointsMultiplier - 1) * 100).toFixed(0)
                 : undefined;
-            const description = p.metadata?.description || "Play for 5 mins and earn rewards";
+            const description = p.metadata?.description || t("offerWalls.defaultDescription");
 
             return (
               <ProviderCard
@@ -361,7 +363,7 @@ const OfferWalls: React.FC<OfferWallsProps> = ({
                     return;
                   }
 
-                  const label = encodeURIComponent(p.displayName || p.name || "offerwall");
+                  const label = encodeURIComponent(p.displayName || p.name || t("offerWalls.fallbackName"));
                   window.location.href = `/tasks?offerwallId=${encodeURIComponent(p._id)}&offerwall=${label}`;
                 }}
               />

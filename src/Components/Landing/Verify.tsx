@@ -6,6 +6,8 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import { ArrowRight, Check } from "lucide-react";
 import { FaDiscord } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+
 
 import BgImg from "../../../public/assets/bg.png";
 import LockImg from "../../../public/assets/locak.png";
@@ -16,6 +18,8 @@ type VerifyProps = {
 };
 
 const Verify: React.FC<VerifyProps> = ({ onOpenLogin }) => {
+    const {t} = useTranslation();
+
     const [isClaiming, setIsClaiming] = useState(false);
 
     const handleStartEarning = () => {
@@ -50,17 +54,16 @@ const Verify: React.FC<VerifyProps> = ({ onOpenLogin }) => {
                     {/* Content */}
                     <div className="relative text-center px-6 sm:px-12 py-16 md:py-20">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
-                            Join the Labwards
+                            {t("verify.title1")}
                         </h2>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-100">
-                                Community Today
+                                {t("verify.title2")}
                             </span>
                         </h2>
                         
                         <p className="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-10">
-                            Thousands of users are already earning daily. Create your free account in seconds
-                            and start turning your time into money.
+                            {t("verify.subtitle")}
                         </p>
 
                         {/* Buttons */}
@@ -70,7 +73,7 @@ const Verify: React.FC<VerifyProps> = ({ onOpenLogin }) => {
                                 disabled={isClaiming}
                                 className="flex items-center gap-2 px-8 py-4 bg-white text-[#0D9488] font-bold rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Start Earning Free
+                                {t("verify.startEarning")}
                                 <ArrowRight className="w-5 h-5" />
                             </button>
                             
@@ -81,7 +84,7 @@ const Verify: React.FC<VerifyProps> = ({ onOpenLogin }) => {
                                 className="flex items-center gap-2 px-8 py-4 bg-[#5865F2] text-white font-bold rounded-full shadow-lg hover:bg-[#4752C4] transition-all duration-300 transform hover:scale-105"
                             >
                                 <FaDiscord className="w-5 h-5" />
-                                Join Discord
+                                {t("verify.joinDiscord")}
                             </a>
                         </div>
 
@@ -91,19 +94,19 @@ const Verify: React.FC<VerifyProps> = ({ onOpenLogin }) => {
                                 <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
                                     <Check className="w-3 h-3 text-white" />
                                 </div>
-                                <span>No Credit Card</span>
+                                <span>{t("verify.noCreditCard")}</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
                                     <Check className="w-3 h-3 text-white" />
                                 </div>
-                                <span>Instant Signup</span>
+                                <span>{t("verify.instantSignup")}</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
                                     <Check className="w-3 h-3 text-white" />
                                 </div>
-                                <span>Fast Payouts</span>
+                                <span>{t("verify.fastPayouts")}</span>
                             </div>
                         </div>
                     </div>

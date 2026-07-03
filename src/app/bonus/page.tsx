@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, Play, Disc } from "lucide-react";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
+import { useTranslation } from "react-i18next";
 
 const REWARDS = [
   { id: 1, amount: "$0.25", color: "text-[#14A990]", image:"/0.25.png" },
@@ -18,6 +19,7 @@ const REWARDS = [
 export default function BonusPage() {
   const router = useRouter();
   const [timeLeft, setTimeLeft] = useState("24h 45m 23s");
+    const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-[#0D0F1E] text-white flex flex-col">
@@ -32,13 +34,13 @@ export default function BonusPage() {
           >
             <ArrowLeft size={20} />
           </button>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Sign up bonus</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("bonus_page.title")}</h1>
         </div>
 
         <div className="flex flex-col w-full">
           {/* Timer Badge */}
 <div className="self-start bg-[#151828] border border-[#1E2F3F] rounded-lg px-4 py-2 text-sm mb-8">
-  <span className="text-[#8C9DB6]">Ends in </span>
+  <span className="text-[#8C9DB6]"> {t("bonus_page.timer_label")}{" "} </span>
   <span className="text-[#0AC07D] font-bold">{timeLeft}</span>
 </div>
           {/* Reward Carousel Section */}
@@ -96,9 +98,9 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
   </div>
 </div>
 <p className="text-[#8C9DB6] text-center font-bold text-sm sm:text-base mb-8">
-  Earn over $1 within 48 hours and receive{" "}
+   {t("bonus_page.reward_label")}{" "}
   <span className="text-[#0AC07D]">
-    3 more free cases
+   {t("bonus_page.reward_highlight")}
   </span>
 </p>
 
@@ -112,7 +114,7 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
         "linear-gradient(135deg, #0AC07D 0%, #14A290 100%)",
     }}
   >
-    Start Earning
+    {t("bonus_page.cta")}
   </button>
 </div>
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import SurveyIcon from "../../../public/assets/fesur.png";
 import TimeIcon from "../../../public/assets/time.png";
+import { useTranslation } from "react-i18next";
 
 interface SurveyItem {
     id: number;
@@ -12,27 +13,30 @@ interface SurveyItem {
     time: string;
 }
 
-const surveys: SurveyItem[] = [
-    { id: 1, title: "Survey 1", time: "2 Minutes" },
-    { id: 2, title: "Survey 2", time: "2 Minutes" },
-    { id: 3, title: "Survey 3", time: "2 Minutes" },
-    { id: 4, title: "Survey 4", time: "2 Minutes" },
-    { id: 5, title: "Survey 5", time: "2 Minutes" },
-];
 
 const FeaturedSurvey: React.FC = () => {
+    const { t } = useTranslation();
+
+    const surveys: SurveyItem[] = [
+    { id: 1, title: t("featuredSurvey.survey1"), time: t("featuredSurvey.minutes") },
+    { id: 2, title: t("featuredSurvey.survey2"), time: t("featuredSurvey.minutes") },
+    { id: 3, title: t("featuredSurvey.survey3"), time: t("featuredSurvey.minutes") },
+    { id: 4, title: t("featuredSurvey.survey4"), time: t("featuredSurvey.minutes") },
+    { id: 5, title: t("featuredSurvey.survey5"), time: t("featuredSurvey.minutes") },
+];
+
     return (
         <div className="w-full bg-[#0f172a] mt-5 md:px-6 md:py-6 px-3 py-5 rounded-lg text-white border border-[0.1px] border-[#50536F]">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <div className="space-y-1">
-                    <h2 className="md:text-lg text-sm font-semibold">Featured Survey</h2>
+                    <h2 className="md:text-lg text-sm font-semibold">{t("featuredSurvey.title")}</h2>
                     <p className="md:text-sm text-[10px] text-[#8C8FA8]">
-                        Complete the featured task to earn bigger rewards
+                        {t("featuredSurvey.subtitle")}
                     </p>
                 </div>
                 <button className="md:text-sm text-xs text-[#4DD6C1] cursor-pointer font-semibold">
-                    See More
+                    {t("featuredSurvey.seeMore")}
                 </button>
             </div>
 
@@ -78,7 +82,7 @@ const FeaturedSurvey: React.FC = () => {
 
                             {/* Action Button */}
                             <button className="w-full py-2 px-4 bg-gradient-to-r from-emerald-500 to-blue-500 text-white rounded-lg font-medium hover:from-emerald-600 hover:to-blue-600 transition-all">
-                                Start Survey
+                                {t("featuredSurvey.startSurvey")}
                             </button>
                         </div>
                     </div>

@@ -3,14 +3,16 @@
 import React from "react";
 import { ClipboardList } from "lucide-react";
 import ProviderCard from "../Shared/ProviderCard";
+import { useTranslation } from "react-i18next";
 
 const ServeyWalls: React.FC = () => {
+    const {t} = useTranslation();
     const providers = [
-        { name: "Bitlab", logo: "/assets/bit.png", rating: 0.94 },
-        { name: "CPX Research", logo: "/assets/cpx.png", rating: 0.88 },
-        { name: "Pollfish", logo: "/assets/pol.png", rating: 0.96, bonus: "10" },
-        { name: "Inbrain", logo: "/assets/i.png", rating: 0.92 },
-        { name: "TheoremReach", logo: "/assets/tet.png", rating: 0.85 },
+        { name: t("surveyWalls.providers.bitlab"), logo: "/assets/bit.png", rating: 0.94 },
+        { name: t("surveyWalls.providers.cpxResearch"), logo: "/assets/cpx.png", rating: 0.88 },
+        { name: t("surveyWalls.providers.pollfish"), logo: "/assets/pol.png", rating: 0.96, bonus: "10" },
+        { name: t("surveyWalls.providers.inbrain"), logo: "/assets/i.png", rating: 0.92 },
+        { name: t("surveyWalls.providers.theoremReach"), logo: "/assets/tet.png", rating: 0.85 },
     ];
 
     return (
@@ -22,10 +24,10 @@ const ServeyWalls: React.FC = () => {
                     </div>
                     <div>
                         <h2 className="text-white text-[28px] font-bold leading-[34px]" style={{ fontFamily: "var(--font-manrope)" }}>
-                            Survey Walls
+                            {t("surveyWalls.title")}
                         </h2>
                         <p className="text-[#6B6E8A] text-base font-medium leading-[24px]" style={{ fontFamily: "var(--font-dm-sans)" }}>
-                            Share your opinion and earn rewards
+                            {t("surveyWalls.subtitle")}
                         </p>
                     </div>
                 </div>

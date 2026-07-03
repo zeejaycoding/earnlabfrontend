@@ -9,6 +9,8 @@ import SupportChat from "@/Components/HomePage/SupportChat";
 import UserProfileModal from "@/Components/UserProfileModal";
 import { toast } from "@/utils/toast";
 import TopBar from "@/Components/Topbar";
+import { useTranslation } from "react-i18next";
+
 
 interface ChatMessage {
   _id?: string;
@@ -41,10 +43,6 @@ const isContainerNearBottom = (container: HTMLDivElement, threshold = 72): boole
   return distanceFromBottom <= threshold;
 };
 
-const defaultRooms: ChatRoom[] = [
-  { id: "general", name: "General" },
-  { id: "community", name: "Community" },
-];
 
 interface Language {
   code: string;
@@ -85,12 +83,6 @@ const LANGUAGES: Language[] = [
   { code: "fa", name: "فارسی", flag: "🇮🇷" },
 ];
 
-const tickerItems = [
-  { img: "/img6.png", user: "User XY withdrew", label: "Slots", amount: "$0.5" },
-  { img: "/img7.png", user: "User YZ earned", label: "Worldcoin", amount: "$10" },
-  { img: "/img8.png", user: "User AB earned", label: "Offer walls", amount: "$2" },
-  { img: "/img9.png", user: "User CD withdrew", label: "Torox", amount: "$1.5" },
-];
 
 function ChatIcon() {
   return (
@@ -134,13 +126,48 @@ function UserAvatar({ avatar, username, role }: { avatar?: string; username: str
 }
 
 export default function ChatPage() {
+
+    const { t } = useTranslation();
+
+const rooms = [
+  { id: "general", name: t("chat_page.rooms.general") },
+  { id: "community", name: t("chat_page.rooms.community") }
+];
+
+const tickerItems = [
+  {
+    img: "/img6.png",
+    user: t("chat_page.ticker.user_xy_withdrew"),
+    label: t("chat_page.ticker.slots"),
+    amount: "$0.5",
+  },
+  {
+    img: "/img7.png",
+    user: t("chat_page.ticker.user_yz_earned"),
+    label: t("chat_page.ticker.worldcoin"),
+    amount: "$10",
+  },
+  {
+    img: "/img8.png",
+    user: t("chat_page.ticker.user_ab_earned"),
+    label: t("chat_page.ticker.offer_walls"),
+    amount: "$2",
+  },
+  {
+    img: "/img9.png",
+    user: t("chat_page.ticker.user_cd_withdrew"),
+    label: t("chat_page.ticker.torox"),
+    amount: "$1.5",
+  },
+];
+
   const router = useRouter();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(false);
   const [onlineCount, setOnlineCount] = useState(2);
-  const [selectedRoom, setSelectedRoom] = useState<ChatRoom>(defaultRooms[0]);
+const [selectedRoomId, setSelectedRoomId] = useState("general");
   const [showRoomDropdown, setShowRoomDropdown] = useState(false);
   const [authToken, setAuthToken] = useState<string | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(LANGUAGES[0]);
@@ -153,6 +180,9 @@ export default function ChatPage() {
   const shouldStickToBottomRef = useRef(true);
   const lastMessageTailKeyRef = useRef("");
   const { socket } = useSocket();
+
+  
+
 
   const getToken = () =>
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -181,6 +211,8 @@ export default function ChatPage() {
 
     shouldStickToBottomRef.current = isContainerNearBottom(container);
   };
+
+  const selectedRoom = rooms.find(room => room.id === selectedRoomId)!;
 
   useEffect(() => {
     const nextTailKey = getChatTailKey(messages);
@@ -288,7 +320,7 @@ export default function ChatPage() {
     if (!input.trim()) return;
     const token = getToken() || authToken;
     if (!token) {
-      toast.warn("Please sign in to send messages");
+      toast.warn(t("chat_page.errors.sign_in_required"));
       router.push("/sign-in");
       return;
     }
@@ -302,11 +334,11 @@ export default function ChatPage() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data?.message || "Failed to send message");
+        throw new Error(data?.message ||  t("chat_page.errors.send_failed"));
       }
       setInput("");
     } catch (err) {
-      toast.error((err as Error)?.message || "Failed to send message");
+      toast.error((err as Error)?.message || t("chat_page.errors.send_failed"));
     } finally {
       setSending(false);
     }
@@ -344,7 +376,7 @@ export default function ChatPage() {
             className="font-bold text-[16px] leading-[24px] tracking-[0.02em] text-white"
             style={{ fontFamily: "'Manrope', sans-serif" }}
           >
-            Chat room
+            {t("chat_page.title")}
           </span>
         </div>
 
@@ -377,7 +409,7 @@ export default function ChatPage() {
             >
               {/* Languages */}
               <div className="px-2 pt-2 pb-1">
-                <p className="text-[10px] font-semibold text-[#50536F] uppercase tracking-wider px-1 pb-1">Language</p>
+                <p className="text-[10px] font-semibold text-[#50536F] uppercase tracking-wider px-1 pb-1">{t("chat_page.dropdown.language")}</p>
                 {LANGUAGES.map((lang) => (
                   <button
                     key={lang.code}
@@ -398,12 +430,12 @@ export default function ChatPage() {
               </div>
               {/* Rooms */}
               <div className="px-2 pt-1 pb-2" style={{ borderTop: "1px solid #1E2133" }}>
-                <p className="text-[10px] font-semibold text-[#50536F] uppercase tracking-wider px-1 py-1">Rooms</p>
-                {defaultRooms.map((room) => (
+                <p className="text-[10px] font-semibold text-[#50536F] uppercase tracking-wider px-1 py-1">{t("chat_page.dropdown.rooms")}</p>
+                {rooms.map((room) => (
                   <button
                     key={room.id}
                     onClick={() => {
-                      setSelectedRoom(room);
+                      setSelectedRoomId(room.id);
                       setShowRoomDropdown(false);
                       setMessages([]);
                       shouldStickToBottomRef.current = true;
@@ -458,13 +490,13 @@ export default function ChatPage() {
       >
         {loading && messages.length === 0 ? (
           <div className="flex items-center justify-center flex-1 h-full">
-            <p className="text-sm text-[#8C8FA8]">Loading messages...</p>
+            <p className="text-sm text-[#8C8FA8]">{t("chat_page.messages.loading")}</p>
           </div>
         ) : messages.length === 0 ? (
           <div className="flex items-center justify-center flex-1 h-full">
             <div className="text-center">
-              <p className="text-sm text-[#8C8FA8]">No messages yet</p>
-              <p className="text-xs text-[#50536F] mt-1">Be the first to say hello!</p>
+              <p className="text-sm text-[#8C8FA8]">{t("chat_page.messages.empty")}</p>
+              <p className="text-xs text-[#50536F] mt-1">{t("chat_page.messages.first_message")}</p>
             </div>
           </div>
         ) : (
@@ -538,7 +570,7 @@ export default function ChatPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Enter your message...."
+            placeholder={t("chat_page.input.placeholder")}
             disabled={sending}
             className="flex-1 bg-transparent outline-none font-medium text-[14px] leading-[14px] tracking-[0.02em] text-white placeholder-[#50536F] min-w-0"
             style={{ fontFamily: "'Manrope', sans-serif" }}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Activity, Gift, Coins, Wallet } from "lucide-react";
 import ModernSection from "../Shared/ModernSection";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 type ActivityType = "earning" | "payout" | "reward";
 type FilterTab = "all" | "earnings" | "cashout" | "rewards";
@@ -20,14 +21,15 @@ interface RecentActivityItem {
 }
 
 const getRelativeTime = (timestamp: string): string => {
+    const {t} = useTranslation();
     const now = new Date();
     const date = new Date(timestamp);
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
     
-    if (diffInSeconds < 60) return "Just now";
-    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} mins ago`;
-    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
-    if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
+    if (diffInSeconds < 60) return t("recentActivity.time.justNow");
+    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} ${t("recentActivity.time.minsAgo")}`;
+    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} ${t("recentActivity.time.hoursAgo")}`;
+    if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)} ${t("recentActivity.time.daysAgo")}`;
     return date.toLocaleDateString();
 };
 
@@ -57,6 +59,7 @@ const getCryptoIcon = (name?: string) => {
 };
 
 const RecentActivity: React.FC = () => {
+    const {t} = useTranslation()
     const [activities, setActivities] = useState<RecentActivityItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState<FilterTab>("all");
@@ -89,18 +92,18 @@ const RecentActivity: React.FC = () => {
     });
 
     const tabs: { key: FilterTab; label: string }[] = [
-        { key: "all", label: "All" },
-        { key: "earnings", label: "Earnings" },
-        { key: "cashout", label: "Cashout" },
-        { key: "rewards", label: "Rewards" },
+        { key: "all", label: t("recentActivity.tabs.all") },
+        { key: "earnings", label: t("recentActivity.tabs.earnings") },
+        { key: "cashout", label: t("recentActivity.tabs.cashout") },
+        { key: "rewards", label: t("recentActivity.tabs.rewards") },
     ];
 
     const getTypeLabel = (type: ActivityType) => {
         switch (type) {
-            case "earning": return "Earn";
-            case "payout": return "Crypto";
-            case "reward": return "Reward";
-            default: return "Activity";
+            case "earning": return t("recentActivity.activityTypes.earn");
+            case "payout": return t("recentActivity.activityTypes.crypto");
+            case "reward": return t("recentActivity.activityTypes.reward");
+            default: return t("recentActivity.activityTypes.activity");
         }
     };
 
@@ -121,18 +124,18 @@ const RecentActivity: React.FC = () => {
         if (activeTab === "cashout") {
             return (
                 <div className="grid grid-cols-4 gap-2 px-3 py-2 text-xs text-gray-500 border-b border-[#2A2D3E]">
-                    <span>Provider</span>
-                    <span>Time</span>
-                    <span className="text-right">Amount</span>
+                    <span>{t("recentActivity.headers.provider")}</span>
+                    <span>{t("recentActivity.headers.time")}</span>
+                    <span className="text-right">{t("recentActivity.headers.amount")}</span>
                     <span></span>
                 </div>
             );
         }
         return (
             <div className="grid grid-cols-3 gap-2 px-3 py-2 text-xs text-gray-500 border-b border-[#2A2D3E]">
-                <span>Name</span>
-                <span>Type</span>
-                <span>User</span>
+                <span>{t("recentActivity.headers.name")}</span>
+                <span>{t("recentActivity.headers.type")}</span>
+                <span>{t("recentActivity.headers.user")}</span>
             </div>
         );
     };
@@ -151,7 +154,7 @@ const RecentActivity: React.FC = () => {
                         {providerIcon ? (
                             <Image
                                 src={providerIcon}
-                                alt={activity.provider || "Provider"}
+                                alt={activity.provider || t("recentActivity.headers.provider")}
                                 width={20}
                                 height={20}
                                 className="rounded"
@@ -161,7 +164,7 @@ const RecentActivity: React.FC = () => {
                                 <Wallet className="h-3 w-3 text-purple-400" />
                             </div>
                         )}
-                        <span className="text-white text-sm truncate">{activity.provider || "Unknown"}</span>
+                        <span className="text-white text-sm truncate">{activity.provider || t("recentActivity.unknown")}</span>
                     </div>
                     <span className="text-gray-400 text-sm">{getRelativeTime(activity.timestamp)}</span>
                     <span className="text-emerald-400 font-semibold text-sm text-right">
@@ -181,7 +184,7 @@ const RecentActivity: React.FC = () => {
                     {activity.type === "payout" && cryptoIcon ? (
                         <Image
                             src={cryptoIcon}
-                            alt={activity.offerName || "Crypto"}
+                            alt={activity.offerName || t("recentActivity.activityTypes.crypto")}
                             width={20}
                             height={20}
                             className="rounded-full"
@@ -193,7 +196,7 @@ const RecentActivity: React.FC = () => {
                     ) : providerIcon ? (
                         <Image
                             src={providerIcon}
-                            alt={activity.provider || "Provider"}
+                            alt={activity.provider || t("recentActivity.headers.provider")}
                             width={20}
                             height={20}
                             className="rounded"
@@ -204,7 +207,7 @@ const RecentActivity: React.FC = () => {
                         </div>
                     )}
                     <span className="text-white text-sm truncate">
-                        {activity.offerName || activity.provider || "Activity"}
+                        {activity.offerName || activity.provider ||  t("recentActivity.activityTypes.activity")}
                     </span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -242,8 +245,8 @@ const RecentActivity: React.FC = () => {
     if (loading) {
         return (
             <ModernSection
-                title="Recent Activity"
-                description="Live earnings, rewards, and cashouts"
+                title= {t("recentActivity.title")}
+                description={t("recentActivity.description")}
                 icon={<Activity className="text-cyan-400" size={20} />}
             >
                 <div className="flex items-center justify-center py-8">
@@ -255,8 +258,8 @@ const RecentActivity: React.FC = () => {
 
     return (
         <ModernSection
-            title="Recent Activity"
-            description="Live earnings, rewards, and cashouts"
+            title={t("recentActivity.title")}
+            description={t("recentActivity.description")}
             icon={<Activity className="text-cyan-400" size={20} />}
         >
             <div className="flex gap-2 mb-4">
@@ -279,10 +282,10 @@ const RecentActivity: React.FC = () => {
                 <div className="flex flex-col items-center justify-center py-8 text-center">
                     <Activity className="h-10 w-10 text-gray-600 mb-3" />
                     <h3 className="text-md font-semibold text-gray-400 mb-1">
-                        No recent activity
+                        {t("recentActivity.emptyState.title")}
                     </h3>
                     <p className="text-gray-500 text-sm">
-                        Activity will appear here as users complete offers and withdraw earnings.
+                        {t("recentActivity.emptyState.description")}
                     </p>
                 </div>
             ) : (
@@ -299,7 +302,7 @@ const RecentActivity: React.FC = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-xs text-gray-500">Live activity feed</span>
+                <span className="text-xs text-gray-500">{t("recentActivity.liveFeed")}</span>
             </div>
         </ModernSection>
     );

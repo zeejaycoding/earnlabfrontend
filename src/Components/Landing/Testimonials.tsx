@@ -3,53 +3,55 @@
 import Image from "next/image";
 import { Star, Zap, MessageCircle } from "lucide-react";
 import IconTop from "../../../public/assets/testi.png";
+import { useTranslation } from "react-i18next";
+const {t} = useTranslation();
 
 const testimonials = [
     {
         id: 1,
-        text: "Made my first $50 within a week just playing games on my phone. The instant PayPal cashout is amazing!",
+        text: t("testimonials1.items.1.text"),
         name: "James R.",
-        location: "United States",
+        location: t("testimonials1.items.1.location"),
         avatar: "https://randomuser.me/api/portraits/men/32.jpg",
         rating: 5,
     },
     {
         id: 2,
-        text: "I was skeptical at first, but after completing just a few surveys I was able to cash out directly to my PayPal. Fast and legit!",
+        text:t("testimonials1.items.2.text"),
         name: "Sarah M.",
-        location: "United Kingdom",
+        location: t("testimonials1.items.2.location"),
         avatar: "https://randomuser.me/api/portraits/women/44.jpg",
         rating: 5,
     },
     {
         id: 3,
-        text: "Best earning platform I've used. The daily challenges keep me motivated and the Bitcoin payouts are instant.",
+        text: t("testimonials1.items.3.text"),
         name: "David K.",
-        location: "Canada",
+        location: t("testimonials1.items.3.location"),
         avatar: "https://randomuser.me/api/portraits/men/67.jpg",
         rating: 5,
     },
     {
         id: 4,
-        text: "Love how many ways there are to earn! Between games and surveys, I easily make $200+ monthly as a side income.",
+        text: t("testimonials1.items.4.text"),
         name: "Emily C.",
-        location: "Australia",
+        location: t("testimonials1.items.4.location"),
         avatar: "https://randomuser.me/api/portraits/women/68.jpg",
         rating: 5,
     },
     {
         id: 5,
-        text: "The referral program is incredible. I've earned over $500 just from inviting friends. Highly recommend!",
+        text: t("testimonials1.items.5.text"),
         name: "Michael T.",
-        location: "Germany",
+        location: t("testimonials1.items.5.location"),
         avatar: "https://randomuser.me/api/portraits/men/52.jpg",
         rating: 5,
     },
     {
         id: 6,
-        text: "Finally a legit platform that actually pays! Cashed out to Amazon gift cards for my shopping. Super easy!",
+        text: t("testimonials1.items.6.text"),
         name: "Jessica L.",
-        location: "Netherlands",
+        location: t("testimonials1.items.6.location"),
         avatar: "https://randomuser.me/api/portraits/women/33.jpg",
         rating: 5,
     },
@@ -72,14 +74,14 @@ export default function Testimonials() {
                             <MessageCircle className="w-5 h-5 text-cyan-400" />
                         </div>
                         <span className="uppercase tracking-widest text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                            Real Stories
+                            {t("testimonials1.realStories")}
                         </span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-400 bg-clip-text text-transparent">
-                        What Our Users Say
+                        {t("testimonials1.title")}
                     </h2>
                     <p className="text-sm md:text-base text-[#9CA3AF] leading-relaxed">
-                        Join thousands of happy earners who trust our platform.
+                        {t("testimonials1.subtitle")}
                     </p>
                 </div>
 

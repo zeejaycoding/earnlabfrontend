@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import Image from "next/image";
 import IconTop from "../../../public/assets/question.png";
+import { useTranslation } from "react-i18next";
+const {t} = useTranslation();
 
 type FAQ = {
     id: number;
@@ -14,37 +16,33 @@ type FAQ = {
 const faqs: FAQ[] = [
     {
         id: 1,
-        question: "How do I start earning on Labwards?",
+        question: t("questions.questions.q1.question"),
         answer: [
-            "Create a free account and log in.",
-            "Choose from available tasks — surveys, games, app sign-ups, or daily check-ins.",
-            "Complete the task as instructed to earn rewards instantly.",
-            'Track your progress in the "My Tasks" section, and once you hit the minimum, you can cash out via your preferred payment method.',
+            t("questions.questions.q1.answer1"),
+            t("questions.questions.q1.answer2"),
+            t("questions.questions.q1.answer3"),
+            t("questions.questions.q1.answer4"),
         ],
     },
     {
         id: 2,
-        question: "What payout methods are available?",
-        answer:
-            "We offer multiple payout options including PayPal, Visa, Amazon Gift Cards, Worldcoin, Bitcoin, Litecoin, Dogecoin, and Solana. Choose the method that works best for you!",
+        question: t("questions.questions.q2.question"),
+        answer: t("questions.questions.q2.answer"),
     },
     {
         id: 3,
-        question: "How long does it take to receive my payment?",
-        answer:
-            "Most payments are processed instantly! Crypto withdrawals are typically completed within minutes, while PayPal and gift cards may take up to 24 hours during peak times.",
+        question: t("questions.questions.q3.question"),
+        answer: t("questions.questions.q3.answer"),
     },
     {
         id: 4,
-        question: "How does the referral program work?",
-        answer:
-            "Invite friends using your unique referral link and earn 10% of everything they earn — forever! There's no limit to how many friends you can refer or how much you can earn.",
+        question: t("questions.questions.q4.question"),
+        answer: t("questions.questions.q4.answer"),
     },
     {
         id: 5,
-        question: "Is Labwards free to use?",
-        answer:
-            "Absolutely! Labwards is 100% free to join and use. There are no hidden fees, subscriptions, or costs. You earn real money simply by completing tasks.",
+        question: t("questions.questions.q5.question"),
+        answer: t("questions.questions.q5.answer"),
     },
 ];
 
@@ -68,15 +66,14 @@ const Question: React.FC = () => {
                         className="object-contain"
                     />
                     <span className="uppercase tracking-wide text-md font-medium text-white">
-                        BENEFITS
+                        {t("questions.badge")}
                     </span>
                 </div>
                 <h2 className="text-3xl font-bold mb-2">
-                    We&apos;ve Got the Answers You Need
+                     {t("questions.title")}
                 </h2>
                 <p className="text-gray-400 md:px-42">
-                    Find quick answers to the most common questions about earning, payouts,
-                    referrals, and more
+                     {t("questions.description")}
                 </p>
             </div>
 

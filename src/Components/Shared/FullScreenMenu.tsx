@@ -16,6 +16,8 @@ import {
   Share2
 } from "lucide-react";
 import { openLiveChatPanel } from "@/utils/liveChat";
+import { useTranslation } from "react-i18next";
+
 
 interface MenuTile {
   id: string;
@@ -34,6 +36,8 @@ interface FullScreenMenuProps {
 
 const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
+  //const { t } = useTranslation();
+
 
   const handleSignOut = async () => {
     try {
@@ -67,7 +71,7 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
     {
       id: "earn",
       label: "Earns",
-      icon: <img src="/ri_coins-fill.png" alt="Earns"     className="w-5 h-5 object-contain shrink-0"
+      icon: <img src="/ri_coins-fill.svg" alt="Earns"     className="w-5 h-5 object-contain shrink-0"
  />,
       path: "/earn",
       color: "text-blue-400",
@@ -76,7 +80,7 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
     {
       id: "leaderboard",
       label: "Leaderboard",
-      icon: <img src="/material-symbols_social-leaderboard-rounded.png" alt="Leaderboard"     className="w-5 h-5 object-contain shrink-0"
+      icon: <img src="/material-symbols_social-leaderboard-rounded.svg" alt="Leaderboard"     className="w-5 h-5 object-contain shrink-0"
  />,
       path: "/leaderboard",
       color: "text-yellow-400",
@@ -85,8 +89,11 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
     {
       id: "rewards",
       label: "Rewards",
-      icon: <img src="/solar_gift-bold.png" alt="Rewards"     className="w-5 h-5 object-contain shrink-0"
- />,
+      icon: <img
+  src="/solar_gift-bold.svg"
+  alt="Rewards"
+  className="w-5 h-5 object-contain shrink-0"
+/>,
       path: "/rewards",
       color: "text-purple-400",
       bgColor: "bg-purple-500/10",
@@ -94,7 +101,7 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
     {
       id: "faq",
       label: "FAQ",
-      icon: <img src="/mingcute_question-fill.png" alt="Rewards"     className="w-5 h-5 object-contain shrink-0"
+      icon: <img src="/mingcute_question-fill.svg" alt="FAQ"     className="w-5 h-5 object-contain shrink-0"
 />,
       path: "/faq",
       color: "text-orange-400",
@@ -103,7 +110,7 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
     {
       id: "support",
       label: "Support",
-      icon: <img src="/streamline-plump_customer-support-3-solid.png" alt="Rewards"     className="w-5 h-5 object-contain shrink-0"
+      icon: <img src="/streamline-plump_customer-support-3-solid.svg" alt="Support"     className="w-5 h-5 object-contain shrink-0"
  />,
       path: "/support",
       color: "text-cyan-400",
@@ -131,10 +138,13 @@ return (
 
     {/* Dropdown */}
     <div
-      className="absolute right-4 top-[60px] w-64 rounded-xl shadow-2xl z-50 overflow-hidden border border-[#2A2D3E]"
-      style={{ backgroundColor: "#1E2133" }}
-      onClick={(e) => e.stopPropagation()}
-    >
+  className="
+    absolute top-[60px] w-64 rounded-xl shadow-2xl z-50 overflow-hidden border border-[#2A2D3E]
+    right-4 rtl:right-auto rtl:left-4
+  "
+  style={{ backgroundColor: "#1E2133" }}
+  onClick={(e) => e.stopPropagation()}
+>
       {/* Items */}
       <div className="p-2 flex flex-col gap-1">
         {menuTiles.map((tile) => (
@@ -171,13 +181,13 @@ return (
 >
   <span className="w-5 h-5 flex items-center justify-center">
     <img
-      src="/solar_cash-out-bold.png"
+      src="/solar_cash-out-bold.svg"
       alt="Cashout"
       className="w-5 h-5 object-contain shrink-0"
     />
   </span>
 
-  <span className="text-sm font-medium">Cashout</span>
+  <span className="text-sm font-medium"> Cashout</span>
 </button>
 
 

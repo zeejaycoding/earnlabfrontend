@@ -3,118 +3,127 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, HelpCircle, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const faqCategories = [
+
+export default function FAQPage() {
+        const { t } = useTranslation();
+
+        const faqCategories = [
     {
-        title: "Getting Started",
+        title: t("faq_page.categories.getting_started.title"),
         faqs: [
             {
-                question: "How do I create an account?",
-                answer: "Creating an account is easy! Click on 'Sign Up' and you can register using your email address or sign up instantly with Google, Facebook, or Apple. Complete your profile to start earning rewards."
+                question: t("faq_page.categories.getting_started.question1"),
+                answer: t("faq_page.categories.getting_started.answer1")
             },
             {
-                question: "Is LabWards free to use?",
-                answer: "Yes! LabWards is completely free to use. There are no signup fees, membership costs, or hidden charges. You earn money by completing tasks, and we only take a small commission from advertisers."
+                question: t("faq_page.categories.getting_started.question2"),
+                answer: t("faq_page.categories.getting_started.answer2")
             },
             {
-                question: "How old do I need to be to use LabWards?",
-                answer: "You must be at least 18 years old to create an account and use LabWards. This is required for legal and payment processing reasons."
+                question: t("faq_page.categories.getting_started.question3"),
+                answer: t("faq_page.categories.getting_started.answer3")
             },
             {
-                question: "Is LabWards available in my country?",
-                answer: "LabWards is available in most countries worldwide. However, task availability may vary by region. Create an account to see what opportunities are available in your area."
+                question: t("faq_page.categories.getting_started.question4"),
+                answer: t("faq_page.categories.getting_started.answer4")
             },
         ]
     },
     {
-        title: "Earning & Tasks",
+        title: t("faq_page.categories.earning_tasks.title"),
         faqs: [
             {
-                question: "How do I earn money on LabWards?",
-                answer: "You can earn money by completing various tasks including: playing mobile games, taking surveys, downloading and testing apps, signing up for offers, watching videos, and more. Each task shows the reward amount before you start."
+                question: t("faq_page.categories.earning_tasks.question1"),
+                answer: t("faq_page.categories.earning_tasks.answer1")
             },
             {
-                question: "Why didn't my task credit?",
-                answer: "Tasks may not credit for several reasons: using a VPN, not following instructions exactly, clearing cookies/cache during the task, or the advertiser rejecting the completion. If you believe there's an error, contact our support team with proof of completion."
+                question: t("faq_page.categories.earning_tasks.question2"),
+                answer: t("faq_page.categories.earning_tasks.answer2")
             },
             {
-                question: "How long does it take for rewards to credit?",
-                answer: "Most rewards credit instantly or within a few minutes. Some tasks may take up to 24-48 hours depending on advertiser verification. Game tasks may take longer as they require milestone completion."
+                question: t("faq_page.categories.earning_tasks.question3"),
+                answer: t("faq_page.categories.earning_tasks.answer3")
             },
             {
-                question: "Can I complete the same task multiple times?",
-                answer: "Most tasks can only be completed once per user. However, new tasks are added daily, and some recurring tasks (like daily surveys) can be completed regularly."
+                question: t("faq_page.categories.earning_tasks.question4"),
+                answer: t("faq_page.categories.earning_tasks.answer4")
             },
         ]
     },
     {
-        title: "Payments & Withdrawals",
+        title: t("faq_page.categories.payments.title"),
         faqs: [
             {
-                question: "What is the minimum withdrawal amount?",
-                answer: "The minimum withdrawal amount is $5 for most payment methods including PayPal and gift cards. Some methods like cryptocurrency may have higher minimums due to network fees."
+                question: t("faq_page.categories.payments.question1"),
+                answer: t("faq_page.categories.payments.answer1")
             },
             {
-                question: "How long do withdrawals take?",
-                answer: "PayPal and gift card withdrawals are typically processed instantly or within a few hours. Bank transfers may take 1-3 business days. Cryptocurrency withdrawals are usually processed within 24 hours."
+                question: t("faq_page.categories.payments.question2"),
+                answer: t("faq_page.categories.payments.answer2")
             },
             {
-                question: "What payment methods are available?",
-                answer: "We offer multiple payment options including PayPal, bank transfer, cryptocurrency (Bitcoin, Ethereum, Litecoin), and gift cards (Amazon, Steam, iTunes, and more)."
+                question: t("faq_page.categories.payments.question3"),
+                answer: t("faq_page.categories.payments.answer3")
             },
             {
-                question: "Are there any withdrawal fees?",
-                answer: "We don't charge withdrawal fees for most payment methods. However, some cryptocurrency withdrawals may have network fees, and certain payment providers may have their own fees."
+                question: t("faq_page.categories.payments.question4"),
+                answer: t("faq_page.categories.payments.answer4")
             },
         ]
     },
     {
-        title: "Account & Security",
+        title: t("faq_page.categories.security.title"),
         faqs: [
             {
-                question: "How do I reset my password?",
-                answer: "Click 'Forgot Password' on the login page and enter your email address. You'll receive a password reset link within a few minutes. Check your spam folder if you don't see it."
+                question:t("faq_page.categories.security.question1"),
+                answer: t("faq_page.categories.security.answer1")
             },
             {
-                question: "Why was my account suspended?",
-                answer: "Accounts may be suspended for violating our Terms of Service, including using VPNs, creating multiple accounts, providing false information, or attempting to fraud the system. Contact support if you believe this was an error."
+                question: t("faq_page.categories.security.question2"),
+                answer: t("faq_page.categories.security.answer2")
             },
             {
-                question: "Is my personal information safe?",
-                answer: "Yes! We use industry-standard encryption to protect your data. We never sell your personal information to third parties. Read our Privacy Policy for more details on how we handle your data."
+                question: t("faq_page.categories.security.question3"),
+                answer: t("faq_page.categories.security.answer3")
             },
             {
-                question: "How do I delete my account?",
-                answer: "To delete your account, go to Settings > Account > Delete Account. Please note that account deletion is permanent and you will lose any pending earnings. Make sure to withdraw your balance first."
+                question: t("faq_page.categories.security.question4"),
+                answer: t("faq_page.categories.security.answer4")
             },
         ]
     },
     {
-        title: "Referrals",
+        title: t("faq_page.categories.referrals.title"),
         faqs: [
             {
-                question: "How does the referral program work?",
-                answer: "Share your unique referral link with friends. When they sign up and complete their first task, you both earn a bonus! You also earn a percentage of their lifetime earnings."
+                question: t("faq_page.categories.referrals.question1"),
+                answer: t("faq_page.categories.referrals.answer1")
             },
             {
-                question: "How much can I earn from referrals?",
-                answer: "You earn 10% of your referrals' earnings for life! There's no limit to how many people you can refer. Top referrers earn hundreds of dollars monthly just from referral commissions."
+                question: t("faq_page.categories.referrals.question2"),
+                answer: t("faq_page.categories.referrals.answer2")
             },
             {
-                question: "When do referral bonuses credit?",
-                answer: "Referral signup bonuses credit once your referral completes their first qualifying task. Commission earnings are credited in real-time as your referrals earn."
+                question: t("faq_page.categories.referrals.question3"),
+                answer: t("faq_page.categories.referrals.answer3")
             },
         ]
     },
 ];
 
-export default function FAQPage() {
+
+    
     const [openItems, setOpenItems] = useState<{ [key: string]: boolean }>({});
+
 
     const toggleItem = (categoryIdx: number, faqIdx: number) => {
         const key = `${categoryIdx}-${faqIdx}`;
         setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
     };
+
+
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-[#0A0C1A] via-[#0D0F1E] to-[#0A0C1A] text-white">
@@ -127,11 +136,11 @@ export default function FAQPage() {
                         </Link>
                         <div className="flex items-center gap-2">
                             <HelpCircle className="w-6 h-6 text-purple-400" />
-                            <h1 className="text-xl font-bold">FAQ</h1>
+                            <h1 className="text-xl font-bold">{t("faq_page.header.title")}</h1>
                         </div>
                     </div>
                     <Link href="/contact" className="px-4 py-2 bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg font-semibold text-sm hover:bg-[#252840] transition-all">
-                        Contact Us
+                        {t("faq_page.header.contact")}
                     </Link>
                 </div>
             </div>
@@ -145,10 +154,10 @@ export default function FAQPage() {
 
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        Frequently Asked Questions
+                         {t("faq_page.hero.title")}
                     </h2>
                     <p className="text-lg text-[#9CA3AF]">
-                        Find answers to the most common questions about LabWards
+                        {t("faq_page.hero.description")}
                     </p>
                 </div>
             </section>

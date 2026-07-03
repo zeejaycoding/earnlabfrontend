@@ -5,6 +5,12 @@ import Image from "next/image";
 import { Globe, Moon, Sun, Gift, User, FileText, HelpCircle, Headphones, Lock, Shield, BarChart2, CircleDollarSign } from "lucide-react";
 import LogoImg from "../../../public/assets/logo.png";
 import { useEffect, useState } from "react";
+import { languages } from "@/lib/languages";
+import { useTranslation } from "react-i18next";
+import i18n from "@/locales/i18n";
+
+
+
 const DISCORD_URL = process.env.NEXT_PUBLIC_DISCORD_URL || "https://discord.gg/htr9C8EjKG";
 const TELEGRAM_URL = "https://t.me/labwardscom";
 const X_URL = "https://x.com/labwards?s=21";
@@ -73,29 +79,50 @@ const SocialIcons = () => (
 const LangThemeBtns = ({
   theme,
   toggleTheme,
+  changeLanguage,
+  t,
 }: {
   theme: string;
   toggleTheme: () => void;
+  changeLanguage: (lang: string) => void;
+  t: (key: string) => string;
 }) => (
   <div className="flex items-center gap-2">
-    <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1C2033] border border-[#2A2D3E] text-[#8C9DB6] text-xs font-bold hover:text-white transition-all">
-      <Globe size={13} /> English
-    </button>
+    {/* Language Selector */}
+    <select
+      value={i18n.language}
+      onChange={(e) => changeLanguage(e.target.value)}
+      className="px-3 py-1.5 rounded-lg bg-[#1C2033] border border-[#2A2D3E] text-[#8C9DB6] text-xs font-bold outline-none cursor-pointer"
+    >
+      {languages.map((lang) => (
+        <option
+          key={lang.code}
+          value={lang.code}
+          className="bg-[#1C2033]"
+        >
+          {lang.label}
+        </option>
+      ))}
+    </select>
 
+    {/* Theme Button */}
     <button
       onClick={toggleTheme}
       className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1C2033] border border-[#2A2D3E] text-[#8C9DB6] text-xs font-bold hover:text-white transition-all"
-      aria-label={theme === "dark" ? "Switch to Light mode" : "Switch to Dark mode"}
     >
       {theme === "dark" ? <Sun size={13} /> : <Moon size={13} />}
-      {theme === "dark" ? "Light" : "Dark"}
+      {theme === "dark"
+        ? t("footer.light")
+        : t("footer.dark")}
     </button>
   </div>
 );
 
-
 export default function AppFooter() {
   const [theme, setTheme] = useState("dark");
+  const { t } = useTranslation() as any;
+
+
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -118,6 +145,13 @@ export default function AppFooter() {
     }
   };
 
+const changeLanguage = (lang: string) => {
+  i18n.changeLanguage(lang);
+  localStorage.setItem("language", lang);
+  document.documentElement.lang = lang;
+
+  document.documentElement.dir = lang === "ur" || lang === "ar" ? "rtl" : "ltr";
+};
 
 return (
 <footer className="relative w-full bg-[#0D0F1E] border-t border-[#1E2133] pt-10 pb-44 overflow-hidden">
@@ -141,40 +175,48 @@ bg-clip-text text-transparent opacity-90">
               <StarTile /><StarTile /><StarTile /><StarTile /><StarTile half />
             </div>
             <p className="text-[#B3B6C7] text-sm font-bold">
-              TrustScore 4.5
+              {t("footer.trust_score")}
+
               <span className="mx-2 text-[#2C3146]">|</span>
-              200 reviews
+              {t("footer.reviews")}
+
             </p>
           </div>
 
           {/* Platform + User Center 2-col */}
           <div className="grid grid-cols-2 gap-x-10 gap-y-1 w-full max-w-[340px]">
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2">Support</h4>
-              <MobileLink href="/contact"        icon={<CircleDollarSign size={13} />} label="Contact Us" />
-              <MobileLink href="/faq" icon={<BarChart2 size={13} />}        label="FAQ" />
+              <h4 className="text-white font-bold text-sm mb-2">{t("footer.support")}</h4>
+              <MobileLink href="/contact"        icon={<CircleDollarSign size={13} />} label={t("footer.contact")}
+ />
+              <MobileLink href="/faq" icon={<BarChart2 size={13} />}        label={t("footer.faq")} />
             </div>
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2">Features</h4>
-              <MobileLink href="/games"      icon={<User size={13} />}        label="Games" />
-              <MobileLink href="/rewards" icon={<FileText size={13} />}    label="Rewards" />
-              <MobileLink href="/tasks"          icon={<HelpCircle size={13} />}  label="Tasks" />
+              <h4 className="text-white font-bold text-sm mb-2"> {t("footer.features")}</h4>
+              <MobileLink href="/games"      icon={<User size={13} />}        label={t("footer.games")} />
+              <MobileLink href="/rewards" icon={<FileText size={13} />}    label={t("footer.rewards")} />
+              <MobileLink href="/tasks"          icon={<HelpCircle size={13} />}  label={t("footer.tasks")} />
             </div>
           </div>
 
           {/* Terms — centred */}
           <div className="flex flex-col items-center gap-1">
-            <h4 className="text-white font-bold text-sm mb-2">Terms</h4>
-            <MobileLink href="/terms"   icon={<FileText size={13} />} label="Services Terms" />
-            <MobileLink href="/privacy" icon={<Lock size={13} />}     label="Privacy" />
-            <MobileLink href="/cookies" icon={<Shield size={13} />}   label="Cookie policy" />
+            <h4 className="text-white font-bold text-sm mb-2">{t("footer.terms")}</h4>
+            <MobileLink href="/terms"   icon={<FileText size={13} />} label={t("footer.service_terms")} />
+            <MobileLink href="/privacy" icon={<Lock size={13} />}     label={t("footer.privacy")} />
+            <MobileLink href="/cookies" icon={<Shield size={13} />}   label={t("footer.cookie_policy")} />
           </div>
 
           {/* Bottom bar */}
           <div className="w-full border-t border-[#1E2133] pt-5 flex flex-col items-center gap-4">
             <p className="text-[#64748B] text-xs">@2026 Lab Wards, All Rights Reserved</p>
             <SocialIcons />
-            <LangThemeBtns theme={theme} toggleTheme={toggleTheme} />
+            <LangThemeBtns
+  theme={theme}
+  toggleTheme={toggleTheme}
+  changeLanguage={changeLanguage}
+  t={t}
+/>
           </div>
         </div>
 
@@ -195,46 +237,51 @@ bg-clip-text text-transparent opacity-90">
               </p>
             </div>
             <p className="text-[#8C9DB6] text-[14px] leading-relaxed max-w-[340px]">
-              Sign up today and grab your instant bonus. Every task completed puts money in your pocket.
+               {t("footer.description")}
             </p>
           </div>
 
           {/* Col 2 — Platform */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-white font-bold text-lg">Support</h4>
+            <h4 className="text-white font-bold text-lg">{t("footer.support")}</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/contact" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">Contact Us</Link></li>
-              <li><Link href="/faq" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">FAQ</Link></li>
+              <li><Link href="/contact" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">{t("footer.contact")}</Link></li>
+              <li><Link href="/faq" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">{t("footer.faq")}</Link></li>
             </ul>
           </div>
 
           {/* Col 3 — User Center */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-white font-bold text-lg">Features</h4>
+            <h4 className="text-white font-bold text-lg">{t("footer.features")}</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link href="/games"      className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">Games</Link></li>
-              <li><Link href="/rewards" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">Rewards</Link></li>
-              <li><Link href="/tasks"          className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">Tasks</Link></li>
+              <li><Link href="/games"      className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">{t("footer.games")}</Link></li>
+              <li><Link href="/rewards" className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">{t("footer.rewards")}</Link></li>
+              <li><Link href="/tasks"          className="text-[#8C9DB6] hover:text-white transition-colors text-sm font-medium">{t("footer.tasks")}</Link></li>
             </ul>
           </div>
 
           {/* Col 4 — Connect With Us */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-white font-bold text-lg">Connect With Us</h4>
+            <h4 className="text-white font-bold text-lg">{t("footer.connect")}</h4>
             <SocialIcons />
-            <LangThemeBtns theme={theme} toggleTheme={toggleTheme} />
+          <LangThemeBtns
+  theme={theme}
+  toggleTheme={toggleTheme}
+  changeLanguage={changeLanguage}
+  t={t}
+/>
           </div>
         </div>
 
         {/* Desktop bottom divider */}
         <div className="hidden md:flex border-t border-[#1E2133] pt-6 items-center justify-between gap-4">
-          <p className="text-[#64748B] text-xs">@2026 Lab Wards, All Rights Reserved</p>
+          <p className="text-[#64748B] text-xs">{t("footer.copyright")}</p>
           <div className="flex items-center gap-4 text-xs text-[#64748B]">
-            <Link href="/terms"   className="hover:text-white transition-colors">Terms of Use</Link>
+            <Link href="/terms"   className="hover:text-white transition-colors">{t("footer.terms_use")}</Link>
             <span className="text-[#2C3146]">|</span>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t("footer.privacy")}</Link>
             <span className="text-[#2C3146]">|</span>
-            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">{t("footer.cookie")}</Link>
           </div>
         </div>
 

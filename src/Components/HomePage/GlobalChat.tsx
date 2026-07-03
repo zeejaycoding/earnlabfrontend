@@ -7,6 +7,7 @@ import ReactCountryFlag from "react-country-flag";
 import { useSocket } from "@/contexts/SocketProvider";
 import { toast } from "@/utils/toast";
 import UserProfileModal from "@/Components/UserProfileModal";
+import { useTranslation } from "react-i18next";
 
 interface ChatMessage {
   _id?: string;
@@ -34,11 +35,6 @@ interface GlobalChatProps {
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-const defaultRooms: ChatRoom[] = [
-  { id: "general", name: "General", isActive: true },
-  { id: "trading", name: "Trading" },
-  { id: "help", name: "Help" },
-];
 
 const getChatTailKey = (items: ChatMessage[]): string => {
   if (items.length === 0) return "";
@@ -53,10 +49,17 @@ const isContainerNearBottom = (container: HTMLDivElement, threshold = 72): boole
 
 const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const { t } = useTranslation();
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [loading, setLoading] = useState(false);
   const [onlineCount, setOnlineCount] = useState(2);
+    const defaultRooms: ChatRoom[] = [
+  { id: "general", name: t("featuredSurvey.title"), isActive: true },
+  { id: "trading", name: t("trading") },
+  { id: "help", name: t("help") },
+];
+
   const [selectedRoom, setSelectedRoom] = useState<ChatRoom>(defaultRooms[0]);
   const [showRoomDropdown, setShowRoomDropdown] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
@@ -66,6 +69,8 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
   const shouldStickToBottomRef = useRef(true);
   const lastMessageTailKeyRef = useRef("");
   const { socket } = useSocket();
+
+
 
   const getToken = () =>
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -190,7 +195,7 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
     
     const token = getToken();
     if (!token) {
-      toast.warn("Please sign in to send messages");
+      toast.warn(t("sign_in_send"));
       return;
     }
 
@@ -211,13 +216,13 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data?.message || "Failed to send message");
+        throw new Error(data?.message || t("send_failed"));
       }
 
       setInput("");
     } catch (err) {
       console.error("Send message error", err);
-      toast.error((err as Error)?.message || "Failed to send message");
+      toast.error((err as Error)?.message || t("send_failed"));
     } finally {
       setSending(false);
     }
@@ -247,13 +252,13 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
       case "admin":
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-bold bg-red-500 text-white rounded ml-1.5">
-            Admin
+            {t("admin")}
           </span>
         );
       case "moderator":
         return (
           <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-500 text-white rounded ml-1.5">
-            Mod
+            {t("moderator")}
           </span>
         );
       default:
@@ -275,7 +280,7 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <h2 className="text-sm sm:text-base font-bold">Chat</h2>
-                <p className="text-[10px] sm:text-xs text-gray-400">{onlineCount} User(s) online</p>
+                <p className="text-[10px] sm:text-xs text-gray-400">{onlineCount} {t("users_online")}</p>
               </div>
             </div>
             <button
@@ -331,13 +336,13 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
           >
             {loading ? (
               <div className="flex items-center justify-center h-full">
-                <div className="text-xs sm:text-sm text-gray-400">Loading messages...</div>
+                <div className="text-xs sm:text-sm text-gray-400">{t("loading_messages")}</div>
               </div>
             ) : messages.length === 0 ? (
               <div className="flex items-center justify-center h-full">
                 <div className="text-center">
-                  <p className="text-xs sm:text-sm text-gray-400">No messages yet</p>
-                  <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Be the first to say hello!</p>
+                  <p className="text-xs sm:text-sm text-gray-400">{t("no_messages")}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-500 mt-1">{t("say_hello")}</p>
                 </div>
               </div>
             ) : (
@@ -410,7 +415,7 @@ const GlobalChat: React.FC<GlobalChatProps> = ({ isOpen, onClose }) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Enter a message..."
+                placeholder={t("enter_message")}
                 disabled={sending}
                 className="flex-1 bg-[#1A1D2E] text-white text-xs sm:text-sm placeholder-gray-500 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg outline-none focus:ring-1 focus:ring-emerald-500/50"
               />

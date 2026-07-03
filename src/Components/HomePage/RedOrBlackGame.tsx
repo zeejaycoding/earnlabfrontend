@@ -6,6 +6,8 @@ import Image from "next/image";
 
 // Import icons or images if needed
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 
 interface GameStats {
     minStakeCents: number;
@@ -24,6 +26,7 @@ interface GameResult {
 }
 
 const RedOrBlackGame: React.FC = () => {
+    const {t} = useTranslation();
     const [gameStats, setGameStats] = useState<GameStats | null>(null);
     const [loading, setLoading] = useState(true);
     const [playing, setPlaying] = useState(false);
@@ -104,17 +107,17 @@ const RedOrBlackGame: React.FC = () => {
     const playGame = async (choice: "red" | "black") => {
         const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
         if (!token) {
-            toast.error("Please sign in to play");
+            toast.error(t("redOrBlackGame.signInRequired"));
             return;
         }
 
         if (hasPlayedToday) {
-            toast.error("You can only play once per day!");
+            toast.error(t("redOrBlackGame.playOncePerDay"));
             return;
         }
 
         if (!canPlay) {
-            toast.error("You need to earn at least $1.00 today to play the daily bonus!");
+            toast.error(t("redOrBlackGame.earnMoreRequired"));
             return;
         }
 
@@ -136,7 +139,7 @@ const RedOrBlackGame: React.FC = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                toast.error(data.message || "Failed to play game");
+                toast.error(data.message ||t("redOrBlackGame.playFailed"));
                 setSpinning(false);
                 setPlaying(false);
                 return;
@@ -154,14 +157,14 @@ const RedOrBlackGame: React.FC = () => {
                 setHasPlayedToday(true);
 
                 if (data.won) {
-                    toast.success(`🎉 You won $${(data.rewardCents / 100).toFixed(2)}!`);
+                    toast.success(t("redOrBlackGame.winToast") + ` $${(data.rewardCents / 100).toFixed(2)}!`);
                 } else {
-                    toast.error(`Better luck next time! Come back tomorrow for another chance.`);
+                    toast.error(t("redOrBlackGame.loseToast"));
                 }
             }, 2000); // 2 second spin animation
         } catch (err) {
             console.error("Game play error", err);
-            toast.error("Failed to play game");
+            toast.error(t("redOrBlackGame.playFailed"));
             setSpinning(false);
         } finally {
             setPlaying(false);
@@ -172,7 +175,7 @@ const RedOrBlackGame: React.FC = () => {
         return (
             <div className="bg-[#26293E] rounded-lg p-6 text-white text-center">
                 <Loader2 className="animate-spin mx-auto mb-2" size={32} />
-                <p className="text-sm text-gray-400">Loading game...</p>
+                <p className="text-sm text-gray-400">{t("redOrBlackGame.loading")}</p>
             </div>
         );
     }
@@ -181,26 +184,26 @@ const RedOrBlackGame: React.FC = () => {
         <div className="bg-gradient-to-br from-[#26293E] to-[#1E2133] rounded-lg p-6 text-white shadow-lg mb-6">
             {/* Header */}
             <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">🎰 Daily Red or Black Bonus</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">🎰 {t("redOrBlackGame.title")}</h2>
                 <p className="text-sm text-gray-400 mb-3">
-                    Earn at least $1.00 today to unlock your daily bonus spin!
+                    {t("redOrBlackGame.subtitle")}
                 </p>
                 
                 {/* Daily Status */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
                     <div className="text-center">
                         <div className="text-lg font-semibold text-blue-400">
-                            Today's Earnings: ${(dailyEarnings / 100).toFixed(2)}
+                            {t("redOrBlackGame.todayEarnings")} ${(dailyEarnings / 100).toFixed(2)}
                         </div>
                         <div className="text-xs text-gray-400">
-                            Need: ${Math.max(0, (100 - dailyEarnings) / 100).toFixed(2)} more
+                            {t("redOrBlackGame.needMore")}: ${Math.max(0, (100 - dailyEarnings) / 100).toFixed(2)} {t("redOrBlackGame.more")}
                         </div>
                     </div>
                     
                     {balance !== null && (
                         <div className="text-center">
                             <div className="text-lg font-semibold text-green-400">
-                                Balance: ${(balance / 100).toFixed(2)}
+                                {t("redOrBlackGame.balance")} ${(balance / 100).toFixed(2)}
                             </div>
                         </div>
                     )}
@@ -215,10 +218,10 @@ const RedOrBlackGame: React.FC = () => {
                             : "bg-red-500/20 text-red-400"
                 }`}>
                     {hasPlayedToday 
-                        ? "✅ Played Today - Come Back Tomorrow!" 
+                        ? t("redOrBlackGame.status.playedToday")
                         : canPlay 
-                            ? "🎯 Ready to Play!" 
-                            : "💰 Earn $1.00 to Unlock"}
+                            ? t("redOrBlackGame.status.ready") 
+                            : t("redOrBlackGame.status.locked")}
                 </div>
             </div>
 
@@ -260,10 +263,10 @@ const RedOrBlackGame: React.FC = () => {
                     }`}
                 >
                     <p className="font-semibold">
-                        {lastResult.won ? "🎉 You Won!" : "😔 You Lost"}
+                        {lastResult.won ? t("redOrBlackGame.result.won") : t("redOrBlackGame.result.lost")}
                     </p>
                     <p className="text-sm text-gray-300">
-                        Result: <span className="font-bold uppercase">{lastResult.outcome}</span>
+                        {t("redOrBlackGame.result.resultLabel")}: <span className="font-bold uppercase">{lastResult.outcome}</span>
                     </p>
                 </div>
             )}
@@ -271,13 +274,13 @@ const RedOrBlackGame: React.FC = () => {
             {/* Daily Bonus Info */}
             <div className="mb-6 text-center">
                 <div className="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/20 rounded-lg p-4">
-                    <h3 className="text-lg font-semibold text-emerald-400 mb-2">🎁 Daily Bonus Rewards</h3>
+                    <h3 className="text-lg font-semibold text-emerald-400 mb-2">{t("redOrBlackGame.bonusRewards")}</h3>
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                        <div className="text-gray-300">Minimum Win: <span className="text-emerald-400 font-semibold">$0.10</span></div>
-                        <div className="text-gray-300">Maximum Win: <span className="text-emerald-400 font-semibold">$10.00</span></div>
+                        <div className="text-gray-300">{t("redOrBlackGame.minimumWin")}: <span className="text-emerald-400 font-semibold">$0.10</span></div>
+                        <div className="text-gray-300">{t("redOrBlackGame.maximumWin")}: <span className="text-emerald-400 font-semibold">$10.00</span></div>
                     </div>
                     <p className="text-xs text-gray-400 mt-2">
-                        Free daily spin - no stake required! Win amounts are randomly generated.
+                        {t("redOrBlackGame.bonusDescription")}
                     </p>
                 </div>
             </div>
@@ -298,7 +301,7 @@ const RedOrBlackGame: React.FC = () => {
                     {spinning && selectedChoice === "red" ? (
                         <Loader2 className="animate-spin mx-auto" size={24} />
                     ) : (
-                        "🔴 RED"
+                        t("redOrBlackGame.buttons.red")
                     )}
                 </button>
                 <button
@@ -315,16 +318,16 @@ const RedOrBlackGame: React.FC = () => {
                     {spinning && selectedChoice === "black" ? (
                         <Loader2 className="animate-spin mx-auto" size={24} />
                     ) : (
-                        "⚫ BLACK"
+                       t("redOrBlackGame.buttons.black")
                     )}
                 </button>
             </div>
 
             {/* Game Info */}
             <div className="mt-6 text-center text-xs text-gray-500">
-                <p>🎯 Daily Bonus Game - One Free Spin Per Day</p>
-                <p className="mt-1">💰 Earn at least $1.00 today to unlock your spin</p>
-                <p className="mt-1">🎁 Win between $0.10 - $10.00 instantly!</p>
+                <p>{t("redOrBlackGame.gameInfo.title")}</p>
+                <p className="mt-1">{t("redOrBlackGame.gameInfo.unlock")}</p>
+                <p className="mt-1">{t("redOrBlackGame.gameInfo.reward")}</p>
             </div>
         </div>
     );

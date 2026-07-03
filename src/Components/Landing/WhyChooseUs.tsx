@@ -4,6 +4,7 @@
 import React from "react";
 import Image from "next/image";
 import { Sparkles, Users, Zap, TrendingUp, Gamepad2, ClipboardList, Trophy, Smartphone, Wallet, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import IconTop from "../../../public/assets/why.png";
 import TaskImg from "../../../public/assets/1.png";
@@ -22,6 +23,7 @@ import App2 from "../../../public/assets/af2.png";
 import App3 from "../../../public/assets/af3.png";
 
 export default function WhyChooseUs() {
+    const {t} = useTranslation();
     const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
     const completedDays = [true, true, true, true, true, true, false]; // Sunday not completed yet
 
@@ -41,14 +43,14 @@ export default function WhyChooseUs() {
                             <Sparkles className="w-6 h-6 text-emerald-400" />
                         </div>
                         <span className="uppercase tracking-widest text-sm font-semibold text-emerald-400">
-                            Why Choose Us
+                            {t("whyChooseUs.badge")}
                         </span>
                     </div>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-                        Everything You Need to Earn
+                        {t("whyChooseUs.title")}
                     </h2>
                     <p className="text-lg md:text-xl text-[#9CA3AF] leading-relaxed">
-                        Our platform is built to make earning simple, fun, and secure. Start your journey today.
+                      {  t("whyChooseUs.subtitle")}
                     </p>
                 </div>
 
@@ -60,7 +62,7 @@ export default function WhyChooseUs() {
                         <div className="relative bg-gradient-to-br from-[#1A1D2E] to-[#151728] rounded-2xl p-6 border border-[#2A2D3E] group-hover:border-pink-500/50 transition-all duration-300 h-full overflow-hidden">
                             {/* Hot Badge */}
                             <div className="absolute top-4 right-4 flex gap-2">
-                                <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full">HOT</span>
+                                <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full"> {t("whyChooseUs.mobileGames.hot")}</span>
                                 <span className="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">$15-25</span>
                             </div>
                             
@@ -69,22 +71,22 @@ export default function WhyChooseUs() {
                                 <Gamepad2 className="w-6 h-6 text-pink-400" />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-white mb-2">Mobile Games</h3>
-                            <p className="text-[#9CA3AF] text-sm mb-6">Play top-rated games and earn real money. New high-paying games added daily!</p>
+                            <h3 className="text-xl font-bold text-white mb-2"> {t("whyChooseUs.mobileGames.title")}</h3>
+                            <p className="text-[#9CA3AF] text-sm mb-6"> {t("whyChooseUs.mobileGames.description")}</p>
                             
                             {/* Stats Row */}
                             <div className="flex gap-4 mb-6">
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-white">127</div>
-                                    <div className="text-xs text-[#9CA3AF]">GAMES</div>
+                                    <div className="text-xs text-[#9CA3AF]"> {t("whyChooseUs.mobileGames.games")}</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-white">$25</div>
-                                    <div className="text-xs text-[#9CA3AF]">AVG PAY</div>
+                                    <div className="text-xs text-[#9CA3AF]"> {t("whyChooseUs.mobileGames.avgPay")}</div>
                                 </div>
                                 <div className="text-center">
                                     <div className="text-2xl font-bold text-white">10min</div>
-                                    <div className="text-xs text-[#9CA3AF]">START</div>
+                                    <div className="text-xs text-[#9CA3AF]"> {t("whyChooseUs.mobileGames.start")}</div>
                                 </div>
                             </div>
                             
@@ -93,21 +95,21 @@ export default function WhyChooseUs() {
                                 <div className="flex-1 relative">
                                     <Image src={Game1} alt="Game 1" className="rounded-xl w-full h-20 object-cover" />
                                     <div className="absolute bottom-1 left-1 right-1 text-center">
-                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">Sea of Conquest</div>
+                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">{t("whyChooseUs.mobileGames.game1")}</div>
                                         <div className="text-[10px] text-emerald-400 font-bold">$115.55</div>
                                     </div>
                                 </div>
                                 <div className="flex-1 relative">
                                     <Image src={Game2} alt="Game 2" className="rounded-xl w-full h-20 object-cover" />
                                     <div className="absolute bottom-1 left-1 right-1 text-center">
-                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">Farming Game</div>
+                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">{t("whyChooseUs.mobileGames.game2")}</div>
                                         <div className="text-[10px] text-emerald-400 font-bold">$141.95</div>
                                     </div>
                                 </div>
                                 <div className="flex-1 relative">
                                     <Image src={Game3} alt="Game 3" className="rounded-xl w-full h-20 object-cover" />
                                     <div className="absolute bottom-1 left-1 right-1 text-center">
-                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">SpongeBob</div>
+                                        <div className="text-[10px] font-semibold text-white bg-black/50 rounded px-1">{t("whyChooseUs.mobileGames.game3")}</div>
                                         <div className="text-[10px] text-emerald-400 font-bold">$82.55</div>
                                     </div>
                                 </div>
@@ -115,7 +117,7 @@ export default function WhyChooseUs() {
                             
                             {/* CTA */}
                             <button className="flex items-center text-pink-400 font-semibold text-sm group-hover:text-pink-300 transition-colors">
-                                Browse Games <ChevronRight className="w-4 h-4 ml-1" />
+                                {t("whyChooseUs.mobileGames.browse")} <ChevronRight className="w-4 h-4 ml-1" />
                             </button>
                         </div>
                     </div>
@@ -125,7 +127,7 @@ export default function WhyChooseUs() {
                         <div className="relative bg-gradient-to-br from-[#1A1D2E] to-[#151728] rounded-2xl p-6 border border-[#2A2D3E] group-hover:border-blue-500/50 transition-all duration-300 h-full overflow-hidden">
                             {/* Badge */}
                             <div className="absolute top-4 right-4">
-                                <span className="px-2 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">5 MIN</span>
+                                <span className="px-2 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">{t("whyChooseUs.quickSurveys.badge")}</span>
                             </div>
                             
                             {/* Icon */}
@@ -133,24 +135,24 @@ export default function WhyChooseUs() {
                                 <ClipboardList className="w-6 h-6 text-blue-400" />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-white mb-2">Quick Surveys</h3>
-                            <p className="text-[#9CA3AF] text-sm mb-4">Share your opinions and get paid $2-10 per survey.</p>
+                            <h3 className="text-xl font-bold text-white mb-2">{t("whyChooseUs.quickSurveys.title")}</h3>
+                            <p className="text-[#9CA3AF] text-sm mb-4">{t("whyChooseUs.quickSurveys.description")}</p>
                             
                             {/* Survey Details */}
                             <div className="space-y-2 mb-4">
                                 <div className="flex items-center gap-2 text-sm">
                                     <span className="text-emerald-400">✓</span>
-                                    <span className="text-[#9CA3AF]">$2-10 per survey</span>
+                                    <span className="text-[#9CA3AF]">{t("whyChooseUs.quickSurveys.point1")}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm">
                                     <span className="text-emerald-400">✓</span>
-                                    <span className="text-[#9CA3AF]">3-10 minutes each</span>
+                                    <span className="text-[#9CA3AF]">{t("whyChooseUs.quickSurveys.point2")}</span>
                                 </div>
                             </div>
                             
                             {/* CTA */}
                             <button className="flex items-center text-blue-400 font-semibold text-sm group-hover:text-blue-300 transition-colors">
-                                Take Surveys <ChevronRight className="w-4 h-4 ml-1" />
+                                {t("whyChooseUs.quickSurveys.cta")} <ChevronRight className="w-4 h-4 ml-1" />
                             </button>
                         </div>
                     </div>
@@ -160,7 +162,7 @@ export default function WhyChooseUs() {
                         <div className="relative bg-gradient-to-br from-[#1A1D2E] to-[#151728] rounded-2xl p-6 border border-[#2A2D3E] group-hover:border-yellow-500/50 transition-all duration-300 h-full overflow-hidden">
                             {/* Badge */}
                             <div className="absolute top-4 right-4">
-                                <span className="px-2 py-1 bg-yellow-500 text-black text-xs font-bold rounded-full">+BONUS</span>
+                                <span className="px-2 py-1 bg-yellow-500 text-black text-xs font-bold rounded-full">{t("whyChooseUs.dailyChallenges.badge")}</span>
                             </div>
                             
                             {/* Icon */}
@@ -168,8 +170,8 @@ export default function WhyChooseUs() {
                                 <Trophy className="w-6 h-6 text-yellow-400" />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-white mb-2">Daily Challenges</h3>
-                            <p className="text-[#9CA3AF] text-sm mb-4">Complete daily goals for streak bonuses up to $50!</p>
+                            <h3 className="text-xl font-bold text-white mb-2">{t("whyChooseUs.dailyChallenges.title")}</h3>
+                            <p className="text-[#9CA3AF] text-sm mb-4">{t("whyChooseUs.dailyChallenges.description")}</p>
                             
                             {/* Weekly Streak */}
                             <div className="flex gap-2 mb-4">
@@ -191,7 +193,7 @@ export default function WhyChooseUs() {
                             
                             {/* CTA */}
                             <button className="flex items-center text-yellow-400 font-semibold text-sm group-hover:text-yellow-300 transition-colors">
-                                View Challenges <ChevronRight className="w-4 h-4 ml-1" />
+                                {t("whyChooseUs.dailyChallenges.cta")} <ChevronRight className="w-4 h-4 ml-1" />
                             </button>
                         </div>
                     </div>
@@ -201,7 +203,7 @@ export default function WhyChooseUs() {
                         <div className="relative bg-gradient-to-br from-[#1A1D2E] to-[#151728] rounded-2xl p-6 border border-[#2A2D3E] group-hover:border-purple-500/50 transition-all duration-300 h-full overflow-hidden">
                             {/* Badge */}
                             <div className="absolute top-4 right-4">
-                                <span className="px-2 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">HIGH PAY</span>
+                                <span className="px-2 py-1 bg-purple-500 text-white text-xs font-bold rounded-full">{t("whyChooseUs.appTesting.badge")}</span>
                             </div>
                             
                             {/* Icon */}
@@ -209,8 +211,8 @@ export default function WhyChooseUs() {
                                 <Smartphone className="w-6 h-6 text-purple-400" />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-white mb-2">App Testing</h3>
-                            <p className="text-[#9CA3AF] text-sm mb-4">Test new apps and earn $10-75 per completed test!</p>
+                            <h3 className="text-xl font-bold text-white mb-2">{t("whyChooseUs.appTesting.title")}</h3>
+                            <p className="text-[#9CA3AF] text-sm mb-4">{t("whyChooseUs.appTesting.description")}</p>
                             
                             {/* App Icons with earnings */}
                             <div className="flex gap-3 mb-4">
@@ -236,7 +238,7 @@ export default function WhyChooseUs() {
                             
                             {/* CTA */}
                             <button className="flex items-center text-purple-400 font-semibold text-sm group-hover:text-purple-300 transition-colors">
-                                Browse Apps <ChevronRight className="w-4 h-4 ml-1" />
+                                {t("whyChooseUs.appTesting.cta")} <ChevronRight className="w-4 h-4 ml-1" />
                             </button>
                         </div>
                     </div>
@@ -246,7 +248,7 @@ export default function WhyChooseUs() {
                         <div className="relative bg-gradient-to-br from-[#1A1D2E] to-[#151728] rounded-2xl p-6 border border-[#2A2D3E] group-hover:border-emerald-500/50 transition-all duration-300 h-full overflow-hidden">
                             {/* Badge */}
                             <div className="absolute top-4 right-4">
-                                <span className="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">INSTANT</span>
+                                <span className="px-2 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full">{t("whyChooseUs.cashout.badge")}</span>
                             </div>
                             
                             {/* Icon */}
@@ -254,8 +256,8 @@ export default function WhyChooseUs() {
                                 <Wallet className="w-6 h-6 text-emerald-400" />
                             </div>
                             
-                            <h3 className="text-xl font-bold text-white mb-2">12+ Cashout Options</h3>
-                            <p className="text-[#9CA3AF] text-sm mb-4">Get paid your way — instantly!</p>
+                            <h3 className="text-xl font-bold text-white mb-2">{t("whyChooseUs.cashout.title")}</h3>
+                            <p className="text-[#9CA3AF] text-sm mb-4">{t("whyChooseUs.cashout.description")}</p>
                             
                             {/* Payment method icons */}
                             <div className="flex items-center gap-2 mb-4">
@@ -278,7 +280,7 @@ export default function WhyChooseUs() {
                             
                             {/* CTA */}
                             <button className="flex items-center text-emerald-400 font-semibold text-sm group-hover:text-emerald-300 transition-colors">
-                                Cash Out Now <ChevronRight className="w-4 h-4 ml-1" />
+                                {t("whyChooseUs.cashout.cta")} <ChevronRight className="w-4 h-4 ml-1" />
                             </button>
                         </div>
                     </div>

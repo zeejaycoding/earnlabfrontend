@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Trophy, Medal, Crown, Users, Clock, TrendingUp } from "lucide-react";
 import dotsBg from "../../../public/assets/drop.png";
 import UserProfileModal from "@/Components/UserProfileModal";
+import { useTranslation } from "react-i18next";
 
 interface LeaderboardUser {
     uuid: string;
@@ -25,6 +26,7 @@ interface LeaderboardEntry {
 }
 
 const LeaderBoard = () => {
+    const { t } = useTranslation();
     const targetDate = useMemo(() => {
         const date = new Date();
         date.setDate(date.getDate() + 10);
@@ -59,6 +61,7 @@ const LeaderBoard = () => {
     const [currentUserUuid, setCurrentUserUuid] = useState<string | null>(null);
     const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
     const [showUserProfile, setShowUserProfile] = useState(false);
+
 
     // Fetch leaderboard data - Top 25
     useEffect(() => {
@@ -192,10 +195,10 @@ const LeaderBoard = () => {
                 <div className="mb-4 sm:mb-6">
                     <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
                         <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        Leaderboard
+                        {t("leaderboard.title")}
                     </h1>
                     <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
-                        Compete with top earners and win rewards!
+                        {t("leaderboard.subtitle")}
                     </p>
                 </div>
 
@@ -204,7 +207,7 @@ const LeaderBoard = () => {
                     <div className="flex items-center gap-2 sm:gap-3">
                         <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                         <div>
-                            <p className="text-[10px] sm:text-xs text-[#9CA3AF]">Competition ends in</p>
+                            <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.competitionEnds")}</p>
                             <p className="text-sm sm:text-base font-bold text-emerald-400">
                                 {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
                             </p>
@@ -218,7 +221,7 @@ const LeaderBoard = () => {
                         <div className="flex items-center gap-2">
                             <Crown className="w-4 h-4 text-yellow-400" />
                             <div>
-                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">Top Earner</p>
+                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.topEarner")}</p>
                                 <p className="text-xs sm:text-sm font-semibold text-white truncate">
                                     {topWinners[0]?.name || "---"}
                                 </p>
@@ -229,7 +232,7 @@ const LeaderBoard = () => {
                         <div className="flex items-center gap-2">
                             <Users className="w-4 h-4 text-blue-400" />
                             <div>
-                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">Participants</p>
+                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.participants")}</p>
                                 <p className="text-xs sm:text-sm font-semibold text-white">
                                     {leaderboardData.length}
                                 </p>
@@ -242,11 +245,11 @@ const LeaderBoard = () => {
                 <div className="mb-4 sm:mb-6">
                     <h2 className="text-sm sm:text-base font-bold text-white mb-3 flex items-center gap-2">
                         <Medal className="w-4 h-4 text-yellow-400" />
-                        Top 3 Winners
+                        {t("leaderboard.topWinners")}
                     </h2>
                     
                     {loading ? (
-                        <div className="text-center text-gray-400 py-8">Loading...</div>
+                        <div className="text-center text-gray-400 py-8">{t("leaderboard.loading")}.</div>
                     ) : (
                         <div className="space-y-2 sm:space-y-3">
                             {topWinners.map((winner) => {
@@ -284,7 +287,7 @@ const LeaderBoard = () => {
                                                 {isCurrentUser && <span className="ml-1 text-[10px] text-emerald-400">(You)</span>}
                                             </p>
                                             <p className="text-[10px] sm:text-xs text-[#9CA3AF]">
-                                                #{winner.rank} • {winner.points.toLocaleString()} points
+                                                #{winner.rank} • {winner.points.toLocaleString()} {t("leaderboard.points")}
                                             </p>
                                         </div>
                                         
@@ -306,7 +309,7 @@ const LeaderBoard = () => {
                     <div>
                         <h2 className="text-sm sm:text-base font-bold text-white mb-3 flex items-center gap-2">
                             <TrendingUp className="w-4 h-4 text-emerald-400" />
-                            Full Rankings
+                            {t("leaderboard.fullRankings")}
                         </h2>
                         
                         <div className="space-y-1.5 sm:space-y-2">
@@ -349,7 +352,7 @@ const LeaderBoard = () => {
                                                 {player.name}
                                             </p>
                                             <p className="text-[10px] sm:text-xs text-[#9CA3AF]">
-                                                {player.points.toLocaleString()} pts
+                                                {player.points.toLocaleString()} {t("leaderboard.pts")}
                                             </p>
                                         </div>
                                         

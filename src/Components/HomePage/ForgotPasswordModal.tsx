@@ -1,14 +1,17 @@
 "use client";
 import { X } from "lucide-react";
 import { IoMdMail } from "react-icons/io";
+import { useTranslation } from "react-i18next";
 
 export default function ForgotPasswordModal({
+    
     isOpen,
     onClose,
 }: {
     isOpen: boolean;
     onClose: () => void;
 }) {
+    const { t } = useTranslation();
 
 
     if (!isOpen) return null;
@@ -24,9 +27,9 @@ export default function ForgotPasswordModal({
                 </button>
 
                 {/* Title */}
-                <h2 className="text-2xl text-[#E6FAF6] mb-2 font-semibold mt-5 text-center">Forgot Password</h2>
+                <h2 className="text-2xl text-[#E6FAF6] mb-2 font-semibold mt-5 text-center">{t("forgotPassword.title")}</h2>
                 <p className="text-sm text-[#8C8FA8] text-center mb-6">
-                    Enter the email address associated with your account
+                    {t("forgotPassword.subtitle")}
                 </p>
 
 
@@ -35,18 +38,18 @@ export default function ForgotPasswordModal({
                     <IoMdMail size={18} className="absolute left-3 top-3 text-[#18C3A7]" />
                     <input
                         type="email"
-                        placeholder="Email address"
+                        placeholder={t("forgotPassword.emailPlaceholder")}
                         className="w-full pl-10 pr-4 py-3 rounded-md bg-[#26293E] outline-none text-sm"
                     />
                 </div>
 
 
                 <p className="text-sm text-[#18C3A7] cursor-pointer mt-2 mb-4">
-                    Existing member?
+                    {t("forgotPassword.existingMember")}
                 </p>
 
                 <button className="w-full py-3 bg-[#18C3A7] cursor-pointer rounded-md font-medium">
-                    Request Password Reset
+                    {t("forgotPassword.requestReset")}
                 </button>
             </div>
         </div>

@@ -16,6 +16,7 @@ import TickerBar from "@/Components/Shared/TickerBar";
 import { toast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import SignUpModal from "../HomePage/SignupModal";
+import { useTranslation } from "react-i18next";
 
 
 type HistoryFilter = "all" | "offers" | "tasks" | "cashout" | "reward";
@@ -115,82 +116,6 @@ const deriveLabwardId = (rawId: string) => {
   return cleaned.slice(-7).toUpperCase().padStart(7, "0");
 };
 
-const createFallbackHistory = (): HistoryRow[] => [
-  {
-    id: "fallback-1",
-    name: "Referral",
-    date: "29 Jan 2026",
-    type: "reward",
-    amountCents: 16,
-    status: "completed",
-    category: "reward",
-  },
-  {
-    id: "fallback-2",
-    name: "Verification",
-    date: "29 Jan 2026",
-    type: "reward",
-    amountCents: 16,
-    status: "completed",
-    category: "offers",
-  },
-  {
-    id: "fallback-3",
-    name: "Referral",
-    date: "29 Jan 2026",
-    type: "reward",
-    amountCents: 16,
-    status: "completed",
-    category: "tasks",
-  },
-  {
-    id: "fallback-4",
-    name: "Verification",
-    date: "29 Jan 2026",
-    type: "reward",
-    amountCents: 16,
-    status: "completed",
-    category: "cashout",
-  },
-];
-
-const defaultNotificationSettings: NotificationSetting[] = [
-  {
-    key: "cashoutConfirmation",
-    title: "Cashout confirmation",
-    subtitle: "Receive confirmation when you cashout funds",
-    enabled: true,
-  },
-  {
-    key: "earnConfirmation",
-    title: "Earn confirmation",
-    subtitle: "Get notified about your earnings",
-    enabled: true,
-  },
-  {
-    key: "leaderboardWinnings",
-    title: "Leaderboard winnings",
-    subtitle: "Stay updated on leaderboard wins and rankings",
-    enabled: true,
-  },
-  {
-    key: "promotionalAlerts",
-    title: "Promotional alerts",
-    subtitle: "Get exclusive deals and promotional offers",
-    enabled: true,
-  },
-  {
-    key: "newsletterUpdates",
-    title: "Newsletter updates",
-    subtitle: "Receive our weekly newsletter with updates and tips",
-    enabled: true,
-  },
-];
-
-const defaultMutedUsers: MutedUser[] = [
-  { id: "mute-1", name: "Ruby Tems", avatar: "🧕" },
-  { id: "mute-2", name: "Zach", avatar: "🧑‍🚀" },
-];
 
 const MiniBars = ({ active }: { active: number }) => (
   <div className="flex items-end gap-[2px]">
@@ -241,6 +166,8 @@ const Switch = ({ enabled, onToggle }: { enabled: boolean; onToggle: () => void 
 );
 
 const AccountClonePage: React.FC = () => {
+  const { t } = useTranslation();
+
   const [loading, setLoading] = useState(true);
   const [savingProfile, setSavingProfile] = useState(false);
   const [profile, setProfile] = useState<AccountProfile | null>(null);
@@ -250,6 +177,44 @@ const AccountClonePage: React.FC = () => {
     last30DaysCents: 0,
     referralCount: 0,
   });
+  const defaultNotificationSettings: NotificationSetting[] = [
+  {
+    key: "cashoutConfirmation",
+    title: t("account1.cashoutConfirmation"),
+    subtitle: t("account1.cashoutSubtitle"),
+    enabled: true,
+  },
+  {
+    key: "earnConfirmation",
+    title: t("account1.earnConfirmation"),
+    subtitle: t("account1.earnSubtitle"),
+    enabled: true,
+  },
+  {
+    key: "leaderboardWinnings",
+    title: t("account1.leaderboardWinnings"),
+    subtitle: t("account1.leaderboardSubtitle"),
+    enabled: true,
+  },
+  {
+    key: "promotionalAlerts",
+    title: t("account1.promotionalAlerts"),
+    subtitle: t("account1.promotionalSubtitle"),
+    enabled: true,
+  },
+  {
+    key: "newsletterUpdates",
+    title: t("account1.newsletterUpdates"),
+    subtitle: t("account1.newsletterSubtitle"),
+    enabled: true,
+  },
+];
+
+const defaultMutedUsers: MutedUser[] = [
+  { id: "mute-1", name: "Ruby Tems", avatar: "🧕" },
+  { id: "mute-2", name: "Zach", avatar: "🧑‍🚀" },
+];
+
   const [recentOffers, setRecentOffers] = useState<RecentOffer[]>([]);
   const [historyFilter, setHistoryFilter] = useState<HistoryFilter>("all");
   const [usernameDraft, setUsernameDraft] = useState("");
@@ -261,6 +226,46 @@ const AccountClonePage: React.FC = () => {
 
   const router = useRouter();
   const [showSignup, setShowSignup] = useState(false);
+  const createFallbackHistory = (): HistoryRow[] => [
+  
+  {
+    id: "fallback-1",
+    name: t("account1.referral"),
+    date: "29 Jan 2026",
+    type: "reward",
+    amountCents: 16,
+    status: "completed",
+    category: "reward",
+  },
+  {
+    id: "fallback-2",
+    name: t("account1.verification"),
+    date: "29 Jan 2026",
+    type: "reward",
+    amountCents: 16,
+    status: "completed",
+    category: "offers",
+  },
+  {
+    id: "fallback-3",
+    name: t("account1.referral"),
+    date: "29 Jan 2026",
+    type: "reward",
+    amountCents: 16,
+    status: "completed",
+    category: "tasks",
+  },
+  {
+    id: "fallback-4",
+    name: t("account1.verification"),
+    date: "29 Jan 2026",
+    type: "reward",
+    amountCents: 16,
+    status: "completed",
+    category: "cashout",
+  },
+];
+
 
 
   const getToken = () =>
@@ -323,7 +328,7 @@ if (!token) {
       const resolvedProfile: AccountProfile = {
         id: payload._id || payload.uuid || payload.id || "",
         username: payload.username || "",
-        displayName: payload.displayName || payload.username || "User",
+        displayName: payload.displayName || payload.username || t("recentActivity.headers.user"),
         email: payload.email || "",
         avatarUrl: payload.avatarUrl,
         balanceCents: payload.balanceCents || 0,
@@ -365,7 +370,7 @@ if (!token) {
         }
       }
     } catch {
-      toast.error("Failed to load account page data");
+      toast.error(t("account1.failedtoload"));
     } finally {
       setLoading(false);
     }
@@ -378,7 +383,7 @@ if (!token) {
   const saveProfile = async (field: "displayName" | "profilePrivacy") => {
     const token = getToken();
     if (!token || !profile) {
-      toast.warn("Please sign in to update your profile");
+      toast.warn(t("account1.signin"));
       return;
     }
 
@@ -403,7 +408,7 @@ if (!token) {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to save profile");
+        throw new Error(t("account1.unabletosave"));
       }
 
       setProfile((prev) =>
@@ -421,9 +426,9 @@ if (!token) {
           : prev,
       );
 
-      toast.success("Profile updated");
+      toast.success(t("account1.profileUpdated"));
     } catch {
-      toast.error("Unable to update profile right now");
+      toast.error(t("account1.unabletosave"));
     } finally {
       setSavingProfile(false);
     }
@@ -500,7 +505,7 @@ if (!token) {
           className="text-[30px] font-bold tracking-[0.02em] text-white"
           style={{ fontFamily: "var(--font-manrope)" }}
         >
-          Account
+          {t("account1.title")}
         </h1>
 
         {loading ? (
@@ -530,8 +535,8 @@ if (!token) {
                     <button
                       type="button"
                       className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#111324] bg-[#FF2D55] text-[12px]"
-                      aria-label="Change profile picture"
-                      onClick={() => toast.info("Avatar upload can be changed from profile settings")}
+                      aria-label={t("account1.changeprofilepic")}
+                      onClick={() => toast.info(t("account1.avataruploadchange"))}
                     >
                       📷
                     </button>
@@ -541,7 +546,7 @@ if (!token) {
     className="text-[28px] sm:text-[32px] font-bold leading-[1.25] text-white break-words"
     style={{ fontFamily: "var(--font-manrope)" }}
   >
-    {profile?.displayName || "Muhammed H"}
+    {profile?.displayName || t("account1.muhammadh")}
   </p>
 </div>                </div>
 
@@ -550,25 +555,25 @@ if (!token) {
                   className="rounded-full border border-[#26293E] bg-[#151728] px-5 py-2 text-[13px] text-white hover:border-[#30334A]"
                   onClick={() => router.push(`/profile/${profile?.username || profile?.id}`)}
                 >
-                  View profile
+                  {t("account1.viewProfile")}
                 </button>
               </div>
 
               <div className="mt-4 border-t border-[#1E2133]">
                 <div className="flex items-center justify-between border-b border-[#1E2133] px-2 py-2">
-                  <span className="text-[15px] text-[#8C8FA8]">Labward ID</span>
+                  <span className="text-[15px] text-[#8C8FA8]">{t("account1.labwardId")}</span>
                   <span className="text-[16px] font-semibold text-white">
                     {deriveLabwardId(profile?.id || "")}
                   </span>
                 </div>
                 <div className="flex items-center justify-between px-2 py-2">
-                  <span className="text-[15px] text-[#8C8FA8]">Level</span>
+                  <span className="text-[15px] text-[#8C8FA8]">{t("account1.level")}</span>
                   <span className="rounded-[6px] border border-[#0088FF] bg-[#0D1325] px-2 py-[2px] text-[12px] text-[#7FCBFF]">
                     {stats.offersCompleted > 50
-                      ? "Gold"
+                      ? t("account1.gold")
                       : stats.offersCompleted > 15
-                        ? "Silver"
-                        : "Bronze"}
+                        ? t("account1.silver")
+                        : t("account1.bronze")}
                   </span>
                 </div>
               </div>
@@ -576,33 +581,33 @@ if (!token) {
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <MetricCard
                   value={formatCurrency(accountTotals.availableBalance)}
-                  label="Available balance"
+                  label={t("account1.availableBalance")}
                   activeBars={3}
                 />
                 <MetricCard
                   value={formatCurrency(accountTotals.totalEarnings)}
-                  label="Total Earnings"
+                  label={t("account1.totalEarnings")}
                   activeBars={6}
                 />
                 <MetricCard
                   value={formatCurrency(accountTotals.withdrawn)}
-                  label="Withdrawn"
+                  label={t("account1.withdrawn")}
                   activeBars={6}
                 />
                 <MetricCard
                   value={formatCurrency(accountTotals.completedPayouts)}
-                  label="Completed payouts"
+                  label={t("account1.completedPayouts")}
                   activeBars={6}
                 />
               </div>
 
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 {([
-                  ["all", "All"],
-                  ["offers", "Offers"],
-                  ["tasks", "Tasks"],
-                  ["cashout", "Cashout"],
-                  ["reward", "Reward"],
+                  ["all", t("account1.all")],
+                  ["offers", t("account1.offers")],
+                  ["tasks", t("account1.tasks")],
+                  ["cashout", t("account1.cashout")],
+                  ["reward", t("account1.reward")],
                 ] as Array<[HistoryFilter, string]>).map(([value, label]) => (
                   <button
                     key={value}
@@ -620,20 +625,20 @@ if (!token) {
                 <button
                   type="button"
                   className="ml-auto rounded-full border border-[#26293E] bg-[#151728] px-4 py-[6px] text-[13px] text-white hover:border-[#3A3D55]"
-                  onClick={() => toast.info("CSV export will be available in next update")}
+                  onClick={() => toast.info(t("account1.csv"))}
                 >
-                  Export CSV
+                  {t("account1.exportCsv")}
                 </button>
               </div>
 
               <div className="mt-3 overflow-hidden rounded-[8px] border border-[#1E2133]">
                 <div className="grid grid-cols-[1.9fr_1fr_0.9fr_0.8fr_1fr_0.7fr] items-center bg-[#0B0D1B] px-3 py-2 text-[12px] text-[#8C8FA8]">
-                  <span>Name</span>
-                  <span>Date</span>
-                  <span>Type</span>
-                  <span>Amount</span>
-                  <span>Status</span>
-                  <span className="text-right">Action</span>
+                  <span> {t("account1.name")}</span>
+                  <span>{t("account1.date")}</span>
+                  <span>{t("account1.type")}</span>
+                  <span>{t("account1.amount")}</span>
+                  <span>{t("account1.status")}</span>
+                  <span className="text-right">{t("account1.action")}</span>
                 </div>
 
                 {filteredHistoryRows.map((row, index) => (
@@ -645,11 +650,11 @@ if (!token) {
                   >
                     <span className="truncate text-white">{row.name}</span>
                     <span className="text-white">{row.date}</span>
-                    <span className="text-white">{row.type === "reward" ? "Reward" : row.type}</span>
+                    <span className="text-white">{row.type === "reward" ?  t("account1.reward") : row.type}</span>
                     <span className="text-white">{formatCurrency(row.amountCents)}</span>
                     <span>
                       <span className="inline-flex rounded-full bg-[#091E1F] px-3 py-1 text-[11px] text-[#18C3A7]">
-                        {row.status === "completed" ? "Completed" : "Pending"}
+                        {row.status === "completed" ? t("account1.completed") : t("account1.pending")}
                       </span>
                     </span>
                     <span className="flex justify-end">
@@ -661,7 +666,7 @@ if (!token) {
                             window.location.href = row.href;
                           }
                         }}
-                        aria-label={`Open ${row.name}`}
+                        aria-label={`${t("account1.open")} ${row.name}`}
                       >
                         <ExternalLink className="h-3.5 w-3.5" />
                       </button>
@@ -676,11 +681,11 @@ if (!token) {
                 <div className="mb-4 flex items-center gap-2 text-white">
                   <UserRound className="h-5 w-5 text-[#14A28A]" />
                   <h2 className="text-[26px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
-                    Profile Information
+                    {t("account1.profileInfo")}
                   </h2>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">Username</label>
+                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.username")}</label>
                 <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
                   <input
                     value={usernameDraft}
@@ -693,11 +698,11 @@ if (!token) {
                     disabled={savingProfile}
                     className="rounded-[10px] bg-[#14A28A] px-5 py-2 text-[14px] font-semibold text-white disabled:opacity-60"
                   >
-                    Save
+                    {t("account1.save")}
                   </button>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">Email Address</label>
+                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.emailAddress")}</label>
                 <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
                   <input
                     value={profile?.email || "bustinjieb@gmail.com"}
@@ -706,18 +711,18 @@ if (!token) {
                   />
                   <span className="inline-flex items-center gap-1 rounded-[8px] bg-[#26293E] px-3 py-2 text-[14px] text-white">
                     <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#18C3A7] text-[10px] text-black">✓</span>
-                    Verified
+                    {t("account1.verified")}
                   </span>
                   <button
                     type="button"
-                    onClick={() => toast.info("Email changes can be made in security settings")}
+                    onClick={() => toast.info(t("account1.securitySettings"))}
                     className="rounded-[10px] bg-[#14A28A] px-5 py-2 text-[14px] font-semibold text-white"
                   >
-                    Change
+                    {t("account1.change")}
                   </button>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">Public status</label>
+                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.publicStatus")}</label>
                 <div className="flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
                   <input
                     value={publicStatusDraft}
@@ -730,7 +735,7 @@ if (!token) {
                     disabled={savingProfile}
                     className="rounded-[10px] bg-[#14A28A] px-5 py-2 text-[14px] font-semibold text-white disabled:opacity-60"
                   >
-                    Save
+                    {t("account1.save")}
                   </button>
                 </div>
               </div>
@@ -739,7 +744,7 @@ if (!token) {
                 <div className="mb-3 flex items-center gap-2 text-white">
                   <Mail className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
-                    Email Notifications
+                    {t("account1.emailNotifications")}
                   </h3>
                 </div>
 
@@ -766,7 +771,7 @@ if (!token) {
                 <div className="mb-3 flex items-center gap-2 text-white">
                   <LinkIcon className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
-                    Connections
+                    {t("account1.connections")}
                   </h3>
                 </div>
 
@@ -781,13 +786,13 @@ if (!token) {
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[16px] text-white">Worldcoin</p>
-                    <p className="text-[15px] text-[#6B6E8A]">Not connected</p>
+                    <p className="text-[16px] text-white">{t("account1.worldcoin")}</p>
+                    <p className="text-[15px] text-[#6B6E8A]">{t("account1.notConnected")}</p>
                   </div>
                   <button
                     type="button"
                     className="rounded-[10px] bg-[#14A28A] px-8 py-2 text-[14px] font-semibold text-white"
-                    onClick={() => toast.info("Worldcoin connection setup will be available soon")}
+                    onClick={() => toast.info(t("account1.worldcoinavailable"))}
                   >
                     Link
                   </button>
@@ -798,14 +803,14 @@ if (!token) {
                 <div className="mb-3 flex items-center gap-2 text-white">
                   <Users className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
-                    Referral
+                    {t("account1.referral")}
                   </h3>
                 </div>
 
                 <div className="rounded-[10px] border border-[#262A3A] bg-[#151828] px-3 py-3">
-                  <p className="text-[16px] text-white">Total invitee</p>
+                  <p className="text-[16px] text-white">{t("account1.totalInvitee")}</p>
                   <p className="text-[15px] text-[#6B6E8A]">
-                    {stats.referralCount > 0 ? `${stats.referralCount} referrals` : "No referrals"}
+                    {stats.referralCount > 0 ? `${stats.referralCount} referrals` : t("account1.noReferrals")}
                   </p>
                 </div>
               </div>
@@ -814,7 +819,7 @@ if (!token) {
                 <div className="mb-3 flex items-center gap-2 text-white">
                   <MessageSquareOff className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
-                    Muted users
+                    {t("account1.mutedUsers")}
                   </h3>
                 </div>
 
@@ -832,7 +837,7 @@ if (!token) {
                         type="button"
                         className="text-white hover:text-[#18C3A7]"
                         onClick={() => handleUnmuteUser(user.id)}
-                        aria-label={`Unmute ${user.name}`}
+                        aria-label={`{t("account1.unmute")} ${user.name}`}
                       >
                         <MessageCirclePlus className="h-5 w-5" />
                       </button>
@@ -843,9 +848,9 @@ if (!token) {
                 <button
                   type="button"
                   className="mt-4 w-full rounded-[5px] border border-[#26293E] bg-[#151728] py-3 text-[14px] text-[#FF383C] hover:opacity-90"
-                  onClick={() => toast.warn("Please contact support to delete account")}
+                  onClick={() => toast.warn(t("account1.delacc"))}
                 >
-                  Delete account
+                  {t("account1.deleteAccount")}
                 </button>
               </div>
             </section>

@@ -15,6 +15,7 @@ import {
   setProfile as setProfileAction,
   setToken as setTokenAction,
 } from "@/store/userSlice";
+import { useTranslation } from "react-i18next";
 
 import ProfileImg from "../../../public/assets/profile.png";
 import Af1 from "../../../public/assets/af1.png";
@@ -35,11 +36,12 @@ interface TabProps {
 }
 
 const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUserClick }) => {
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       {/* Tabs */}
       <div className="flex gap-6 border-b border-gray-700">
-        {["Completed", "On Hold", "Started"].map((tab) => (
+        {[t("profileDashboard.completed"), t("profileDashboard.onHold"), t("profileDashboard.started")].map((tab) => (
           <button
             key={tab}
             onClick={() => setCurrentTab(tab)}
@@ -59,38 +61,38 @@ const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUser
         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-md" />
         <input
           type="text"
-          placeholder="Search tasks"
+          placeholder={t("profileDashboard.searchTasks")}
           className="w-full pl-10 pr-1 py-4 rounded-md bg-[#26293E] text-sm text-gray-300 focus:outline-none focus:border-teal-400"
         />
       </div>
 
       {/* Table */}
-      {["Completed", "On Hold", "Started"].map((tab) =>
+      { [t("profileDashboard.completed"), t("profileDashboard.onHold"), t("profileDashboard.started") ].map((tab) =>
         currentTab === tab ? (
           <div key={tab} className="mt-2 overflow-x-auto w-full">
             <div className="min-w-[1000px]">
               {/* Header */}
               <div className="grid grid-cols-6 py-2 bg-[#0D0F1E] text-gray-300 text-sm rounded-md mb-2">
-                <div className="px-6 py-3 text-center text-xs">ID</div>
-                <div className="px-6 py-3 text-center text-xs">Name</div>
-                <div className="px-6 py-3 text-center text-xs">Provider</div>
-                {tab === "Completed" ? (
-                  <div className="px-6 py-3 text-center text-xs">Status</div>
+                <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.id")}</div>
+                <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.name")}</div>
+                <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.provider")}</div>
+                {tab === t("profileDashboard.completed") ? (
+                  <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.status")}</div>
                 ) : (
                   <div className="px-6 py-3 text-center text-xs">
-                    Completion time
+                    {t("profileDashboard.completionTime")}
                   </div>
                 )}
-                <div className="px-6 py-3 text-center text-xs">Reward</div>
-                <div className="px-6 py-3 text-center text-xs">Date</div>
+                <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.reward")}</div>
+                <div className="px-6 py-3 text-center text-xs">{t("profileDashboard.date")}</div>
               </div>
 
               {/* Rows: render tasks filtered by tab */}
               {(() => {
                 const matchesTab = (status: string | undefined) => {
-                  if (!status) return tab !== "Completed"; // fallback
-                  if (tab === "Completed") return status === "completed";
-                  if (tab === "Started") return status === "in_progress";
+                  if (!status) return tab !== t("profileDashboard.completed"); // fallback
+                  if (tab === t("profileDashboard.completed")) return status === "completed";
+                  if (tab === t("profileDashboard.started")) return status === "in_progress";
                   // On Hold -> anything not completed or in_progress (available/failed/cancelled)
                   return status !== "completed" && status !== "in_progress";
                 };
@@ -102,7 +104,7 @@ const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUser
                 if (filtered.length === 0) {
                   return (
                     <div className="text-sm text-[#8C8FA8] p-4">
-                      No tasks in this section
+                      {t("profileDashboard.noTasks")}
                     </div>
                   );
                 }
@@ -116,7 +118,7 @@ const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUser
                       {String(task._id ?? task.id ?? "").slice(0, 10)}
                     </div>
                     <div className="px-6 py-3 text-center text-xs">
-                      {task.title ?? task.name ?? "Untitled"}
+                      {task.title ?? task.name ?? t("profileDashboard.untitled")}
                     </div>
                     <div className="px-6 py-3 text-center text-xs">
                       {(task.metadata &&
@@ -125,14 +127,14 @@ const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUser
                         task.externalId ||
                         "—"}
                     </div>
-                    {tab === "Completed" ? (
+                    {tab === t("profileDashboard.completed") ? (
                       <div className="px-2 rounded-md py-3 text-center bg-[#151728] text-[#18C3A7] text-xs">
-                        Completed
+                        {t("profileDashboard.completed")}
                       </div>
                     ) : (
                       <div className="px-2 rounded-md py-3 text-center bg-[#151728] text-[#18C3A7] text-xs">
                         {task.status === "in_progress"
-                          ? "In progress"
+                          ? t("profileDashboard.inProgress")
                           : (task.status ?? "—")}
                       </div>
                     )}
@@ -160,6 +162,7 @@ const TaskTabs: React.FC<TabProps> = ({ currentTab, setCurrentTab, tasks, onUser
 };
 
 const ProfileDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState("Overview");
   const [currentTab, setCurrentTab] = useState("Completed");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -313,15 +316,15 @@ const ProfileDashboard: React.FC = () => {
   const router = useRouter();
 
   const sections = [
-    { name: "Overview", icon: <BiTask className="text-lg" /> },
-    { name: "My Wallet", icon: <Wallet className="text-lg" />, action: () => router.push('/wallet') },
-    { name: "Settings", icon: <RiSettingsLine className="text-lg" /> },
-    { name: "Transactions", icon: <LuArrowUpDown className="text-lg" /> },
-    { name: "Withdrawals", icon: <BsCreditCard2Back className="text-lg" /> },
+    { name: t("profileDashboard.overview"), icon: <BiTask className="text-lg" /> },
+    { name: t("profileDashboard.myWallet"), icon: <Wallet className="text-lg" />, action: () => router.push('/wallet') },
+    { name: t("profileDashboard.settings"), icon: <RiSettingsLine className="text-lg" /> },
+    { name: t("profileDashboard.transactions"), icon: <LuArrowUpDown className="text-lg" /> },
+    { name: t("profileDashboard.withdrawals"), icon: <BsCreditCard2Back className="text-lg" /> },
   ];
 
   // derive display fields from backend profile
-  const displayName = profile?.displayName ?? profile?.username ?? "User";
+  const displayName = profile?.displayName ?? profile?.username ?? t("profile.user");
 
   const joinedAt = profile?.joinedAt
     ? new Date(profile.joinedAt)
@@ -337,7 +340,7 @@ const ProfileDashboard: React.FC = () => {
       <div className="flex flex-col w-full min-h-screen bg-[#1E2133] text-white">
         <div className="w-full bg-[#151728] border border-[#30334A] mt-7 py-8 px-6 shadow-md">
           <div className="flex items-center justify-center py-8">
-            <div className="text-gray-400">Loading profile...</div>
+            <div className="text-gray-400">{t("profileDashboard.loadingProfile")}</div>
           </div>
         </div>
       </div>
@@ -380,13 +383,13 @@ const ProfileDashboard: React.FC = () => {
               </h2>
               <p className="text-xs sm:text-sm text-[#8C8FA8] pb-1 sm:pb-2">
                 {joinedAt
-                  ? `Joined ${joinedAt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}`
-                  : "Joined -"}
+                  ? `${t("profile.joined")} ${joinedAt.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}`
+                  : `${t("profile.joined")} -`}
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                 <div className="flex items-center justify-between text-xs bg-[#1E2133] rounded-md py-1 px-4 gap-3 text-gray-500">
                   <span className="text-[#8C8FA8]">
-                    ID:{" "}
+                    {t("profileDashboard.id")}:{" "}
                     {displayId
                       ? String(displayId).slice(0, 8) +
                         "..." +
@@ -397,7 +400,7 @@ const ProfileDashboard: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between text-xs bg-[#1E2133] rounded-md py-1 px-4 gap-3 text-gray-500">
                   <span className="text-[#8C8FA8]">
-                    Earn ID: {profile?.earnId ?? "—"}
+                    {t("profileDashboard.earnId")}: {profile?.earnId ?? "—"}
                   </span>
                   <FaRegSave className="ml-2 text-gray-400 cursor-pointer" />
                 </div>
@@ -407,12 +410,12 @@ const ProfileDashboard: React.FC = () => {
 
           <div className="w-full md:w-1/3 flex flex-col items-center">
             <div className="flex justify-center w-full text-xs text-white font-semibold mb-2">
-              <span className="text-lg text-white">Silver</span>
+              <span className="text-lg text-white">{t("profileDashboard.silver")}</span>
             </div>
             <div className="w-full border-t border-6 rounded-md border-[#30334A]"></div>
             <div className="flex justify-between w-full text-xs text-gray-400 mt-3">
-              <span className="text-[#8C8FA8]">0 XP</span>
-              <span className="text-[#8C8FA8]">100,000 XP</span>
+              <span className="text-[#8C8FA8]">{t("profileDashboard.xpStart")}</span>
+              <span className="text-[#8C8FA8]">{t("profileDashboard.xpEnd")}</span>
             </div>
           </div>
         </div>
@@ -427,7 +430,7 @@ const ProfileDashboard: React.FC = () => {
                 ? "$" + ((stats.totalEarnedCents ?? 0) / 100).toFixed(2)
                 : "--"}
             </h3>
-            <p className="text-[#8C8FA8] text-sm">Total Earned</p>
+            <p className="text-[#8C8FA8] text-sm">{t("profileDashboard.totalEarned")}</p>
           </div>
         </div>
         <div className="bg-[#26293E] px-4 py-5 rounded-md flex items-center gap-3">
@@ -438,7 +441,7 @@ const ProfileDashboard: React.FC = () => {
                 ? "$" + ((stats.last30DaysCents ?? 0) / 100).toFixed(2)
                 : "--"}
             </h3>
-            <p className="text-[#8C8FA8] text-sm">Last 30 days Earned</p>
+            <p className="text-[#8C8FA8] text-sm">{t("profileDashboard.last30DaysEarned")}</p>
           </div>
         </div>
         <div className="bg-[#26293E] px-4 py-5 rounded-md flex items-center gap-3">
@@ -449,7 +452,7 @@ const ProfileDashboard: React.FC = () => {
                 ? "$" + ((stats.lifetimeRevenueCents ?? 0) / 100).toFixed(2)
                 : "--"}
             </h3>
-            <p className="text-[#8C8FA8] text-sm">Lifetime Revenue</p>
+            <p className="text-[#8C8FA8] text-sm">{t("profileDashboard.lifetimeRevenue")}</p>
           </div>
         </div>
         <div className="bg-[#26293E] px-4 py-5 rounded-md flex items-center gap-3">
@@ -460,7 +463,7 @@ const ProfileDashboard: React.FC = () => {
                 ? "$" + ((profile?.balanceCents ?? 0) / 100).toFixed(2)
                 : "--"}
             </h3>
-            <p className="text-[#8C8FA8] text-sm">Total Earned</p>
+            <p className="text-[#8C8FA8] text-sm">{t("profileDashboard.totalEarned")}</p>
           </div>
         </div>
         <div className="bg-[#26293E] px-4 py-5 rounded-md flex items-center gap-3">
@@ -471,7 +474,7 @@ const ProfileDashboard: React.FC = () => {
                 ? "$" + ((stats.onHoldCents ?? 0) / 100).toFixed(2)
                 : "--"}
             </h3>
-            <p className="text-[#8C8FA8] text-sm">Earnings on hold</p>
+            <p className="text-[#8C8FA8] text-sm">{t("profileDashboard.earningsOnHold")}</p>
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import type { RootState } from "@/store/store";
 import { setProfile } from "@/store/userSlice";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "./Shared/TickerBar";
+import { useTranslation } from "react-i18next";
+
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -49,6 +51,7 @@ function StatCard({
   icon: React.ReactNode;
 }) {
   return (
+    
     <div
       className="
         relative overflow-hidden rounded-[14px] sm:rounded-[16px]
@@ -96,11 +99,6 @@ interface HomepageOffer {
   trackingUrl?: string;
 }
 
-const FALLBACK_OFFERS: HomepageOffer[] = [
-  { id: "o1", title: "Farm Lobby",   img: "/farm-lobby.png", amount: "$0.8", desc: "Play for 5 Mins and earn up to $3" },
-  { id: "o2", title: "Turbo Charge", img: "/turbo-charge.png", amount: "$0.8", desc: "Play for 5 Mins and earn up to $3" },
-  { id: "o3", title: "Pres mark",    img: "/pres-mark.png", amount: "$0.8", desc: "Play for 5 Mins and earn up to $3" },
-];
 
 function getOrdinal(n: number) {
   const s = ["th", "st", "nd", "rd"];
@@ -159,9 +157,17 @@ function OfferCard({ title, img, amount, desc, trackingUrl }: { title: string; i
 
 /* ─── Main component ─── */
 const HOMEPAGEComponent = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const storeProfile = useSelector((s: RootState) => s.user.profile);
   const storeToken = useSelector((s: RootState) => s.user.token);
+
+  const FALLBACK_OFFERS: HomepageOffer[] = [
+  { id: "o1", title: t("homepage.farmLobby"),   img: "/farm-lobby.png", amount: "$0.8", desc: t("homepage.desc") },
+  { id: "o2", title: t("homepage.turboChange"), img: "/turbo-charge.png", amount: "$0.8", desc: t("homepage.desc") },
+  { id: "o3", title: t("homepage.presMark"),    img: "/pres-mark.png", amount: "$0.8", desc: t("homepage.desc") },
+];
+
 
   const [stats, setStats] = useState<any>(null);
   const [streakDays, setStreakDays] = useState(0);
@@ -205,7 +211,7 @@ const HOMEPAGEComponent = () => {
             title: o.title || "Offer",
             img: o.imageUrl || `/img${3 + i}.png`,
             amount: o.rewardCents != null ? `$${(o.rewardCents / 100).toFixed(2)}` : "$0.00",
-            desc: o.description || "Complete this offer and earn rewards",
+            desc: o.description || t("homepage.offerFallbackDescription"),
             trackingUrl: o.trackingUrl || undefined,
           })));
         }
@@ -240,25 +246,26 @@ const HOMEPAGEComponent = () => {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,133,114,0.62)_0%,rgba(14,171,148,0.54)_100%)]" />
           <div className="relative z-10 h-full px-4 flex flex-col items-center justify-center text-center text-white">
             <h1 className="text-[28px] sm:text-[42px] md:text-[50px] font-bold leading-[1.02] tracking-[-0.02em]">
-              Welcome back
+               {t("homepage.welcomeBack")}
             </h1>
             <p className="mt-1 max-w-[560px] text-[11px] sm:text-[13px] md:text-[14px] leading-[1.3] text-[#E7FFFA]">
-              Track your progress, view recent activities and manage your rewards from your personal dashboards
+              {t("homepage.welcomeDescription")}
             </p>
           </div>
         </section>
 
         {/* ── Stat cards ── */}
-<section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4 mt-4 sm:mt-5">          <StatCard label="Daily Streak" value={String(streakDays)} hint="Slightly higher than average" icon={<StreakIcon />} />
-          <StatCard label="Daily Bonus" value={bonusText} hint="Slightly higher than average" icon={<BonusIcon />} />
-          <StatCard label="Total Earned" value={lifetimeEarned} hint="Slightly higher than average" icon={<EarnedIcon />} />
-          <StatCard label="Your Current rank" value={rankText} hint="Slightly higher than average" icon={<RankIcon />} />
-          <StatCard label="Number of tasks" value={String(tasksCompleted)} hint="Slightly higher than average" icon={<TaskIcon />} />
+<section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4 mt-4 sm:mt-5">        
+    <StatCard label={t("homepage.dailyStreak")} value={String(streakDays)} hint={t("homepage.slightlyHigher")} icon={<StreakIcon />} />
+          <StatCard label={t("homepage.dailyBonus")} value={bonusText} hint={t("homepage.slightlyHigher")} icon={<BonusIcon />} />
+          <StatCard label={t("homepage.totalEarned")} value={lifetimeEarned} hint={t("homepage.slightlyHigher")} icon={<EarnedIcon />} />
+          <StatCard label={t("homepage.currentRank")} value={rankText} hint={t("homepage.slightlyHigher")} icon={<RankIcon />} />
+          <StatCard label={t("homepage.numberOfTasks")} value={String(tasksCompleted)} hint={t("homepage.slightlyHigher")} icon={<TaskIcon />} />
         </section>
 
         {/* ── Offers available ── */}
         <section className="mt-8 sm:mt-10">
-          <h2 className="text-white text-[20px] sm:text-[22px] font-bold mb-4 sm:mb-6">Offers available</h2>
+          <h2 className="text-white text-[20px] sm:text-[22px] font-bold mb-4 sm:mb-6">{t("homepage.offersAvailable")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {offers.map((o) => (
               <OfferCard key={o.id} title={o.title} img={o.img} amount={o.amount} desc={o.desc} trackingUrl={o.trackingUrl} />

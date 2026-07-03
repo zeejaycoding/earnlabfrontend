@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSocket } from '@/contexts/SocketProvider';
 import Image from "next/image";
 import UserProfileModal from "@/Components/UserProfileModal";
+import { useTranslation } from "react-i18next";
 
 import PayPalImg from "../../../public/assets/paypal.png";
 import SteamImg from "../../../public/assets/cb.png";
@@ -21,6 +22,8 @@ type FeedEvent = {
 };
 
 const FeedBar: React.FC = () => {
+    const { t } = useTranslation();
+
     const [events, setEvents] = useState<FeedEvent[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
@@ -96,17 +99,17 @@ const FeedBar: React.FC = () => {
             <div className="rounded-xl md:rounded-2xl bg-[#1A1D2E] border border-[#2A2D3E] p-3 sm:p-4 md:p-5">
                 <h3 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Live Activity
+                    {t("feedBar.liveActivity")}
                 </h3>
                 
                 <div className="overflow-x-auto scrollbar-hide -mx-1 px-1">
                     <div className="flex gap-2 sm:gap-3 pb-1">
                         {loading && (
-                            <div className="text-sm text-[#9CA3AF]">Loading activity...</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("feedBar.loadingActivity")}</div>
                         )}
 
                         {!loading && events.length === 0 && (
-                            <div className="text-sm text-[#9CA3AF]">No recent activity</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("feedBar.noRecentActivity")}</div>
                         )}
 
                         {!loading && events.map((ev, idx) => (
@@ -118,7 +121,7 @@ const FeedBar: React.FC = () => {
                                 <div className="flex-shrink-0 p-1.5 rounded-lg bg-emerald-500/10">
                                     <Image
                                         src={pickIcon(ev.type)}
-                                        alt={ev.type || "event"}
+                                        alt={ev.type || t("feedBar.event")}
                                         className="object-contain w-4 h-4 sm:w-5 sm:h-5"
                                     />
                                 </div>
@@ -127,7 +130,7 @@ const FeedBar: React.FC = () => {
                                         {ev.text}
                                     </span>
                                     <span className="text-[9px] sm:text-[10px] text-[#9CA3AF] leading-tight">
-                                        {ev.createdAt ? new Date(ev.createdAt).toLocaleTimeString() : "now"}
+                                        {ev.createdAt ? new Date(ev.createdAt).toLocaleTimeString() : t("feedBar.now")}
                                     </span>
                                 </div>
                             </div>

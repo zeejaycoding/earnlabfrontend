@@ -8,6 +8,8 @@ import PayPalImg from "../../../public/assets/paypal.png";
 import SteamImg from "../../../public/assets/cb.png";
 import AmazonImg from "../../../public/assets/ama.png";
 import AppleImg from "../../../public/assets/apple.png";
+import { useTranslation } from "react-i18next";
+
 
 interface Notification {
     id: number;
@@ -16,58 +18,62 @@ interface Notification {
     subtitle: string;
 }
 
-const notifications: Notification[] = [
+
+
+export default function Notification() {
+    const { t } = useTranslation();
+
+    const notifications: Notification[] = [
     {
         id: 1,
         icon: PayPalImg,
-        title: "Maria earned $5.00",
-        subtitle: "3 Minutes ago",
+        title: t("notif_maria_earned"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 2,
         icon: SteamImg,
-        title: "Jacob withdrew $10.70",
-        subtitle: "3 Minutes ago",
+        title: t("notif_jacob_withdrew"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 3,
         icon: AmazonImg,
-        title: "Alex earned $15.00",
-        subtitle: "3 Minutes ago",
+        title: t("notif_alex_earned"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 4,
         icon: AppleImg,
-        title: "Jacob withdrew $10.70",
-        subtitle: "3 Minutes ago",
+        title: t("notif_jacob_withdrew"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 5,
         icon: PayPalImg,
-        title: "Maria earned $5.00",
-        subtitle: "3 Minutes ago",
+        title: t("notif_maria_earned"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 6,
         icon: SteamImg,
-        title: "Emma withdrew $10.70",
-        subtitle: "3 Minutes ago",
+        title: t("notif_emma_withdrew"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 7,
         icon: AmazonImg,
-        title: "Michael earned $15.00",
-        subtitle: "3 Minutes ago",
+        title: t("notif_michael_earned"),
+        subtitle: t("minutes_ago"),
     },
     {
         id: 8,
         icon: AppleImg,
-        title: "Sarah withdrew $10.70",
-        subtitle: "3 Minutes ago",
+        title: t("notif_sarah_withdrew"),
+        subtitle: t("minutes_ago"),
     },
 ];
 
-export default function Notification() {
     return (
         <>
             <TopBar />

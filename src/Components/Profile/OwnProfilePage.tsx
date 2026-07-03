@@ -5,6 +5,7 @@ import Image from "next/image";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
 import FeedBar from "@/Components/HomePage/FeedBar";
+import { useTranslation } from "react-i18next";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -55,29 +56,6 @@ interface RecentOffer {
   imageUrl?: string;
 }
 
-function timeAgo(dateStr: string): string {
-  const diff = Date.now() - new Date(dateStr).getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "just now";
-  if (mins < 60) return `${mins} min${mins !== 1 ? "s" : ""} ago`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs} hour${hrs !== 1 ? "s" : ""} ago`;
-  const days = Math.floor(hrs / 24);
-  if (days < 30) return `${days} day${days !== 1 ? "s" : ""} ago`;
-  const months = Math.floor(days / 30);
-  if (months < 12) return `${months} month${months !== 1 ? "s" : ""} ago`;
-  return `${Math.floor(months / 12)} year${Math.floor(months / 12) !== 1 ? "s" : ""} ago`;
-}
-
-function joinedAgo(dateStr: string): string {
-  const diff = Date.now() - new Date(dateStr).getTime();
-  const days = Math.floor(diff / 86400000);
-  if (days < 30) return `Joined ${days} day${days !== 1 ? "s" : ""} ago`;
-  const months = Math.floor(days / 30);
-  if (months < 12) return `Joined ${months} month${months !== 1 ? "s" : ""} ago`;
-  const years = Math.floor(months / 12);
-  return `Joined ${years} year${years !== 1 ? "s" : ""} ago`;
-}
 
 function getAvatarColor(name: string): string {
   const colors = ["#6155F5", "#14A28A", "#E05A5A", "#F5A623", "#5A8AF5", "#A355F5"];
@@ -151,23 +129,13 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, wide }) => (
   </div>
 );
 
-const defaultProgression: ProgressionData = {
-  activityScore: 0,
-  currentLevel: "Beginner",
-  currentRangeStart: 0,
-  currentRangeEnd: 30,
-  nextLevelThreshold: 30,
-  progressPercent: 0,
-  progressCurrent: 0,
-  progressTarget: 30,
-  nextLevel: "Amateur",
-};
 
 interface OwnProfilePageProps {
   userId?: string | null;
 }
 
 const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [isPrivateProfile, setIsPrivateProfile] = useState(false);
@@ -178,9 +146,47 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
     referralCount: 0,
   });
   const [recentOffers, setRecentOffers] = useState<RecentOffer[]>([]);
+  const defaultProgression: ProgressionData = {
+  activityScore: 0,
+  currentLevel: t("profile.beginner"),
+  currentRangeStart: 0,
+  currentRangeEnd: 30,
+  nextLevelThreshold: 30,
+  progressPercent: 0,
+  progressCurrent: 0,
+  progressTarget: 30,
+  nextLevel: t("profile.amateur"),
+};
+
   const [progression, setProgression] = useState<ProgressionData>(defaultProgression);
   const [badges, setBadges] = useState<BadgeView[]>([]);
   const [activeTab, setActiveTab] = useState<"all" | "badges">("all");
+
+  function timeAgo(dateStr: string): string {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return t("profile.justNow");
+  if (mins < 60) return `${mins} ${t("profile.ago")}`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs} hour${hrs !== 1 ? "s" : ""} ${t("profile.ago")}`;
+  const days = Math.floor(hrs / 24);
+  if (days < 30) return `${days} day${days !== 1 ? "s" : ""} ${t("profile.ago")}`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} month${months !== 1 ? "s" : ""} ${t("profile.ago")}`;
+  return `${Math.floor(months / 12)} year${Math.floor(months / 12) !== 1 ? "s" : ""} ${t("profile.ago")}`;
+}
+
+function joinedAgo(dateStr: string): string {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const days = Math.floor(diff / 86400000);
+  if (days < 30) return `${t("profile.joined")} ${days} ${t("profile.day")}${days !== 1 ? "s" : ""} ${t("profile.ago")}`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${t("profile.joined")} ${months} ${t("profile.month")}${months !== 1 ? "s" : ""} ${t("profile.ago")}`;
+  const years = Math.floor(months / 12);
+  return `${t("profile.joined")} ${years} ${t("profile.year")}${years !== 1 ? "s" : ""} ${t("profile.ago")}`;
+}
+
+
 
   const getToken = () => typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
@@ -329,14 +335,14 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
 
   useEffect(() => { fetchProfile(); }, [fetchProfile]);
 
-  const displayName = profile?.displayName || profile?.username || "User";
+  const displayName = profile?.displayName || profile?.username || t("profile.user");
   const initial = getInitial(displayName);
   const avatarColor = getAvatarColor(displayName);
   const joinedText = profile?.createdAt ? joinedAgo(profile.createdAt) : "—";
   const flag = profile?.countryCode ? countryFlagEmoji(profile.countryCode) : "";
 
   const progressPct = Math.min(100, Math.max(0, progression.progressPercent || 0));
-  const nextLevelName = progression.nextLevel || "MAX";
+  const nextLevelName = progression.nextLevel || t("profile.max");
 
   return (
     <div className="min-h-screen bg-[#0D0F1E] flex flex-col" style={{ background: "#0D0F1E" }}>
@@ -423,7 +429,7 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
                       style={{ padding: "8px 20px", background: activeTab === tab ? "#14A28A" : "#151728", minWidth: 95 }}
                     >
                       <span className="font-semibold text-[14px] text-white tracking-[0.02em]" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
-                        {tab === "all" ? "All" : "Badges"}
+                        {tab === "all" ? t("profile.all") : t("profile.badges")}
                       </span>
                     </button>
                   ))}
@@ -437,12 +443,12 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
                     <div className="flex items-center gap-2">
                       <ChartIcon />
                       <span className="font-bold text-[16px] text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
-                        Statistics
+                        {t("profile.statistics")}
                       </span>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                      <StatCard icon={<CheckIcon />} value={stats.offersCompleted.toLocaleString()} label="Offers completed" />
-                      <StatCard wide icon={<WalletIcon />} value={`$${(stats.totalEarningsCents / 100).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`} label="Total Earnings" />
+                      <StatCard icon={<CheckIcon />} value={stats.offersCompleted.toLocaleString()} label={t("profile.offersCompleted")} />
+                      <StatCard wide icon={<WalletIcon />} value={`$${(stats.totalEarningsCents / 100).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`} label={t("profile.totalEarnings")} />
                       <StatCard icon={<UsersIcon />} value={stats.referralCount.toLocaleString()} label="Users Referred" />
                       <StatCard wide icon={<WalletIcon />} value={`$${(stats.last30DaysCents / 100).toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`} label="Last 30D Earnings" />
                     </div>
@@ -453,12 +459,12 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
                     <div className="flex items-center gap-2">
                       <OfferIcon />
                       <span className="font-bold text-[16px] text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
-                        Offers
+                        {t("profile.offers")}
                       </span>
                     </div>
                     <div className="flex flex-col w-full">
                       <div className="flex items-center px-2 gap-4" style={{ height: 37, borderBottom: "1px solid #1E2133" }}>
-                        {["Name", "Reward", "Time"].map((col, i) => (
+                        {[t("others.name"), t("profile.reward"), t("profile.time")].map((col, i) => (
                           <span
                             key={col}
                             className="font-medium text-[14px] text-[#8C8FA8] tracking-[-0.03em]"
@@ -469,7 +475,7 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
                         ))}
                       </div>
                       {recentOffers.length === 0 ? (
-                        <div className="py-8 text-center text-[#8C8FA8] text-sm">No offers to display</div>
+                        <div className="py-8 text-center text-[#8C8FA8] text-sm">{t("profile.noOffers")}</div>
                       ) : (
                         recentOffers.map((offer, idx) => (
                           <div
@@ -541,13 +547,13 @@ const OwnProfilePage: React.FC<OwnProfilePageProps> = ({ userId = null }) => {
 
         {!loading && isPrivateProfile && (
           <div className="flex flex-1 items-center justify-center py-20">
-            <p className="text-[#8C8FA8]">This user profile is private.</p>
+            <p className="text-[#8C8FA8]">{t("profile.privateProfile")}</p>
           </div>
         )}
 
         {!loading && !isPrivateProfile && !profile && (
           <div className="flex flex-1 items-center justify-center py-20">
-            <p className="text-[#8C8FA8]">{userId ? "Could not load user profile." : "Could not load profile. Please sign in."}</p>
+            <p className="text-[#8C8FA8]">{userId ? t("profile.couldNotLoadUser") : t("profile.couldNotLoadProfile")}</p>
           </div>
         )}
     </div>

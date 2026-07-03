@@ -3,68 +3,73 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, HelpCircle, Book, FileText, ChevronRight, Zap, Shield } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const categories = [
+
+
+export default function HelpCenterPage() {
+    const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
+    const { t } = useTranslation();
+
+    const categories = [
     {
         icon: <Book className="w-6 h-6" />,
-        title: "Getting Started",
-        description: "Learn the basics of using LabWards",
+        title:  t("help_center_page.categories.getting_started.title"),
+        description: t("help_center_page.categories.getting_started.description"),
         articles: 12,
         color: "blue",
         items: [
-            "How to create your account",
-            "Setting up your profile",
-            "Completing your first task",
-            "Understanding the reward system",
-            "Payment methods overview",
+             t("help_center_page.categories.getting_started.item1"),
+            t("help_center_page.categories.getting_started.item2"),
+            t("help_center_page.categories.getting_started.item3"),
+            t("help_center_page.categories.getting_started.item4"),
+            t("help_center_page.categories.getting_started.item5"),
         ],
     },
     {
         icon: <Zap className="w-6 h-6" />,
-        title: "Earning & Tasks",
-        description: "Everything about earning money",
+        title:  t("help_center_page.categories.earning_tasks.title"),
+        description: t("help_center_page.categories.earning_tasks.description"),
         articles: 18,
         color: "emerald",
         items: [
-            "Types of tasks available",
-            "How to maximize earnings",
-            "Task completion tips",
-            "Why tasks may not credit",
-            "Reporting missing credits",
+            t("help_center_page.categories.earning_tasks.item1"),
+            t("help_center_page.categories.earning_tasks.item2"),
+            t("help_center_page.categories.earning_tasks.item3"),
+            t("help_center_page.categories.earning_tasks.item4"),
+            t("help_center_page.categories.earning_tasks.item5"),
         ],
     },
     {
         icon: <FileText className="w-6 h-6" />,
-        title: "Payments & Withdrawals",
-        description: "Manage your earnings and cash out",
+        title: t("help_center_page.categories.payments.title"),
+        description: t("help_center_page.categories.payments.description"),
         articles: 15,
         color: "purple",
         items: [
-            "Minimum withdrawal amounts",
-            "Withdrawal processing times",
-            "Supported payment methods",
-            "Verifying your identity",
-            "Tax information",
+            t("help_center_page.categories.payments.item1"),
+            t("help_center_page.categories.payments.item2"),
+            t("help_center_page.categories.payments.item3"),
+            t("help_center_page.categories.payments.item4"),
+            t("help_center_page.categories.payments.item5"),
         ],
     },
     {
         icon: <Shield className="w-6 h-6" />,
-        title: "Account & Security",
-        description: "Keep your account safe",
+        title:  t("help_center_page.categories.security.title"),
+        description: t("help_center_page.categories.security.description"),
         articles: 10,
         color: "orange",
         items: [
-            "Changing your password",
-            "Two-factor authentication",
-            "Account verification",
-            "Recovering your account",
-            "Privacy settings",
+            t("help_center_page.categories.security.item1"),
+            t("help_center_page.categories.security.item2"),
+            t("help_center_page.categories.security.item3"),
+            t("help_center_page.categories.security.item4"),
+            t("help_center_page.categories.security.item5"),
         ],
     },
 ];
 
-export default function HelpCenterPage() {
-    const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-[#0A0C1A] via-[#0D0F1E] to-[#0A0C1A] text-white">
@@ -77,11 +82,11 @@ export default function HelpCenterPage() {
                         </Link>
                         <div className="flex items-center gap-2">
                             <HelpCircle className="w-6 h-6 text-blue-400" />
-                            <h1 className="text-xl font-bold">Help Center</h1>
+                            <h1 className="text-xl font-bold">{t("help_center_page.header.title")}</h1>
                         </div>
                     </div>
                     <Link href="/contact" className="px-4 py-2 bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg font-semibold text-sm hover:bg-[#252840] transition-all">
-                        Contact Us
+                        {t("help_center_page.header.contact")}
                     </Link>
                 </div>
             </div>
@@ -95,10 +100,10 @@ export default function HelpCenterPage() {
 
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                        How can we help you?
+                        {t("help_center_page.hero.title")}
                     </h2>
                     <p className="text-lg text-[#9CA3AF]">
-                        Browse categories below to find the help you need
+                        {t("help_center_page.hero.description")}
                     </p>
                 </div>
             </section>
@@ -109,19 +114,19 @@ export default function HelpCenterPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="text-center p-4 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E]">
                             <div className="text-2xl font-bold text-white mb-1">55+</div>
-                            <div className="text-sm text-[#9CA3AF]">Help Articles</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("help_center_page.stats.articles")}</div>
                         </div>
                         <div className="text-center p-4 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E]">
                             <div className="text-2xl font-bold text-white mb-1">24/7</div>
-                            <div className="text-sm text-[#9CA3AF]">Support</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("help_center_page.stats.support")}</div>
                         </div>
                         <div className="text-center p-4 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E]">
                             <div className="text-2xl font-bold text-white mb-1">&lt;1hr</div>
-                            <div className="text-sm text-[#9CA3AF]">Avg. Response</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("help_center_page.stats.response")}</div>
                         </div>
                         <div className="text-center p-4 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E]">
                             <div className="text-2xl font-bold text-white mb-1">98%</div>
-                            <div className="text-sm text-[#9CA3AF]">Satisfaction</div>
+                            <div className="text-sm text-[#9CA3AF]">{t("help_center_page.stats.satisfaction")}</div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +135,7 @@ export default function HelpCenterPage() {
             {/* Categories */}
             <section className="py-16 px-4">
                 <div className="max-w-7xl mx-auto">
-                    <h3 className="text-2xl font-bold mb-8">Browse by Category</h3>
+                    <h3 className="text-2xl font-bold mb-8">{t("help_center_page.categories_section_title")}</h3>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {categories.map((category, idx) => (
@@ -152,7 +157,7 @@ export default function HelpCenterPage() {
                                                 <ChevronRight className={`w-5 h-5 transition-transform ${expandedCategory === idx ? 'rotate-90' : ''}`} />
                                             </div>
                                             <p className="text-sm text-[#9CA3AF] mt-1">{category.description}</p>
-                                            <span className="text-xs text-blue-400 mt-2 block">{category.articles} articles</span>
+                                            <span className="text-xs text-blue-400 mt-2 block">{category.articles} { t("help_center_page.categories.getting_started.articles_label")}</span>
                                         </div>
                                     </div>
                                 </div>

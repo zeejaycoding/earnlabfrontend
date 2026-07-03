@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, Play } from "lucide-react";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
+import { useTranslation } from "react-i18next";
+
 
 const REWARDS = [
   { id: 1, amount: "$0.50", color: "text-[#14A990]" },
@@ -18,6 +20,7 @@ const REWARDS = [
 export default function StreakPage() {
   const router = useRouter();
   const [timeLeft, setTimeLeft] = useState("24h 45m 23s");
+   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-[#0D0F1E] text-white flex flex-col">
@@ -32,13 +35,13 @@ export default function StreakPage() {
           >
             <ArrowLeft size={20} />
           </button>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">7 days Streak</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight"> {t("streak.title")}</h1>
         </div>
 
         <div className="flex flex-col items-center">
           {/* Timer Badge */}
           <div className="bg-[#151828] border border-[#1E2F3F] rounded-lg px-4 py-2 text-sm mb-8">
-            <span className="text-[#8C9DB6]">Streak resets in </span>
+            <span className="text-[#8C9DB6]"> {t("streak.reset_in")}{" "} </span>
             <span className="text-[#0AC07D] font-bold">{timeLeft}</span>
           </div>
 
@@ -87,7 +90,7 @@ export default function StreakPage() {
           </div>
 
           <p className="text-[#8C9DB6] text-center font-bold text-sm sm:text-base mb-8">
-            Complete at least one task daily to maintain your streak and receive <span className="text-[#0AC07D]">Free Cases</span>
+             {t("streak.description")} <span className="text-[#0AC07D]"> {t("streak.description_sec")}</span>
           </p>
 
           <button
@@ -97,7 +100,7 @@ export default function StreakPage() {
               background: "linear-gradient(135deg, #0AC07D 0%, #14A290 100%)",
             }}
           >
-            Go to Tasks
+             {t("streak.go_to_tasks")}
           </button>
         </div>
       </main>

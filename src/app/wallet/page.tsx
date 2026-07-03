@@ -9,6 +9,7 @@ import DolarImg from "../../../public/assets/dolar.png";
 import GiftbitPayoutModal from "@/Components/Shared/GiftbitPayoutModal";
 import TransactionHistoryModal from "@/Components/Shared/TransactionHistoryModal";
 import GiftCardRedemptionModal from "@/Components/Shared/GiftCardRedemptionModal";
+import { useTranslation } from "react-i18next";
 
 interface Transaction {
   _id: string;
@@ -41,6 +42,7 @@ export default function WalletPage() {
   const [thisMonthEarnings, setThisMonthEarnings] = useState(0);
   const [totalEarned, setTotalEarned] = useState(0);
   const [pendingWithdrawal, setPendingWithdrawal] = useState(0);
+const { t } = useTranslation();
 
   useEffect(() => {
     const fetchWalletData = async () => {
@@ -83,13 +85,13 @@ export default function WalletPage() {
         if (withdrawalData.history && Array.isArray(withdrawalData.history)) {
           // Filter only Pending and Rejected withdrawals
           const filteredWithdrawals = withdrawalData.history.filter((w: any) => 
-            w.status === 'Pending' || w.status === 'Rejected'
+            w.status === t("wallet.withdrawals.pending") || w.status === t("wallet.withdrawals.rejected")
           );
           setWithdrawalRequests(filteredWithdrawals);
           
           // Calculate pending withdrawal amount
           const pendingAmount = withdrawalData.history
-            .filter((w: any) => w.status === 'Pending')
+            .filter((w: any) => w.status === t("wallet.withdrawals.pending"))
             .reduce((sum: number, w: any) => sum + (w.amountCents || 0), 0);
           setPendingWithdrawal(pendingAmount / 100);
         }
@@ -128,7 +130,7 @@ export default function WalletPage() {
 
             allTransactions.push({
               _id: tx._id || tx.id || `giftbit-${Date.now()}-${Math.random()}`,
-              type: 'Gift Card Payout',
+              type: t("wallet.transactions.giftCardPayout"),
               amount: calculatedAmount,
               description: `${tx.brandName || 'Gift Card'}`,
               createdAt: tx.createdAt,
@@ -184,8 +186,8 @@ export default function WalletPage() {
               <ArrowLeft className="w-5 h-5 text-white" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold text-white">My Wallet</h1>
-              <p className="text-sm text-[#9CA3AF]">Manage your earnings and withdrawals</p>
+              <h1 className="text-3xl font-bold text-white"> {t("wallet.title")}</h1>
+              <p className="text-sm text-[#9CA3AF]"> {t("wallet.subtitle")}</p>
             </div>
           </div>
 
@@ -197,7 +199,7 @@ export default function WalletPage() {
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-2">
                 <WalletIcon className="w-5 h-5 text-emerald-400" />
-                <p className="text-sm text-[#9CA3AF] font-medium">Available Balance</p>
+                <p className="text-sm text-[#9CA3AF] font-medium">{t("wallet.balance.label")}</p>
               </div>
               
               <div className="flex items-center gap-3 mb-6">
@@ -213,14 +215,14 @@ export default function WalletPage() {
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-colors"
                 >
                   <Gift className="w-4 h-4" />
-                  Redeem Gift Card
+                  {t("wallet.balance.redeemGiftCard")}
                 </button>
                 <button 
                   onClick={() => setHistoryModalOpen(true)}
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#252840] hover:bg-[#2A2D3E] border border-[#2A2D3E] text-white font-semibold transition-colors"
                 >
                   <ArrowDownLeft className="w-4 h-4" />
-                  History
+                  {t("wallet.balance.history")}
                 </button>
               </div>
             </div>
@@ -229,19 +231,19 @@ export default function WalletPage() {
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="rounded-xl bg-[#1A1D2E] border border-[#2A2D3E] p-4">
-              <p className="text-xs text-[#9CA3AF] mb-1">Pending Withdrawal</p>
+              <p className="text-xs text-[#9CA3AF] mb-1">{t("wallet.stats.pendingWithdrawal")}</p>
               <p className="text-xl font-bold text-yellow-400">
                 {loading ? "--" : `$${pendingWithdrawal.toFixed(2)}`}
               </p>
             </div>
             <div className="rounded-xl bg-[#1A1D2E] border border-[#2A2D3E] p-4">
-              <p className="text-xs text-[#9CA3AF] mb-1">This Month</p>
+              <p className="text-xs text-[#9CA3AF] mb-1">{t("wallet.stats.thisMonth")}</p>
               <p className="text-xl font-bold text-emerald-400">
                 {loading ? "--" : `$${thisMonthEarnings.toFixed(2)}`}
               </p>
             </div>
             <div className="rounded-xl bg-[#1A1D2E] border border-[#2A2D3E] p-4">
-              <p className="text-xs text-[#9CA3AF] mb-1">Total Earned</p>
+              <p className="text-xs text-[#9CA3AF] mb-1">{t("wallet.stats.totalEarned")}</p>
               <p className="text-xl font-bold text-blue-400">
                 {loading ? "--" : `$${totalEarned.toFixed(2)}`}
               </p>
@@ -251,7 +253,7 @@ export default function WalletPage() {
           {/* Withdrawal Requests */}
           {withdrawalRequests.length > 0 && (
             <div className="rounded-2xl bg-[#1A1D2E] border border-[#2A2D3E] p-6 mb-6">
-              <h3 className="text-lg font-bold text-white mb-4">Withdrawal Requests</h3>
+              <h3 className="text-lg font-bold text-white mb-4">{t("wallet.withdrawals.title")}</h3>
               
               <div className="space-y-3">
                 {withdrawalRequests.map((request) => (
@@ -261,9 +263,9 @@ export default function WalletPage() {
                   >
                     <div className="flex items-center gap-3">
                       <div className={`p-2 rounded-lg ${
-                        request.status === 'Pending' ? "bg-yellow-500/10" : "bg-red-500/10"
+                        request.status === t("wallet.withdrawals.pending") ? "bg-yellow-500/10" : "bg-red-500/10"
                       }`}>
-                        {request.status === 'Pending' ? (
+                        {request.status === t("wallet.withdrawals.pending") ? (
                           <Clock className="w-5 h-5 text-yellow-400" />
                         ) : (
                           <ArrowUpRight className="w-5 h-5 text-red-400" />
@@ -272,10 +274,10 @@ export default function WalletPage() {
                       <div>
                         <div className="flex items-center gap-2">
                           <p className="text-sm font-medium text-white">
-                            {request.method.charAt(0).toUpperCase() + request.method.slice(1)} Withdrawal
+                            {request.method.charAt(0).toUpperCase() + request.method.slice(1)} {t("wallet.withdrawals.withdrawal")}
                           </p>
                           <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                            request.status === 'Pending'
+                            request.status === t("wallet.withdrawals.pending")
                               ? 'bg-yellow-500/20 text-yellow-400'
                               : 'bg-red-500/20 text-red-400'
                           }`}>
@@ -287,7 +289,7 @@ export default function WalletPage() {
                         </p>
                         {request.rejectionReason && (
                           <p className="text-xs text-red-400 mt-1">
-                            Reason: {request.rejectionReason}
+                            {t("wallet.withdrawals.reason")}: {request.rejectionReason}
                           </p>
                         )}
                       </div>
@@ -309,14 +311,14 @@ export default function WalletPage() {
 
           {/* Transactions */}
           <div className="rounded-2xl bg-[#1A1D2E] border border-[#2A2D3E] p-6">
-            <h3 className="text-lg font-bold text-white mb-4">Recent Transactions</h3>
+            <h3 className="text-lg font-bold text-white mb-4">{t("wallet.transactions.title")}</h3>
             
             {loading && (
-              <p className="text-center text-[#9CA3AF] py-8">Loading transactions...</p>
+              <p className="text-center text-[#9CA3AF] py-8">{t("wallet.transactions.loading")}</p>
             )}
 
             {!loading && transactions.length === 0 && (
-              <p className="text-center text-[#9CA3AF] py-8">No transactions yet</p>
+              <p className="text-center text-[#9CA3AF] py-8">{t("wallet.transactions.empty")}</p>
             )}
 
             <div className="space-y-3">
@@ -339,7 +341,7 @@ export default function WalletPage() {
                       <div className="flex items-center gap-2">
                         <p className="text-sm font-medium text-white">{tx.description}</p>
                         <span className={`px-2 py-0.5 rounded-full text-xs ${
-                          tx.type === 'Task Completed'
+                          tx.type === t("wallet.transactions.taskCompleted")
                             ? 'bg-emerald-500/20 text-emerald-400'
                             : 'bg-blue-500/20 text-blue-400'
                         }`}>

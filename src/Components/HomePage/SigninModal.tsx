@@ -7,6 +7,7 @@ import FbImg from "../../../public/assets/fb.png";
 import WeldImg from "../../../public/assets/weld.png";
 import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "";
@@ -48,6 +49,7 @@ export default function SignInModal({
   const [googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [modalScale, setModalScale] = useState(1);
+  const { t } = useTranslation() as any;
 
   useEffect(() => {
     if (isOpen) {
@@ -155,11 +157,11 @@ export default function SignInModal({
         onClose();
         router.push("/home");
       } else {
-        setError(data.message || "Google sign-in failed");
+        setError(data.message || t("signin.google_failed"));
       }
     } catch (err: any) {
       console.error("[SignIn Modal] Google auth error:", err);
-      setError("Failed to connect to server");
+      setError(t("signin.server_error"));
     } finally {
       setOauthLoading(null);
     }
@@ -170,7 +172,7 @@ export default function SignInModal({
     console.debug("Facebook OAuth button clicked", { isLoaded, signInPresent: !!signIn });
 
     if (!isLoaded || !signIn) {
-      setError("Authentication system is loading. Please wait a moment and try again.");
+      setError(t("signin.auth_loading"));
       return;
     }
 
@@ -185,12 +187,12 @@ export default function SignInModal({
       });
     } catch (err: any) {
       console.error("Facebook OAuth redirect failed", err);
-      let errorMessage = "Sign-in failed. Please try again.";
+      let errorMessage = t("signin.signin_failed");
       if (err?.message) {
         if (err.message.includes("not enabled")) {
-          errorMessage = "Facebook sign-in is not enabled. Please contact support.";
+          errorMessage = t("signin.facebook_disabled");
         } else if (err.message.includes("popup")) {
-          errorMessage = "Pop-up was blocked. Please allow pop-ups and try again.";
+          errorMessage = t("signin.popup_blocked");
         } else {
           errorMessage = err.message;
         }
@@ -232,26 +234,26 @@ export default function SignInModal({
             </button>
 
             <div className="w-full max-w-[430px] mx-auto pt-3 md:pt-1 flex-1 flex flex-col">
-              <h2 className="text-white text-[46px] font-bold leading-[1] mb-6">Sign in</h2>
+              <h2 className="text-white text-[46px] font-bold leading-[1] mb-6"> {t("signin.title")}</h2>
 
               {error && <div className="text-red-400 text-sm mb-4">{error}</div>}
 
-              <label className="text-white text-[14px] font-medium mb-2">Email Address</label>
+              <label className="text-white text-[14px] font-medium mb-2">  {t("signin.email")}</label>
               <input
                 value={emailValue}
                 onChange={(e) => setEmailValue(e.target.value)}
                 type="email"
-                placeholder="Enter your email address"
+                placeholder={t("signin.email_placeholder")}
                 className="w-full h-[48px] px-4 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0] mb-4"
               />
 
-              <label className="text-white text-[14px] font-medium mb-2">Password</label>
+              <label className="text-white text-[14px] font-medium mb-2"> {t("signin.password")}</label>
               <div className="relative mb-4">
                 <input
                   value={passwordValue}
                   onChange={(e) => setPasswordValue(e.target.value)}
                   type={showPassword ? "text" : "password"}
-                  placeholder="Password"
+                  placeholder={t("signin.password_placeholder")}
                   className="w-full h-[48px] px-4 pr-11 rounded-[10px] bg-[#151828] border border-[#1E2238] text-white placeholder-[#5A5E79] outline-none focus:border-[#0BBFA0]"
                 />
                 <button
@@ -267,10 +269,12 @@ export default function SignInModal({
               <button
                 onClick={async () => {
                   if (!emailValue || !passwordValue) {
-                    setError("Please enter email and password");
+                    setError(t("signin.enter_credentials"));
                     return;
                   }
-                  setLoading(true);
+                  {loading
+  ? t("signin.signing_in")
+  : t("signin.signin")};
                   setError(null);
                   try {
                     const resp = await fetch(`${apiBase}/api/v1/auth/login`, {
@@ -283,7 +287,7 @@ export default function SignInModal({
                     });
                     const data = await resp.json();
                     if (!resp.ok) {
-                      setError(data?.message || "Login failed");
+                      setError(data?.message || t("signin.login_failed"));
                       setLoading(false);
                       return;
                     }
@@ -302,7 +306,7 @@ export default function SignInModal({
                     router.push("/home");
                   } catch (err: any) {
                     console.error("Login error", err);
-                    setError(err?.message || "Login failed. Please try again.");
+                    setError(err?.message || t("signin.login_failed"));
                   } finally {
                     setLoading(false);
                   }
@@ -311,12 +315,12 @@ export default function SignInModal({
                 style={{ background: "linear-gradient(135deg, #0BBFA0 0%, #079E85 100%)" }}
                 disabled={loading}
               >
-                {loading ? "Signing in..." : "Sign in"}
+                {loading ? t("signin.signing_in") : t("signin.signin")}
               </button>
 
               <div className="flex items-center gap-3 my-5">
                 <div className="h-px flex-1 bg-[#1E2238]" />
-                <span className="text-[#7D8099] text-[30px] leading-none">Or</span>
+                <span className="text-[#7D8099] text-[30px] leading-none">{t("signin.or")}</span>
                 <div className="h-px flex-1 bg-[#1E2238]" />
               </div>
 
@@ -326,7 +330,7 @@ export default function SignInModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#0BBFA055] hover:bg-[#1A1E32] transition-all"
                 >
                   <Image src={WeldImg} alt="Worldcoin" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">Sign in via Worldcoin</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium">  {t("signin.worldcoin")}</span>
                 </button>
 
                 <button
@@ -336,7 +340,10 @@ export default function SignInModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#4285F455] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
                 >
                   <Image src={GoogleImg} alt="Google" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "google" ? "Redirecting..." : "Sign in via Google"}</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium">  {oauthLoading === "google"
+    ? t("signin.redirecting")
+    : t("signin.google")}
+</span>
                 </button>
 
                 <button
@@ -346,12 +353,14 @@ export default function SignInModal({
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#1877F255] hover:bg-[#1A1E32] transition-all disabled:opacity-60"
                 >
                   <Image src={FbImg} alt="Facebook" width={18} height={18} />
-                  <span className="text-[#9093AC] text-[14px] font-medium">{oauthLoading === "facebook" ? "Redirecting..." : "Sign in via Facebook"}</span>
+                  <span className="text-[#9093AC] text-[14px] font-medium"> {oauthLoading === "facebook"
+    ? t("signin.redirecting")
+    : t("signin.facebook")}</span>
                 </button>
               </div>
 
               <div className="flex items-center justify-center gap-1 text-[16px] leading-6 text-[#6B6E8A] mt-6">
-                <span>Don’t have an account yet?</span>
+                <span>{t("signin.no_account")}</span>
                 <button
                   onClick={() => {
                     onClose();
@@ -359,7 +368,7 @@ export default function SignInModal({
                   }}
                   className="text-white font-semibold hover:text-[#0BBFA0] transition-colors"
                 >
-                  Sign up
+                  {t("signin.signup")}
                 </button>
               </div>
 
@@ -381,7 +390,7 @@ export default function SignInModal({
                   </svg>
                 </div>
                 <p className="text-[#B3B6C7] text-[13px] font-semibold">
-                  <span className="text-white">TrustScore 4.5</span> | 200 reviews
+                  <span className="text-white"> {t("signin.trust_score")}</span> | {t("signin.reviews")}
                 </p>
               </div>
             </div>

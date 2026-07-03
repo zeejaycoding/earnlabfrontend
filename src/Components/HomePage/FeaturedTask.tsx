@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Gamepad2, Layers } from "lucide-react";
 import NewGameCard from "../Shared/NewGameCard";
+import { useTranslation } from "react-i18next";
 
 type PremiumSurface = "home" | "earn";
 type PremiumPlatformFilter = "all" | "ios" | "android" | "desktop";
@@ -30,21 +31,23 @@ interface FeaturedTaskProps {
     viewAllLabel?: string;
     onViewAll?: () => void;
 }
+const { t } = useTranslation();
 
 const FeaturedTask: React.FC<FeaturedTaskProps> = ({
-    title = "Featured Premium Tasks",
-    subtitle = "Hand-picked offers with boosted rewards",
+    
+    title = t("featuredTask.title"),
+    subtitle = t("featuredTask.subtitle"),
     surface,
-    platformFilter = "all",
-    sortBy = "priority",
+    platformFilter = t("featuredTask.all"),
+    sortBy = t("featuredTask.priority"),
     limit = 10,
     showViewAll = true,
-    viewAllLabel = "View all",
+    viewAllLabel = t("featuredTask.viewAll"),
     onViewAll,
 }) => {
     const [premiumOffers, setPremiumOffers] = useState<PremiumOfferItem[]>([]);
     const [loading, setLoading] = useState(true);
-
+    
     const startPremiumOffer = async (offerId?: string) => {
         if (!offerId) {
             window.location.href = "/earn";
@@ -156,7 +159,7 @@ const FeaturedTask: React.FC<FeaturedTaskProps> = ({
                     ))
                 ) : sortedPremiumOffers.length === 0 ? (
                     <div className="col-span-full rounded-[10px] border border-[#30334A] bg-[#151728] p-4 text-center text-[#8C8FA8] text-sm">
-                        No premium offers available for the selected filters.
+                        {t("featuredTask.noOffers")}
                     </div>
                 ) : (
                     sortedPremiumOffers.map((offer) => (

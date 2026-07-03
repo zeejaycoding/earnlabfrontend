@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { useSocket } from "@/contexts/SocketProvider";
+import { useTranslation } from "react-i18next";
 
-const CATEGORIES = ["All", "Special", "Account", "Earnings", "Cashouts", "Competitions"] as const;
+  const CATEGORIES = ["all", "special", "account", "earnings", "cashouts", "competitions"] as const;
+
 type Category = (typeof CATEGORIES)[number];
 
 interface Notif {
@@ -16,13 +18,16 @@ interface Notif {
 }
 
 function mapCategory(type: string): Category {
-  const t = (type || "").toLowerCase();
-  if (t.includes("earn") || t.includes("task") || t.includes("reward") || t.includes("balance")) return "Earnings";
-  if (t.includes("cashout") || t.includes("withdraw") || t.includes("payout")) return "Cashouts";
-  if (t.includes("account") || t.includes("profile") || t.includes("login") || t.includes("signup")) return "Account";
-  if (t.includes("special") || t.includes("promo") || t.includes("bonus") || t.includes("code")) return "Special";
-  if (t.includes("tournament") || t.includes("competition") || t.includes("leaderboard") || t.includes("contest")) return "Competitions";
-  return "All";
+  const ti = (type || "").toLowerCase();
+  const { t } = useTranslation();
+
+
+  if (ti.includes("earn") || ti.includes("task") || ti.includes("reward") || ti.includes("balance")) return "earnings";
+  if (ti.includes("cashout") || ti.includes("withdraw") || ti.includes("payout")) return "cashouts";
+  if (ti.includes("account") || ti.includes("profile") || ti.includes("login") || ti.includes("signup")) return "account";
+  if (ti.includes("special") || ti.includes("promo") || ti.includes("bonus") || ti.includes("code")) return "special";
+  if (ti.includes("tournament") || ti.includes("competition") || ti.includes("leaderboard") || ti.includes("contest")) return "competitions";
+  return "all";
 }
 
 function BellIcon() {
@@ -48,8 +53,9 @@ interface Props {
 
 const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
   const { socket } = useSocket();
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [notifications, setNotifications] = useState<Notif[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -65,7 +71,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
             data.notifications.map((n: any, i: number) => ({
               id: n._id || String(i),
               category: mapCategory(n.type || ""),
-              title: n.title || n.type || "Notification",
+              title: n.title || n.type || t("notification"),
               message: n.body || n.text || "",
               time: new Date(n.createdAt || Date.now()).toLocaleTimeString([], {
                 hour: "2-digit",
@@ -86,7 +92,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
         {
           id: n._id || String(Date.now()),
           category: mapCategory(n.type || ""),
-          title: n.title || n.type || "Notification",
+          title: n.title || n.type || t("notification"),
           message: n.body || n.text || "",
           time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
           read: false,
@@ -106,7 +112,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
   }, [socket]);
 
   const filtered =
-    activeCategory === "All" ? notifications : notifications.filter((n) => n.category === activeCategory);
+    activeCategory === t("all") ? notifications : notifications.filter((n) => n.category === activeCategory);
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={onClose}>
@@ -130,7 +136,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
             className="font-bold text-[20px] text-white flex-1 tracking-[0.02em]"
             style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}
           >
-            Notifications
+            {t("notifications")}
           </span>
           <button
             onClick={onClose}
@@ -171,7 +177,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
                 className="text-[#8C8FA8] text-sm"
                 style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.03em" }}
               >
-                No new notifications
+                {t("no_new_notifications")}
               </p>
             </div>
           ) : (

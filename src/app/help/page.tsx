@@ -4,57 +4,59 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Book, Video, FileText, MessageCircle } from "lucide-react";
 import TopBar from "@/Components/Topbar";
+import { useTranslation } from "react-i18next";
 
 export default function HelpPage() {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const helpCategories = [
     {
-      title: "Getting Started",
+      title: t("help_page.categories.getting_started.title"),
       icon: <Book className="w-6 h-6" />,
       color: "text-blue-400",
       bgColor: "bg-blue-500/10",
       articles: [
-        "How to create an account",
-        "Completing your first task",
-        "Understanding rewards",
-        "Setting up payment methods",
+        t("help_page.categories.getting_started.article1"),
+        t("help_page.categories.getting_started.article2"),
+        t("help_page.categories.getting_started.article3"),
+        t("help_page.categories.getting_started.article4"),
       ],
     },
     {
-      title: "Video Tutorials",
+      title: t("help_page.categories.video_tutorials.title"),
       icon: <Video className="w-6 h-6" />,
       color: "text-purple-400",
       bgColor: "bg-purple-500/10",
       articles: [
-        "Platform walkthrough",
-        "Maximizing your earnings",
-        "Withdrawal process explained",
-        "Tips and tricks",
+        t("help_page.categories.video_tutorials.article1"),
+        t("help_page.categories.video_tutorials.article2"),
+        t("help_page.categories.video_tutorials.article3"),
+        t("help_page.categories.video_tutorials.article4"),
       ],
     },
     {
-      title: "Account & Billing",
+      title: t("help_page.categories.account_billing.title"),
       icon: <FileText className="w-6 h-6" />,
       color: "text-emerald-400",
       bgColor: "bg-emerald-500/10",
       articles: [
-        "Managing your account",
-        "Payment methods",
-        "Withdrawal limits",
-        "Account verification",
+        t("help_page.categories.account_billing.article1"),
+        t("help_page.categories.account_billing.article2"),
+        t("help_page.categories.account_billing.article3"),
+        t("help_page.categories.account_billing.article4"),
       ],
     },
     {
-      title: "Contact Support",
+      title: t("help_page.categories.contact_support.title"),
       icon: <MessageCircle className="w-6 h-6" />,
       color: "text-orange-400",
       bgColor: "bg-orange-500/10",
       articles: [
-        "Live chat support",
-        "Email support",
-        "Report an issue",
-        "Feature requests",
+        t("help_page.categories.contact_support.article1"),
+        t("help_page.categories.contact_support.article2"),
+        t("help_page.categories.contact_support.article3"),
+        t("help_page.categories.contact_support.article4"),
       ],
     },
   ];
@@ -73,8 +75,12 @@ export default function HelpPage() {
               <ArrowLeft className="w-5 h-5 text-white" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold text-white">Help Center</h1>
-              <p className="text-sm text-[#9CA3AF]">Find answers and get support</p>
+              <h1 className="text-3xl font-bold text-white">
+                {t("help_page.header.title")}
+              </h1>
+              <p className="text-sm text-[#9CA3AF]">
+                {t("help_page.header.subtitle")}
+              </p>
             </div>
           </div>
 
@@ -82,7 +88,7 @@ export default function HelpPage() {
           <div className="mb-8">
             <input
               type="text"
-              placeholder="Search for help..."
+              placeholder={t("help_page.search.placeholder")}
               className="w-full px-6 py-4 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E] text-white placeholder-[#9CA3AF] focus:outline-none focus:border-emerald-500/50"
             />
           </div>
@@ -90,12 +96,17 @@ export default function HelpPage() {
           {/* Help Categories */}
           <div className="grid md:grid-cols-2 gap-6">
             {helpCategories.map((category, index) => (
-              <div key={index} className="rounded-2xl bg-[#1A1D2E] border border-[#2A2D3E] p-6">
+              <div
+                key={index}
+                className="rounded-2xl bg-[#1A1D2E] border border-[#2A2D3E] p-6"
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`p-3 rounded-lg ${category.bgColor}`}>
                     <div className={category.color}>{category.icon}</div>
                   </div>
-                  <h2 className="text-xl font-bold text-white">{category.title}</h2>
+                  <h2 className="text-xl font-bold text-white">
+                    {category.title}
+                  </h2>
                 </div>
 
                 <div className="space-y-2">
@@ -119,14 +130,18 @@ export default function HelpPage() {
               className="flex items-center justify-center gap-3 p-6 rounded-xl bg-emerald-500 hover:bg-emerald-600 transition-colors"
             >
               <MessageCircle className="w-6 h-6 text-white" />
-              <span className="text-white font-semibold">Start Live Chat</span>
+              <span className="text-white font-semibold">
+                {t("help_page.actions.live_chat")}
+              </span>
             </button>
             <button
               onClick={() => router.push("/support")}
               className="flex items-center justify-center gap-3 p-6 rounded-xl bg-[#1A1D2E] border border-[#2A2D3E] hover:bg-[#252840] transition-colors"
             >
               <FileText className="w-6 h-6 text-emerald-400" />
-              <span className="text-white font-semibold">Browse All Articles</span>
+              <span className="text-white font-semibold">
+                {t("help_page.actions.browse_articles")}
+              </span>
             </button>
           </div>
         </div>

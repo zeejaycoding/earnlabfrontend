@@ -5,30 +5,9 @@ import { useRouter } from 'next/navigation';
 import SignInModal from '@/Components/HomePage/SigninModal';
 import SignUpModal from '@/Components/HomePage/SignupModal';
 import ForgotPasswordModal from '@/Components/HomePage/ForgotPasswordModal';
+import { useTranslation } from "react-i18next";
 
-/* ───────────── FAQ Accordion ───────────── */
-const faqData = [
-  {
-    q: 'How can i start earning on LabWard?',
-    a: "Creating an account on LabWard is quick and easy. You can sign up using your email, Google, Facebook, or Steam. Once logged in, you'll have access to the Earn section to complete offers and the Games section to play Boxes and Battles. Just sign in and start exploring.",
-  },
-  {
-    q: 'How many payout methods are available?',
-    a: 'LabWard supports over 15 payout methods including PayPal, Bitcoin, Ethereum, Solana, VISA gift cards, Steam wallet codes, Google Play credits, Amazon gift cards, and more. We are constantly adding new payout options based on user feedback.',
-  },
-  {
-    q: 'How do I withdraw from LabWard?',
-    a: 'Navigate to the Rewards section in your dashboard, select your preferred payout method, enter the withdrawal amount (minimum $0.50), and confirm the transaction. Your earnings will be sent within the processing time for that method.',
-  },
-  {
-    q: 'How long does the withdrawal take?',
-    a: 'Most withdrawals are processed within 24 hours. Crypto payments (BTC, ETH, SOL) usually arrive within minutes. PayPal transfers take 1-2 business days. Gift card codes are typically delivered instantly via email after approval.',
-  },
-  {
-    q: 'Is LabWard available worldwide?',
-    a: 'Yes! LabWard is available in over 180 countries. However, some specific offers and surveys may be region-locked depending on advertiser requirements. The more populated regions tend to have more available tasks.',
-  },
-];
+
 
 const FAQItem = ({
   q,
@@ -439,90 +418,6 @@ const resolveLandingApiBaseUrl = (): string => {
 };
 
 
-
-const REWARD_LOGOS = [
-  { id: 'visa', name: 'Visa', src: '/assets/visa.png' },
-  {
-    id: 'bitcoin',
-    name: 'Bitcoin',
-    src: '/assets/bit.png',
-  },
-  { id: 'apple', name: 'Apple', src: '/assets/apple.png' },
-  {
-    id: 'paypal',
-    name: 'PayPal',
-    src: '/assets/paypal.png',
-  },
-  {
-    id: 'worldcoin',
-    name: 'Worldcoin',
-    src: '/assets/worldcoin.png',
-  },
-  {
-    id: 'amazon',
-    name: 'Amazon',
-    src: '/assets/amazon.png',
-  },
-  { id: 'solana', name: 'Solana', src: '/assets/sol.png' },
-  {
-    id: 'playstation',
-    name: 'PlayStation',
-    src: '/assets/play.png',
-  },
-  {
-    id: 'spotify',
-    name: 'Spotify',
-    src: '/assets/spot.png',
-  },
-  {
-    id: 'polygon',
-    name: 'Polygon',
-    src: '/assets/pol.png',
-  },
-];
-
-/* ─── Static testimonials ─── */
-const TESTIMONIALS = [
-  {
-    name: 'Leslie Alexander',
-    country: 'United Kingdom',
-    flag: '🇬🇧',
-    avatarUrl: '/leslie.png',
-    text: "I was skeptical at first, but after completing just a few surveys I was able to cash out directly to my PayPal. Fast, simple, and legit — I'm hooked!",
-    rating: 5,
-  },
-  {
-    name: 'Bessie Cooper',
-    country: 'United States',
-    flag: '🇺🇸',
-    avatarUrl: '/bessie.jpg',
-    text: "I honestly didn't expect much at first, but LabWards surprised me. The tasks are simple, payouts are fast, and everything works exactly as promised.",
-    rating: 4.5,
-  },
-  {
-    name: 'Brooklyn Simmons',
-    country: 'France',
-    flag: '🇫🇷',
-    avatarUrl: '/brooklyn.png',
-    text: "What I like most about LabWards is how straightforward it is. No confusing steps, no hidden tricks. I complete surveys or offers in my free time and the earnings add up quickly!",
-    rating: 4,
-  },
-  {
-    name: 'Cameron Williamson',
-    country: 'Germany',
-    flag: '🇩🇪',
-    text: "I've been using LabWards for three months and I'm consistently earning extra cash just from daily offers and surveys. Best platform I've found for making money online!",
-    rating: 5,
-  },
-  {
-    name: 'Robert Fox',
-    country: 'Canada',
-    flag: '🇨🇦',
-    text: "The payout speed is unmatched. I requested my first Bitcoin withdrawal and it arrived in under 10 minutes. Definitely recommend LabWards to anyone looking to earn online.",
-    rating: 4.5,
-  },
-];
-
 const STAR_PATH = 'M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z';
 const HALF_STAR_PATH = 'M12 2L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26Z';
 
@@ -564,80 +459,229 @@ const LANDINGPAGEComponent = () => {
   const [averageMoneyEarnedCents, setAverageMoneyEarnedCents] = useState<number | null>(null);
   const [tasksCompletedCount, setTasksCompletedCount] = useState<number | null>(null);
   const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    let active = true;
+    /* ─── Static testimonials ─── */
 
-    const applyLandingPayload = (payload: LandingViewModel) => {
-      if (!active) {
-        return;
-      }
+  const TESTIMONIALS = [
+  {
+    name: 'Leslie Alexander',
+    country: 'United Kingdom',
+    flag: '🇬🇧',
+    avatarUrl: '/leslie.png',
+    text: t("testimonials_cards.leslie_text"),
+    rating: 5,
+  },
+  {
+    name: 'Bessie Cooper',
+    country: 'United States',
+    flag: '🇺🇸',
+    avatarUrl: '/bessie.jpg',
+    text: t("testimonials_cards.bessie_text"),
+    rating: 4.5,
+  },
+  {
+    name: 'Brooklyn Simmons',
+    country: 'France',
+    flag: '🇫🇷',
+    avatarUrl: '/brooklyn.png',
+    text: t("testimonials_cards.brooklyn_text"),
+    rating: 4,
+  },
+  {
+    name: 'Cameron Williamson',
+    country: 'Germany',
+    flag: '🇩🇪',
+    text: t("testimonials_cards.cameron_text"),
+    rating: 5,
+  },
+  {
+    name: 'Robert Fox',
+    country: 'Canada',
+    flag: '🇨🇦',
+    text: t("testimonials_cards.robert_text"),
+    rating: 4.5,
+  },
+];
 
-      setTotalPayout24hCents(payload.stats.totalPayout24hCents);
-      setCompletedPayouts24hCount(payload.stats.completedPayouts24hCount);
-      setTotalRewardsEarnedCents(payload.stats.totalRewardsEarnedCents);
-      setAverageMoneyEarnedCents(payload.stats.averageMoneyEarnedCents);
-      setTasksCompletedCount(payload.stats.tasksCompletedCount);
-      setRecentActivities(payload.activities);
-    };
+const faqData = [
+  {
+    q: t("faq.questions.start_earning.q"),
+    a: t("faq.questions.start_earning.a"),
+  },
+  {
+    q: t("faq.questions.payout_methods.q"),
+    a: t("faq.questions.payout_methods.a"),
+  },
+  {
+    q: t("faq.questions.withdraw.q"),
+    a: t("faq.questions.withdraw.a"),
+  },
+  {
+    q: t("faq.questions.withdraw_time.q"),
+    a: t("faq.questions.withdraw_time.a"),
+  },
+  {
+    q: t("faq.questions.worldwide.q"),
+    a: t("faq.questions.worldwide.a"),
+  },
+];
 
-    const fetchPayoutSummary = async () => {
-      const primaryApi = resolveLandingApiBaseUrl();
-      const apiCandidates = [primaryApi, 'https://earnlabbackend.vercel.app'].filter(
-        (api, index, self) => self.indexOf(api) === index
+const REWARD_LOGOS = [
+  {
+    id: 'visa',
+    name: t('rewards.visa'),
+    src: '/assets/visa.png',
+  },
+  {
+    id: 'bitcoin',
+    name: t('rewards.bitcoin'),
+    src: '/assets/bit.png',
+  },
+  {
+    id: 'apple',
+    name: t('rewards.apple'),
+    src: '/assets/apple.png',
+  },
+  {
+    id: 'paypal',
+    name: t('rewards.paypal'),
+    src: '/assets/paypal.png',
+  },
+  {
+    id: 'worldcoin',
+    name: t('rewards.worldcoin'),
+    src: '/assets/worldcoin.png',
+  },
+  {
+    id: 'amazon',
+    name: t('rewards.amazon'),
+    src: '/assets/amazon.png',
+  },
+  {
+    id: 'solana',
+    name: t('rewards.solana'),
+    src: '/assets/sol.png',
+  },
+  {
+    id: 'playstation',
+    name: t('rewards.playstation'),
+    src: '/assets/play.png',
+  },
+  {
+    id: 'spotify',
+    name: t('rewards.spotify'),
+    src: '/assets/spot.png',
+  },
+  {
+    id: 'polygon',
+    name: t('rewards.polygon'),
+    src: '/assets/pol.png',
+  },
+];
+
+
+
+useEffect(() => {
+  let active = true;
+
+  const applyLandingPayload = (payload: LandingViewModel) => {
+    if (!active) return;
+
+    setTotalPayout24hCents(payload.stats.totalPayout24hCents);
+    setCompletedPayouts24hCount(
+      payload.stats.completedPayouts24hCount
+    );
+    setTotalRewardsEarnedCents(
+      payload.stats.totalRewardsEarnedCents
+    );
+    setAverageMoneyEarnedCents(
+      payload.stats.averageMoneyEarnedCents
+    );
+    setTasksCompletedCount(
+      payload.stats.tasksCompletedCount
+    );
+    setRecentActivities(payload.activities);
+  };
+
+  const fetchPayoutSummary = async () => {
+    const primaryApi = resolveLandingApiBaseUrl();
+
+    const apiCandidates = [
+      primaryApi,
+      'https://earnlabbackend.vercel.app',
+    ].filter(
+      (api, index, self) =>
+        self.indexOf(api) === index
+    );
+
+    const deadline =
+      Date.now() + LANDING_BACKEND_CHECK_TIMEOUT_MS;
+
+    let backendPayload: RecentActivityResponse | null =
+      null;
+
+    for (const api of apiCandidates) {
+      const remainingMs = deadline - Date.now();
+
+      if (remainingMs <= 0) break;
+
+      const controller = new AbortController();
+
+      const timeoutId = window.setTimeout(
+        () => controller.abort(),
+        remainingMs
       );
 
-      const deadline = Date.now() + LANDING_BACKEND_CHECK_TIMEOUT_MS;
-      let backendPayload: RecentActivityResponse | null = null;
-
-      for (const api of apiCandidates) {
-        const remainingMs = deadline - Date.now();
-
-        if (remainingMs <= 0) {
-          break;
-        }
-
-        const controller = new AbortController();
-        const timeoutId = window.setTimeout(() => controller.abort(), remainingMs);
-
-        try {
-          const response = await fetch(
-            `${api}/api/v1/offerwalls/recent-activity?limit=60`,
-            {
-              cache: 'no-store',
-              signal: controller.signal,
-            }
-          );
-
-          if (!response.ok) {
-            continue;
+      try {
+        const response = await fetch(
+          `${api}/api/v1/offerwalls/recent-activity?limit=60`,
+          {
+            cache: 'no-store',
+            signal: controller.signal,
           }
+        );
 
-          backendPayload = (await response.json()) as RecentActivityResponse;
-          break;
-        } catch {
-          continue;
-        } finally {
-          window.clearTimeout(timeoutId);
-        }
+        if (!response.ok) continue;
+
+        backendPayload =
+          (await response.json()) as RecentActivityResponse;
+
+        break;
+      } catch {
+        continue;
+      } finally {
+        window.clearTimeout(timeoutId);
       }
+    }
 
-      const normalizedBackendPayload = normalizeRecentActivityResponse(backendPayload);
-      applyLandingPayload(
-        hasUsableBackendContent(normalizedBackendPayload)
-          ? normalizedBackendPayload
-          : MOCK_LANDING_VIEW_MODEL
+    const normalizedBackendPayload =
+      normalizeRecentActivityResponse(
+        backendPayload
       );
-    };
 
-    fetchPayoutSummary();
-    const interval = window.setInterval(fetchPayoutSummary, 60_000);
+    applyLandingPayload(
+      hasUsableBackendContent(
+        normalizedBackendPayload
+      )
+        ? normalizedBackendPayload
+        : MOCK_LANDING_VIEW_MODEL
+    );
+  };
 
-    return () => {
-      active = false;
-      window.clearInterval(interval);
-    };
-  }, []);
+  fetchPayoutSummary();
+
+  const interval = window.setInterval(
+    fetchPayoutSummary,
+    60000
+  );
+
+  return () => {
+    active = false;
+    window.clearInterval(interval);
+  };
+}, []);
+
 
   const launchUserCount = 100;
 
@@ -741,10 +785,10 @@ const LANDINGPAGEComponent = () => {
         {/* Desktop buttons */}
         <div className="hidden sm:flex items-center gap-3">
           <button onClick={() => setShowSignIn(true)} className="px-6 py-3 rounded-full border border-[#3A3E57] bg-[#30334A] text-white font-bold text-sm">
-            Sign in
+             {t("navbar.signin")}
           </button>
           <button onClick={() => setShowSignUp(true)} className="px-6 py-3 rounded-full bg-gradient-to-r from-[#0AC07D] to-[#14A990] text-white font-bold text-sm shadow-[0_9px_24px_rgba(20,169,144,0.3)]">
-            Sign up
+             {t("navbar.signup")}
           </button>
         </div>
       </nav>
@@ -765,10 +809,10 @@ const LANDINGPAGEComponent = () => {
           
           <div className="flex flex-col gap-4">
             <button onClick={() => { setIsMobileMenuOpen(false); setShowSignIn(true); }} className="w-full py-4 text-center rounded-xl border border-[#3A3E57] bg-[#30334A] text-white font-bold text-lg">
-              Sign in
+              {t("navbar.signin")}
             </button>
             <button onClick={() => { setIsMobileMenuOpen(false); setShowSignUp(true); }} className="w-full py-4 text-center rounded-xl bg-gradient-to-r from-[#0AC07D] to-[#14A990] text-white font-bold text-lg shadow-[0_9px_24px_rgba(20,169,144,0.3)]">
-              Sign up
+              {t("navbar.signup")}
             </button>
           </div>
         </div>
@@ -819,15 +863,15 @@ const LANDINGPAGEComponent = () => {
         {/* Hero content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-4 sm:pt-16">
           <h1 className="text-3xl sm:text-5xl md:text-[60px] font-semibold leading-[1.05] tracking-tight max-w-[620px]">
-            <span className="text-[#0AC07D]">Get paid</span> for what you
-            already do online
+            <span className="text-[#0AC07D]">            {t("hero.title_highlight")}
+</span>           {t("hero.title_rest")}
+
           </h1>
           <p className="text-[#B3B6C7] text-sm sm:text-lg mt-3 sm:mt-4 max-w-[520px] leading-relaxed px-2">
-            Complete surveys, play games, and finish quick offers to earn real
-            money, crypto, and rewards.
+            {t("hero.subtitle")}
           </p>
           <button onClick={() => setShowSignUp(true)} className="mt-5 sm:mt-7 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-[#0AC07D] to-[#14A990] text-white font-bold shadow-[0_9px_24px_rgba(20,169,144,0.3)] text-sm sm:text-base hover:scale-105 hover:shadow-[0_12px_32px_rgba(20,169,144,0.5)] transition-all duration-300">
-            Start Earning Now
+            {t("hero.cta")}
           </button>
         </div>
       </section>
@@ -844,8 +888,8 @@ const LANDINGPAGEComponent = () => {
             />
           </div>
           <div className="mt-1 sm:mt-3">
-            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">Yappin Game</h3>
-            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">Reach level 8 to earn</p>
+            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">  {t("cards.left_title")}</h3>
+            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">  {t("cards.left_desc")}</p>
             <p className="text-[#0AC07D] font-bold text-[10px] sm:text-xl mt-0.5 sm:mt-1">$0.2</p>
           </div>
         </div>
@@ -861,9 +905,9 @@ const LANDINGPAGEComponent = () => {
 
           </div>
           <div className="mt-2 sm:mt-3">
-            <h3 className="text-white font-semibold text-sm sm:text-2xl">Octopus Mane</h3>
+            <h3 className="text-white font-semibold text-sm sm:text-2xl">  {t("cards.center_title")}</h3>
             <p className="text-[#6B6E8A] text-[11px] sm:text-base">
-              Reach level 2 to earn
+              {t("cards.center_desc")}
             </p>
             <p className="text-[#0AC07D] font-bold text-base sm:text-2xl mt-0.5 sm:mt-1">$0.8</p>
           </div>
@@ -880,8 +924,8 @@ const LANDINGPAGEComponent = () => {
             />
           </div>
           <div className="mt-1 sm:mt-3">
-            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">Quick Surveys</h3>
-            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">Answer 2 surveys</p>
+            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">  {t("cards.right_title")}</h3>
+            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">  {t("cards.right_desc")}</p>
             <p className="text-[#0AC07D] font-bold text-[10px] sm:text-xl mt-0.5 sm:mt-1">$0.4</p>
           </div>
         </div>
@@ -889,9 +933,10 @@ const LANDINGPAGEComponent = () => {
 
       {/* ═══════ LIVE PAYOUTS ═══════ */}
       <section className="max-w-[1312px] mx-auto px-4 pt-10 sm:pt-16 pb-0">
-        <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-4 sm:mb-6 animate-fadeInUp">
-          Live Payouts
-        </h2>
+          <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
+                      {t("live_payouts.title_highlight")}{' '}
+            <span className="text-[#18C2A3]">{t("live_payouts.title_rest")}</span>
+          </h2>
 
         <div className="bg-[#111324] rounded-2xl p-4 sm:p-8">
           <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
@@ -918,7 +963,8 @@ const LANDINGPAGEComponent = () => {
                 {totalPayout24hText}
               </h3>
               <p className="text-[#8C8FA8] text-xs text-center">
-                Total payouts made in the last 24 hours
+                          {t("live_payouts.total_label")}
+
               </p>
             </div>
 
@@ -926,7 +972,8 @@ const LANDINGPAGEComponent = () => {
             <div className="sm:hidden flex flex-col gap-3">
               {payoutActivities.length === 0 ? (
                 <div className="rounded-xl border border-[#26293E] bg-[#181A2C] px-4 py-5 text-center text-[#8C8FA8] text-sm">
-                  Live payout events will appear here as soon as they are recorded.
+                            {t("live_payouts.empty")}
+
                 </div>
               ) : (
                 payoutActivities.slice(0, 4).map((activity, index) => {
@@ -948,7 +995,7 @@ const LANDINGPAGEComponent = () => {
             <div className="hidden sm:flex flex-1 flex-col gap-4 overflow-hidden">
               {payoutActivities.length === 0 ? (
                 <div className="h-full rounded-xl border border-[#26293E] bg-[#181A2C] px-6 py-8 flex items-center justify-center text-[#8C8FA8] text-sm">
-                  No payout activity has been published yet.
+                  {t("live_payouts.empty_desktop")}
                 </div>
               ) : (
                 <>
@@ -1007,26 +1054,28 @@ const LANDINGPAGEComponent = () => {
 
       {/* ═══════ EARN BY COMPLETING TASKS ═══════ */}
       <section className="max-w-[1312px] mx-auto px-4 pt-0 pb-10 sm:pb-16">
-        <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-8 sm:mb-10 animate-fadeInUp">
-          Earn by Completing{' '}
-          <span className="text-[#18C2A3]">Simple Tasks</span>
-        </h2>
+       
+          <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
+                      {t("tasks.title_highlight")}{' '}
+            <span className="text-[#18C2A3]">{t("tasks.title_rest")}</span>
+          </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {[
             {
               img: '/surveys.png',
-              title: 'Answer Surveys',
-              desc: 'Share your opinion in short, verified surveys and earn cash instantly. Clear rewards, no guessing.',
+              title: t("tasks.surveys_title"),
+              desc: t("tasks.surveys_desc"),
             },
             {
               img: '/games.png',
-              title: 'Play Games',
-              desc: 'Play popular games, reach milestones, and get rewarded. The more you play, the more you earn.',
+              title: t("tasks.games_title"),
+              desc: t("tasks.games_desc"),
             },
             {
               img: '/offers.png',
-              title: 'Complete Offers',
-              desc: 'Sign up, test apps, or complete simple forms to earn easy rewards in just a few clicks.',
+              title: t("tasks.offers_title"),
+              desc: t("tasks.offers_desc"),
             },
           ].map((item, i) => (
             <div key={i} className="bg-[#111324] rounded-2xl overflow-hidden hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(24,194,163,0.12)] transition-all duration-300">
@@ -1054,37 +1103,41 @@ const LANDINGPAGEComponent = () => {
       <section className="py-14 sm:py-20 bg-[#E8EAF2] dark:bg-[#111324]">
         <div className="max-w-[1312px] mx-auto px-4">
           <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
-            What people are saying{' '}
-            <span className="text-[#18C2A3]">about us</span>
+            {t("testimonials.title_highlight")}{' '}
+            <span className="text-[#18C2A3]">{t("testimonials.title_rest")}</span>
           </h2>
 
           {/* Cards — 3 visible at once on desktop */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
             {[0, 1, 2].map((offset) => {
-              const t = TESTIMONIALS[(testimonialIdx + offset) % TESTIMONIALS.length];
+              const testimonial =
+  TESTIMONIALS[
+    (testimonialIdx + offset) % TESTIMONIALS.length
+  ];
               return (
                 <div
-                  key={`${t.name}-${offset}`}
+                  key={`${testimonial.name}-${offset}`}
+
                   className="rounded-2xl border border-[#EBEDF5] dark:border-[#252840] p-6 sm:p-7 flex flex-col gap-4 bg-white dark:bg-[#161828]"
                 >
                   {/* Avatar + name */}
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full shrink-0 ring-2 ring-white/10 overflow-hidden">
                       <img
-                        src={t.avatarUrl || "/default-avatar.png"}
-                        alt={t.name}
+src={testimonial.avatarUrl || "/default-avatar.png"}
+alt={testimonial.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div>
-                      <p className="text-[#1A1D2E] dark:text-white font-semibold text-[15px] leading-tight">{t.name}</p>
-                      <p className="text-[#4A4D6A] dark:text-[#8C8FA8] text-[13px] mt-0.5">{t.flag} {t.country}</p>
+                      <p className="text-[#1A1D2E] dark:text-white font-semibold text-[15px] leading-tight">{testimonial.name}</p>
+                      <p className="text-[#4A4D6A] dark:text-[#8C8FA8] text-[13px] mt-0.5">{testimonial.flag} {testimonial.country}</p>
                     </div>
                   </div>
                   {/* Review text */}
-                  <p className="text-[#4A4D6A] dark:text-[#B3B6C7] text-sm leading-6 flex-1">{t.text}</p>
+                  <p className="text-[#4A4D6A] dark:text-[#B3B6C7] text-sm leading-6 flex-1">{testimonial.text}</p>
                   {/* Stars */}
-                  <StarRating rating={t.rating} />
+                  <StarRating rating={testimonial.rating} />
                 </div>
               );
             })}
@@ -1130,8 +1183,8 @@ const LANDINGPAGEComponent = () => {
       <section className="py-12 sm:py-20">
         <div className="max-w-[1312px] mx-auto px-4">
           <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-8 sm:mb-12 animate-fadeInUp text-[#1A1D2E] dark:text-white">
-            You can be part of our{' '}
-            <span className="text-[#18C2A3]">earners</span>
+            {t("stats.title_highlight")}{' '}
+            <span className="text-[#18C2A3]">{t("stats.title_rest")}</span>
           </h2>
           <div className="bg-white dark:bg-[#111324] rounded-2xl px-4 sm:px-8 py-10 sm:py-16 border border-[#EBEDF5] dark:border-0">
             <div className="divide-y divide-[#EBEDF5] dark:divide-[#26293E] sm:divide-y-0 sm:grid sm:grid-cols-4 sm:gap-8">
@@ -1141,7 +1194,7 @@ const LANDINGPAGEComponent = () => {
                     <img width="28" height="28" src="/earned.png" alt="Total rewards earned" />
                   }
                   value={totalRewardsEarnedText}
-                  label="Total rewards earned"
+                  label={t("stats.total_rewards")}
                 />
               </div>
               <div className="py-6 sm:py-0">
@@ -1150,7 +1203,7 @@ const LANDINGPAGEComponent = () => {
                     <img width="28" height="28" src="/average.png" alt="Average money earned" />
                   }
                   value={averageMoneyEarnedText}
-                  label="Average money earned"
+                  label={t("stats.average")}
                 />
               </div>
               <div className="py-6 sm:py-0">
@@ -1159,7 +1212,7 @@ const LANDINGPAGEComponent = () => {
                     <img width="28" height="28" src="/users.png" alt="Total users" />
                   }
                   value={launchUserCountText}
-                  label="Total users"
+                  label={t("stats.users")}
                 />
               </div>
               <div className="py-6 last:pb-0 sm:py-0">
@@ -1168,7 +1221,7 @@ const LANDINGPAGEComponent = () => {
                     <img width="28" height="28" src="/tasks.png" alt="Tasks completed" />
                   }
                   value={tasksCompletedText}
-                  label="Tasks completed"
+                  label={t("stats.tasks")}
                 />
               </div>
             </div>
@@ -1211,7 +1264,7 @@ const LANDINGPAGEComponent = () => {
     {/* ═══════ FAQ ═══════ */}
     <section className="max-w-[1312px] mx-auto px-4 py-20">
       <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-12 text-[#1A1D2E] dark:text-white">
-        Frequently Asked Questions
+        {t("faq.title_highlight")}
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-10">
@@ -1265,9 +1318,12 @@ const LANDINGPAGEComponent = () => {
 
 {/* ═══════ REWARDS ═══════ */}
 <section className="relative z-10 max-w-[1312px] mx-auto px-4 pt-6 sm:pt-10 pb-16 sm:pb-20">
-  <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-10 sm:mb-12 text-[#1A1D2E] dark:text-white">
-    One Platform, <span className="text-[#18C2A3]">multiple Rewards</span>
-  </h2>
+ <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-10 sm:mb-12 text-[#1A1D2E] dark:text-white">
+  {t("rewards.title_first")}{" "}
+  <span className="text-[#18C2A3]">
+    {t("rewards.title_second")}
+  </span>
+</h2>
 
   {/* GRID */}
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
@@ -1311,15 +1367,13 @@ const LANDINGPAGEComponent = () => {
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 animate-fadeInUp">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
-              Start Earning Real Rewards Today
+              {t("cta.title_highlight")}
             </h2>
             <p className="text-[#B3B6C7] text-sm sm:text-base max-w-[520px] mb-5 sm:mb-8 leading-relaxed">
-              Join thousands completing simple tasks, playing games, and
-              answering surveys to earn real cash and rewards. It only takes a
-              few minutes to get started.
+               {t("cta.desc")}
             </p>
             <button onClick={() => setShowSignUp(true)} className="inline-block px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-[#0D0F1E] dark:bg-white text-white dark:text-[#0D0F1E] font-bold text-sm sm:text-base hover:bg-[#18C2A3] hover:text-white transition-colors duration-300 hover:shadow-[0_0_30px_rgba(24,194,163,0.4)]">
-              Get Started
+              {t("cta.button")}
             </button>
           </div>
         </div>

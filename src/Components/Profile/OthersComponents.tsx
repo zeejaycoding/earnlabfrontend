@@ -4,24 +4,26 @@ import { Loader2, Gift } from "lucide-react";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateProfileFields } from "@/store/userSlice";
+import { useTranslation } from "react-i18next";
 
 const OthersComponents = () => {
+    const { t } = useTranslation();
     const [selected, setSelected] = useState<string>("");
     const [bonusCode, setBonusCode] = useState("");
     const [isRedeeming, setIsRedeeming] = useState(false);
     const dispatch = useDispatch();
 
-    const options = ["1 Day", "3 Days", "7 Days", "14 Days", "30 Days"];
+    const options = [t("others.day1"), t("others.day3"), t("others.day7"), t("others.day14"), t("others.day30")];
 
     const handleRedeemBonus = async () => {
         if (!bonusCode.trim()) {
-            toast.error("Please enter a bonus code");
+            toast.error(t("others.pleaseEnterBonusCode"));
             return;
         }
 
         const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
         if (!token) {
-            toast.error("Please sign in to redeem bonus codes");
+            toast.error(t("others.pleaseSignIn"));
             return;
         }
 
@@ -40,7 +42,7 @@ const OthersComponents = () => {
             const data = await res.json();
 
             if (res.ok) {
-                toast.success(`🎁 ${data.message || "Bonus code redeemed successfully"}! +$${(data.rewardCents / 100).toFixed(2)}`);
+                toast.success(`🎁 ${data.message || t("others.bonusRedeemed")}! +$${(data.rewardCents / 100).toFixed(2)}`);
                 
                 // Update balance in Redux
                 if (typeof data.newBalanceCents === "number") {
@@ -57,11 +59,11 @@ const OthersComponents = () => {
                     }));
                 }
             } else {
-                toast.error(data.message || "Failed to redeem bonus code");
+                toast.error(data.message || t("others.failedRedeem"));
             }
         } catch (err) {
             console.error("Error redeeming bonus code:", err);
-            toast.error("Failed to redeem bonus code");
+            toast.error(t("others.failedRedeem"));
         } finally {
             setIsRedeeming(false);
         }
@@ -73,10 +75,10 @@ const OthersComponents = () => {
             <div className="md:w-[58%]">
                 <h2 className="text-white text-lg font-semibold mb-2 flex items-center gap-2">
                     <Gift size={20} className="text-teal-400" />
-                    Bonus Code
+                    {t("others.bonusCode")}
                 </h2>
                 <p className="text-[#8C8FA8] text-sm mb-4">
-                    Have a bonus code? Enter it here to redeem your reward and boost your balance!
+                    {t("others.bonusDescription")}
                 </p>
                 
                 <div className="flex flex-col gap-3">
@@ -84,7 +86,7 @@ const OthersComponents = () => {
                         type="text"
                         value={bonusCode}
                         onChange={(e) => setBonusCode(e.target.value.toUpperCase())}
-                        placeholder="Enter your bonus code"
+                        placeholder={t("others.enterBonusCode")}
                         className="px-4 py-3 text-sm bg-[#26293E] border border-gray-700 rounded-md outline-none text-white focus:border-teal-400 transition"
                         disabled={isRedeeming}
                     />
@@ -96,12 +98,12 @@ const OthersComponents = () => {
                         {isRedeeming ? (
                             <>
                                 <Loader2 className="animate-spin" size={16} />
-                                Redeeming...
+                                {t("others.redeeming")}
                             </>
                         ) : (
                             <>
                                 <Gift size={16} />
-                                Redeem Bonus Code
+                                {t("others.redeemBonusCode")}
                             </>
                         )}
                     </button>
@@ -110,11 +112,9 @@ const OthersComponents = () => {
 
             {/* Self-exclusion Section */}
             <div className="md:w-[58%]">
-                <h2 className="text-white text-lg font-semibold mb-2">Self-exclusion</h2>
+                <h2 className="text-white text-lg font-semibold mb-2">{t("others.selfExclusion")}</h2>
             <p className="text-[#8C8FA8] text-sm mb-6">
-                Our self-exclusion feature allows you to take a break from playing
-                games at any time. Choose a time-out period, and we will pause your access
-                to our games. You can still earn and use all other features
+                {t("others.selfExclusionDescription")}
             </p>
 
             {/* Options */}
@@ -138,7 +138,7 @@ const OthersComponents = () => {
                 disabled={!selected}
                 className={'w-full bg-[#9F0909] md:py-4 py-3 cursor-pointer rounded-md font-medium text-white transition'}
             >
-                Activate Self-exclusion
+                {t("others.activateSelfExclusion")}
             </button>
             </div>
         </div>

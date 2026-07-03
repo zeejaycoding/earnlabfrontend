@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import NotificationDropdown from "@/Components/HomePage/NotificationDropdown";
 import EarnSideMenu from "@/Components/EARNINGSPAGEComponent/EarnSideMenu";
 import { FaAndroid, FaApple } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
+
 
 // ─── Ticker animation injected once ─────────────────────────────────────────
 const TICKER_CSS = `
@@ -254,74 +257,74 @@ function deriveProviderCategories(input: string): Exclude<EarnFilterKey, "all">[
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const TICKER_ITEMS = [
-  { image: "/game-tile-tap-master.png", action: "User withdrew", name: "Slots",       amount: "$0.8" },
-  { special: "worldcoin",               action: "User withdrew", name: "Worldcoin",   amount: "$0.8" },
-  { image: "/game-slot.png",            action: "User withdrew", name: "Slot",        amount: "$0.8" },
-  { image: "/game-monopoly.png",        action: "User withdrew", name: "Monopoly",    amount: "$0.8" },
-  { image: "/game-torox.png",           action: "User withdrew", name: "Torox",       amount: "$0.8" },
-  { special: "offerwall",               action: "User earned",   name: "Offer walls", amount: "$0.5" },
-  { special: "solana",                  action: "User withdrew", name: "Solana",      amount: "$0.2" },
+const buildTickerItems = (t: TFunction): TickerItemData[] => [
+  { image: "/game-tile-tap-master.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
+  { special: "worldcoin", action: t("earningsPage.userWithdrew"), name: t("rewards.worldcoin"), amount: "$0.8" },
+  { image: "/game-slot.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
+  { image: "/game-monopoly.png", action: t("earningsPage.userWithdrew"), name: t("game.monopoly"), amount: "$0.8" },
+  { image: "/game-torox.png", action: t("earningsPage.userWithdrew"), name: t("game.torox"), amount: "$0.8" },
+  { special: "offerwall", action: t("earningsPage.userEarned"), name: t("offerWalls.title"), amount: "$0.5" },
+  { special: "solana", action: t("earningsPage.userWithdrew"), name: t("rewards.solana"), amount: "$0.2" },
   // duplicate set for seamless loop
-  { image: "/game-tile-tap-master.png", action: "User withdrew", name: "Slots",       amount: "$0.8" },
-  { special: "worldcoin",               action: "User withdrew", name: "Worldcoin",   amount: "$0.8" },
-  { image: "/game-slot.png",            action: "User withdrew", name: "Slot",        amount: "$0.8" },
-  { image: "/game-monopoly.png",        action: "User withdrew", name: "Monopoly",    amount: "$0.8" },
-  { image: "/game-torox.png",           action: "User withdrew", name: "Torox",       amount: "$0.8" },
-  { special: "offerwall",               action: "User earned",   name: "Offer walls", amount: "$0.5" },
-  { special: "solana",                  action: "User withdrew", name: "Solana",      amount: "$0.2" },
+  { image: "/game-tile-tap-master.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
+  { special: "worldcoin", action: t("earningsPage.userWithdrew"), name: t("rewards.worldcoin"), amount: "$0.8" },
+  { image: "/game-slot.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
+  { image: "/game-monopoly.png", action: t("earningsPage.userWithdrew"), name: t("game.monopoly"), amount: "$0.8" },
+  { image: "/game-torox.png", action: t("earningsPage.userWithdrew"), name: t("game.torox"), amount: "$0.8" },
+  { special: "offerwall", action: t("earningsPage.userEarned"), name: t("offerWalls.title"), amount: "$0.5" },
+  { special: "solana", action: t("earningsPage.userWithdrew"), name: t("rewards.solana"), amount: "$0.2" },
 ];
 
-const FEATURED_GAMES: FeaturedGame[] = [
+const buildFeaturedGames = (t: TFunction): FeaturedGame[] => [
   {
     image: "/game-tile-tap-master.png",
-    title: "Tile Tap Master",
+    title: t("earningsPage.games.tileTapMaster"),
     price: "$0.8",
     highlighted: true,
     categories: ["fast-completion", "puzzle"],
   },
   {
     image: "/game-goblins-woods.png",
-    title: "Goblins Woods",
+    title: t("earningsPage.games.goblinsWoods"),
     price: "$0.8",
     highlighted: true,
     categories: ["puzzle", "sweepstake"],
   },
   {
     image: "/game-slot.png",
-    title: "Slot",
+    title: t("earningsPage.games.slot"),
     price: "$0.8",
     highlighted: false,
     categories: ["casino", "fast-completion"],
   },
   {
     image: "/game-angry-bird.png",
-    title: "Angry Bird",
+    title: t("earningsPage.games.angryBird"),
     price: "$0.8",
     highlighted: false,
     categories: ["puzzle"],
   },
   {
     image: "/game-screw-factory.png",
-    title: "Screw Out Factory",
+    title: t("earningsPage.games.screwOutFactory"),
     price: "$0.8",
     highlighted: false,
     categories: ["save-money", "puzzle"],
   },
   {
     image: "/game-big-giant.png",
-    title: "Big Giant",
+    title: t("earningsPage.games.bigGiant"),
     price: "$0.8",
     highlighted: false,
     categories: ["sweepstake", "casino"],
   },
 ];
 
-const PROVIDERS: Provider[] = [
+const buildDefaultProviders = (t: TFunction): Provider[] => [
   {
     id: "m1",
     type: "monlix",
-    displayName: "Monlix",
+    displayName: t("earningsPage.providers.monlix"),
     progress: 44,
     categories: ["sign-up-trial", "save-money"],
     sourceKind: "offerwall",
@@ -329,7 +332,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "ml",
     type: "mylead",
-    displayName: "MyLead",
+    displayName: t("earningsPage.providers.mylead"),
     progress: 38,
     categories: ["sign-up-trial", "fast-completion"],
     sourceKind: "offerwall",
@@ -337,7 +340,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "g1",
     type: "gemiad",
-    displayName: "GemiAd",
+    displayName: t("earningsPage.providers.gemiad"),
     progress: 58,
     categories: ["save-money", "sweepstake"],
     sourceKind: "offerwall",
@@ -345,7 +348,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "n1",
     type: "nortik",
-    displayName: "Nortik",
+    displayName: t("earningsPage.providers.nortik"),
     progress: 62,
     categories: ["casino", "sweepstake"],
     sourceKind: "offerwall",
@@ -353,7 +356,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "cpx1",
     type: "cpx",
-    displayName: "CPX Research",
+    displayName: t("earningsPage.providers.cpxResearch"),
     progress: 85,
     categories: ["sweepstake", "fast-completion"],
     sourceKind: "survey",
@@ -361,7 +364,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "bl1",
     type: "bitlabs",
-    displayName: "BitLabs",
+    displayName: t("surveysInfo.bitlabs"),
     progress: 72,
     categories: ["sweepstake", "save-money"],
     sourceKind: "survey",
@@ -369,7 +372,7 @@ const PROVIDERS: Provider[] = [
   {
     id: "tr1",
     type: "theorem",
-    displayName: "TheoremReach",
+    displayName: t("surveysInfo.theorem"),
     progress: 65,
     categories: ["sweepstake"],
     sourceKind: "survey",
@@ -377,11 +380,11 @@ const PROVIDERS: Provider[] = [
   {
     id: "ib1",
     type: "inbrain",
-    displayName: "InBrain",
+    displayName: t("surveyWalls.providers.inbrain"),
     progress: 78,
     categories: ["sweepstake", "fast-completion"],
     sourceKind: "survey",
-  }
+  },
 ];
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -482,6 +485,7 @@ const GameCard: React.FC<{
 );
 
 const ProviderCard: React.FC<{
+  
   type: string;
   displayName: string;
   progress: number;
@@ -490,6 +494,7 @@ const ProviderCard: React.FC<{
   onClick?: () => void;
 }> = ({ type, displayName, progress, likes = "2.6K", logoUrl, onClick }) => {
   const Logo = LOGO_MAP[type];
+  const {t} = useTranslation();
 
   return (
     <button
@@ -500,7 +505,7 @@ const ProviderCard: React.FC<{
         background: "linear-gradient(150deg, #0C0F1E 0%, #10132A 100%)",
         border: "1px solid #1E2240",
       }}
-      aria-label={`Open ${displayName} offers`}
+      aria-label={`${t("account1.open")} ${displayName} ${t("account1.offers")}`}
     >
       {/* Watermark brand name */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden pb-16 sm:pb-20">
@@ -567,94 +572,11 @@ const ProviderCard: React.FC<{
 
 // ─── Section components ───────────────────────────────────────────────────────
 
-const EarnLegacyTopControls: React.FC<{
-  notificationCount: number;
-  profileInitial: string;
-  walletDisplay: string;
-  onHomeClick: () => void;
-  onBellClick: () => void;
-  onWalletClick: () => void;
-  onCashoutClick: () => void;
-  onProfileClick: () => void;
-}> = ({
-  notificationCount,
-  profileInitial,
-  walletDisplay,
-  onHomeClick,
-  onBellClick,
-  onWalletClick,
-  onCashoutClick,
-  onProfileClick,
-}) => (
-  <div className="sticky top-0 z-40 bg-[#14162A] border-b border-[#1E2133]">
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 py-2 md:py-3">
-      <div className="flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={onHomeClick}
-          className="flex items-center"
-          aria-label="Go to home"
-        >
-          <img src="/logo-labwards.png" alt="Labwards" className="h-9 sm:h-10 md:h-11 w-auto object-contain" />
-        </button>
 
-        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-        <button
-          type="button"
-          onClick={onBellClick}
-          className="relative h-[42px] w-[42px] sm:h-[44px] sm:w-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] flex items-center justify-center transition-opacity hover:opacity-90"
-          aria-label="Open notifications"
-        >
-          <IcoBell />
-          {notificationCount > 0 && (
-            <span className="absolute top-1 right-1 min-w-[14px] h-[14px] px-1 rounded-full bg-[#0AC07D] text-white text-[9px] leading-[14px] font-bold text-center">
-              {notificationCount > 99 ? "99+" : notificationCount}
-            </span>
-          )}
-        </button>
-
-        <button
-          type="button"
-          onClick={onWalletClick}
-          className="h-[42px] sm:h-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] px-2 sm:px-4 flex items-center gap-1.5 sm:gap-2 transition-opacity hover:opacity-90"
-          aria-label="Open wallet"
-        >
-          <span className="text-white font-bold text-[18px] sm:text-[20px] leading-none">{walletDisplay}</span>
-          <span className="hidden sm:inline text-[#B3B6C7] text-[14px] leading-none">USD</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={onCashoutClick}
-          className="h-[42px] sm:h-[44px] rounded-[8px] px-3 sm:px-5 flex items-center gap-2 text-white font-bold text-[15px] leading-none transition-opacity hover:opacity-90"
-          style={{
-            background: "linear-gradient(12.07deg, rgba(255, 255, 255, 0) 16.27%, rgba(255, 255, 255, 0.4) 93.68%), #099F86",
-            boxShadow: "0px 7px 19px rgba(20,169,144,0.3)",
-          }}
-          aria-label="Go to cashout"
-        >
-          <IcoCashout />
-          <span className="hidden sm:inline">Cashout</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={onProfileClick}
-          className="h-[42px] sm:h-[44px] w-[50px] sm:w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[18px] leading-none transition-opacity hover:opacity-90"
-          aria-label="Open account"
-        >
-          {profileInitial}
-        </button>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const ActivityTicker: React.FC = () => (
+const ActivityTicker: React.FC<{ items: TickerItemData[] }> = ({ items }) => (
   <div className="mx-4 sm:mx-6 md:mx-16 mt-4 md:mt-[22px] h-[72px] overflow-hidden rounded-[10px] bg-[#151728] border border-[#1E2133] flex items-center">
     <div className="ticker-track px-3">
-      {TICKER_ITEMS.map((item, idx) => (
+      {items.map((item, idx) => (
         <TickerCard key={idx} {...item} />
       ))}
     </div>
@@ -665,6 +587,7 @@ const useHorizontalSlider = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
+  const {t } = useTranslation();
 
   const updateScrollState = useCallback(() => {
     const element = containerRef.current;
@@ -704,7 +627,27 @@ const useHorizontalSlider = () => {
   return { containerRef, canPrev, canNext, scrollPrev, scrollNext, updateScrollState };
 };
 
-const FilterBar: React.FC<{
+
+// ─── Main page component ──────────────────────────────────────────────────────
+
+const EARNINGSPAGEComponent: React.FC = () => {
+  const { t } = useTranslation();
+  const router = useRouter();
+  const tickerItems = useMemo(() => buildTickerItems(t), [t]);
+  const featuredGames = useMemo(() => buildFeaturedGames(t), [t]);
+  const defaultProviders = useMemo(() => buildDefaultProviders(t), [t]);
+  const [activeFilter, setActiveFilter] = useState<EarnFilterKey>("all");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("default");
+  const [selectedProvider, setSelectedProvider] = useState("all");
+  const [providers, setProviders] = useState<Provider[]>(defaultProviders);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
+  const [profileInitial, setProfileInitial] = useState("B");
+  const [walletBalanceCents, setWalletBalanceCents] = useState<number | null>(null);
+
+  const FilterBar: React.FC<{
   activeFilter: EarnFilterKey;
   filterCounts: Record<EarnFilterKey, number>;
   onFilterChange: (filter: EarnFilterKey) => void;
@@ -733,7 +676,7 @@ const FilterBar: React.FC<{
       <div className="flex items-center gap-7 md:gap-9">
         <FilterTabItem
           filter="all"
-          label="View all"
+          label={t("earningsPage.categories.viewAll")}
           count={filterCounts.all}
           active={activeFilter === "all"}
           icon={<IcoGrid />}
@@ -741,7 +684,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="fast-completion"
-          label="Fast completion"
+          label={t("earningsPage.categories.fastCompletion")}
           count={filterCounts["fast-completion"]}
           active={activeFilter === "fast-completion"}
           icon={<IcoLightning />}
@@ -749,7 +692,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="sign-up-trial"
-          label="Sign up trial"
+          label={t("earningsPage.categories.signUpTrial")}
           count={filterCounts["sign-up-trial"]}
           active={activeFilter === "sign-up-trial"}
           icon={
@@ -762,7 +705,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="save-money"
-          label="Save money"
+          label={t("earningsPage.categories.saveMoney")}
           count={filterCounts["save-money"]}
           active={activeFilter === "save-money"}
           icon={
@@ -776,7 +719,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="casino"
-          label="Casino"
+          label={t("earningsPage.categories.casino")}
           count={filterCounts.casino}
           active={activeFilter === "casino"}
           icon={
@@ -790,7 +733,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="puzzle"
-          label="Puzzle"
+          label={t("earningsPage.categories.puzzle")}
           count={filterCounts.puzzle}
           active={activeFilter === "puzzle"}
           icon={
@@ -802,7 +745,7 @@ const FilterBar: React.FC<{
         />
         <FilterTabItem
           filter="sweepstake"
-          label="Sweepstake"
+          label={t("earningsPage.categories.sweepstake")}
           count={filterCounts.sweepstake}
           active={activeFilter === "sweepstake"}
           icon={
@@ -824,7 +767,7 @@ const FilterBar: React.FC<{
           type="text"
           value={searchTerm}
           onChange={(event) => onSearchTermChange(event.target.value)}
-          placeholder="Search game or provider"
+          placeholder={t("earningsPage.searchPlaceholder")}
           className="w-full bg-transparent text-[#B3B6C7] text-[13px] placeholder:text-[#6B6E8A] outline-none"
         />
       </div>
@@ -837,10 +780,10 @@ const FilterBar: React.FC<{
             onChange={(e) => onSortChange(e.target.value)}
             className="w-full xl:w-[130px] bg-[#151728] border border-[#1E2133] text-[#8C8FA8] text-[13px] py-[11px] pl-3 pr-8 rounded-[10px] outline-none appearance-none cursor-pointer"
           >
-            <option value="default">Sort by</option>
-            <option value="low-to-high">Price: Low to High</option>
-            <option value="high-to-low">Price: High to Low</option>
-            <option value="popular">Popularity</option>
+            <option value="default">{t("earningsPage.sort.sortBy")}</option>
+            <option value="low-to-high">{t("earningsPage.sort.lowToHigh")}</option>
+            <option value="high-to-low">{t("earningsPage.sort.highToLow")}</option>
+            <option value="popular">{t("earningsPage.sort.popular")}</option>
           </select>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-[#8C8FA8]">
             <IcoChevronRightGray />
@@ -853,7 +796,7 @@ const FilterBar: React.FC<{
             onChange={(e) => onProviderChange(e.target.value)}
             className="w-full xl:w-[130px] bg-[#151728] border border-[#1E2133] text-[#8C8FA8] text-[13px] py-[11px] pl-3 pr-8 rounded-[10px] outline-none appearance-none cursor-pointer"
           >
-            <option value="all">Providers</option>
+            <option value="all">{t("earningsPage.providers.all")}</option>
             {providerList.map(p => (
               <option key={p} value={p}>{p}</option>
             ))}
@@ -861,6 +804,90 @@ const FilterBar: React.FC<{
           <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-[#8C8FA8]">
             <IcoChevronRightGray />
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const EarnLegacyTopControls: React.FC<{
+  notificationCount: number;
+  profileInitial: string;
+  walletDisplay: string;
+  onHomeClick: () => void;
+  onBellClick: () => void;
+  onWalletClick: () => void;
+  onCashoutClick: () => void;
+  onProfileClick: () => void;
+}> = ({
+  notificationCount,
+  profileInitial,
+  walletDisplay,
+  onHomeClick,
+  onBellClick,
+  onWalletClick,
+  onCashoutClick,
+  onProfileClick,
+}) => (
+  <div className="sticky top-0 z-40 bg-[#14162A] border-b border-[#1E2133]">
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 py-2 md:py-3">
+      <div className="flex items-center justify-between gap-3">
+        <button
+          type="button"
+          onClick={onHomeClick}
+          className="flex items-center"
+          aria-label={t("earningsPage.goHome")}
+        >
+          <img src="/logo-labwards.png" alt="Labwards" className="h-9 sm:h-10 md:h-11 w-auto object-contain" />
+        </button>
+
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+        <button
+          type="button"
+          onClick={onBellClick}
+          className="relative h-[42px] w-[42px] sm:h-[44px] sm:w-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] flex items-center justify-center transition-opacity hover:opacity-90"
+          aria-label={t("earningsPage.openNotifications")}
+        >
+          <IcoBell />
+          {notificationCount > 0 && (
+            <span className="absolute top-1 right-1 min-w-[14px] h-[14px] px-1 rounded-full bg-[#0AC07D] text-white text-[9px] leading-[14px] font-bold text-center">
+              {notificationCount > 99 ? "99+" : notificationCount}
+            </span>
+          )}
+        </button>
+
+        <button
+          type="button"
+          onClick={onWalletClick}
+          className="h-[42px] sm:h-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] px-2 sm:px-4 flex items-center gap-1.5 sm:gap-2 transition-opacity hover:opacity-90"
+          aria-label= {t("earningsPage.openWallet")}
+        >
+          <span className="text-white font-bold text-[18px] sm:text-[20px] leading-none">{walletDisplay}</span>
+          <span className="hidden sm:inline text-[#B3B6C7] text-[14px] leading-none">USD</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={onCashoutClick}
+          className="h-[42px] sm:h-[44px] rounded-[8px] px-3 sm:px-5 flex items-center gap-2 text-white font-bold text-[15px] leading-none transition-opacity hover:opacity-90"
+          style={{
+            background: "linear-gradient(12.07deg, rgba(255, 255, 255, 0) 16.27%, rgba(255, 255, 255, 0.4) 93.68%), #099F86",
+            boxShadow: "0px 7px 19px rgba(20,169,144,0.3)",
+          }}
+          aria-label={t("earningsPage.goCashout")}
+        >
+          <IcoCashout />
+          <span className="hidden sm:inline">{t("earningsPage.cashout")}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={onProfileClick}
+          className="h-[42px] sm:h-[44px] w-[50px] sm:w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[18px] leading-none transition-opacity hover:opacity-90"
+          aria-label={t("earningsPage.openAccount")}
+        >
+          {profileInitial}
+        </button>
         </div>
       </div>
     </div>
@@ -917,9 +944,9 @@ const SectionHeader: React.FC<{
             onChange={(e) => onSortChange?.(e.target.value)}
             className="bg-transparent text-[#B3B6C7] text-[12px] px-2 outline-none cursor-pointer appearance-none"
           >
-            <option value="default">Sort</option>
-            <option value="low-to-high">Low</option>
-            <option value="high-to-low">High</option>
+            <option value="default">{t("earningsPage.sort.short")}</option>
+            <option value="low-to-high">{t("earningsPage.sort.low")}</option>
+            <option value="high-to-low">{t("earningsPage.sort.high")}</option>
           </select>
           <div className="w-px h-4 bg-[#262F3E]" />
           <select 
@@ -927,7 +954,7 @@ const SectionHeader: React.FC<{
             onChange={(e) => onProviderChange?.(e.target.value)}
             className="bg-transparent text-[#B3B6C7] text-[12px] px-2 outline-none cursor-pointer appearance-none"
           >
-            <option value="all">Provider</option>
+            <option value="all">{t("earningsPage.providers.all")}</option>
             {providerList.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
         </div>
@@ -940,7 +967,7 @@ const SectionHeader: React.FC<{
             onClick={onPrev}
             disabled={!canPrev}
             className="w-4 h-4 flex items-center justify-center disabled:opacity-35"
-            aria-label={`Previous ${title} slide`}
+            aria-label={`${t("previous")} ${title} ${t("previous")}`}
           >
             <IcoChevronLeftGray />
           </button>
@@ -950,7 +977,7 @@ const SectionHeader: React.FC<{
             onClick={onNext}
             disabled={!canNext}
             className="w-4 h-4 flex items-center justify-center disabled:opacity-35"
-            aria-label={`Next ${title} slide`}
+            aria-label={`${t("next")} ${title} ${t("slide")}`}
           >
             <IcoChevronRightGray />
           </button>
@@ -961,10 +988,10 @@ const SectionHeader: React.FC<{
         onClick={onViewAll}
         disabled={!onViewAll}
         className="w-full sm:w-auto px-4 py-[8px] rounded-[8px] text-white font-bold text-[14px] leading-4 whitespace-nowrap transition-all hover:brightness-110 active:scale-95"
-        aria-label={`View all ${title}`}
+        aria-label={`${t("earningsPage.categories.viewAll")} ${title}`}
         style={{ background: "linear-gradient(135deg,#0AC07D,#14A290)", boxShadow: "0 7px 19px rgba(20,169,144,0.3)" }}
       >
-        View All
+        {t("earningsPage.categories.viewAll")}
       </button>
     </div>
   </div>
@@ -980,7 +1007,7 @@ const FeaturedSection: React.FC<{ games: FeaturedGame[]; onViewAll?: () => void 
   return (
     <div className="mt-8 flex flex-col gap-3">
       <SectionHeader
-        title="Featured"
+        title={t("earningsPage.featured")}
         showPlatformIcons
         onViewAll={onViewAll}
         onPrev={scrollPrev}
@@ -990,7 +1017,7 @@ const FeaturedSection: React.FC<{ games: FeaturedGame[]; onViewAll?: () => void 
       />
       {games.length === 0 ? (
         <div className="rounded-[10px] border border-[#1E2133] bg-[#151728] p-6 text-[#8C8FA8] text-sm">
-          No featured results for the selected filter.
+          {t("earningsPage.noFeaturedResults")}
         </div>
       ) : (
         <div ref={containerRef} className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
@@ -1056,7 +1083,7 @@ const ProviderSection: React.FC<{
       />
       {providers.length === 0 ? (
         <div className="rounded-[10px] border border-[#1E2133] bg-[#151728] p-6 text-[#8C8FA8] text-sm">
-          No providers found for the selected filter.
+          {t("earningsPage.noProvidersFound")}
         </div>
       ) : (
         <div ref={containerRef} className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
@@ -1077,20 +1104,7 @@ const ProviderSection: React.FC<{
   );
 };
 
-// ─── Main page component ──────────────────────────────────────────────────────
 
-const EARNINGSPAGEComponent: React.FC = () => {
-  const router = useRouter();
-  const [activeFilter, setActiveFilter] = useState<EarnFilterKey>("all");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("default");
-  const [selectedProvider, setSelectedProvider] = useState("all");
-  const [providers, setProviders] = useState<Provider[]>(PROVIDERS);
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [notificationCount, setNotificationCount] = useState(0);
-  const [profileInitial, setProfileInitial] = useState("B");
-  const [walletBalanceCents, setWalletBalanceCents] = useState<number | null>(null);
 
   // Get unique list of providers for the dropdown
   const providerList = useMemo(() => {
@@ -1192,11 +1206,11 @@ const EARNINGSPAGEComponent: React.FC = () => {
         });
 
         if (mounted && mappedProviders.length > 0) {
-          const stableProviderCount = PROVIDERS.length;
+          const stableProviderCount = defaultProviders.length;
           const stabilizedProviders = mappedProviders.slice(0, stableProviderCount);
 
           if (stabilizedProviders.length < stableProviderCount) {
-            stabilizedProviders.push(...PROVIDERS.slice(stabilizedProviders.length, stableProviderCount));
+            stabilizedProviders.push(...defaultProviders.slice(stabilizedProviders.length, stableProviderCount));
           }
 
           setProviders(stabilizedProviders);
@@ -1210,11 +1224,11 @@ const EARNINGSPAGEComponent: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [defaultProviders]);
 
   const filterCounts = useMemo<Record<EarnFilterKey, number>>(() => {
     const counts: Record<EarnFilterKey, number> = {
-      all: FEATURED_GAMES.length + providers.length,
+      all: featuredGames.length + providers.length,
       "fast-completion": 0,
       "sign-up-trial": 0,
       "save-money": 0,
@@ -1223,7 +1237,7 @@ const EARNINGSPAGEComponent: React.FC = () => {
       sweepstake: 0,
     };
 
-    FEATURED_GAMES.forEach((game) => {
+    featuredGames.forEach((game) => {
       game.categories.forEach((category) => {
         counts[category] += 1;
       });
@@ -1236,12 +1250,12 @@ const EARNINGSPAGEComponent: React.FC = () => {
     });
 
     return counts;
-  }, [providers]);
+  }, [featuredGames, providers]);
 
   const normalizedSearch = searchTerm.trim().toLowerCase();
 
   const filteredGames = useMemo(() => {
-    let result = FEATURED_GAMES.filter((game) => {
+    let result = featuredGames.filter((game) => {
       const passesFilter = activeFilter === "all" || game.categories.includes(activeFilter);
       const passesSearch =
         normalizedSearch.length === 0 || game.title.toLowerCase().includes(normalizedSearch);
@@ -1256,7 +1270,7 @@ const EARNINGSPAGEComponent: React.FC = () => {
     }
 
     return result;
-  }, [activeFilter, normalizedSearch, sortBy]);
+  }, [activeFilter, featuredGames, normalizedSearch, sortBy]);
 
   const filteredProviders = useMemo(() => {
     let result = providers.filter((provider) => {
@@ -1353,7 +1367,7 @@ const EARNINGSPAGEComponent: React.FC = () => {
       />
       <main>
         <div className="max-w-[1440px] mx-auto">
-          <ActivityTicker />
+          <ActivityTicker items={tickerItems} />
           <div className="px-4 sm:px-6 md:px-16 pb-10">
             <FilterBar
               activeFilter={activeFilter}
@@ -1369,7 +1383,7 @@ const EARNINGSPAGEComponent: React.FC = () => {
             />
             <FeaturedSection games={filteredGames} onViewAll={openAllTasks} />
             <ProviderSection
-              title="Offer walls"
+              title={t("earningsPage.offerWalls")}
               providers={filteredOfferwallProviders}
               onViewAll={openAllTasks}
               onProviderClick={handleProviderClick}
@@ -1381,7 +1395,8 @@ const EARNINGSPAGEComponent: React.FC = () => {
               providerList={offerwallProviderList}
             />
             <ProviderSection
-              title="Survey"
+              title={t("earningsPage.survey")}
+
               providers={filteredSurveyProviders}
               onViewAll={openAllSurveys}
               onProviderClick={handleProviderClick}

@@ -5,62 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import LogoImg from "../../../public/assets/logo.png";
+import { useTranslation } from "react-i18next";
 
 function XIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path d="M1 1L11 11M1 11L11 1" stroke="#1E2133" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M1 1L11 11M1 11L11 1"
+        stroke="#1E2133"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
 
-const MENU_ITEMS = [
-  {
-    label: "Earn",
-    href: "/earn",
-    icon: (active: boolean) => (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" />
-        <path d="M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3H15" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    label: "Leaderboard",
-    href: "/leaderboard",
-    icon: (active: boolean) => (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3L14.5 8.5L21 9.3L16.5 13.6L17.75 20L12 16.9L6.25 20L7.5 13.6L3 9.3L9.5 8.5L12 3Z" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    label: "Reward",
-    href: "/rewards",
-    icon: (active: boolean) => (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="11" width="18" height="11" rx="2" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" />
-        <path d="M12 11V22M3 7h18v4H3V7Z" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M12 7C12 7 9 4 7 5s-1 4 2 3 3-3 3-1M12 7c0 0 3-3 5-2s1 4-2 3-3-3-3-1" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    label: "FAQ",
-    href: "/faq",
-    icon: (active: boolean) => (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" />
-        <path d="M9.5 9.5C9.5 8.12 10.62 7 12 7s2.5 1.12 2.5 2.5C14.5 11 13 12 12 13" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="12" cy="16.5" r="0.75" fill={active ? "#0AC07D" : "#8C9DB6"} />
-      </svg>
-    ),
-  },
-];
-
 const SUPPORT_ICON = (active: boolean) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M3 12C3 7.03 7.03 3 12 3s9 4.03 9 9v5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2v-1a7 7 0 0 0-14 0v1h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5" stroke={active ? "#0AC07D" : "#8C9DB6"} strokeWidth="1.5" strokeLinecap="round" />
+    <path
+      d="M3 12C3 7.03 7.03 3 12 3s9 4.03 9 9v5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2v-1a7 7 0 0 0-14 0v1h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5"
+      stroke={active ? "#0AC07D" : "#8C9DB6"}
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
   </svg>
 );
 
@@ -87,7 +54,102 @@ interface Props {
 const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const [tournaments, setTournaments] = useState<Tournament[]>(FALLBACK_TOURNAMENTS);
+  const [tournaments, setTournaments] =
+    useState<Tournament[]>(FALLBACK_TOURNAMENTS);
+  const { t } = useTranslation();
+  const MENU_ITEMS = [
+    {
+      label: t("earn_menu.menu.earn"),
+      href: "/earn",
+      icon: (active: boolean) => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+          />
+          <path
+            d="M12 7v10M9.5 9.5h4a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 0 0 3H15"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t("earn_menu.menu.leaderboard"),
+      href: "/leaderboard",
+      icon: (active: boolean) => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 3L14.5 8.5L21 9.3L16.5 13.6L17.75 20L12 16.9L6.25 20L7.5 13.6L3 9.3L9.5 8.5L12 3Z"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t("earn_menu.menu.reward"),
+      href: "/rewards",
+      icon: (active: boolean) => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect
+            x="3"
+            y="11"
+            width="18"
+            height="11"
+            rx="2"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+          />
+          <path
+            d="M12 11V22M3 7h18v4H3V7Z"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12 7C12 7 9 4 7 5s-1 4 2 3 3-3 3-1M12 7c0 0 3-3 5-2s1 4-2 3-3-3-3-1"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      label: t("earn_menu.menu.faq"),
+      href: "/faq",
+      icon: (active: boolean) => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+          />
+          <path
+            d="M9.5 9.5C9.5 8.12 10.62 7 12 7s2.5 1.12 2.5 2.5C14.5 11 13 12 12 13"
+            stroke={active ? "#0AC07D" : "#8C9DB6"}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <circle
+            cx="12"
+            cy="16.5"
+            r="0.75"
+            fill={active ? "#0AC07D" : "#8C9DB6"}
+          />
+        </svg>
+      ),
+    },
+  ];
 
   useEffect(() => {
     fetch(`${API}/api/v1/tournaments`)
@@ -115,11 +177,15 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b border-[#1E2133]">
-          <Image src={LogoImg} alt="LabWards" className="h-8 w-auto object-contain" />
+          <Image
+            src={LogoImg}
+            alt="LabWards"
+            className="h-8 w-auto object-contain"
+          />
           <button
             onClick={onClose}
             className="w-7 h-7 flex items-center justify-center rounded-[6px] bg-[#8C8FA8] hover:bg-[#a0a3bb] transition-colors"
-            aria-label="Close menu"
+            aria-label={t("earn_menu.close_menu")}
           >
             <XIcon />
           </button>
@@ -162,7 +228,7 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
               className="text-[15px] font-medium"
               style={{ color: pathname === "/support" ? "#0AC07D" : "white" }}
             >
-              Support
+              {t("earn_menu.menu.support")}
             </span>
           </Link>
         </div>
@@ -170,7 +236,10 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
         {/* Cashout button */}
         <div className="px-4 pb-4">
           <button
-            onClick={() => { onClose(); router.push("/cashout"); }}
+            onClick={() => {
+              onClose();
+              router.push("/cashout");
+            }}
             className="w-full flex items-center justify-between px-5 py-4 rounded-[12px] text-white text-[16px] font-bold transition-all hover:opacity-90 active:scale-[0.98]"
             style={{
               background: "linear-gradient(135deg, #0AC07D 0%, #0BBFA0 100%)",
@@ -179,14 +248,33 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
           >
             <div className="flex items-center gap-2">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="5" width="20" height="14" rx="3" stroke="white" strokeWidth="1.8" />
+                <rect
+                  x="2"
+                  y="5"
+                  width="20"
+                  height="14"
+                  rx="3"
+                  stroke="white"
+                  strokeWidth="1.8"
+                />
                 <path d="M2 10h20" stroke="white" strokeWidth="1.8" />
-                <path d="M6 15h4" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
+                <path
+                  d="M6 15h4"
+                  stroke="white"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
               </svg>
-              Cashout
+              {t("earn_menu.cashout")}
             </div>
             <svg width="8" height="14" viewBox="0 0 8 14" fill="white">
-              <path d="M1 1l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M1 1l6 6-6 6"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>
@@ -194,15 +282,21 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
         {/* Tournaments */}
         <div className="flex-1 overflow-y-auto px-4 pb-6">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-white font-bold text-[17px]">Tournaments</span>
+            <span className="text-white font-bold text-[17px]">
+              {t("earn_menu.tournaments")}
+            </span>
             <span className="text-[#0AC07D] text-[13px] font-semibold">
-              {tournaments.filter((t) => t.status === "active").length} Ongoing
+              {tournaments.filter((t) => t.status === "active").length}{" "}
+              {t("earn_menu.ongoing")}
             </span>
           </div>
 
           <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
             {tournaments.map((t) => (
-              <div key={t._id} className="flex-shrink-0 w-[130px] rounded-[12px] overflow-hidden bg-[#151728] border border-[#1E2133]">
+              <div
+                key={t._id}
+                className="flex-shrink-0 w-[130px] rounded-[12px] overflow-hidden bg-[#151728] border border-[#1E2133]"
+              >
                 <div className="relative h-[80px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -217,7 +311,11 @@ const EarnSideMenu: React.FC<Props> = ({ isOpen, onClose }) => {
                 </div>
                 <div className="px-2 py-2">
                   <p className="text-[#8C9DB6] text-[12px] font-medium">
-                    {t.status === "active" ? "Active" : t.status === "coming_soon" ? "Coming soon" : "Ended"}
+                    {t.status === "active"
+                      ? "Active"
+                      : t.status === "coming_soon"
+                        ? "Coming soon"
+                        : "Ended"}
                   </p>
                 </div>
               </div>

@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateProfileFields } from "@/store/userSlice";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 // Assets
 import Old from "../../../public/assets/visacard.png";
@@ -50,6 +51,7 @@ interface Method {
 }
 
 const WalletDropdown: React.FC<Props> = ({ onClose }) => {
+    const {t} = useTranslation();
     const [activeTab, setActiveTab] = useState<"general" | "task">("general");
     const [value, setValue] = useState<CountryOption | null>(null);
     const [selectedMethod, setSelectedMethod] = useState<Method | null>(null);
@@ -67,8 +69,8 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
     const router = useRouter();
 
     // Check if selected method is Virtual Visa (cash), PayPal, or Crypto
-    const isVirtualVisa = selectedMethod?.name === "Virtual Visa";
-    const isPayPal = selectedMethod?.name === "PayPal";
+    const isVirtualVisa = selectedMethod?.name === t("wallet1.virtualvisa");
+    const isPayPal = selectedMethod?.name === t("rewards.paypal");
     const isCrypto = selectedMethod && !isVirtualVisa && !isPayPal;
 
     // Amount presets for Virtual Visa (in dollars)
@@ -90,7 +92,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
             setShowPaymentModal(false);
             setPaymentDetails(null);
         } catch (error) {
-            toast.error("Failed to confirm payment");
+            toast.error(t("wallet1.messages.paymentConfirmFailed"));
             console.error(error);
         } finally {
             setIsConfirming(false);
@@ -99,13 +101,13 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
 
     const handleRedeemPromo = async () => {
         if (!promoCode.trim()) {
-            toast.error("Please enter a promo code");
+            toast.error(t("wallet1.messages.enterPromo"));
             return;
         }
 
         const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
         if (!token) {
-            toast.error("Please sign in to redeem promo codes");
+            toast.error(t("wallet1.messages.signInPromo"));
             return;
         }
 
@@ -124,7 +126,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
             const data = await res.json();
 
             if (res.ok) {
-                toast.success(`🎉 ${data.message || "Promo code redeemed successfully"}! +$${(data.rewardCents / 100).toFixed(2)}`);
+                toast.success(`🎉 ${data.message || t("wallet1.messages.promoRedeemed")}! +$${(data.rewardCents / 100).toFixed(2)}`);
                 
                 // Update balance in Redux
                 if (typeof data.newBalanceCents === "number") {
@@ -141,11 +143,11 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                     }));
                 }
             } else {
-                toast.error(data.message || "Failed to redeem promo code");
+                toast.error(data.message || t("wallet1.messages.promoFailed"));
             }
         } catch (err) {
             console.error("Error redeeming promo code:", err);
-            toast.error("Failed to redeem promo code");
+            toast.error(t("wallet1.messages.promoFailed"));
         } finally {
             setIsRedeeming(false);
         }
@@ -153,24 +155,24 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
 
     const handleCryptoWithdrawal = async () => {
         if (!selectedMethod || !cryptoWalletAddress.trim()) {
-            toast.error(isPayPal ? "Please enter a recipient email" : "Please enter a wallet address");
+            toast.error(isPayPal ? t("wallet1.messages.enterRecipientEmail") : t("wallet1.messages.enterWallet"));
             return;
         }
 
         if (!cryptoAmount || parseFloat(cryptoAmount) <= 0) {
-            toast.error("Please enter a valid amount");
+            toast.error(t("wallet1.messages.validAmount"));
             return;
         }
 
         const amount = parseFloat(cryptoAmount);
         if (isPayPal && amount < 5) {
-            toast.error("PayPal minimum withdrawal is $5");
+            toast.error(t("wallet1.messages.paypalMinimum"));
             return;
         }
 
         const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
         if (!token) {
-            toast.error("Please sign in to create a withdrawal");
+            toast.error(t("wallet1.messages.signInWithdrawal"));
             return;
         }
 
@@ -193,18 +195,18 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
             const data = await res.json();
 
             if (res.ok) {
-                toast.success(`✅ Withdrawal request submitted! Awaiting admin review.`);
+                toast.success(`✅ ${t("wallet1.messages.withdrawalSubmitted")}`);
                 
                 // Reset form
                 setCryptoWalletAddress("");
                 setCryptoAmount("");
                 setSelectedMethod(null);
             } else {
-                toast.error(data.message || "Failed to create withdrawal");
+                toast.error(data.message || t("wallet1.messages.withdrawalFailed"));
             }
         } catch (err) {
             console.error("Error creating withdrawal:", err);
-            toast.error("Failed to create withdrawal. Please try again.");
+            toast.error(t("wallet1.messages.withdrawalFailed"));
         } finally {
             setIsWithdrawing(false);
         }
@@ -234,7 +236,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
             {/* Title Row */}
             <div className="flex items-center gap-2 mx-4 py-2 mb-3 border-b border-[#30334A]">
                 <BiSolidWallet size={22} className="text-white" />
-                <span className="text-lg">Wallet</span>
+                <span className="text-lg">{t("wallet1.title")}</span>
             </div>
 
             {/* Tabs */}
@@ -247,7 +249,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             : "text-gray-400 hover:text-white"
                             }`}
                     >
-                        Withdrawal
+                        {t("wallet1.withdrawal")}
                     </button>
                     <button
                         onClick={() => setActiveTab("task")}
@@ -256,7 +258,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             : "text-gray-400 hover:text-white"
                             }`}
                     >
-                        Promo code
+                        {t("wallet1.promoCode")}
                     </button>
                 </div>
             )}
@@ -323,7 +325,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                     <div className="space-y-4">
                         {/* Chain/Method Info */}
                         <div>
-                            <label className="text-sm mb-1 block">{isVirtualVisa ? "Payment Method" : "Chain"}</label>
+                            <label className="text-sm mb-1 block">{isVirtualVisa ? t("wallet1.paymentMethod") : t("wallet1.chain")}</label>
                             <div className="flex items-center justify-between bg-[#26293E] border border-gray-700 rounded-md px-3 py-3">
                                 <div className="flex items-center gap-2">
                                     <Image
@@ -331,7 +333,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                         alt={selectedMethod.name}
                                         width={20}
                                         height={20}
-                                        className={selectedMethod.name === 'Worldcoin' ? 'invert brightness-200 mix-blend-screen' : ''}
+                                        className={selectedMethod.name === t("rewards.worldcoin") ? 'invert brightness-200 mix-blend-screen' : ''}
                                     />
                                     <span>{selectedMethod.name}</span>
                                 </div>
@@ -342,10 +344,10 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                         {/* Wallet Address - Only for Crypto */}
                         {isCrypto && (
                             <div>
-                                <label className="text-sm mb-1 block">Wallet address</label>
+                                <label className="text-sm mb-1 block">{t("wallet1.walletAddress")}</label>
                                 <input
                                     type="text"
-                                    placeholder="Enter your wallet address"
+                                    placeholder={t("wallet1.enterWalletAddress")}
                                     value={cryptoWalletAddress}
                                     onChange={(e) => setCryptoWalletAddress(e.target.value)}
                                     className="w-full px-3 py-3 text-sm bg-[#26293E] border border-gray-700 rounded-md outline-none text-white focus:border-teal-400 transition"
@@ -356,7 +358,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                         {/* PayPal Email - Only for PayPal */}
                         {isPayPal && (
                             <div>
-                                <label className="text-sm mb-1 block">Recipient Email</label>
+                                <label className="text-sm mb-1 block">{t("wallet1.recipientEmail")}</label>
                                 <input
                                     type="email"
                                     placeholder="recipient@email.com"
@@ -369,7 +371,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
 
                         {/* Amount */}
                         <div>
-                            <label className="text-sm mb-1 block">Amount {isPayPal ? "(Min. $5)" : ""}</label>
+                            <label className="text-sm mb-1 block">{t("wallet1.amount")} {isPayPal ? "(Min. $5)" : ""}</label>
                             
                             {/* Virtual Visa: Show preset buttons */}
                             {isVirtualVisa ? (
@@ -393,7 +395,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                         ))}
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <span className="text-xs text-gray-400">Or enter custom amount:</span>
+                                        <span className="text-xs text-gray-400">{t("wallet1.orEnterCustomAmount")}</span>
                                     </div>
                                     <div className="flex items-center gap-2 mt-2">
                                         <span className="text-sm text-gray-400">$</span>
@@ -404,7 +406,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                                 setCustomAmount(e.target.value);
                                                 setSelectedAmount(null);
                                             }}
-                                            placeholder="Custom amount"
+                                            placeholder={t("wallet1.customAmount")}
                                             className="flex-1 px-3 py-3 text-sm bg-[#26293E] border border-gray-700 rounded-md outline-none text-white focus:border-teal-400 transition"
                                         />
                                     </div>
@@ -415,13 +417,13 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                     <input
                                         type="number"
                                         min={isPayPal ? "5" : "0"}
-                                        placeholder={isPayPal ? "Enter amount in USD (Min. $5)" : "Enter amount in USD"}
+                                        placeholder={isPayPal ? t("wallet1.enterAmountInUSD") : t("wallet1.enterAmountInUSD")}
                                         value={cryptoAmount}
                                         onChange={(e) => setCryptoAmount(e.target.value)}
                                         className="flex-1 px-3 py-3 text-sm bg-[#26293E] border border-gray-700 rounded-md outline-none text-white focus:border-teal-400 transition"
                                     />
                                     <button className="px-4 py-3 bg-[#6B6E8A] text-sm rounded-md hover:bg-[#7a7f9a] transition">
-                                        Max
+                                        {t("cashout_page.modal.max")}
                                     </button>
                                 </div>
                             )}
@@ -433,104 +435,104 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             disabled={isWithdrawing}
                             className="w-full cursor-pointer px-4 py-3 bg-gradient-to-r from-[#099F86] to-[#08c6a0] text-sm rounded-md transition hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            {isWithdrawing ? "Processing..." : "Create withdrawal"}
+                            {isWithdrawing ? t("wallet1.processing") : t("wallet1.createWithdrawal")}
                         </button>
                     </div>
                 ) : activeTab === "general" ? (
                     <div className="space-y-3 mb-[28%]">
                         {/* Cash Section */}
-                        <p className="text-sm text-white">Cash</p>
+                        <p className="text-sm text-white">{t("wallet1.cash")}</p>
                         <div
                             className="flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer"
                             onClick={() =>
-                                setSelectedMethod({ name: "Virtual Visa", icon: Old })
+                                setSelectedMethod({ name: t("wallet1.virtualvisa"), icon: Old })
                             }
                         >
                             <Image src={Old} alt="Cash" width={22} height={22} />
-                            <span className="text-sm">Virtual Visa</span>
+                            <span className="text-sm">{t("wallet1.virtualvisa")}</span>
                         </div>
 
                         {/* Crypto Section */}
-                        <p className="text-sm text-white">Crypto</p>
+                        <p className="text-sm text-white">{t("wallet1.crypto")}</p>
                         <div className="flex gap-2">
                             <div
-                                onClick={() => setSelectedMethod({ name: "Bitcoin", icon: Btc })}
+                                onClick={() => setSelectedMethod({ name: t("rewards.bitcoin"), icon: Btc })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer"
                             >
                                 <Image src={Btc} alt="BTC" width={22} height={22} />
-                                <span className="text-sm">Bitcoin</span>
+                                <span className="text-sm">{t("rewards.bitcoin")}</span>
                             </div>
                             <div
                                 onClick={() =>
-                                    setSelectedMethod({ name: "Ethereum", icon: Eth })
+                                    setSelectedMethod({ name: t("rewards_cc.ethereum"), icon: Eth })
                                 }
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer"
                             >
                                 <Image src={Eth} alt="ETH" width={22} height={22} />
-                                <span className="text-sm">Ethereum</span>
+                                <span className="text-sm">{t("rewards_cc.ethereum")}</span>
                             </div>
                         </div>
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Litecoin", icon: Lit })}
+                                onClick={() => setSelectedMethod({ name: t("cards_cc.litecoin"), icon: Lit })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Lit} alt="Litecoin" width={22} height={22} />
-                                <span className="text-sm">Litecoin</span>
+                                <span className="text-sm">{t("cards_cc.litecoin")}</span>
                             </div>
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Solana", icon: Sol })}
+                                onClick={() => setSelectedMethod({ name: t("cards_cc.solana"), icon: Sol })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Sol} alt="Solana" width={22} height={22} />
-                                <span className="text-sm">Solana</span>
+                                <span className="text-sm">{t("cards_cc.solana")}</span>
                             </div>
                         </div>
 
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Tether", icon: Tet })}
+                                onClick={() => setSelectedMethod({ name: t("cards_cc.tether"), icon: Tet })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Tet} alt="Tether" width={22} height={22} />
-                                <span className="text-sm">Tether</span>
+                                <span className="text-sm">{t("cards_cc.tether")}</span>
                             </div>
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Tron", icon: Tron })}
+                                onClick={() => setSelectedMethod({ name: t("wallet1.tron"), icon: Tron })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Tron} alt="Tron" width={22} height={22} />
-                                <span className="text-sm">Tron</span>
+                                <span className="text-sm">{t("wallet1.tron")}</span>
                             </div>
                         </div>
 
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Ripple (XRP)", icon: Rip })}
+                                onClick={() => setSelectedMethod({ name: t("wallet1.ripple"), icon: Rip })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Rip} alt="XRP" width={22} height={22} />
-                                <span className="text-sm">Ripple (XRP)</span>
+                                <span className="text-sm">{t("wallet1.ripple")}</span>
                             </div>
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Polygon", icon: POl })}
+                                onClick={() => setSelectedMethod({ name: t("rewards.polygon"), icon: POl })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={POl} alt="Polygon" width={22} height={22} />
-                                <span className="text-sm">Polygon</span>
+                                <span className="text-sm">{t("rewards.polygon")}</span>
                             </div>
                         </div>
 
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "USD Coin", icon: USD })}
+                                onClick={() => setSelectedMethod({ name: t("wallet1.usdcoin"), icon: USD })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={USD} alt="USD Coin" width={22} height={22} />
-                                <span className="text-sm">USD Coin</span>
+                                <span className="text-sm">{t("wallet1.usdcoin")}</span>
                             </div>
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Worldcoin", icon: World })}
+                                onClick={() => setSelectedMethod({ name: t("rewards.worldcoin"), icon: World })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image 
@@ -540,17 +542,17 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                     height={22} 
                                     className="invert brightness-200 mix-blend-screen"
                                 />
-                                <span className="text-sm">Worldcoin</span>
+                                <span className="text-sm">{t("rewards.worldcoin")}</span>
                             </div>
                         </div>
 
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "Tron", icon: Tron })}
+                                onClick={() => setSelectedMethod({ name: t("wallet1.tron"), icon: Tron })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Tron} alt="Tron" width={22} height={22} />
-                                <span className="text-sm">Tron</span>
+                                <span className="text-sm">{t("wallet1.tron")}</span>
                             </div>
                             <div 
                                 onClick={() => {
@@ -560,19 +562,19 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                                 className="flex-1 flex items-center gap-3 bg-gradient-to-r from-[#099F86] to-[#08c6a0] border border-emerald-500/50 rounded-md px-3 py-3 cursor-pointer hover:opacity-90 transition-opacity"
                             >
                                 <Wallet size={22} className="text-white" />
-                                <span className="text-sm font-medium">My Wallet</span>
+                                <span className="text-sm font-medium">{t("wallet1.myWallet")}</span>
                             </div>
                         </div>
 
                         {/* Vouchers Section - PayPal Only */}
-                        <p className="text-sm text-white">Vouchers</p>
+                        <p className="text-sm text-white">{t("wallet1.vouchers")}</p>
                         <div className="flex gap-2">
                             <div 
-                                onClick={() => setSelectedMethod({ name: "PayPal", icon: Paypal })}
+                                onClick={() => setSelectedMethod({ name: t("rewards.paypal"), icon: Paypal })}
                                 className="flex-1 flex items-center gap-3 bg-[#26293E] border border-gray-700 rounded-md px-3 py-3 cursor-pointer hover:border-emerald-500/50 transition-colors"
                             >
                                 <Image src={Paypal} alt="PayPal" width={22} height={22} />
-                                <span className="text-sm">PayPal</span>
+                                <span className="text-sm">{t("rewards.paypal")}</span>
                             </div>
                         </div>
                     </div>
@@ -582,7 +584,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             type="text"
                             value={promoCode}
                             onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
-                            placeholder="Enter your promo code"
+                            placeholder={t("wallet1.enterPromoCode")}
                             className="px-3 py-3 text-sm bg-[#26293E] border border-gray-700 rounded-md outline-none text-white"
                             disabled={isRedeeming}
                         />
@@ -594,7 +596,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             {isRedeeming ? (
                                 <>
                                     <Loader2 className="animate-spin" size={16} />
-                                    Redeeming...
+                                    {t("wallet1.redeeming")}
                                 </>
                             ) : (
                                 "Apply Promo Code"
@@ -610,7 +612,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                     <div className="bg-[#1e2133] rounded-lg max-w-md w-full p-6 border border-gray-700">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-xl font-bold text-white">Payment Details</h2>
+                            <h2 className="text-xl font-bold text-white">{t("wallet1.paymentDetails")}</h2>
                             <button
                                 onClick={() => setShowPaymentModal(false)}
                                 className="text-gray-400 hover:text-white transition"
@@ -622,32 +624,32 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                         {/* Payment Info */}
                         <div className="space-y-3 mb-6">
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Crypto Type</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.cryptoType")}</p>
                                 <p className="text-white font-semibold">{paymentDetails.cryptoType}</p>
                             </div>
 
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Amount (USD)</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.amountUSD")}</p>
                                 <p className="text-white font-semibold">${paymentDetails.amountUSD}</p>
                             </div>
 
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Pay Amount</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.payAmount")}</p>
                                 <p className="text-white font-semibold">{paymentDetails.payAmount} {paymentDetails.payCurrency}</p>
                             </div>
 
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Wallet Address</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.walletAddress")}</p>
                                 <p className="text-white font-semibold text-sm break-all">{paymentDetails.walletAddress}</p>
                             </div>
 
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Invoice ID</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.invoiceId")}</p>
                                 <p className="text-white font-semibold text-sm break-all">{paymentDetails.invoiceId}</p>
                             </div>
 
                             <div className="bg-[#26293E] p-3 rounded-md">
-                                <p className="text-xs text-gray-400 mb-1">Status</p>
+                                <p className="text-xs text-gray-400 mb-1">{t("wallet1.status")}</p>
                                 <p className="text-yellow-400 font-semibold">{paymentDetails.status}</p>
                             </div>
                         </div>
@@ -661,12 +663,12 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             {isConfirming ? (
                                 <>
                                     <Loader2 className="animate-spin" size={16} />
-                                    Confirming...
+                                    {t("wallet1.confirming")}
                                 </>
                             ) : (
                                 <>
                                     <Wallet size={16} />
-                                    Confirm Payment
+                                    {t("wallet1.confirmPayment")}
                                 </>
                             )}
                         </button>
@@ -676,7 +678,7 @@ const WalletDropdown: React.FC<Props> = ({ onClose }) => {
                             onClick={() => setShowPaymentModal(false)}
                             className="w-full px-4 py-3 bg-[#26293E] text-white text-sm rounded-md transition hover:bg-[#2f3247]"
                         >
-                            Close
+                            {t("wallet1.close")}
                         </button>
                     </div>
                 </div>

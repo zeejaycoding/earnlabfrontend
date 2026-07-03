@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Crown, ExternalLink, Smartphone, Monitor, Gamepad2, AppWindow, FileQuestion, ClipboardList, AlertCircle, X } from "lucide-react";
 import ModernSection from "../Shared/ModernSection";
+import { useTranslation } from "react-i18next";
 
 interface PremiumOffer {
     _id: string;
@@ -26,6 +27,8 @@ interface PremiumOfferModalProps {
 
 const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, userPlatform }) => {
     if (!offer) return null;
+      const { t } = useTranslation();
+
 
     const isPlatformSupported = offer.platform === "all" || offer.platform === userPlatform;
 
@@ -39,7 +42,7 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                 window.open(data.offer.trackingUrl, "_blank");
             }
         } catch (error) {
-            console.error("Failed to start offer:", error);
+            console.error(t("offerwalls.failedtostart"), error);
         }
     };
 
@@ -80,7 +83,7 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                     >
                         <X className="h-5 w-5 text-gray-400" />
                     </button>
-                    <h2 className="text-xl font-bold text-white pr-8">Task Details</h2>
+                    <h2 className="text-xl font-bold text-white pr-8">{t("premiumOffers.taskDetails")}</h2>
                 </div>
 
                 {/* Content */}
@@ -112,26 +115,26 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                     {/* Status, Category, Provider */}
                     <div className="grid grid-cols-3 gap-3">
                         <div className="bg-[#0A0C1A] rounded-xl p-3 text-center">
-                            <p className="text-xs text-gray-500 mb-1">Status</p>
-                            <p className="text-white font-medium text-sm">Not Started</p>
+                            <p className="text-xs text-gray-500 mb-1">{t("premiumOffers.status")}</p>
+                            <p className="text-white font-medium text-sm">{t("premiumOffers.notStarted")}</p>
                         </div>
                         <div className="bg-[#0A0C1A] rounded-xl p-3 text-center">
-                            <p className="text-xs text-gray-500 mb-1">Category</p>
+                            <p className="text-xs text-gray-500 mb-1">{t("premiumOffers.category")}</p>
                             <p className="text-emerald-400 font-medium text-sm capitalize flex items-center justify-center gap-1">
                                 {getTypeIcon(offer.type)}
                                 {offer.type}
                             </p>
                         </div>
                         <div className="bg-[#0A0C1A] rounded-xl p-3 text-center">
-                            <p className="text-xs text-gray-500 mb-1">Provider</p>
-                            <p className="text-white font-medium text-sm">{offer.provider || "Premium"}</p>
+                            <p className="text-xs text-gray-500 mb-1">{t("premiumOffers.provider")}</p>
+                            <p className="text-white font-medium text-sm">{offer.provider || t("premiumOffers.premium")}</p>
                         </div>
                     </div>
 
                     {/* Description */}
                     {offer.description && (
                         <div>
-                            <h4 className="text-sm font-semibold text-gray-400 mb-2">Description</h4>
+                            <h4 className="text-sm font-semibold text-gray-400 mb-2">{t("premiumOffers.description")}</h4>
                             <p className="text-gray-300 text-sm">{offer.description}</p>
                         </div>
                     )}
@@ -140,7 +143,7 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                     {offer.requirements && offer.requirements.length > 0 && (
                         <div>
                             <h4 className="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2">
-                                🎁 Rewards <span className="text-xs text-gray-500">({offer.requirements.length})</span>
+                                🎁 {t("premiumOffers.rewards")} <span className="text-xs text-gray-500">({offer.requirements.length})</span>
                             </h4>
                             <div className="space-y-2">
                                 {offer.requirements.map((req, index) => (
@@ -164,12 +167,12 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                             <div className="flex items-start gap-3">
                                 <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
                                 <div>
-                                    <p className="text-red-400 font-medium text-sm">Device Not Supported</p>
+                                    <p className="text-red-400 font-medium text-sm">{t("premiumOffers.deviceNotSupported")}</p>
                                     <p className="text-gray-400 text-xs mt-1">
-                                        This offer is only available for: {getPlatformLabel(offer.platform)}
+                                        {t("premiumOffers.offerAvailableFor")} {getPlatformLabel(offer.platform)}
                                     </p>
                                     <p className="text-gray-500 text-xs">
-                                        Your device: {getPlatformLabel(userPlatform)}
+                                        {t("premiumOffers.yourDevice")}: {getPlatformLabel(userPlatform)}
                                     </p>
                                 </div>
                             </div>
@@ -185,14 +188,14 @@ const PremiumOfferModal: React.FC<PremiumOfferModalProps> = ({ offer, onClose, u
                             className="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-lg transition-all duration-200 flex items-center justify-center gap-2"
                         >
                             <ExternalLink className="h-5 w-5" />
-                            Start Task
+                            {t("premiumOffers.startTask")}
                         </button>
                     ) : (
                         <button
                             disabled
                             className="w-full py-4 rounded-xl bg-gray-700 text-gray-400 font-bold text-lg cursor-not-allowed"
                         >
-                            Not available for your device
+                            {t("premiumOffers.notAvailableForDevice")}
                         </button>
                     )}
                 </div>
@@ -207,6 +210,7 @@ const PremiumOfferwall: React.FC = () => {
     const [selectedOffer, setSelectedOffer] = useState<PremiumOffer | null>(null);
     const [userPlatform, setUserPlatform] = useState<string>("desktop");
     const [userCountry, setUserCountry] = useState<string | null>(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         // Detect user platform
@@ -237,7 +241,7 @@ const PremiumOfferwall: React.FC = () => {
                 fetchPremiumOffers(null);
             }
         } catch (error) {
-            console.error("Failed to detect country:", error);
+            console.error(t("premiumOffers.failedcountry"), error);
             fetchPremiumOffers(null); // Fallback to fetching without country filter
         }
     };
@@ -257,7 +261,7 @@ const PremiumOfferwall: React.FC = () => {
             const data = await response.json();
             setOffers(data.offers || []);
         } catch (error) {
-            console.error("Failed to fetch premium offers:", error);
+            console.error(t("premiumOffers.failedtopremiumoffers"), error);
         } finally {
             setLoading(false);
         }
@@ -314,8 +318,8 @@ const PremiumOfferwall: React.FC = () => {
     return (
         <>
             <ModernSection
-                title="Premium Offers"
-                description="Exclusive high-reward offers"
+                title={t("premiumOffers.premiumOffers")}
+                description={t("premiumOffers.exclusiveHighRewardOffers")}
                 onSeeMore={offers.length > 0 ? handleSeeMore : undefined}
                 icon={<Crown className="text-yellow-400" size={20} />}
             >
@@ -323,10 +327,10 @@ const PremiumOfferwall: React.FC = () => {
                     <div className="flex flex-col items-center justify-center py-12 text-center">
                         <Crown className="h-12 w-12 text-gray-600 mb-4" />
                         <h3 className="text-lg font-semibold text-gray-400 mb-2">
-                            No premium offers available
+                            {t("premiumOffers.noPremiumOffersAvailable")}
                         </h3>
                         <p className="text-gray-500 text-sm max-w-md">
-                            Premium offers are coming soon! Check back later for exclusive high-reward opportunities.
+                            {t("premiumOffers.premiumOffersComingSoon")}
                         </p>
                     </div>
                 ) : (
@@ -341,7 +345,7 @@ const PremiumOfferwall: React.FC = () => {
                                 <div className="absolute top-2 left-2 z-20">
                                     <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-md text-[10px] font-bold text-white shadow-lg">
                                         <Crown className="h-3 w-3" />
-                                        PREMIUM
+                                        t("premiumOffers.premium")
                                     </div>
                                 </div>
 
@@ -393,7 +397,7 @@ const PremiumOfferwall: React.FC = () => {
                                             ${(offer.rewardCents / 100).toFixed(2)}
                                         </span>
                                         <span className="text-[10px] text-gray-500">
-                                            {offer.provider || "Premium"}
+                                            {offer.provider || t("premiumOffers.premium")}
                                         </span>
                                     </div>
                                 </div>

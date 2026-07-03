@@ -13,6 +13,7 @@ import ClerkSyncProvider from "@/Components/ClerkSyncProvider";
 
 import FacebookFragmentFix from '@/Components/FacebookFragmentFix';
 import ThemeStyleInjector from '@/Components/Shared/ThemeStyleInjector';
+import I18nProvider from "@/Components/i8nProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,6 +88,7 @@ export default function RootLayout({
         <FacebookFragmentFix />
         <ThemeStyleInjector />
         <ClerkProvider>
+            <I18nProvider>
           <ClerkSyncProvider>
             <ReduxProvider>
               <SocketProvider>
@@ -99,6 +101,7 @@ export default function RootLayout({
               </SocketProvider>
             </ReduxProvider>
           </ClerkSyncProvider>
+            </I18nProvider>
         </ClerkProvider>
       </body>
     </html>

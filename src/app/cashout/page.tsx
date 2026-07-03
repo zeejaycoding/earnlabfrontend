@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import GiftCardRedemptionModal from "@/Components/Shared/GiftCardRedemptionModal";
 import { toast } from "@/utils/toast";
+import { useTranslation } from "react-i18next";
+
 
 /* ── Ticker CSS ──────────────────────────────────────────────────── */
 const TICKER_CSS = `
@@ -36,43 +38,22 @@ interface CashoutCard {
   cryptoType?: string;
 }
 
-/* ── Data ────────────────────────────────────────────────────────── */
-const POPULAR: CashoutCard[] = [
-  { id: "btc",  name: "Bitcoin",  brandName: "bitcoin",  subtitle: "0.50€ transaction fee", logoSrc: "/assets/bit.png",      gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)", category: "crypto", cryptoType: "btc"  },
-  { id: "doge", name: "Dogecoin", brandName: "Dogecoin", subtitle: "0.50€ transaction fee", logoSrc: "/dogcoin.png",    gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "crypto", cryptoType: "doge" },
-  { id: "sol",  name: "Solana",   brandName: "SOLANA",   subtitle: "0.50€ transaction fee", logoSrc: "/assets/sol.png",      gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "crypto", cryptoType: "sol"  },
-  { id: "eth",  name: "Ethereum", brandName: "Ethereum", subtitle: "0.50€ transaction fee", logoSrc: "/assets/eth.png",      gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "crypto", cryptoType: "eth"  },
-  { id: "ltc",  name: "Litecoin", brandName: "Litecoin", subtitle: "0.50€ transaction fee", logoSrc: "/litecoin.png",      gradient: "linear-gradient(135deg,#0A8C63,#10A479)", category: "crypto", cryptoType: "ltc"  },
-];
+/* ── Per-crypto config ───────────────────────────────────────────── */
+    const CRYPTO_CONFIG: Record<string, {
+  
+  ticker: string; displayName: string;
+  networkFeePercent: number; minNetworkFee: number;
+  approxPrice: number; decimals: number; feeLabel: string;
+}> = {
+  btc:  { ticker: "BTC",  displayName: "Bitcoin",  networkFeePercent: 1.0,  minNetworkFee: 0.00, approxPrice: 67241, decimals: 6, feeLabel:  "cashout_page.fees.network_fee_1"  },
+  doge: { ticker: "DOGE", displayName: "Dogecoin", networkFeePercent: 1.0,  minNetworkFee: 0.00, approxPrice: 0.12, decimals: 2, feeLabel: "cashout_page.fees.network_fee_1"   },
+  sol:  { ticker: "SOL",  displayName: "Solana",   networkFeePercent: 0.1,  minNetworkFee: 0.00, approxPrice: 141,  decimals: 4, feeLabel: "cashout_page.fees.network_fee_01"  },
+  eth:  { ticker: "ETH",  displayName: "Ethereum", networkFeePercent: 1.5,  minNetworkFee: 0.00, approxPrice: 3450, decimals: 5, feeLabel: "cashout_page.fees.network_fee_15" },
+  ltc:  { ticker: "LTC",  displayName: "Litecoin", networkFeePercent: 0.5,  minNetworkFee: 0.00, approxPrice: 85,   decimals: 5, feeLabel: "cashout_page.fees.network_fee_05"  },
+  worldcoin: { ticker: "WLD", displayName: "Worldcoin", networkFeePercent: 1.0, minNetworkFee: 0.00, approxPrice: 2.25, decimals: 3, feeLabel: "cashout_page.fees.network_fee_1" },
+};
 
-const WITHDRAW_CASH: CashoutCard[] = [
-  { id: "paypal",    name: "Paypal",   brandName: "PayPal",   logoSrc: "/assets/paypal.png",    gradient: "linear-gradient(135deg,#20214B,#2B2E6A)", category: "cash",   method: "paypal"        },
-  { id: "worldcoin", name: "Worldcoin",brandName: "Worldcoin",logoSrc: "/worldcoin.png", gradient: "linear-gradient(135deg,#1F2048,#2B2E63)", badge: "30% OFF", category: "crypto", cryptoType: "worldcoin" },
-  { id: "visa",      name: "Visa",     brandName: "Visa",     logoSrc: "/assets/visa.png",      gradient: "linear-gradient(135deg,#1F2048,#2B2E63)", category: "cash",   method: "bank_transfer" },
-];
 
-const GIFTCARDS: CashoutCard[] = [
-  { id: "amazon",      name: "Amazon",     brandName: "Amazon",     logoSrc: "/assets/amazon.png", gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)", category: "giftcard" },
-  { id: "itunes",      name: "App stores", brandName: "iTunes",     logoSrc: "/itunes.png",  gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "giftcard" },
-  { id: "spotify",     name: "Spotify",    brandName: "Spotify",    logoSrc: "/assets/spot.png",   gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "giftcard" },
-  { id: "playstation", name: "Playstations",brandName: "Playstation",logoSrc: "/assets/play.png",  gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "giftcard" },
-  { id: "steam",       name: "Steam",      brandName: "Steam",      logoSrc: "/assets/cb.png",     gradient: "linear-gradient(135deg,#0A8C63,#10A479)", category: "giftcard" },
-];
-
-const TICKER_ITEMS = [
-  { img: "/game-tile-tap-master.png", name: "Slots",     action: "User withdrew", amount: "$0.8" },
-  { img: "/game-slot.png",            name: "Worldcoin", action: "User withdrew", amount: "$0.8" },
-  { img: "/game-monopoly.png",        name: "Slot",      action: "User withdrew", amount: "$0.8" },
-  { img: "/game-torox.png",           name: "Monopoly",  action: "User withdrew", amount: "$0.8" },
-  { img: "/game-angry-bird.png",      name: "Worldcoin", action: "User withdrew", amount: "$0.8" },
-  { img: "/game-big-giant.png",       name: "Big Giant", action: "User earned",   amount: "$1.0" },
-  { img: "/game-tile-tap-master.png", name: "Slots",     action: "User withdrew", amount: "$0.8" },
-  { img: "/game-slot.png",            name: "Worldcoin", action: "User withdrew", amount: "$0.8" },
-  { img: "/game-monopoly.png",        name: "Slot",      action: "User withdrew", amount: "$0.8" },
-  { img: "/game-torox.png",           name: "Monopoly",  action: "User withdrew", amount: "$0.8" },
-  { img: "/game-angry-bird.png",      name: "Worldcoin", action: "User withdrew", amount: "$0.8" },
-  { img: "/game-big-giant.png",       name: "Big Giant", action: "User earned",   amount: "$1.0" },
-];
 
 /* ── Icons ───────────────────────────────────────────────────────── */
 const IcoBell = () => (
@@ -171,16 +152,73 @@ function Section({ title, cards, onCardClick }: { title: string; cards: CashoutC
 function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 }: {
   card: CashoutCard | null; isOpen: boolean; onClose: () => void; onSuccess: () => void; userBalance?: number;
 }) {
+          const { t } = useTranslation();
+
   const [amount, setAmount] = useState("");
   const [destination, setDestination] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const meta = useMemo(() => {
-    if (!card) return { method: "crypto" as const, label: "Destination", placeholder: "Enter destination" };
-    if (card.category === "crypto") return { method: "crypto" as const, label: `${card.id === "btc" ? "BTC" : card.name} Address`, placeholder: "Enter wallet address" };
-    if (card.method === "paypal") return { method: "paypal" as const, label: "PayPal email", placeholder: "you@example.com" };
-    return { method: "bank_transfer" as const, label: "Card / bank details", placeholder: "Enter card or bank destination" };
+
+  
+
+
+
+const meta = useMemo(() => {
+  if (!card) {
+    return {
+      method: "crypto" as const,
+      label: t("cashout_page.modal.destination"),
+      placeholder: t("cashout_page.modal.enter_destination"),
+    };
+  }
+
+  if (card.category === "crypto") {
+    return {
+      method: "crypto" as const,
+      label: t("cashout_page.modal.wallet_address", {
+        name: card.name,
+      }),
+      placeholder: t("cashout_page.modal.enter_wallet"),
+    };
+  }
+
+  if (card.method === "paypal") {
+    return {
+      method: "paypal" as const,
+      label: t("cashout_page.modal.paypal_email"),
+      placeholder: t("cashout_page.modal.email_placeholder"),
+    };
+  }
+
+  return {
+    method: "bank_transfer" as const,
+    label: t("cashout_page.modal.bank_details"),
+    placeholder: t("cashout_page.modal.bank_placeholder"),
+  };
+}, [card, t]);
+
+
+  const cryptoInfo = useMemo(() => {
+    if (!card?.cryptoType) return null;
+    return CRYPTO_CONFIG[card.cryptoType] || null;
   }, [card]);
+
+  const feeAmount = useMemo(() => {
+    if (!cryptoInfo) return 0;
+    const amt = Number(amount) || 0;
+    const pctFee = amt * (cryptoInfo.networkFeePercent / 100);
+    return Math.max(pctFee, cryptoInfo.minNetworkFee);
+  }, [cryptoInfo, amount]);
+
+  const cryptoValue = useMemo(() => {
+    if (!cryptoInfo) return "0";
+    const amt = Number(amount) || 0;
+    const afterFee = Math.max(amt - feeAmount, 0);
+    const val = afterFee / cryptoInfo.approxPrice;
+    return val.toFixed(cryptoInfo.decimals);
+  }, [cryptoInfo, amount, feeAmount]);
+
+  
 
   const close = () => { setAmount(""); setDestination(""); setSubmitting(false); onClose(); };
 
@@ -188,11 +226,11 @@ function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 
     e.preventDefault();
     if (!card) return;
     const amt = Number(amount);
-    if (!amt || isNaN(amt) || amt <= 0) { toast.error("Please enter a valid amount"); return; }
-    if (amt < 0.5) { toast.error("Minimum withdrawal is $0.5"); return; }
-    if (!destination.trim()) { toast.error(`Please provide ${meta.label.toLowerCase()}`); return; }
+    if (!amt || isNaN(amt) || amt <= 0) { toast.error(t("cashout_page.errors.valid_amount")); return; }
+    if (amt < 0.5) { toast.error(t("cashout_page.errors.minimum_amount")); return; }
+    if (!destination.trim()) { toast.error(t("cashout_page.errors.provide_destination")); return; }
     const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-    if (!token) { toast.warn("Please sign in first"); return; }
+    if (!token) { toast.warn(t("cashout_page.errors.sign_in")); return; }
     try {
       setSubmitting(true);
       const payload: Record<string, unknown> = { amountCents: Math.round(amt * 100), method: meta.method, destination: destination.trim() };
@@ -201,11 +239,11 @@ function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 
         method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify(payload),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data?.message || "Failed to submit");
-      toast.success(data?.message || "Withdrawal request submitted!");
+      if (!res.ok) throw new Error(data?.message || t("cashout_page.errors.submit_failed"));
+      toast.success(data?.message || t("cashout_page.success.withdrawal_submitted"));
       onSuccess(); close();
     } catch (err) {
-      toast.error((err as Error).message || "Failed to submit");
+      toast.error((err as Error).message || t("cashout_page.errors.submit_failed"));
     } finally { setSubmitting(false); }
   };
 
@@ -215,12 +253,16 @@ function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4" onClick={close}>
       <div className="w-full max-w-[400px] rounded-2xl border border-[#23353E] bg-[#0F1D24] p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between mb-5">
-          <h3 className="text-white text-lg font-bold">Cashout {card.name}</h3>
+<h3>
+  {t("cashout_page.modal.title", {
+    name: card?.name
+  })}
+</h3>
           <button onClick={close} className="text-[#8C8FA8] hover:text-white"><X size={20} /></button>
         </div>
         <div className="bg-[#14A990]/10 border border-[#14A990]/20 rounded-full px-4 py-2 mb-5 flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-[#14A990] flex items-center justify-center text-[10px] font-bold text-white">!</div>
-          <p className="text-[#14A990] text-xs font-semibold">Minimum withdrawal is $0.5</p>
+          <p className="text-[#14A990] text-xs font-semibold">{t("cashout_page.modal.minimum_withdrawal")}</p>
         </div>
         <form onSubmit={submit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
@@ -228,66 +270,60 @@ function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 
             <div className="relative">
               <input type="text" value={destination} onChange={e => setDestination(e.target.value)} placeholder={meta.placeholder}
                 className="w-full bg-[#15242C] border border-[#23353E] rounded-lg px-4 py-3 text-white text-sm outline-none focus:border-[#14A990]/50" />
-              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">Save</button>
+              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">{t("cashout_page.modal.save")}</button>
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[#8C8FA8] text-xs font-semibold">Amount</label>
-              <span className="text-[#8C8FA8] text-[10px]">Balance: ${(userBalance / 100).toFixed(2)}</span>
+              <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.amount")}</label>
+              <span className="text-[#8C8FA8] text-[10px]">{t("cashout_page.modal.balance")}: ${(userBalance / 100).toFixed(2)}</span>
             </div>
             <div className="relative">
-              <input type="number" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} placeholder="E.g $120"
+              <input type="number" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} placeholder={t("cashout_page.modal.amount_placeholder")}
                 className="w-full bg-[#15242C] border border-[#23353E] rounded-lg px-4 py-3 text-white text-sm outline-none focus:border-[#14A990]/50" />
               <button type="button" onClick={() => setAmount((userBalance / 100).toString())}
-                className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">Max</button>
+                className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">{t("cashout_page.modal.max")}</button>
             </div>
           </div>
-{/* Transaction Details */}
-<div className="flex flex-col gap-1.5">
-  <label className="text-[#8C8FA8] text-xs font-semibold">
-    Transaction Details
-  </label>
-
-  <div className="rounded-lg border border-[#23353E] bg-[#15242C] overflow-hidden">
-    
-    {/* Payment Rate */}
-    <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
-      <span className="text-[#8C8FA8] text-sm">
-        BTC Payment Rate
-      </span>
-      <span className="text-white text-sm font-medium">
-        $67,240.54
-      </span>
-    </div>
-
-    {/* Transaction Fee */}
-    <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
-      <span className="text-[#8C8FA8] text-sm">
-        Transaction Fee
-      </span>
-      <span className="text-white text-sm font-medium">
-        $2.50
-      </span>
-    </div>
-
-    {/* Value */}
-    <div className="flex items-center justify-between px-4 py-3">
-      <span className="text-[#8C8FA8] text-sm">
-        Value
-      </span>
-      <span className="text-[#FFFFFF] text-sm font-medium">
-        BTC 0.000742
-      </span>
+{meta.method === "crypto" && cryptoInfo ? (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
+    <div className="rounded-lg border border-[#23353E] bg-[#15242C] overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
+        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.payment_rate", {
+  ticker: cryptoInfo.ticker,
+})}</span>
+        <span className="text-white text-sm font-medium">${cryptoInfo.approxPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+      </div>
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
+        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.transaction_fee", {
+  percent: cryptoInfo.networkFeePercent,
+})}</span>
+        <span className="text-white text-sm font-medium">${feeAmount.toFixed(2)}</span>
+      </div>
+      <div className="flex items-center justify-between px-4 py-3">
+        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.you_receive")}</span>
+        <span className="text-[#FFFFFF] text-sm font-medium">{cryptoInfo.ticker} {cryptoValue}</span>
+      </div>
     </div>
   </div>
-</div>
+) : meta.method === "paypal" || meta.method === "bank_transfer" ? (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
+    <div className="rounded-lg border border-[#23353E] bg-[#15242C] overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3">
+        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.fee")}</span>
+        <span className="text-white text-sm font-medium">{t("cashout_page.modal.free")}</span>
+      </div>
+    </div>
+  </div>
+) : null}
 
           <button type="submit" disabled={submitting}
             className="w-full h-12 rounded-lg text-white text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-50 hover:opacity-90 transition-opacity"
             style={{ background: "linear-gradient(135deg,#0AC07D,#14A990)", boxShadow: "0 8px 24px rgba(10,192,125,0.3)" }}>
             <IcoCashoutBtn />
-            {submitting ? "Submitting..." : "Cashout"}
+            {submitting ? t("cashout_page.modal.submitting") : t("cashout_page.topbar.cashout")}
           </button>
         </form>
       </div>
@@ -304,6 +340,34 @@ export default function CashoutPage() {
   const [balanceCents, setBalanceCents] = useState(0);
   const [notifCount, setNotifCount]   = useState(0);
   const [profileInit, setProfileInit] = useState("B");
+      const { t } = useTranslation();
+
+
+
+      const WITHDRAW_CASH: CashoutCard[] = [
+  { id: "paypal",    name: t("cards_cc.paypal"),   brandName: t("cards_cc.paypal"),   logoSrc: "/assets/paypal.png",    gradient: "linear-gradient(135deg,#20214B,#2B2E6A)", category: "cash",   method: "paypal"        },
+  { id: "worldcoin", name: t("cards_cc.worldcoin"),brandName: t("cards_cc.worldcoin"),logoSrc: "/worldcoin.png", gradient: "linear-gradient(135deg,#1F2048,#2B2E63)", badge: t("cashout_page.badges.off_30"), category: "crypto", cryptoType: "worldcoin" },
+  { id: "visa",      name: t("cards_cc.visa"),     brandName: t("cards_cc.visa"),     logoSrc: "/assets/visa.png",      gradient: "linear-gradient(135deg,#1F2048,#2B2E63)", category: "cash",   method: "bank_transfer" },
+];
+
+  /* ── Data ────────────────────────────────────────────────────────── */
+const POPULAR: CashoutCard[] = [
+  { id: "btc",  name: t("cards_cc.bitcoin"), brandName: t("cards_cc.bitcoin"),  subtitle: t(CRYPTO_CONFIG.btc.feeLabel),  logoSrc: "/assets/bit.png",  gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)", category: "crypto", cryptoType: "btc"  },
+  { id: "doge", name: t("cards_cc.dogecoin"), brandName: t("cards_cc.dogecoin"), subtitle: t(CRYPTO_CONFIG.doge.feeLabel), logoSrc: "/dogcoin.png",     gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "crypto", cryptoType: "doge" },
+  { id: "sol",  name: t("cards_cc.solana"),   brandName: t("cards_cc.solana"),   subtitle: t(CRYPTO_CONFIG.sol.feeLabel),  logoSrc: "/assets/sol.png",  gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "crypto", cryptoType: "sol"  },
+  { id: "eth",  name: t("cards_cc.ethereum"), brandName: t("cards_cc.ethereum"), subtitle: t(CRYPTO_CONFIG.eth.feeLabel),  logoSrc: "/assets/eth.png",  gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "crypto", cryptoType: "eth"  },
+  { id: "ltc",  name: t("cards_cc.litecoin"), brandName: t("cards_cc.litecoin"), subtitle: t(CRYPTO_CONFIG.ltc.feeLabel),  logoSrc: "/litecoin.png",   gradient: "linear-gradient(135deg,#0A8C63,#10A479)", category: "crypto", cryptoType: "ltc"  },
+];
+
+
+const GIFTCARDS: CashoutCard[] = [
+  { id: "amazon",      name: t("cards_cc.amazon"),     brandName: t("cards_cc.amazon"),     logoSrc: "/assets/amazon.png", gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)", category: "giftcard" },
+  { id: "itunes",      name: t("cards_cc.app_stores"), brandName: t("cards_cc.app_stores"),     logoSrc: "/itunes.png",  gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "giftcard" },
+  { id: "spotify",     name: t("cards_cc.spotify"),    brandName: t("cards_cc.spotify"),    logoSrc: "/assets/spot.png",   gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "giftcard" },
+  { id: "playstation", name: t("cards_cc.playstations"),brandName: t("cards_cc.playstations"),logoSrc: "/assets/play.png",  gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "giftcard" },
+  { id: "steam",       name: t("cards_cc.steam"),      brandName: t("cards_cc.steam"),      logoSrc: "/assets/cb.png",     gradient: "linear-gradient(135deg,#0A8C63,#10A479)", category: "giftcard" },
+];
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -324,6 +388,23 @@ export default function CashoutPage() {
     if (card.category === "giftcard") { setGiftOpen(true); return; }
     setMethodOpen(true);
   };
+
+
+    const TICKER_ITEMS = [
+  { img: "/game-tile-tap-master.png", name: t("cashout_page.ticker.slots"),     action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-slot.png",            name:  t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-monopoly.png",        name:  t("cashout_page.ticker.slots"),      action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-torox.png",           name: t("cashout_page.ticker.monopoly"),  action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-angry-bird.png",      name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-big-giant.png",       name: t("cashout_page.ticker.big_giant"), action: t("cashout_page.ticker.user_earned"),   amount: "$1.0" },
+  { img: "/game-tile-tap-master.png", name:  t("cashout_page.ticker.slots"),     action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-slot.png",            name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-monopoly.png",        name:  t("cashout_page.ticker.slots"),      action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-torox.png",           name: t("cashout_page.ticker.monopoly"),  action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-angry-bird.png",      name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
+  { img: "/game-big-giant.png",       name: t("cashout_page.ticker.big_giant"), action: t("cashout_page.ticker.user_withdrew"),   amount: "$1.0" },
+];
+
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
@@ -351,7 +432,7 @@ export default function CashoutPage() {
               className="hidden sm:flex h-[44px] rounded-[8px] px-5 items-center gap-2 text-white font-bold text-[15px] hover:opacity-90"
               style={{ background: "linear-gradient(12.07deg,rgba(255,255,255,0) 16.27%,rgba(255,255,255,0.4) 93.68%),#099F86", boxShadow: "0px 7px 19px rgba(20,169,144,0.3)" }}>
               <IcoCashoutBtn />
-              Cashout
+              {t("cashout_page.topbar.cashout")}
             </button>
             <button onClick={() => router.push("/account")}
               className="h-[38px] w-[38px] sm:h-[44px] sm:w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[16px] sm:text-[18px] hover:opacity-90 flex-shrink-0">
@@ -381,9 +462,9 @@ export default function CashoutPage() {
 
       {/* ── Sections ─────────────────────────────────────────────── */}
       <main className="flex-1 max-w-[1440px] w-full mx-auto px-3 sm:px-6 md:px-16 py-4 sm:py-8 flex flex-col gap-6 sm:gap-10">
-        <Section title="Popular"       cards={POPULAR}       onCardClick={handleCardClick} />
-        <Section title="Withdraw cash" cards={WITHDRAW_CASH} onCardClick={handleCardClick} />
-        <Section title="Giftcard"      cards={GIFTCARDS}     onCardClick={handleCardClick} />
+        <Section title={t("cashout_page.sections.popular")}       cards={POPULAR}       onCardClick={handleCardClick} />
+        <Section title={t("cashout_page.sections.withdraw_cash")}  cards={WITHDRAW_CASH} onCardClick={handleCardClick} />
+        <Section title={t("cashout_page.sections.giftcard")}      cards={GIFTCARDS}     onCardClick={handleCardClick} />
       </main>
 
       {/* ── Floating Support ─────────────────────────────────────── */}
@@ -391,7 +472,7 @@ export default function CashoutPage() {
         onClick={() => router.push("/support")}
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full hover:scale-105 transition-transform"
         style={{ width: 52, height: 52, background: "linear-gradient(135deg,#0AC07D,#0BBFA0)", boxShadow: "0 8px 24px rgba(10,192,125,0.45)" }}
-        aria-label="Support"
+        aria-label={t("cashout_page.topbar.support")}
       >
         <IcoHeadset />
       </button>

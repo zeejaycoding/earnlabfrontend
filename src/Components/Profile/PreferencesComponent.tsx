@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "@/store/store";
 import { updateProfileFields } from "@/store/userSlice";
+import { useTranslation } from "react-i18next";
 
 interface PreferenceItem {
     id: string;
@@ -11,25 +12,28 @@ interface PreferenceItem {
     subtitle: string;
 }
 
-const preferences: PreferenceItem[] = [
+
+const PreferencesComponent = () => {
+    const { t } = useTranslation();
+
+    const preferences: PreferenceItem[] = [
     {
         id: "Private Profile",
-        title: "Private Profile",
-        subtitle: "Hides your activity, username, and statistics from other users",
+        title: t("preferences.privateProfile"),
+        subtitle: t("preferences.privateProfileDescription"),
     },
     {
         id: "Activity Bar",
-        title: "Activity Bar",
-        subtitle: "Display a feed of recent activities and interactions",
+        title: t("preferences.activityBar"),
+        subtitle: t("preferences.activityBarDescription"),
     },
     {
         id: "Display in USD",
-        title: "Display in USD",
-        subtitle: "Show all amounts in USD for easy reference",
+        title: t("preferences.displayInUSD"),
+        subtitle: t("preferences.displayInUSDDescription"),
     },
 ];
 
-const PreferencesComponent = () => {
     const profile = useSelector((s: RootState) => s.user.profile);
     const dispatch = useDispatch();
     
@@ -57,7 +61,7 @@ const PreferencesComponent = () => {
         if (id === "Private Profile") {
             const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
             if (!token) {
-                toast.error("Please sign in to update preferences");
+                toast.error(t("preferences.pleaseSignIn"));
                 return;
             }
 
@@ -77,15 +81,15 @@ const PreferencesComponent = () => {
                 if (res.ok) {
                     const data = await res.json();
                     dispatch(updateProfileFields({ profilePrivacy: newValue ? "private" : "public" }));
-                    toast.success(`Profile is now ${newValue ? "private" : "public"}`);
+                    toast.success(t("preferences.profile") + " " + (newValue ? t("preferences.profilePrivate") : t("preferences.profilePublic")));
                 } else {
-                    toast.error("Failed to update privacy setting");
+                    toast.error(t("preferences.updateFailed"));
                     // Revert on error
                     setEnabled((prev) => ({ ...prev, [id]: !newValue }));
                 }
             } catch (err) {
                 console.error("Error updating privacy:", err);
-                toast.error("Failed to update privacy setting");
+                toast.error(t("preferences.updateFailed"));
                 // Revert on error
                 setEnabled((prev) => ({ ...prev, [id]: !newValue }));
             }
