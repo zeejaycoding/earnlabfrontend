@@ -194,6 +194,8 @@
   "popup_blocked": "Pop-up was blocked. Please allow pop-ups and try again.",
   "failed": "Sign-up failed. Please try again."
 },
+
+
 "games": {
   "play_earn": "Play & Earn",
   "hero_title": "Play Games, Earn Rewards",
@@ -283,6 +285,8 @@
 
     "go_to_tasks": "Go to Tasks"
   },
+
+
    "verification": {
     "title": "Verification",
 
@@ -324,6 +328,8 @@
     }
   }
 },
+
+
   "chat_page": {
     "title": "Chat Room",
 
@@ -495,6 +501,8 @@
       }
     }
   },
+
+
   "cookie_page": {
     "header": {
       "title": "Cookie Policy",
@@ -1100,6 +1108,7 @@
       "submitFailed": "Failed to submit. Please try again."
     }
   },
+
     "surveysInfo": {
     "title": "Surveys",
     "shareOpinion": "Share Your Opinion",
@@ -1236,6 +1245,8 @@
     "benefit4Desc": "Work whenever you want. Complete tasks on your own schedule from anywhere in the world."
   }
 },
+
+
 "terms": {
   "quickNavigation": "Quick Navigation",
 
@@ -1379,6 +1390,7 @@
     "completed": "Completed"
   }
 },
+
  "affiliate": {
       "title": "Affiliate Program",
       "subtitle": "Earn money for every friend you refer to Labwards",
@@ -1580,6 +1592,8 @@
   "noPremiumOffersAvailable": "No premium offers available",
   "premiumOffersComingSoon": "Premium offers are coming soon! Check back later for exclusive high-reward opportunities."
 },
+
+
   "pricingHoldTimes": {
     "title": "Pricing & Hold Times",
     "subtitle": "Understand when your rewards become available",
@@ -1808,6 +1822,8 @@
       "tryAgain": "Failed to create withdrawal. Please try again."
     }
   },
+
+
   "watchWalls": {
     "title": "Watch Walls",
     "description": "Watch videos and earn rewards",
@@ -2130,6 +2146,8 @@
     "day14": "14 Days",
     "day30": "30 Days"
   },
+
+  
    "profile": {
     "leaderboard": "Leaderboard",
     "all": "All",
