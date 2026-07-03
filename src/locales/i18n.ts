@@ -5,6 +5,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./en/landing.json";
 import urL from "./ur/common.json";
 import ur from "./ur/landing.json";
+import es from "./sp/landing.json";
 
 import ar from "./ar/landing.json";
 
@@ -13,6 +14,7 @@ const resources = {
   ur: { translation: ur },
   urL: { translation: urL },
   ar: { translation: ar },
+  es: { translation: es },
 };
 
 if (!i18n.isInitialized) {
