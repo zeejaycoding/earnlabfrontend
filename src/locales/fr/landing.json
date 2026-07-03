@@ -1,0 +1,2392 @@
+{
+  "hero": {
+    "title_highlight": "Soyez payé",
+    "title_rest": "pour ce que vous faites déjà en ligne",
+    "subtitle": "Répondez à des sondages, jouez à des jeux et complétez des offres rapides pour gagner de l’argent réel, des cryptomonnaies et des récompenses.",
+    "cta": "Commencer à gagner"
+  },
+
+  "navbar": {
+    "signin": "Se connecter",
+    "signup": "S’inscrire"
+  },
+
+  "live_payouts": {
+    "title_highlight": "Paiements",
+    "title_rest": "en direct",
+    "total_label": "Total des paiements effectués au cours des dernières 24 heures",
+    "empty": "Les événements de paiement en direct apparaîtront ici dès qu’ils seront enregistrés.",
+    "empty_desktop": "Aucune activité de paiement n’a encore été publiée."
+  },
+
+  "tasks": {
+    "title_highlight": "Gagnez en accomplissant des",
+    "title_rest": "tâches simples",
+    "surveys_title": "Répondre à des sondages",
+    "surveys_desc": "Partagez votre opinion via de courts sondages vérifiés et gagnez de l’argent instantanément. Récompenses claires, sans surprise.",
+    "games_title": "Jouer à des jeux",
+    "games_desc": "Jouez à des jeux populaires, atteignez des objectifs et recevez des récompenses. Plus vous jouez, plus vous gagnez.",
+    "offers_title": "Compléter des offres",
+    "offers_desc": "Inscrivez-vous, testez des applications ou remplissez de simples formulaires pour gagner facilement des récompenses en quelques clics."
+  },
+
+  "faq": {
+    "title_highlight": "Questions fréquemment posées",
+    "questions": {
+      "start_earning": {
+        "q": "Comment puis-je commencer à gagner sur LabWard ?",
+        "a": "Créer un compte sur LabWard est rapide et facile. Vous pouvez vous inscrire avec votre e-mail, Google, Facebook ou Steam. Une fois connecté, vous aurez accès à la section Gains pour compléter des offres et à la section Jeux pour jouer à Boxes et Battles. Connectez-vous et commencez à explorer."
+      },
+      "payout_methods": {
+        "q": "Combien de méthodes de paiement sont disponibles ?",
+        "a": "LabWard prend en charge plus de 15 méthodes de paiement, notamment PayPal, Bitcoin, Ethereum, Solana, les cartes cadeaux VISA, les codes portefeuille Steam, les crédits Google Play, les cartes cadeaux Amazon et bien plus encore. Nous ajoutons constamment de nouvelles options de paiement en fonction des retours des utilisateurs."
+      },
+      "withdraw": {
+        "q": "Comment retirer mes gains de LabWard ?",
+        "a": "Accédez à la section Récompenses de votre tableau de bord, sélectionnez votre méthode de paiement préférée, saisissez le montant du retrait (minimum 0,50 $) et confirmez la transaction. Vos gains seront envoyés dans le délai de traitement propre à cette méthode."
+      },
+      "withdraw_time": {
+        "q": "Combien de temps prend un retrait ?",
+        "a": "La plupart des retraits sont traités sous 24 heures. Les paiements en cryptomonnaie (BTC, ETH, SOL) arrivent généralement en quelques minutes. Les transferts PayPal prennent 1 à 2 jours ouvrables. Les codes de cartes cadeaux sont généralement envoyés instantanément par e-mail après validation."
+      },
+      "worldwide": {
+        "q": "LabWard est-il disponible dans le monde entier ?",
+        "a": "Oui ! LabWard est disponible dans plus de 180 pays. Cependant, certaines offres et certains sondages peuvent être limités à certaines régions selon les exigences des annonceurs. Les régions plus peuplées ont tendance à proposer davantage de tâches."
+      }
+    }
+  },
+
+  "testimonials": {
+    "title_highlight": "Ce que les gens disent",
+    "title_rest": "de nous"
+  },
+
+  "stats": {
+    "title_highlight": "Vous pouvez faire partie de",
+    "title_rest": "nos gagnants",
+    "total_rewards": "Récompenses totales gagnées",
+    "average": "Gain moyen",
+    "users": "Nombre total d’utilisateurs",
+    "tasks": "Tâches complétées"
+  },
+
+  "cta": {
+    "title_highlight": "Commencez à gagner de vraies récompenses dès aujourd’hui",
+    "desc": "Rejoignez des milliers de personnes qui accomplissent des tâches simples, jouent à des jeux et répondent à des sondages pour gagner de l’argent réel et des récompenses. Il ne faut que quelques minutes pour commencer.",
+    "button": "Commencer"
+  },
+
+  "cards": {
+    "left_title": "Jeu Yappin",
+    "left_desc": "Atteignez le niveau 8 pour gagner",
+
+    "center_title": "Octopus Mane",
+    "center_desc": "Atteignez le niveau 2 pour gagner",
+
+    "right_title": "Sondages rapides",
+    "right_desc": "Répondez à 2 sondages"
+  },
+
+  "testimonials_cards": {
+    "leslie_text": "J’étais sceptique au début, mais après avoir répondu à seulement quelques sondages, j’ai pu retirer directement sur mon PayPal. Rapide, simple et fiable — je suis conquis !",
+    "bessie_text": "Honnêtement, je n’attendais pas grand-chose au départ, mais LabWards m’a surpris. Les tâches sont simples, les paiements sont rapides et tout fonctionne exactement comme promis.",
+    "brooklyn_text": "Ce que j’aime le plus chez LabWards, c’est sa simplicité. Pas d’étapes compliquées, pas de pièges cachés. Je complète des sondages ou des offres pendant mon temps libre et les gains s’accumulent rapidement !",
+    "cameron_text": "J’utilise LabWards depuis trois mois et je gagne régulièrement de l’argent supplémentaire grâce aux offres et sondages quotidiens. C’est la meilleure plateforme que j’ai trouvée pour gagner de l’argent en ligne !",
+    "robert_text": "La rapidité des paiements est incomparable. J’ai demandé mon premier retrait en Bitcoin et je l’ai reçu en moins de 10 minutes. Je recommande vivement LabWards à toute personne souhaitant gagner de l’argent en ligne."
+  },
+   "rewards": {
+    "title_first": "Une plateforme,",
+    "title_second": "plusieurs récompenses",
+
+    "visa": "Visa",
+    "bitcoin": "Bitcoin",
+    "apple": "Apple",
+    "paypal": "PayPal",
+    "worldcoin": "Worldcoin",
+    "amazon": "Amazon",
+    "solana": "Solana",
+    "playstation": "PlayStation",
+    "spotify": "Spotify",
+    "polygon": "Polygon"
+  },
+
+  "footer": {
+    "support": "Support",
+    "features": "Fonctionnalités",
+    "connect": "Connectez-vous avec nous",
+
+    "contact": "Contactez-nous",
+    "faq": "FAQ",
+    "games": "Jeux",
+    "rewards": "Récompenses",
+    "tasks": "Tâches",
+
+    "terms": "Conditions",
+    "service_terms": "Conditions de service",
+    "privacy": "Politique de confidentialité",
+    "cookie": "Politique des cookies",
+
+    "trust_score": "Score de confiance 4.5",
+    "reviews": "200 avis",
+
+    "description": "Inscrivez-vous dès aujourd’hui et obtenez votre bonus instantané. Chaque tâche complétée met de l’argent dans votre poche.",
+
+    "copyright": "©2026 Lab Wards, Tous droits réservés",
+
+    "light": "Clair",
+    "dark": "Sombre",
+
+    "terms_use": "Conditions d’utilisation"
+  },
+
+  "signin": {
+    "title": "Se connecter",
+    "email": "Adresse e-mail",
+    "email_placeholder": "Entrez votre adresse e-mail",
+    "password": "Mot de passe",
+    "password_placeholder": "Mot de passe",
+    "signin": "Se connecter",
+    "signing_in": "Connexion en cours...",
+    "or": "Ou",
+    "google": "Se connecter avec Google",
+    "facebook": "Se connecter avec Facebook",
+    "worldcoin": "Se connecter avec Worldcoin",
+    "redirecting": "Redirection...",
+    "no_account": "Vous n’avez pas encore de compte ?",
+    "signup": "S’inscrire",
+    "trust_score": "Score de confiance 4.5",
+    "reviews": "200 avis",
+    "enter_credentials": "Veuillez saisir votre e-mail et mot de passe",
+    "login_failed": "Échec de la connexion",
+    "signin_failed": "La connexion a échoué. Veuillez réessayer.",
+    "server_error": "Échec de connexion au serveur",
+    "auth_loading": "Le système d’authentification est en cours de chargement. Veuillez patienter un moment et réessayer.",
+    "facebook_disabled": "La connexion Facebook n’est pas activée. Veuillez contacter le support.",
+    "popup_blocked": "La fenêtre pop-up a été bloquée. Veuillez autoriser les pop-ups et réessayer.",
+    "google_failed": "La connexion Google a échoué"
+  },
+
+  "signup": {
+    "title": "S’inscrire",
+    "banner": "Des milliers viennent de gagner — ne manquez pas votre premier paiement 🚀",
+    "email": "Adresse e-mail",
+    "email_placeholder": "Entrez votre adresse e-mail",
+    "password": "Mot de passe",
+    "password_placeholder": "Mot de passe",
+    "button": "S’inscrire",
+    "creating": "Création du compte...",
+    "or": "Ou",
+    "worldcoin": "S’inscrire via Worldcoin",
+    "google": "S’inscrire via Google",
+    "facebook": "S’inscrire via Facebook",
+    "redirecting": "Redirection...",
+    "have_account": "Vous avez déjà un compte ?",
+    "signin": "Se connecter",
+    "close": "Fermer la fenêtre d’inscription",
+    "trust_score": "Score de confiance 4.5",
+    "reviews": "200 avis",
+
+    "fill_fields": "Veuillez renseigner l’e-mail et le mot de passe.",
+    "registration_failed": "Échec de l’inscription",
+    "network_error": "Erreur réseau",
+    "google_failed": "L’inscription avec Google a échoué",
+    "server_failed": "Échec de connexion au serveur",
+    "auth_loading": "Le système d’authentification est en cours de chargement. Veuillez patienter un moment et réessayer.",
+    "facebook_disabled": "L’inscription via Facebook n’est pas activée. Veuillez contacter le support.",
+    "popup_blocked": "La fenêtre pop-up a été bloquée. Veuillez autoriser les pop-ups et réessayer.",
+    "failed": "L’inscription a échoué. Veuillez réessayer."
+  },
+   "games": {
+    "play_earn": "Jouer et gagner",
+    "hero_title": "Jouez à des jeux, gagnez des récompenses",
+    "hero_desc": "Complétez des missions de jeu, atteignez des objectifs et gagnez de l'argent réel tout en vous amusant.",
+
+    "stats": {
+      "available_games": "Jeux disponibles",
+      "avg_payout": "Gain moyen",
+      "active_players": "Joueurs actifs",
+      "paid_out": "Montant versé"
+    },
+
+    "featured": "Jeux en vedette",
+    "play_now": "Jouer maintenant",
+
+    "easy": "Facile",
+    "medium": "Moyen",
+
+    "how_it_works": "Comment ça fonctionne",
+    "steps": {
+      "browse": "Parcourir les jeux",
+      "play": "Jouer aux jeux",
+      "milestones": "Atteindre les objectifs",
+      "payout": "Recevoir le paiement"
+    },
+
+    "why_play": "Pourquoi jouer",
+
+    "features": {
+      "high_payouts": "Gains élevés",
+      "flexible_timeframes": "Délais flexibles",
+      "instant_credit": "Crédit instantané",
+      "daily_bonuses": "Bonus quotidiens"
+    },
+
+    "list": {
+      "sea_of_conquest": "Sea of Conquest",
+      "farming_simulator": "Simulateur agricole",
+      "spongebob_adventures": "Aventures de Bob l'Éponge",
+      "time_7_days": "7 jours",
+      "time_10_days": "10 jours",
+      "time_5_days": "5 jours"
+    },
+
+    "difficulty": {
+      "easy": "Facile",
+      "medium": "Moyen"
+    },
+
+    "features_desc": {
+      "high_payouts": "Gagnez jusqu'à 150 $ par jeu. Nos jeux offrent les meilleures récompenses du secteur.",
+      "flexible_timeframes": "Terminez les jeux à votre rythme. La plupart prennent entre 5 et 14 jours.",
+      "instant_credit": "Recevez votre crédit immédiatement après avoir atteint les objectifs.",
+      "daily_bonuses": "Gagnez des récompenses supplémentaires grâce aux connexions quotidiennes et aux défis."
+    }
+  },
+
+  "bonus": {
+    "sign_up_bonus": {
+      "title": "Bonus d'inscription",
+      "subtitle": "Gagnez jusqu'à 30 $",
+      "button": "Tourner"
+    },
+    "streak": {
+      "title": "Série de 7 jours",
+      "subtitle": "Gagnez 1 $ par jour pour maintenir votre série",
+      "button": "Voir la série"
+    },
+    "verification": {
+      "title": "Vérification",
+      "subtitle": "Gagnez 0,2 $ chacun",
+      "button": "Aller à la vérification"
+    }
+  },
+
+  "bonus_page": {
+    "title": "Bonus d'inscription",
+    "timer_label": "Se termine dans",
+    "reward_label": "Gagnez plus de 1 $ en 48 heures et recevez",
+    "reward_highlight": "3 coffres gratuits supplémentaires",
+    "cta": "Commencer à gagner"
+  },
+
+  "streak": {
+    "title": "Série de 7 jours",
+    "reset_in": "La série se réinitialise dans",
+    "description": "Complétez au moins une tâche par jour pour maintenir votre série et recevoir des coffres gratuits",
+    "description_sec": "Coffres gratuits",
+    "go_to_tasks": "Aller aux tâches"
+  },
+
+  "verification": {
+    "title": "Vérification",
+
+    "telegram_title": "Telegram",
+    "telegram_sub": "Rejoignez notre Telegram",
+
+    "x_title": "Suivez-nous sur X",
+    "x_sub": "Suivez-nous sur X",
+
+    "discord_title": "Discord",
+    "discord_sub": "Rejoignez notre Discord",
+
+    "reward": "0,05 $",
+
+    "join": "Rejoindre",
+    "follow": "Suivre"
+  },
+
+  "tasks_hub": {
+    "title": "Centre des tâches",
+    "subtitle": "Complétez des tâches indépendantes et suivez votre progression en un seul endroit.",
+
+    "go_earn": "Aller gagner",
+    "leaderboard": "Classement",
+
+    "tip": "Astuce : utilisez les filtres dans la liste des tâches pour trouver rapidement des tâches à forte valeur ou spécifiques à un appareil.",
+
+    "stats": {
+      "live_tasks": {
+        "label": "Tâches en direct",
+        "value": "500+"
+      },
+      "avg_completion": {
+        "label": "Temps moyen",
+        "value": "8 min"
+      },
+      "task_categories": {
+        "label": "Catégories de tâches",
+        "value": "12"
+      }
+    }
+  },
+   "chat_page": {
+    "title": "Salon de discussion",
+
+    "dropdown": {
+      "language": "Langue",
+      "rooms": "Salons"
+    },
+
+    "rooms": {
+      "general": "Général",
+      "community": "Communauté"
+    },
+
+    "ticker": {
+      "user_xy_withdrew": "L'utilisateur XY a retiré",
+      "user_yz_earned": "L'utilisateur YZ a gagné",
+      "user_ab_earned": "L'utilisateur AB a gagné",
+      "user_cd_withdrew": "L'utilisateur CD a retiré",
+
+      "slots": "Machines à sous",
+      "worldcoin": "Worldcoin",
+      "offer_walls": "Murs d'offres",
+      "torox": "Torox"
+    },
+
+    "messages": {
+      "loading": "Chargement des messages...",
+      "empty": "Aucun message pour le moment",
+      "first_message": "Soyez le premier à dire bonjour !"
+    },
+
+    "input": {
+      "placeholder": "Entrez votre message...."
+    },
+
+    "errors": {
+      "sign_in_required": "Veuillez vous connecter pour envoyer des messages",
+      "send_failed": "Échec de l'envoi du message"
+    }
+  },
+
+  "cashout_page": {
+    "topbar": {
+      "cashout": "Retrait",
+      "support": "Support"
+    },
+    "sections": {
+      "popular": "Populaire",
+      "withdraw_cash": "Retirer de l'argent",
+      "giftcard": "Carte cadeau"
+    },
+    "ticker": {
+      "user_withdrew": "L'utilisateur a retiré",
+      "user_earned": "L'utilisateur a gagné",
+      "slots": "Machines à sous",
+      "worldcoin": "Worldcoin",
+      "slot": "Machine à sous",
+      "monopoly": "Monopoly",
+      "big_giant": "Big Giant"
+    },
+    "modal": {
+      "title": "Retrait {{name}}",
+      "minimum_withdrawal": "Le retrait minimum est de 0,5 $",
+
+      "destination": "Destination",
+      "enter_destination": "Entrez la destination",
+      "wallet_address": "Adresse {{name}}",
+      "enter_wallet": "Entrez l'adresse du portefeuille",
+
+      "paypal_email": "Email PayPal",
+      "email_placeholder": "vous@exemple.com",
+
+      "bank_details": "Détails de carte / banque",
+      "bank_placeholder": "Entrez les informations bancaires ou de carte",
+
+      "save": "Enregistrer",
+
+      "amount": "Montant",
+      "balance": "Solde",
+      "amount_placeholder": "Ex. 120 $",
+      "max": "Max",
+
+      "transaction_details": "Détails de la transaction",
+      "payment_rate": "Taux de paiement {{ticker}}",
+      "transaction_fee": "Frais de transaction ({{percent}}%)",
+      "fee": "Frais",
+      "free": "Gratuit",
+      "you_receive": "Vous recevez",
+
+      "cashout": "Retirer",
+      "submitting": "Envoi en cours..."
+    },
+    "errors": {
+      "valid_amount": "Veuillez entrer un montant valide",
+      "minimum_amount": "Le retrait minimum est de 0,5 $",
+      "provide_destination": "Veuillez fournir {{field}}",
+      "sign_in": "Veuillez d'abord vous connecter",
+      "submit_failed": "Échec de la soumission"
+    },
+    "success": {
+      "withdrawal_submitted": "Demande de retrait envoyée !"
+    },
+    "fees": {
+      "network_fee_1": "~1% de frais réseau",
+      "network_fee_01": "~0,1% de frais réseau",
+      "network_fee_15": "~1,5% de frais réseau",
+      "network_fee_05": "~0,5% de frais réseau"
+    },
+    "badges": {
+      "off_30": "30% DE RÉDUCTION"
+    }
+  },
+
+  "cards_cc": {
+    "bitcoin": "Bitcoin",
+    "dogecoin": "Dogecoin",
+    "solana": "Solana",
+    "ethereum": "Ethereum",
+    "litecoin": "Litecoin",
+    "paypal": "PayPal",
+    "worldcoin": "Worldcoin",
+    "visa": "Visa",
+    "amazon": "Amazon",
+    "app_stores": "App Stores",
+    "spotify": "Spotify",
+    "playstations": "PlayStations",
+    "steam": "Steam"
+  },
+
+  "contact_page": {
+    "header": {
+      "title": "Contactez-nous",
+      "help_center": "Centre d'aide"
+    },
+    "hero": {
+      "title": "Contactez-nous",
+      "description": "Nous sommes là pour vous aider ! Contactez-nous via l’un de nos réseaux sociaux ou options de support ci-dessous.",
+      "fastest_response": "Pour une réponse plus rapide, rejoignez notre communauté Discord."
+    },
+    "social_section": {
+      "title": "Connectez-vous avec nous",
+      "members": "Membres"
+    },
+    "support_section": {
+      "title": "Autres moyens de nous contacter",
+      "response_time": "Temps de réponse"
+    },
+    "social": {
+      "discord": {
+        "name": "Discord",
+        "description": "Rejoignez notre communauté pour un support instantané et discuter avec d'autres utilisateurs"
+      },
+      "telegram": {
+        "name": "Telegram",
+        "description": "Recevez des annonces et un support rapide via Telegram"
+      },
+      "twitter": {
+        "name": "Twitter / X",
+        "description": "Suivez-nous pour les mises à jour, promotions et annonces rapides"
+      }
+    },
+    "support": {
+      "email": {
+        "title": "Support par email",
+        "description": "Envoyez-nous un email pour des demandes détaillées",
+        "value": "support@labwards.com"
+      },
+      "live_chat": {
+        "title": "Chat en direct",
+        "description": "Discutez avec notre équipe de support en temps réel",
+        "value": "Disponible 24h/24 et 7j/7"
+      }
+    }
+  },
+    "cookie_page": {
+    "header": {
+      "title": "Politique relative aux cookies",
+      "back": "Retour"
+    },
+    "hero": {
+      "title": "Politique relative aux cookies",
+      "last_updated": "Dernière mise à jour : "
+    },
+    "intro": {
+      "text": "Nous utilisons des cookies et des technologies similaires pour améliorer votre expérience de navigation, analyser le trafic du site et personnaliser le contenu. Cette politique relative aux cookies explique ce que sont les cookies, comment nous les utilisons et vos choix concernant leur utilisation."
+    },
+    "what_are_cookies": {
+      "title": "Que sont les cookies ?",
+      "description_1": "Les cookies sont de petits fichiers texte stockés sur votre appareil lorsque vous visitez un site web. Ils aident les sites web à mémoriser vos préférences et la manière dont vous interagissez avec eux.",
+      "description_2": "Nous utilisons également des technologies similaires comme les balises web, les pixels et le stockage local. Lorsque nous parlons de cookies, nous incluons toutes ces technologies."
+    },
+    "manage": {
+      "title": "Gérez vos préférences en matière de cookies",
+      "save_button": "Enregistrer les préférences"
+    },
+    "cookie_types": {
+      "essential": {
+        "title": "Cookies essentiels",
+        "description": "Nécessaires au bon fonctionnement du site web, y compris la sécurité, l’authentification et les sessions.",
+        "required": "Obligatoire",
+        "examples": [
+          "ID de session",
+          "Jetons d’authentification",
+          "Jetons CSRF",
+          "Équilibrage de charge"
+        ]
+      },
+      "analytics": {
+        "title": "Cookies analytiques",
+        "description": "Nous aident à comprendre anonymement comment les utilisateurs interagissent avec notre site web.",
+        "examples": [
+          "Google Analytics",
+          "Vues de page",
+          "Comportement utilisateur",
+          "Indicateurs de performance"
+        ]
+      },
+      "marketing": {
+        "title": "Cookies marketing",
+        "description": "Utilisés pour afficher des publicités pertinentes en fonction du comportement de navigation.",
+        "examples": [
+          "Ciblage publicitaire",
+          "Suivi des conversions",
+          "Pixels de reciblage",
+          "Réseaux sociaux"
+        ]
+      },
+      "functional": {
+        "title": "Cookies fonctionnels",
+        "description": "Permettent la personnalisation, comme la mémorisation des préférences et paramètres.",
+        "examples": [
+          "Préférence de langue",
+          "Paramètres du thème",
+          "Éléments récemment consultés",
+          "Données de formulaire"
+        ]
+      }
+    },
+    "how_we_use": {
+      "title": "Comment nous utilisons les cookies",
+      "items": [
+        "Vous garder connecté",
+        "Mémoriser vos préférences",
+        "Vous protéger contre la fraude",
+        "Comprendre le comportement d’utilisation",
+        "Améliorer nos services",
+        "Fournir du contenu et des publicités pertinents",
+        "Mesurer les performances marketing"
+      ]
+    },
+    "third_party": {
+      "title": "Cookies tiers",
+      "description": "Certains cookies sont définis par des services tiers.",
+      "items": {
+        "Goganalytics": "Google Analytics :",
+        "analytics": "Analyse du site web et suivi des performances",
+        "adstitle": "Partenaires publicitaires : ",
+        "ads": "Suivi publicitaire et attribution des conversions",
+        "socialtitle": "Réseaux sociaux : ",
+        "social": "Fonctionnalités de partage et de connexion",
+        "paymentstitle": "Processeurs de paiement : ",
+        "payments": "Fonctionnalité de paiement sécurisée"
+      },
+      "note": "Ces tiers disposent de leurs propres politiques de confidentialité."
+    },
+    "browser": {
+      "title": "Gérer les cookies dans votre navigateur",
+      "note": "Vous pouvez contrôler les cookies via les paramètres de votre navigateur. Bloquer les cookies peut affecter le fonctionnement du site.",
+      "warning": "Certaines fonctionnalités peuvent ne pas fonctionner correctement sans les cookies essentiels.",
+      "items": {
+        "chrometitle": "Chrome : ",
+        "chrome": "Paramètres → Confidentialité et sécurité → Cookies",
+        "firefoxtitle": "Firefox : ",
+        "firefox": "Options → Confidentialité et sécurité → Cookies",
+        "safarititle": "Safari : ",
+        "safari": "Préférences → Confidentialité → Cookies",
+        "edgetitle": "Edge : ",
+        "edge": "Paramètres → Confidentialité, recherche et services → Cookies"
+      }
+    },
+    "contact": {
+      "title": "Des questions sur les cookies ?",
+      "text": "Si vous avez des questions concernant notre utilisation des cookies, contactez-nous :",
+      "email": "support@labwards.com"
+    },
+    "related": {
+      "title": "Politiques associées",
+      "terms": "Conditions d’utilisation",
+      "privacy": "Politique de confidentialité"
+    },
+    "warning1": "Remarque : bloquer ou supprimer les cookies peut affecter votre expérience sur notre site. Certaines fonctionnalités peuvent ne pas fonctionner correctement sans les cookies essentiels."
+  },
+  "faq_page": {
+    "header": {
+      "title": "FAQ",
+      "contact": "Contactez-nous"
+    },
+    "hero": {
+      "title": "Questions Fréquemment Posées",
+      "description": "Trouvez des réponses aux questions les plus courantes sur LabWards"
+    },
+    "categories": {
+      "getting_started": {
+        "title": "Premiers pas",
+        "question1": "Comment créer un compte ?",
+        "answer1": "Créer un compte est simple ! Cliquez sur S’inscrire et enregistrez-vous avec votre e-mail ou un compte social.",
+        "question2": "LabWards est-il gratuit ?",
+        "answer2": "Oui ! LabWards est totalement gratuit, sans frais cachés.",
+        "question3": "Quel âge faut-il avoir pour utiliser LabWards ?",
+        "answer3": "Vous devez avoir au moins 18 ans.",
+        "question4": "LabWards est-il disponible dans mon pays ?",
+        "answer4": "LabWards est disponible dans la plupart des pays du monde."
+      },
+
+      "earning_tasks": {
+        "title": "Gains & Tâches",
+        "question1": "Comment gagner de l’argent sur LabWards ?",
+        "answer1": "Gagnez de l’argent en complétant des jeux, des sondages, des offres, des vidéos et des tests d’applications.",
+        "question2": "Pourquoi ma tâche n’a-t-elle pas été créditée ?",
+        "answer2": "Cela peut être dû à l’utilisation d’un VPN, à des étapes incomplètes ou à un refus de l’annonceur.",
+        "question3": "Combien de temps faut-il pour recevoir les récompenses ?",
+        "answer3": "La plupart des récompenses sont instantanées, mais certaines peuvent prendre 24 à 48 heures.",
+        "question4": "Puis-je effectuer la même tâche plusieurs fois ?",
+        "answer4": "La plupart des tâches ne peuvent être complétées qu’une seule fois."
+      },
+
+      "payments": {
+        "title": "Paiements & Retraits",
+        "question1": "Quel est le montant minimum de retrait ?",
+        "answer1": "Le montant minimum de retrait est généralement de 5 $.",
+        "question2": "Combien de temps prennent les retraits ?",
+        "answer2": "La plupart des retraits sont instantanés ou traités sous 24 heures.",
+        "question3": "Quels moyens de paiement sont disponibles ?",
+        "answer3": "PayPal, virement bancaire, crypto et cartes cadeaux.",
+        "question4": "Y a-t-il des frais de retrait ?",
+        "answer4": "La plupart des méthodes de paiement n’ont pas de frais de retrait."
+      },
+
+      "security": {
+        "title": "Compte & Sécurité",
+        "question1": "Comment réinitialiser mon mot de passe ?",
+        "answer1": "Utilisez « Mot de passe oublié » sur la page de connexion.",
+        "question2": "Pourquoi mon compte a-t-il été suspendu ?",
+        "answer2": "Cela peut arriver en cas de violation des conditions d’utilisation.",
+        "question3": "Mes informations personnelles sont-elles sécurisées ?",
+        "answer3": "Oui, nous utilisons un chiffrement puissant pour protéger vos données.",
+        "question4": "Comment supprimer mon compte ?",
+        "answer4": "Allez dans Paramètres > Compte > Supprimer le compte."
+      },
+
+      "referrals": {
+        "title": "Parrainage",
+        "question1": "Comment fonctionne le programme de parrainage ?",
+        "answer1": "Partagez votre lien de parrainage et gagnez des bonus.",
+        "question2": "Combien puis-je gagner grâce aux parrainages ?",
+        "answer2": "Vous gagnez 10 % des revenus de vos filleuls à vie.",
+        "question3": "Quand les bonus de parrainage sont-ils crédités ?",
+        "answer3": "Les bonus sont crédités après qu’un filleul a terminé une tâche éligible."
+      }
+    }
+  },
+
+  "help_page": {
+    "header": {
+      "title": "Centre d’aide",
+      "subtitle": "Trouvez des réponses et obtenez de l’aide"
+    },
+    "search": {
+      "placeholder": "Rechercher de l’aide..."
+    },
+    "categories": {
+      "getting_started": {
+        "title": "Premiers pas",
+        "article1": "Comment créer un compte",
+        "article2": "Compléter votre première tâche",
+        "article3": "Comprendre les récompenses",
+        "article4": "Configurer les méthodes de paiement"
+      },
+      "video_tutorials": {
+        "title": "Tutoriels vidéo",
+        "article1": "Présentation de la plateforme",
+        "article2": "Maximiser vos gains",
+        "article3": "Explication du processus de retrait",
+        "article4": "Conseils et astuces"
+      },
+      "account_billing": {
+        "title": "Compte & Facturation",
+        "article1": "Gérer votre compte",
+        "article2": "Méthodes de paiement",
+        "article3": "Limites de retrait",
+        "article4": "Vérification du compte"
+      },
+      "contact_support": {
+        "title": "Contacter le support",
+        "article1": "Support par chat en direct",
+        "article2": "Support par e-mail",
+        "article3": "Signaler un problème",
+        "article4": "Demandes de fonctionnalités"
+      }
+    },
+    "actions": {
+      "live_chat": "Démarrer le chat en direct",
+      "browse_articles": "Parcourir tous les articles"
+    }
+  },
+  "help_center_page": {
+    "header": {
+      "title": "Centre d'aide",
+      "contact": "Contactez-nous"
+    },
+    "hero": {
+      "title": "Comment pouvons-nous vous aider ?",
+      "description": "Parcourez les catégories ci-dessous pour trouver l’aide dont vous avez besoin"
+    },
+    "stats": {
+      "articles": "Articles d'aide",
+      "support": "Support",
+      "response": "Réponse moy.",
+      "satisfaction": "Satisfaction"
+    },
+    "categories_section_title": "Parcourir par catégorie",
+    "categories": {
+      "getting_started": {
+        "title": "Premiers pas",
+        "description": "Apprenez les bases de l'utilisation de LabWards",
+        "articles_label": "articles",
+        "item1": "Comment créer votre compte",
+        "item2": "Configurer votre profil",
+        "item3": "Terminer votre première tâche",
+        "item4": "Comprendre le système de récompenses",
+        "item5": "Aperçu des méthodes de paiement"
+      },
+      "earning_tasks": {
+        "title": "Gains et tâches",
+        "description": "Tout sur la manière de gagner de l'argent",
+        "articles_label": "articles",
+        "item1": "Types de tâches disponibles",
+        "item2": "Comment maximiser vos gains",
+        "item3": "Conseils pour compléter les tâches",
+        "item4": "Pourquoi certaines tâches ne sont pas créditées",
+        "item5": "Signaler des crédits manquants"
+      },
+      "payments": {
+        "title": "Paiements et retraits",
+        "description": "Gérez vos gains et retirez votre argent",
+        "articles_label": "articles",
+        "item1": "Montants minimums de retrait",
+        "item2": "Délais de traitement des retraits",
+        "item3": "Méthodes de paiement prises en charge",
+        "item4": "Vérification de votre identité",
+        "item5": "Informations fiscales"
+      },
+      "security": {
+        "title": "Compte et sécurité",
+        "description": "Gardez votre compte en sécurité",
+        "articles_label": "articles",
+        "item1": "Changer votre mot de passe",
+        "item2": "Authentification à deux facteurs",
+        "item3": "Vérification du compte",
+        "item4": "Récupérer votre compte",
+        "item5": "Paramètres de confidentialité"
+      }
+    }
+  },
+
+  "privacy_policy_page": {
+    "header": {
+      "title": "Politique de confidentialité"
+    },
+    "hero": {
+      "title": "Politique de confidentialité",
+      "last_updated": "Dernière mise à jour : "
+    },
+    "intro": {
+      "text": "Chez LabWards, nous prenons votre vie privée au sérieux. Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations personnelles lorsque vous utilisez nos services. En utilisant LabWards, vous acceptez les pratiques décrites dans cette politique."
+    },
+    "sections": {
+      "information_collect": {
+        "title": "Informations que nous collectons",
+        "personal_info": "Informations personnelles :",
+        "personal_items": {
+          "item1": "Nom, adresse e-mail et date de naissance",
+          "item2": "Informations de paiement (e-mail PayPal, adresse de portefeuille crypto)",
+          "item3": "Informations de profil que vous choisissez de fournir",
+          "item4": "Numéro de téléphone (si fourni pour vérification)"
+        },
+        "auto_info": "Informations collectées automatiquement :",
+        "auto_items": {
+          "item1": "Informations sur l'appareil (type de navigateur, système d'exploitation)",
+          "item2": "Adresse IP et localisation approximative",
+          "item3": "Données d'utilisation (pages visitées, tâches complétées, temps passé)",
+          "item4": "Cookies et technologies de suivi similaires"
+        },
+        "third_party": "Informations provenant de tiers :",
+        "third_party_items": {
+          "item1": "Informations de connexion sociale (Google, Facebook, Apple)",
+          "item2": "Données d’achèvement des tâches provenant de partenaires publicitaires",
+          "item3": "Services de prévention de fraude et de vérification"
+        }
+      },
+
+      "usage": {
+        "title": "Comment nous utilisons vos informations",
+        "description": "Nous utilisons vos informations pour :",
+        "items": {
+          "item1": "Fournir, maintenir et améliorer nos services",
+          "item2": "Traiter les transactions et envoyer les informations associées",
+          "item3": "Vérifier votre identité et prévenir la fraude",
+          "item4": "Vous proposer des tâches et enquêtes pertinentes",
+          "item5": "Communiquer avec vous concernant les mises à jour, promotions et support",
+          "item6": "Analyser les habitudes d’utilisation pour améliorer l’expérience utilisateur",
+          "item7": "Respecter les obligations légales",
+          "item8": "Protéger la sécurité et l’intégrité de notre plateforme"
+        }
+      },
+
+      "sharing": {
+        "title": "Partage des informations",
+        "description": "Nous pouvons partager vos informations avec :",
+        "items": {
+          "item1": "Partenaires publicitaires : pour vérifier l’achèvement des tâches et traiter les récompenses",
+          "item2": "Prestataires de paiement : pour traiter les retraits et paiements",
+          "item3": "Fournisseurs de services : qui nous aident à exploiter notre plateforme (hébergement, analyses, support)",
+          "item4": "Autorités légales : lorsque la loi l’exige ou pour protéger nos droits"
+        },
+        "note": "Nous ne vendons PAS vos informations personnelles à des tiers à des fins marketing."
+      },
+
+      "security": {
+        "title": "Sécurité des données",
+        "description": "Nous mettons en œuvre des mesures de sécurité conformes aux standards du secteur pour protéger vos données :",
+        "items": {
+          "item1": "Chiffrement SSL/TLS pour toutes les transmissions de données",
+          "item2": "Stockage sécurisé et chiffré des informations sensibles",
+          "item3": "Audits de sécurité réguliers et évaluations des vulnérabilités",
+          "item4": "Contrôles d'accès et authentification pour nos systèmes",
+          "item5": "Formation des employés sur les pratiques de protection des données"
+        },
+        "note": "Bien que nous nous efforcions de protéger vos informations, aucune méthode de transmission sur Internet n'est totalement sécurisée. Nous ne pouvons garantir une sécurité absolue."
+      },
+
+      "rights": {
+        "title": "Vos droits et choix",
+        "description": "Vous avez le droit de :",
+        "items": {
+          "item11": "Accéder : ",
+          "item12": "Demander une copie de vos données personnelles",
+          "item21": "Corriger : ",
+          "item22": "Mettre à jour des informations inexactes ou incomplètes",
+          "item31": "Supprimer : ",
+          "item32": "Demander la suppression de vos données personnelles",
+          "item41": "Refuser : ",
+          "item42": "Vous désabonner des communications marketing",
+          "item51": "Exporter : ",
+          "item52": "Recevoir vos données dans un format portable",
+          "item61": "Restreindre : ",
+          "item62": "Limiter la manière dont nous utilisons vos données"
+        },
+        "contact": "Pour exercer ces droits, contactez-nous à "
+      },
+
+      "retention": {
+        "title": "Conservation des données",
+        "description": "Nous conservons vos informations personnelles aussi longtemps que :",
+        "items": {
+          "item1": "Votre compte reste actif",
+          "item2": "Nécessaire pour fournir nos services",
+          "item3": "Exigé par la loi (dossiers fiscaux, obligations légales)",
+          "item4": "Nécessaire pour résoudre des litiges ou faire appliquer des accords"
+        },
+        "note": "Après la suppression du compte, nous pouvons conserver certaines informations sous forme anonymisée à des fins analytiques ou lorsque la loi l'exige."
+      },
+
+      "contact": {
+        "title": "Contactez-nous",
+        "description": "Si vous avez des questions concernant cette politique de confidentialité ou nos pratiques en matière de données, contactez-nous :",
+        "email": "E-mail"
+      }
+    },
+
+    "related": {
+      "title": "Politiques associées",
+      "terms": "Conditions d'utilisation",
+      "cookies": "Politique relative aux cookies"
+    }
+  },
+
+  "serviceprovider": "Fournisseur de services",
+  "legalauthorities": "Autorités légales",
+   "rewards_page": {
+    "header": {
+      "title": "Récompenses"
+    },
+    "hero": {
+      "badge": "Plusieurs options de paiement",
+      "title": "Soyez payé à votre façon",
+      "description": "Choisissez parmi plusieurs méthodes de retrait. Retirez via PayPal, crypto, cartes-cadeaux ou virement bancaire. Rapide, sécurisé et sans tracas !"
+    },
+    "stats": {
+      "min_withdrawal": "Retrait min.",
+      "payout_methods": "Méthodes de paiement",
+      "processing": "Traitement",
+      "paid_out": "Payé"
+    },
+    "reward_types": {
+      "title": "Façons d’être payé",
+      "cash_rewards": {
+        "title": "Récompenses en espèces",
+        "description": "Retirez de l’argent réel directement vers votre PayPal, compte bancaire ou portefeuille crypto."
+      },
+      "gift_cards": {
+        "title": "Cartes-cadeaux",
+        "description": "Échangez vos gains contre des cartes-cadeaux Amazon, Steam, iTunes et plus encore."
+      },
+      "crypto": {
+        "title": "Cryptomonnaie",
+        "description": "Convertissez vos gains en Bitcoin, Ethereum, Litecoin ou autres cryptos."
+      },
+      "mobile_topup": {
+        "title": "Recharge mobile",
+        "description": "Ajoutez du crédit à votre téléphone mobile directement depuis vos gains."
+      }
+    },
+    "payout_methods_section": {
+      "title": "Méthodes de paiement populaires",
+      "labels": {
+        "min_withdraw": "Retrait min. :",
+        "processing": "Traitement :",
+        "fee": "Frais :"
+      },
+      "methods": {
+        "paypal": {
+          "name": "PayPal",
+          "processing": "Instantané",
+          "fee": "Gratuit"
+        },
+        "visa": {
+          "name": "Carte VISA",
+          "processing": "1 à 3 jours",
+          "fee": "Gratuit"
+        },
+        "bitcoin": {
+          "name": "Bitcoin",
+          "processing": "Instantané",
+          "fee": "Frais réseau"
+        },
+        "amazon": {
+          "name": "Carte-cadeau Amazon",
+          "processing": "Instantané",
+          "fee": "Gratuit"
+        }
+      }
+    },
+    "features": {
+      "title": "Pourquoi nos récompenses sont meilleures",
+      "instant_payouts": {
+        "title": "Paiements instantanés",
+        "description": "La plupart des retraits sont traités instantanément. Recevez votre argent quand vous en avez besoin."
+      },
+      "secure_transactions": {
+        "title": "Transactions sécurisées",
+        "description": "Toutes les transactions sont chiffrées et protégées par une sécurité conforme aux standards de l’industrie."
+      },
+      "low_minimums": {
+        "title": "Seuils minimums bas",
+        "description": "Commencez à retirer dès 5 $. Pas besoin d’attendre d’avoir gagné des centaines."
+      },
+      "no_fees": {
+        "title": "Aucun frais caché",
+        "description": "Ce que vous gagnez est ce que vous recevez. Aucun frais caché ni déduction surprise."
+      }
+    }
+  },
+
+  "settings_page": {
+    "title": "Paramètres",
+
+    "change_password": {
+      "title": "Changer le mot de passe",
+      "current_password": "Mot de passe actuel",
+      "current_placeholder": "Entrez le mot de passe actuel",
+      "new_password": "Nouveau mot de passe",
+      "new_placeholder": "Au moins 8 caractères",
+      "confirm_password": "Confirmer le nouveau mot de passe",
+      "confirm_placeholder": "Répétez le nouveau mot de passe",
+      "update_button": "Mettre à jour le mot de passe",
+      "saving": "Enregistrement..."
+    },
+
+    "security": {
+      "title": "Sécurité",
+      "two_factor_title": "Authentification à deux facteurs",
+      "two_factor_desc": "Ajoutez une couche de sécurité supplémentaire à votre compte",
+      "login_alerts_title": "Alertes de connexion",
+      "login_alerts_desc": "Recevez des notifications lors de nouvelles connexions à votre compte",
+      "session_timeout_title": "Expiration automatique de session",
+      "session_timeout_desc": "Déconnexion automatique après 30 minutes d’inactivité"
+    },
+
+    "danger_zone": {
+      "title": "Zone de danger",
+      "description": "Une fois votre compte supprimé, toutes vos données, y compris le solde, l’historique et le profil, seront définitivement supprimées. Cette action est irréversible.",
+      "delete_button": "Supprimer le compte"
+    },
+
+    "toast": {
+      "fill_fields": "Veuillez remplir tous les champs du mot de passe",
+      "password_mismatch": "Les nouveaux mots de passe ne correspondent pas",
+      "password_short": "Le nouveau mot de passe doit contenir au moins 8 caractères",
+      "signin_first": "Veuillez d’abord vous connecter",
+      "change_failed": "Échec du changement de mot de passe",
+      "password_success": "Mot de passe modifié avec succès",
+      "change_error": "Impossible de modifier le mot de passe",
+      "twofa_soon": "La configuration 2FA sera bientôt disponible",
+      "delete_contact": "Pour supprimer votre compte, veuillez contacter support@earnlab.com"
+    }
+  },
+  "support": {
+    "title": "Support en direct",
+    "helpTitle": "Besoin d’aide ?",
+    "onlineStatus": "Notre support est en ligne",
+    "faq": "FAQ",
+    "welcomeMessage": "Avant de contacter notre support en direct, veuillez consulter le centre d’aide. Vous pourriez y trouver une réponse immédiate à votre problème ou votre question !",
+    "messagePlaceholder": "Entrez votre message....",
+    "send": "Envoyer",
+    "supportLabel": "Support",
+    "contactSignin": "Veuillez vous connecter pour contacter le support.",
+    "sendFailed": "Échec de l’envoi"
+  },
+  "topbar": {
+    "notifications": "Notifications",
+    "wallet": "Portefeuille",
+    "cashout": "Retrait",
+    "account": "Compte",
+    "goHome": "Aller à l’accueil"
+  },
+  "ticker": {
+    "userWithdrew": "Un utilisateur a retiré",
+    "userEarned": "Un utilisateur a gagné"
+  },
+
+  "game": {
+    "slots": "Machines à sous",
+    "slot": "Machine à sous",
+    "monopoly": "Monopoly",
+    "torox": "Torox",
+    "angryBird": "Angry Bird",
+    "bigGiant": "Big Giant"
+  },
+
+  "survey": {
+    "title": "Sondage",
+    "cashout": "Retrait",
+    "progress": "{{current}}/{{total}}",
+
+    "questions": {
+      "householdIncome": "Mon revenu annuel du foyer est d’environ ? $",
+      "ageRange": "Quelle tranche d’âge me décrit le mieux ?",
+      "occupation": "Quelle est ma profession actuelle ?",
+      "education": "Quel est mon plus haut niveau d’études ?",
+      "country": "Dans quel pays habitez-vous actuellement ?",
+      "maritalStatus": "Quel est votre état civil ?",
+      "children": "Combien d’enfants avez-vous ?",
+      "employment": "Quel est votre statut professionnel ?",
+      "interests": "Quels sont vos principaux loisirs ou intérêts ?"
+    },
+
+    "placeholders": {
+      "numbersOnly": "Chiffres uniquement",
+      "ageExample": "Exemple : 25-34",
+      "occupationExample": "Exemple : Employé à temps plein",
+      "educationExample": "Exemple : Licence",
+      "countryExample": "Exemple : États-Unis",
+      "maritalExample": "Exemple : Marié(e)",
+      "employmentExample": "Exemple : Temps plein",
+      "interestsExample": "Exemple : Jeux vidéo, voyage"
+    },
+
+    "buttons": {
+      "back": "Retour",
+      "next": "Suivant",
+      "startSurvey": "Commencer le sondage",
+      "submitting": "Envoi en cours",
+      "redirecting": "Redirection"
+    },
+
+    "messages": {
+      "answerRequired": "Veuillez répondre à la question avant de continuer.",
+      "noProvider": "Aucun fournisseur de sondage disponible. Veuillez réessayer plus tard.",
+      "completed": "Sondage terminé avec succès !",
+      "redirectNotice": "Sondage terminé ! Redirection vers les offerwalls…",
+      "completionSuccess": "Sondage terminé ! Redirection…",
+      "submitFailed": "Échec de l’envoi. Veuillez réessayer."
+    }
+  },
+    "surveysInfo": {
+    "title": "Sondages",
+    "shareOpinion": "Partagez votre opinion",
+    "heroTitle": "Soyez payé pour vos opinions",
+    "heroDescription": "Complétez des sondages de grandes entreprises de recherche et gagnez de l'argent réel. Vos opinions comptent et les marques sont prêtes à payer pour elles !",
+
+    "stats": {
+      "dailySurveys": "Sondages quotidiens",
+      "avgPerSurvey": "Moyenne par sondage",
+      "surveyTakers": "Participants aux sondages",
+      "paidOut": "Payé"
+    },
+
+    "partners": "Nos partenaires de sondage",
+
+    "providerLabels": {
+      "avgPay": "Paiement moyen :",
+      "surveys": "Sondages :",
+      "duration": "Durée :"
+    },
+
+    "howItWorks": "Comment ça fonctionne",
+
+    "steps": {
+      "step1Title": "Compléter le profil",
+      "step1Desc": "Remplissez vos informations démographiques pour de meilleurs sondages",
+
+      "step2Title": "Parcourir les sondages",
+      "step2Desc": "Voir les sondages disponibles classés par récompense et durée",
+
+      "step3Title": "Répondre aux questions",
+      "step3Desc": "Partagez vos opinions honnêtes sur divers sujets",
+
+      "step4Title": "Gagner des récompenses",
+      "step4Desc": "Soyez payé immédiatement après avoir terminé le sondage"
+    },
+
+    "tipsTitle": "Conseils pour réussir",
+
+    "tips": {
+      "tip1": "Complétez entièrement votre profil pour de meilleurs sondages",
+      "tip2": "Répondez honnêtement - les incohérences entraînent une disqualification",
+      "tip3": "Vérifiez plusieurs fois par jour pour de nouveaux sondages",
+      "tip4": "Activez les notifications pour ne manquer aucun sondage bien payé",
+      "tip5": "Soyez patient - les taux de qualification s'améliorent avec le temps"
+    },
+
+    "benefitsTitle": "Pourquoi faire des sondages avec nous ?",
+
+    "benefits": {
+      "benefit1Title": "Gagnez 2 à 10 $ par sondage",
+      "benefit1Desc": "Soyez payé pour partager vos opinions honnêtes. Récompenses plus élevées pour les sondages longs.",
+
+      "benefit2Title": "Rapide à compléter",
+      "benefit2Desc": "La plupart des sondages prennent seulement 5 à 15 minutes. Faites-les pendant votre temps libre.",
+
+      "benefit3Title": "Confidentialité protégée",
+      "benefit3Desc": "Vos informations personnelles sont toujours protégées. Nous ne partageons jamais vos données sans consentement.",
+
+      "benefit4Title": "Sondages adaptés",
+      "benefit4Desc": "Recevez des sondages adaptés à votre profil pour de meilleurs taux de qualification."
+    },
+
+    "bitlabs": "BitLabs",
+    "cpx": "CPX Research",
+    "theorem": "Theorem Reach",
+    "pollfish": "Pollfish"
+  },
+
+  "tasksInfo": {
+    "title": "Tâches",
+    "heroBadge": "Tâches simples, vraies récompenses",
+    "heroTitle": "Complétez des tâches, gagnez de l'argent",
+    "heroDescription": "Choisissez parmi des centaines de tâches simples. Téléchargez des applications, inscrivez-vous à des services, complétez des offres et soyez payé instantanément. Aucune expérience requise !",
+
+    "stats": {
+      "availableTasks": "Tâches disponibles",
+      "avgPerTask": "Moyenne par tâche",
+      "activeUsers": "Utilisateurs actifs",
+      "paidOut": "Payé"
+    },
+
+    "taskTypesTitle": "Types de tâches",
+
+    "taskTypes": {
+      "appTestingTitle": "Test d'applications",
+      "appTestingDesc": "Téléchargez et testez de nouvelles applications mobiles",
+
+      "simpleTasksTitle": "Tâches simples",
+      "simpleTasksDesc": "Effectuez des actions en ligne faciles",
+
+      "reviewTitle": "Avis et évaluations",
+      "reviewDesc": "Rédigez des avis et notez des produits ou services",
+
+      "signupTitle": "Offres d'inscription",
+      "signupDesc": "Inscrivez-vous à des services et gagnez des bonus"
+    },
+
+    "labels": {
+      "reward": "Récompense",
+      "time": "Temps"
+    },
+
+    "howItWorks": "Comment ça fonctionne",
+
+    "steps": {
+      "step1Title": "Parcourir les tâches",
+      "step1Desc": "Explorez les tâches disponibles filtrées par récompense et durée",
+
+      "step2Title": "Compléter la tâche",
+      "step2Desc": "Suivez des instructions simples pour terminer la tâche",
+
+      "step3Title": "Soumettre une preuve",
+      "step3Desc": "Téléchargez des captures d'écran ou une vérification si nécessaire",
+
+      "step4Title": "Être payé",
+      "step4Desc": "Recevez un paiement instantané sur votre compte"
+    },
+
+    "benefitsTitle": "Pourquoi faire des tâches avec nous ?",
+
+    "benefits": {
+      "benefit1Title": "Paiements compétitifs",
+      "benefit1Desc": "Gagnez plus par tâche que sur toute autre plateforme. Nous travaillons directement avec les annonceurs pour offrir les meilleurs tarifs.",
+
+      "benefit2Title": "Validation instantanée",
+      "benefit2Desc": "La plupart des tâches sont approuvées instantanément. Vos gains sont crédités en quelques minutes.",
+
+      "benefit3Title": "100% légitime",
+      "benefit3Desc": "Toutes nos tâches proviennent de partenaires vérifiés. Pas d'arnaques, pas de spam.",
+
+      "benefit4Title": "Horaire flexible",
+      "benefit4Desc": "Travaillez quand vous voulez. Effectuez des tâches selon votre emploi du temps."
+    }
+  },
+  "terms": {
+  "quickNavigation": "Navigation rapide",
+
+  "nav": {
+    "acceptance": "1. Acceptation des conditions",
+    "eligibility": "2. Éligibilité",
+    "account": "3. Création de compte",
+    "services": "4. Services",
+    "earnings": "5. Revenus et paiements",
+    "conduct": "6. Comportement de l’utilisateur",
+    "termination": "7. Résiliation",
+    "liability": "8. Limitation de responsabilité"
+  },
+
+  "sections": {
+    "acceptance": {
+      "title": "Acceptation des conditions",
+      "p1": "En accédant ou en utilisant LabWards (\"le Service\"), vous acceptez d’être lié par ces Conditions d’utilisation (\"Conditions\"). Si vous n’acceptez pas ces Conditions, vous ne pouvez pas utiliser le Service.",
+      "p2": "Nous nous réservons le droit de modifier ces Conditions à tout moment. Les modifications prennent effet immédiatement après leur publication. Votre utilisation continue du Service constitue une acceptation des Conditions modifiées."
+    },
+
+    "eligibility": {
+      "title": "Éligibilité",
+      "intro": "Pour utiliser LabWards, vous devez :",
+      "item1": "Avoir au moins 18 ans",
+      "item2": "Avoir la capacité juridique de conclure des accords contraignants",
+      "item3": "Ne pas être interdit d’utilisation du Service selon les lois applicables",
+      "item4": "Fournir des informations exactes et complètes lors de l’inscription",
+      "outro": "Le Service peut ne pas être disponible dans toutes les juridictions. Il est de votre responsabilité de respecter les lois locales."
+    },
+
+    "account": {
+      "title": "Création de compte",
+      "intro": "Lors de la création d’un compte, vous acceptez de :",
+      "item1": "Fournir des informations exactes, à jour et complètes",
+      "item2": "Maintenir et mettre à jour vos informations si nécessaire",
+      "item3": "Protéger votre mot de passe et le garder confidentiel",
+      "item4": "Assumer la responsabilité de toutes les activités liées à votre compte",
+      "item5": "Créer un seul compte par personne",
+      "outro": "Nous nous réservons le droit de suspendre ou supprimer les comptes violant ces règles ou suspectés d’activités frauduleuses."
+    },
+
+    "services": {
+      "title": "Services",
+      "intro": "LabWards fournit une plateforme permettant aux utilisateurs de gagner des récompenses en complétant diverses tâches, notamment :",
+      "item1": "Répondre à des sondages",
+      "item2": "Jouer à des jeux mobiles",
+      "item3": "Tester des applications",
+      "item4": "Regarder des vidéos",
+      "item5": "S’inscrire à des offres",
+      "item6": "Parrainer de nouveaux utilisateurs",
+      "outro": "La disponibilité des tâches, les récompenses et les conditions peuvent changer sans préavis. Les offres tierces sont régies par les conditions de ces tiers."
+    },
+
+    "earnings": {
+      "title": "Revenus et paiements",
+      "intro": "Concernant les revenus et paiements :",
+      "item1": "Les gains sont crédités après validation des tâches",
+      "item2": "Des montants minimums de retrait peuvent s’appliquer",
+      "item3": "Nous pouvons ajuster les gains en cas de fraude ou d’erreur",
+      "item4": "Les gains en attente peuvent être annulés en cas de violation des règles",
+      "item5": "Vous êtes responsable des taxes applicables à vos revenus",
+      "outro": "Les délais de paiement varient selon la méthode choisie. Nous ne sommes pas responsables des retards des prestataires tiers."
+    },
+
+    "conduct": {
+      "title": "Comportement de l’utilisateur",
+      "intro": "Vous acceptez de NE PAS :",
+      "item1": "Créer plusieurs comptes ou utiliser de fausses identités",
+      "item2": "Utiliser VPN, proxy ou outils de masquage de localisation",
+      "item3": "Utiliser des bots ou automatisations",
+      "item4": "Fournir de fausses informations ou fraudes",
+      "item5": "Manipuler le système de parrainage",
+      "item6": "Partager ou vendre votre compte",
+      "item7": "Harceler ou nuire à d’autres utilisateurs",
+      "item8": "Violer les lois applicables ou droits de tiers",
+      "warning": "Les violations peuvent entraîner la suspension du compte, la perte des gains et un bannissement définitif."
+    },
+
+    "termination": {
+      "title": "Résiliation",
+      "intro": "Nous pouvons suspendre ou résilier votre compte à tout moment, avec ou sans préavis :",
+      "item1": "Violation des conditions",
+      "item2": "Activité frauduleuse",
+      "item3": "Inactivité prolongée",
+      "item4": "Demande des autorités",
+      "outro": "Vous pouvez également supprimer votre compte à tout moment. Après résiliation, vous devez retirer vos gains éligibles sous 30 jours."
+    },
+
+    "liability": {
+      "title": "Limitation de responsabilité",
+      "intro": "LE SERVICE EST FOURNI \"EN L’ÉTAT\" SANS GARANTIE :",
+      "item1": "Nous déclinons toute garantie explicite ou implicite",
+      "item2": "Nous ne sommes pas responsables des dommages indirects",
+      "item3": "Notre responsabilité maximale est limitée aux gains des 12 derniers mois",
+      "item4": "Nous ne sommes pas responsables des services tiers"
+    },
+
+    "contact": {
+      "title": "Contactez-nous",
+      "desc": "Pour toute question sur ces conditions :"
+    }
+  },
+
+  "relatedPolicies": "Politiques associées",
+  "privacyPolicy": "Politique de confidentialité",
+  "cookiePolicy": "Politique de cookies"
+},
+
+"wallet": {
+  "title": "Mon portefeuille",
+  "subtitle": "Gérez vos revenus et retraits",
+
+  "balance": {
+    "label": "Solde disponible",
+    "redeemGiftCard": "Échanger une carte cadeau",
+    "history": "Historique"
+  },
+
+  "stats": {
+    "pendingWithdrawal": "Retrait en attente",
+    "thisMonth": "Ce mois-ci",
+    "totalEarned": "Total gagné"
+  },
+
+  "withdrawals": {
+    "title": "Demandes de retrait",
+    "pending": "En attente",
+    "rejected": "رفضé",
+    "reason": "Raison",
+    "withdrawal": "Retrait"
+  },
+
+  "transactions": {
+    "title": "Transactions récentes",
+    "loading": "Chargement des transactions...",
+    "empty": "Aucune transaction",
+    "taskCompleted": "Tâche terminée",
+    "giftCardPayout": "Paiement carte cadeau",
+    "completed": "Terminé"
+  }
+},
+  "affiliate": {
+    "title": "Programme d'affiliation",
+    "subtitle": "Gagnez de l'argent pour chaque ami que vous invitez sur Labwards",
+
+    "tabs": {
+      "dashboard": "Tableau de bord",
+      "codes": "Codes",
+      "tiers": "Niveaux"
+    },
+
+    "referral_link_title": "Votre lien de parrainage",
+    "referral_link_desc": "Partagez ce lien avec vos amis pour gagner des commissions !",
+    "copy": "Copier",
+    "copied": "✓ Copié !",
+    "affiliate_code": "Votre code d'affiliation",
+
+    "share": {
+      "twitter": "𝕏 Twitter",
+      "facebook": "Facebook",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    },
+
+    "stats": {
+      "available_claim": "Disponible à réclamer",
+      "pending_referrals": "Parrainages en attente",
+      "total_referred": "Nombre total d'utilisateurs parrainés",
+      "total_earned": "Total gagné"
+    },
+
+    "claim_button1": "Réclamer ",
+    "claim_button2": "vers le portefeuille",
+
+    "referred_users_title": "Vos utilisateurs parrainés",
+    "no_referred_users": "Aucun utilisateur parrainé pour le moment. Partagez votre lien pour commencer !",
+
+    "code_title": "Votre code de parrainage",
+    "code_desc": "Partagez ce code avec vos amis pour gagner des commissions !",
+    "earnings_title": "Vos gains d'affiliation",
+    "pending_earnings": "Gains en attente",
+
+    "tiers_info": "Gagnez des commissions plus élevées en parrainant plus d'utilisateurs !",
+
+    "tiers": {
+      "tier": "Niveau",
+      "commission_rate": "Taux de commission",
+      "requirement": "Condition",
+      "default": "Défaut (0 parrainage)",
+      "tier2": "10+ parrainages",
+      "tier3": "25+ parrainages",
+      "tier4": "50+ parrainages (VIP)"
+    },
+
+    "how_it_works": "Comment ça marche",
+    "steps": {
+      "1": "Partagez votre lien de parrainage avec vos amis",
+      "2": "Lorsqu'ils s'inscrivent et complètent des offres, vous gagnez une commission",
+      "3": "Votre taux de commission augmente avec plus de parrainages",
+      "4": "Les administrateurs peuvent définir des taux personnalisés pour les meilleurs parrains",
+      "5": "Retirez vos gains à tout moment vers votre portefeuille"
+    },
+
+    "loading": "Chargement..."
+  },
+
+  "earn_menu": {
+    "menu": {
+      "earn": "Gagner",
+      "leaderboard": "Classement",
+      "reward": "Récompense",
+      "faq": "FAQ",
+      "support": "Support"
+    },
+    "close_menu": "Fermer le menu",
+    "cashout": "Retrait",
+    "tournaments": "Tournois",
+    "ongoing": "En cours",
+    "status": {
+      "active": "Actif",
+      "coming_soon": "Bientôt disponible",
+      "ended": "Terminé"
+    }
+  },
+
+  "chat_room": {
+    "title": "Salle de chat",
+    "system_message": "Nous répondons généralement sous 30 minutes. N'hésitez pas à poser vos questions",
+    "agent_message": "Bonjour, merci de contacter le support ! Comment pouvons-nous vous aider aujourd'hui ?",
+    "input_placeholder": "Entrez votre message...",
+    "agent_name": "Anna",
+    "user_name": "Vous"
+  },
+  "featuredSurvey": {
+    "title": "استبيان مميز",
+    "subtitle": "أكمل المهمة المميزة للحصول على مكافآت أكبر",
+    "seeMore": "عرض المزيد",
+    "startSurvey": "ابدأ الاستبيان",
+    "survey1": "استبيان 1",
+    "survey2": "استبيان 2",
+    "survey3": "استبيان 3",
+    "survey4": "استبيان 4",
+    "survey5": "استبيان 5",
+    "minutes": "دقيقتان"
+  },
+
+  "featuredTask": {
+    "title": "المهام المميزة",
+    "subtitle": "عروض مختارة بمكافآت أعلى",
+    "viewAll": "عرض الكل",
+    "all": "الكل",
+    "priority": "أولوية",
+    "noOffers": "لا توجد عروض مميزة متاحة حسب الفلاتر المحددة."
+  },
+
+  "feedBar": {
+    "liveActivity": "النشاط المباشر",
+    "loadingActivity": "جارٍ تحميل النشاط...",
+    "noRecentActivity": "لا يوجد نشاط حديث",
+    "now": "الآن",
+    "event": "حدث"
+  },
+
+  "forgotPassword": {
+    "title": "نسيت كلمة المرور",
+    "subtitle": "أدخل البريد الإلكتروني المرتبط بحسابك",
+    "emailPlaceholder": "عنوان البريد الإلكتروني",
+    "existingMember": "هل لديك حساب بالفعل؟",
+    "requestReset": "طلب إعادة تعيين كلمة المرور"
+  },
+
+  "chat": "الدردشة",
+  "users_online": "مستخدم متصل",
+  "loading_messages": "جارٍ تحميل الرسائل...",
+  "no_messages": "لا توجد رسائل",
+  "say_hello": "كن أول من يكتب مرحباً!",
+  "enter_message": "أدخل رسالة...",
+  "general": "عام",
+  "trading": "تداول",
+  "help": "مساعدة",
+  "admin": "مشرف",
+  "moderator": "مراقب",
+  "sign_in_send": "يرجى تسجيل الدخول لإرسال الرسائل",
+  "send_failed": "فشل إرسال الرسالة",
+
+  "notif_maria_earned": "ماريا ربحت $5.00",
+  "notif_jacob_withdrew": "جاكوب سحب $10.70",
+  "notif_alex_earned": "أليكس ربح $15.00",
+  "notif_emma_withdrew": "إيما سحبت $10.70",
+  "notif_michael_earned": "مايكل ربح $15.00",
+  "notif_sarah_withdrew": "سارة سحبت $10.70",
+
+  "minutes_ago": "منذ 3 دقائق",
+  "notifications": "الإشعارات",
+  "all": "الكل",
+  "previous": "السابق",
+  "special": "خاص",
+  "account": "الحساب",
+  "earnings": "الأرباح",
+  "cashouts": "السحوبات",
+  "competitions": "المسابقات",
+  "no_new_notifications": "لا توجد إشعارات جديدة",
+  "notification": "إشعار",
+  "slide": "اسحب",
+
+  "offerWalls": {
+    "title": "جدران العروض",
+    "subtitle": "أكمل العروض للحصول على مكافآت أكبر",
+    "loadError": "تعذر تحميل جدران العروض الآن. يرجى المحاولة لاحقاً.",
+    "defaultDescription": "العب لمدة 5 دقائق واربح مكافآت",
+    "failError": "فشل جلب جدران العروض:",
+    "fallbackName": "عرض",
+    "blockBlast": {
+      "name": "Block Blast",
+      "description": "طابق الكتل وامسح الصفوف للحصول على مكافآت ضخمة"
+    },
+    "questMaster": {
+      "name": "Quest Master",
+      "description": "ابدأ مغامرة ملحمية واربح نقاط"
+    },
+    "harvestValley": {
+      "name": "Harvest Valley",
+      "description": "ابنِ مزرعتك واحصد أرباحاً يومية"
+    },
+    "turboDrift": {
+      "name": "Turbo Drift",
+      "description": "سباق في المدينة واجمع العملات"
+    },
+    "jackpotSpin": {
+      "name": "Jackpot Spin",
+      "description": "لف العجلة للفوز بجوائز كبيرة"
+    },
+    "starVoyage": {
+      "name": "Star Voyage",
+      "description": "استكشف الفضاء وابحث عن الكنوز"
+    },
+    "monsterSquad": {
+      "name": "Monster Squad",
+      "description": "اجمع وحوش نادرة ونافس على المكافآت"
+    }
+  },
+
+  "premiumOffers": {
+    "premiumOffers": "العروض المميزة",
+    "exclusiveHighRewardOffers": "عروض حصرية بمكافآت عالية",
+    "taskDetails": "تفاصيل المهمة",
+    "status": "الحالة",
+    "notStarted": "لم تبدأ",
+    "category": "الفئة",
+    "provider": "المزود",
+    "premium": "مميز",
+    "description": "الوصف",
+    "rewards": "المكافآت",
+    "deviceNotSupported": "الجهاز غير مدعوم",
+    "offerAvailableFor": "هذا العرض متاح فقط لـ:",
+    "yourDevice": "جهازك:",
+    "allPlatforms": "كل المنصات",
+    "desktop": "سطح المكتب",
+    "android": "أندرويد",
+    "ios": "iOS",
+    "startTask": "ابدأ المهمة",
+    "notAvailableForDevice": "غير متاح لجهازك",
+    "failedcountry": "فشل تحديد الدولة:",
+    "failedtostart": "فشل بدء العرض:",
+    "failedtopremiumoffers": "فشل جلب العروض المميزة:",
+    "noPremiumOffersAvailable": "لا توجد عروض مميزة متاحة",
+    "premiumOffersComingSoon": "العروض المميزة قادمة قريباً! ترقب فرصاً حصرية بمكافآت عالية."
+  },
+  "pricingHoldTimes": {
+  "title": "Tarification et délais de blocage",
+  "subtitle": "Comprenez quand vos récompenses deviennent disponibles",
+
+  "tiers": {
+    "under5": "Moins de 5 $",
+    "instantCredit": "Crédit instantané",
+
+    "tenToFifteen": "10 $ – 15 $",
+    "hold15Days": "Blocage de 15 jours",
+
+    "fifteenToTwentyFive": "15 $ – 25 $",
+    "hold25Days": "Blocage de 25 jours",
+
+    "above25": "25 $+",
+    "hold35Days": "Blocage de 35 jours"
+  },
+
+  "speedUpTitle": "Accélérez vos validations",
+  "speedUpDescription": "Soumettez des preuves pour les offres afin d'obtenir une approbation plus rapide et réduire les délais de blocage. Les soumissions vérifiées peuvent être traitées instantanément !"
+},
+
+"recentActivity": {
+  "title": "Activité récente",
+  "description": "Gains, récompenses et retraits en direct",
+
+  "tabs": {
+    "all": "Tout",
+    "earnings": "Gains",
+    "cashout": "Retrait",
+    "rewards": "Récompenses"
+  },
+
+  "headers": {
+    "provider": "Fournisseur",
+    "time": "Heure",
+    "amount": "Montant",
+    "name": "Nom",
+    "type": "Type",
+    "user": "Utilisateur"
+  },
+
+  "activityTypes": {
+    "earn": "Gain",
+    "crypto": "Crypto",
+    "reward": "Récompense",
+    "activity": "Activité"
+  },
+
+  "emptyState": {
+    "title": "Aucune activité récente",
+    "description": "Les activités apparaîtront ici lorsque les utilisateurs complètent des offres et effectuent des retraits."
+  },
+
+  "liveFeed": "Flux d'activité en direct",
+  "unknown": "Inconnu",
+  "defaultActivity": "Activité",
+
+  "time": {
+    "justNow": "À l'instant",
+    "minsAgo": "il y a {{count}} min",
+    "hoursAgo": "il y a {{count}} h",
+    "daysAgo": "il y a {{count}} j"
+  }
+},
+
+"redOrBlackGame": {
+  "loading": "Chargement du jeu...",
+  "signInRequired": "Veuillez vous connecter pour jouer",
+  "playOncePerDay": "Vous ne pouvez jouer qu'une fois par jour !",
+  "earnMoreRequired": "Vous devez gagner au moins 1,00 $ aujourd'hui pour jouer au bonus quotidien !",
+  "playFailed": "Échec du jeu",
+  "winToast": "🎉 Vous avez gagné ",
+  "loseToast": "Pas de chance ! Revenez demain pour une nouvelle chance.",
+
+  "title": "🎰 Bonus quotidien Rouge ou Noir",
+  "subtitle": "Gagnez au moins 1,00 $ aujourd'hui pour débloquer votre bonus quotidien !",
+
+  "todayEarnings": "Gains du jour",
+  "needMore": "Il manque : ",
+  "more": " de plus",
+  "balance": "Solde",
+
+  "status": {
+    "playedToday": "✅ Déjà joué aujourd'hui - revenez demain !",
+    "ready": "🎯 Prêt à jouer !",
+    "locked": "💰 Gagnez 1,00 $ pour débloquer"
+  },
+
+  "result": {
+    "won": "🎉 Vous avez gagné !",
+    "lost": "😔 Vous avez perdu",
+    "resultLabel": "Résultat"
+  },
+
+  "bonusRewards": "🎁 Récompenses bonus quotidiennes",
+  "minimumWin": "Gain minimum",
+  "maximumWin": "Gain maximum",
+  "bonusDescription": "Spin quotidien gratuit - aucun enjeu requis ! Les gains sont générés aléatoirement.",
+
+  "buttons": {
+    "red": "🔴 ROUGE",
+    "black": "⚫ NOIR"
+  },
+
+  "gameInfo": {
+    "title": "🎯 Jeu bonus quotidien - Un spin gratuit par jour",
+    "unlock": "💰 Gagnez au moins 1,00 $ aujourd'hui pour débloquer votre spin",
+    "reward": "🎁 Gagnez entre 0,10 $ et 10,00 $ instantanément !"
+  }
+},
+"rewardStreakBoxes": {
+  "dailyStreak": "Série quotidienne",
+  "dailyBonus": "Bonus quotidien",
+  "totalEarned": "Total gagné",
+  "yourRank": "Votre rang",
+
+  "days": " jours",
+
+  "ranks": {
+    "bronze": "Bronze",
+    "silver": "Argent",
+    "gold": "Or",
+    "platinum": "Platine",
+    "diamond": "Diamant"
+  },
+
+  "errors": {
+    "fetchStatsFailed": "Échec de la récupération des statistiques"
+  }
+},
+"surveyWalls": {
+  "title": "Wall de sondages",
+  "subtitle": "Partagez votre opinion et gagnez des récompenses",
+  "providers": {
+    "bitlab": "Bitlab",
+    "cpxResearch": "CPX Research",
+    "pollfish": "Pollfish",
+    "inbrain": "Inbrain",
+    "theoremReach": "TheoremReach"
+  }
+},
+"supportChat": {
+
+  "welcomeMessage": "Avant de contacter notre support en direct, veuillez consulter la page d'aide. Vous pourriez y trouver une réponse immédiate à votre problème ou question !",
+  "signInRequired": "Veuillez vous connecter pour contacter le support.",
+  "sendFailed": "Échec de l'envoi",
+
+  "header": {
+    "title": "Support",
+    "close": "Fermer"
+  },
+
+  "helpSection": {
+    "title": "Besoin d'aide ?",
+    "online": "Notre support est en ligne",
+    "faq": "FAQ"
+  },
+
+  "messages": {
+    "brandName": "LabWards",
+    "support": "Support"
+  },
+
+  "input": {
+    "placeholder": "Entrez votre message...."
+  }
+},
+"wallet1": {
+  "title": "Portefeuille",
+  "withdrawal": "Retrait",
+  "promoCode": "Code promo",
+
+  "cash": "Espèces",
+  "crypto": "Crypto",
+  "vouchers": "Bons",
+  "myWallet": "Mon portefeuille",
+
+  "paymentMethod": "Méthode de paiement",
+  "chain": "Chaîne",
+
+  "walletAddress": "Adresse du portefeuille",
+  "enterWalletAddress": "Entrez votre adresse de portefeuille",
+
+  "recipientEmail": "Email du destinataire",
+
+  "amount": "Montant",
+  "customAmount": "Montant personnalisé",
+  "orEnterCustomAmount": "Ou entrez un montant personnalisé :",
+
+  "createWithdrawal": "Créer un retrait",
+  "processing": "Traitement...",
+
+  "enterPromoCode": "Entrez votre code promo",
+  "applyPromoCode": "Appliquer le code promo",
+  "redeeming": "Validation...",
+
+  "paymentDetails": "Détails du paiement",
+  "cryptoType": "Type de crypto",
+  "amountUSD": "Montant (USD)",
+  "payAmount": "Montant à payer",
+  "invoiceId": "ID de facture",
+  "status": "Statut",
+  "confirmPayment": "Confirmer le paiement",
+  "confirming": "Confirmation...",
+
+  "close": "Fermer",
+  "virtualvisa": "Visa Virtuelle",
+  "tron": "Tron",
+  "ripple": "Ripple (XRP)",
+  "usdcoin": "USD Coin",
+
+  "messages": {
+    "paymentConfirmed": "Paiement confirmé avec succès !",
+    "paymentConfirmFailed": "Échec de la confirmation du paiement",
+    "enterPromo": "Veuillez entrer un code promo",
+    "signInPromo": "Veuillez vous connecter pour utiliser les codes promo",
+    "promoRedeemed": "Code promo utilisé avec succès",
+    "promoFailed": "Échec de l'utilisation du code promo",
+    "enterRecipientEmail": "Veuillez entrer l'email du destinataire",
+    "enterWallet": "Veuillez entrer une adresse de portefeuille",
+    "validAmount": "Veuillez entrer un montant valide",
+    "paypalMinimum": "Le retrait minimum PayPal est de 5$",
+    "signInWithdrawal": "Veuillez vous connecter pour effectuer un retrait",
+    "withdrawalSubmitted": "Demande de retrait envoyée ! En attente de validation admin.",
+    "withdrawalFailed": "Échec de la création du retrait",
+    "tryAgain": "Échec du retrait. Veuillez réessayer."
+  }
+},
+ "watchWalls": {
+    "title": "Murs de vidéos",
+    "description": "Regardez des vidéos et gagnez des récompenses",
+    "offers": {
+      "vegasCraze": "Vegas Craze",
+      "morningShow": "The Morning Show",
+      "amazon": "Amazon"
+    }
+  },
+
+  "benefits": {
+    "badge": "Plusieurs options de paiement",
+    "title": "Recevez vos gains comme vous le souhaitez",
+    "description": "Choisissez parmi plusieurs méthodes de retrait et recevez vos récompenses instantanément. Nous prenons en charge toutes les principales plateformes de paiement.",
+
+    "paymentMethods": {
+      "paypal": "PayPal",
+      "visa": "VISA",
+      "amazon": "Amazon",
+      "worldcoin": "Worldcoin",
+      "bitcoin": "Bitcoin",
+      "litecoin": "Litecoin",
+      "dogecoin": "Dogecoin",
+      "solana": "Solana"
+    },
+
+    "features": {
+      "instantPayouts": {
+        "title": "Paiements instantanés",
+        "description": "Recevez vos récompenses immédiatement grâce à notre système de traitement rapide"
+      },
+      "noHiddenFees": {
+        "title": "Aucun frais caché",
+        "description": "Tarification transparente sans frais supplémentaires"
+      },
+      "flexibleOptions": {
+        "title": "Options flexibles",
+        "description": "Choisissez la méthode de paiement qui vous convient le mieux"
+      }
+    }
+  },
+
+  "footer1": {
+    "cta": {
+      "title": "Prêt à commencer à gagner ?",
+      "description": "Rejoignez des milliers d’utilisateurs qui gagnent de l’argent réel aujourd’hui",
+      "button": "Commencer"
+    },
+    "brandDescription": "Transformez votre temps libre en vraies récompenses. Complétez des tâches, sondages et offres pour gagner de l’argent.",
+    "madeWithPassion": "Fait avec passion pour notre communauté",
+
+    "sections": {
+      "product": "Produit",
+      "support": "Support",
+      "connect": "Connexion"
+    },
+
+    "links": {
+      "games": "Jeux",
+      "tasks": "Tâches",
+      "surveys": "Sondages",
+      "rewards": "Récompenses",
+      "helpCenter": "Centre d’aide",
+      "contactUs": "Nous contacter",
+      "faq": "FAQ",
+      "terms": "Conditions d’utilisation",
+      "privacy": "Politique de confidentialité",
+      "cookies": "Politique des cookies"
+    },
+
+    "copyright": "© 2025 LabWards. Tous droits réservés."
+  },
+   "questions": {
+    "badge": "AVANTAGES",
+    "title": "Nous avons les réponses dont vous avez besoin",
+    "description": "Trouvez rapidement les réponses aux questions les plus fréquentes sur les gains, les paiements, les parrainages et plus encore",
+
+    "questions": {
+      "q1": {
+        "question": "Comment commencer à gagner sur Labwards ?",
+        "answer1": "Créez un compte gratuit et connectez-vous.",
+        "answer2": "Choisissez parmi les tâches disponibles — sondages, jeux, inscriptions d’applications ou connexions quotidiennes.",
+        "answer3": "Complétez la tâche comme indiqué pour gagner des récompenses instantanément.",
+        "answer4": "Suivez votre progression dans la section Mes tâches, et une fois le minimum atteint, vous pouvez retirer vos gains via votre méthode de paiement préférée."
+      },
+      "q2": {
+        "question": "Quels sont les moyens de paiement disponibles ?",
+        "answer": "Nous proposons plusieurs options de paiement, notamment PayPal, cartes Visa, cartes cadeaux Amazon, Worldcoin, Bitcoin, Litecoin, Dogecoin et Solana. Choisissez la méthode qui vous convient le mieux !"
+      },
+      "q3": {
+        "question": "Combien de temps faut-il pour recevoir mon paiement ?",
+        "answer": "La plupart des paiements sont traités instantanément ! Les retraits en crypto sont généralement effectués en quelques minutes, tandis que PayPal et les cartes cadeaux peuvent prendre jusqu’à 24 heures en période de forte activité."
+      },
+      "q4": {
+        "question": "Comment fonctionne le programme de parrainage ?",
+        "answer": "Invitez vos amis avec votre lien de parrainage unique et gagnez 10 % de leurs revenus à vie. Il n’y a aucune limite au nombre d’amis que vous pouvez inviter ni à vos gains."
+      },
+      "q5": {
+        "question": "Labwards est-il gratuit ?",
+        "answer": "Absolument ! Labwards est 100 % gratuit à utiliser. Il n’y a aucun frais caché ni abonnement. Vous gagnez de l’argent simplement en accomplissant des tâches."
+      }
+    }
+  },
+
+  "testimonials1": {
+    "realStories": "Vraies histoires",
+    "title": "Ce que disent nos utilisateurs",
+    "subtitle": "Rejoignez des milliers d’utilisateurs satisfaits qui font confiance à notre plateforme.",
+
+    "items": {
+      "1": {
+        "text": "J’ai gagné mes premiers 50 $ en une semaine juste en jouant à des jeux sur mon téléphone. Les paiements PayPal instantanés sont incroyables !",
+        "location": "États-Unis",
+        "name": "James R."
+      },
+      "2": {
+        "text": "J’étais sceptique au début, mais après quelques sondages, j’ai pu retirer directement sur PayPal. Rapide et fiable !",
+        "location": "Royaume-Uni",
+        "name": "Sarah M."
+      },
+      "3": {
+        "text": "La meilleure plateforme de revenus que j’ai utilisée. Les défis quotidiens me motivent et les paiements Bitcoin sont instantanés.",
+        "location": "Canada",
+        "name": "David K."
+      },
+      "4": {
+        "text": "J’adore toutes les façons de gagner ! Entre les jeux et les sondages, je gagne facilement plus de 200 $ par mois.",
+        "location": "Australie",
+        "name": "Emily C."
+      },
+      "5": {
+        "text": "Le programme de parrainage est incroyable. J’ai gagné plus de 500 $ rien qu’en invitant des amis. Je recommande !",
+        "location": "Allemagne",
+        "name": "Michael T."
+      },
+      "6": {
+        "text": "Enfin une plateforme fiable qui paie vraiment ! J’ai retiré en cartes cadeaux Amazon sans problème.",
+        "location": "Pays-Bas",
+        "name": "Jessica L."
+      }
+    }
+  },
+
+  "verify": {
+    "title1": "Rejoignez la communauté Labwards",
+    "title2": "dès aujourd’hui",
+    "subtitle": "Des milliers d’utilisateurs gagnent déjà chaque jour. Créez votre compte gratuit en quelques secondes et commencez à transformer votre temps en argent.",
+    "startEarning": "Commencer à gagner gratuitement",
+    "joinDiscord": "Rejoindre Discord",
+    "noCreditCard": "Aucune carte bancaire requise",
+    "instantSignup": "Inscription instantanée",
+    "fastPayouts": "Paiements rapides"
+  },
+  "whyChooseUs": {
+    "badge": "Pourquoi nous choisir",
+    "title": "Tout ce dont vous avez besoin pour gagner",
+    "subtitle": "Notre plateforme est conçue pour rendre les gains simples, amusants et sécurisés. Commencez votre aventure dès aujourd’hui.",
+
+    "mobileGames": {
+      "title": "Jeux mobiles",
+      "description": "Jouez à des jeux populaires et gagnez de l’argent réel. De nouveaux jeux mieux rémunérés ajoutés chaque jour !",
+      "hot": "HOT",
+      "games": "JEUX",
+      "avgPay": "PAIEMENT MOY.",
+      "start": "DÉMARRER",
+      "browse": "Parcourir les jeux",
+      "game1": "Sea of Conquest",
+      "game2": "Jeu de ferme",
+      "game3": "SpongeBob"
+    },
+
+    "quickSurveys": {
+      "title": "Sondages rapides",
+      "description": "Partagez votre opinion et gagnez 2 à 10 $ par sondage.",
+      "badge": "5 MIN",
+      "point1": "2 à 10 $ par sondage",
+      "point2": "3 à 10 minutes chacun",
+      "cta": "Faire des sondages"
+    },
+
+    "dailyChallenges": {
+      "title": "Défis quotidiens",
+      "description": "Complétez les objectifs quotidiens pour des bonus jusqu’à 50 $ !",
+      "badge": "+BONUS",
+      "cta": "Voir les défis"
+    },
+
+    "appTesting": {
+      "title": "Tests d’applications",
+      "description": "Testez de nouvelles applications et gagnez 10 à 75 $ par test complété !",
+      "badge": "HAUT PAIEMENT",
+      "cta": "Parcourir les apps"
+    },
+
+    "cashout": {
+      "title": "12+ options de retrait",
+      "description": "Recevez vos paiements comme vous voulez — instantanément !",
+      "badge": "INSTANTANÉ",
+      "cta": "Retirer maintenant"
+    }
+  },
+
+  "leaderboard": {
+    "title": "Classement",
+    "subtitle": "Affrontez les meilleurs et gagnez des récompenses !",
+    "competitionEnds": "La compétition se termine dans",
+    "topEarner": "Meilleur gagnant",
+    "participants": "Participants",
+    "topWinners": "Top 3 des gagnants",
+    "fullRankings": "Classement complet",
+    "loading": "Chargement...",
+    "you": "Vous",
+    "points": "points",
+    "pts": "pts",
+    "openProgress": "Ouvrir la progression du classement de {{name}}"
+  },
+   "account1": {
+    "title": "Compte",
+    "viewProfile": "Voir le profil",
+    "labwardId": "ID Labward",
+    "level": "Niveau",
+    "gold": "Or",
+    "silver": "Argent",
+    "bronze": "Bronze",
+
+    "availableBalance": "Solde disponible",
+    "totalEarnings": "Gains totaux",
+    "withdrawn": "Retiré",
+    "completedPayouts": "Paiements effectués",
+
+    "all": "Tout",
+    "offers": "Offres",
+    "tasks": "Tâches",
+    "cashout": "Retrait",
+    "reward": "Récompense",
+    "exportCsv": "Exporter CSV",
+
+    "name": "Nom",
+    "date": "Date",
+    "type": "Type",
+    "amount": "Montant",
+    "status": "Statut",
+    "action": "Action",
+    "completed": "Terminé",
+    "pending": "En attente",
+    "loading": "Chargement...",
+
+    "profileInfo": "Informations du profil",
+    "username": "Nom d'utilisateur",
+    "save": "Enregistrer",
+    "emailAddress": "Adresse e-mail",
+    "verified": "Vérifié",
+    "change": "Modifier",
+    "publicStatus": "Statut public",
+    "securitySettings": "Les modifications d’e-mail peuvent être effectuées dans les paramètres de sécurité",
+
+    "emailNotifications": "Notifications par e-mail",
+    "connections": "Connexions",
+    "referral": "Parrainage",
+    "mutedUsers": "Utilisateurs ignorés",
+    "deleteAccount": "Supprimer le compte",
+
+    "worldcoin": "Worldcoin",
+    "notConnected": "Non connecté",
+    "link": "Lier",
+
+    "totalInvitee": "Nombre total d’invités",
+    "noReferrals": "Aucun parrainage",
+    "referrals": "parrainages",
+
+    "cashoutConfirmation": "Confirmation de retrait",
+    "cashoutSubtitle": "Recevez une confirmation lorsque vous effectuez un retrait",
+    "failedtoload": "Échec du chargement des données du compte",
+    "signin": "Veuillez vous connecter pour mettre à jour votre profil",
+    "profileUpdated": "Profil mis à jour",
+    "unabletosave": "Impossible de mettre à jour le profil pour le moment",
+    "changeprofilepic": "Changer la photo de profil",
+    "avataruploadchange": "Le changement d’avatar peut être effectué dans les paramètres du profil",
+    "muhammadh": "Muhammed H",
+    "csv": "L’export CSV sera disponible dans la prochaine mise à jour",
+    "open": "Ouvrir",
+    "worldcoinavailable": "La connexion Worldcoin sera bientôt disponible",
+    "unmute": "Réactiver",
+    "delacc": "Veuillez contacter le support pour supprimer le compte",
+
+    "earnConfirmation": "Confirmation des gains",
+    "earnSubtitle": "Recevez des notifications sur vos gains",
+
+    "leaderboardWinnings": "Gains du classement",
+    "leaderboardSubtitle": "Restez informé des gains et classements",
+
+    "promotionalAlerts": "Alertes promotionnelles",
+    "promotionalSubtitle": "Recevez des offres et promotions exclusives",
+
+    "newsletterUpdates": "Mises à jour de la newsletter",
+    "newsletterSubtitle": "Recevez notre newsletter hebdomadaire avec des conseils et des mises à jour"
+  },
+
+  "others": {
+    "bonusCode": "Code bonus",
+    "bonusDescription": "Vous avez un code bonus ? Entrez-le ici pour obtenir votre récompense et augmenter votre solde !",
+    "enterBonusCode": "Entrez votre code bonus",
+    "redeemBonusCode": "Utiliser le code bonus",
+    "redeeming": "Validation...",
+
+    "pleaseEnterBonusCode": "Veuillez entrer un code bonus",
+    "pleaseSignIn": "Veuillez vous connecter pour utiliser les codes bonus",
+    "bonusRedeemed": "Code bonus utilisé avec succès",
+    "failedRedeem": "Échec de l’utilisation du code bonus",
+
+    "selfExclusion": "Auto-exclusion",
+    "selfExclusionDescription": "Notre fonctionnalité d’auto-exclusion vous permet de faire une pause à tout moment. Choisissez une période, et nous suspendrons votre accès aux jeux. Vous pouvez toujours gagner et utiliser les autres fonctionnalités.",
+
+    "activateSelfExclusion": "Activer l’auto-exclusion",
+
+    "day1": "1 jour",
+    "day3": "3 jours",
+    "day7": "7 jours",
+    "day14": "14 jours",
+    "day30": "30 jours"
+  },
+   "profile": {
+    "leaderboard": "Classement",
+    "all": "Tous",
+    "badges": "Badges",
+    "statistics": "Statistiques",
+    "offers": "Offres",
+
+    "offersCompleted": "Offres complétées",
+    "totalEarnings": "Gains totaux",
+    "usersReferred": "Utilisateurs parrainés",
+    "last30DEarnings": "Gains des 30 derniers jours",
+
+    "name": "Nom",
+    "reward": "Récompense",
+    "time": "Temps",
+
+    "noOffers": "Aucune offre à afficher",
+    "privateProfile": "Ce profil utilisateur est privé.",
+    "couldNotLoadUser": "Impossible de charger le profil utilisateur.",
+    "couldNotLoadProfile": "Impossible de charger le profil. Veuillez vous connecter.",
+
+    "joined": "A rejoint ",
+    "day": "jour",
+    "month": "mois",
+    "year": "année",
+
+    "justNow": "à l’instant",
+    "minutesAgo": "{{count}} min ago",
+    "minutesAgo_plural": "{{count}} mins ago",
+
+    "hoursAgo": "{{count}} heure ago",
+    "hoursAgo_plural": "{{count}} heures ago",
+
+    "daysAgo": "{{count}} jour ago",
+    "daysAgo_plural": "{{count}} jours ago",
+
+    "monthsAgo": "{{count}} mois ago",
+    "monthsAgo_plural": "{{count}} mois ago",
+
+    "yearsAgo": "{{count}} an ago",
+    "yearsAgo_plural": "{{count}} ans ago",
+
+    "user": "Utilisateur",
+    "max": "MAX",
+    "beginner": "Débutant",
+    "amateur": "Amateur"
+  },
+
+  "preferences": {
+    "privateProfile": "Profil privé",
+    "privateProfileDescription": "Masque votre activité, votre nom d’utilisateur et vos statistiques aux autres utilisateurs",
+
+    "activityBar": "Barre d’activité",
+    "activityBarDescription": "Afficher un flux des activités et interactions récentes",
+    "profile": "Le profil est maintenant",
+
+    "displayInUSD": "Afficher en USD",
+    "displayInUSDDescription": "Afficher tous les montants en USD pour plus de simplicité",
+
+    "pleaseSignIn": "Veuillez vous connecter pour mettre à jour les préférences",
+    "updateFailed": "Échec de la mise à jour du paramètre de confidentialité"
+  },
+
+  "profileControls": {
+    "bonusCode": "Code bonus",
+    "enterCode": "Entrer le code",
+    "redeem": "Échanger",
+    "redeemed": "Échangé",
+    "redeemFailed": "Échec de l’échange",
+    "claimtoFailed": "Échec de la réclamation",
+
+    "dailyStreak": "Série quotidienne",
+    "checking": "Vérification...",
+    "dayStreak": "{{count}} jours de série",
+    "rewardsPageNote": "Visitez la page Récompenses pour les bonus quotidiens",
+
+    "monthlyLeaders": "Classement mensuel",
+    "noLeaders": "Aucun leader pour le moment",
+    "anonymous": "Anonyme",
+
+    "recentTasks": "Tâches récentes",
+    "task": "Tâche",
+
+    "claimFailed": "Réclamation échouée",
+    "claimed": "Réclamé !",
+    "playFailed": "Échec du jeu",
+    "playResultReceived": "Résultat du jeu reçu"
+  },
+
+  "profileDashboard": {
+    "completed": "Terminé",
+    "onHold": "En attente",
+    "started": "Commencé",
+    "searchTasks": "Rechercher des tâches",
+
+    "id": "ID",
+    "name": "Nom",
+    "provider": "Fournisseur",
+    "status": "Statut",
+    "completionTime": "Temps de complétion",
+    "reward": "Récompense",
+    "date": "Date",
+
+    "noTasks": "Aucune tâche dans cette section",
+    "untitled": "Sans titre",
+    "inProgress": "En cours",
+
+    "loadingProfile": "Chargement du profil...",
+    "joined": "A rejoint",
+    "earnId": "ID Earn",
+
+    "silver": "Argent",
+    "xpStart": "0 XP",
+    "xpEnd": "100 000 XP",
+
+    "overview": "Aperçu",
+    "myWallet": "Mon portefeuille",
+    "settings": "Paramètres",
+    "transactions": "Transactions",
+    "withdrawals": "Retraits",
+
+    "totalEarned": "Total gagné",
+    "last30DaysEarned": "Gains des 30 derniers jours",
+    "lifetimeRevenue": "Revenus totaux",
+    "earningsOnHold": "Gains en attente"
+  },
+   "homepage": {
+    "welcomeBack": "Bon retour",
+    "welcomeDescription": "Suivez vos progrès, consultez les activités récentes et gérez vos récompenses depuis votre tableau de bord personnel",
+
+    "dailyStreak": "Série quotidienne",
+    "dailyBonus": "Bonus quotidien",
+    "totalEarned": "Total gagné",
+    "currentRank": "Votre classement actuel",
+    "numberOfTasks": "Nombre de tâches",
+
+    "slightlyHigher": "Légèrement supérieur à la moyenne",
+
+    "offersAvailable": "Offres disponibles",
+    "playAndEarn": "Jouez et gagnez",
+    "farmLobby": "Lobby agricole",
+    "turboChange": "Turbo Change",
+    "presMark": "Pres Mark",
+    "desc": "Jouez pendant 5 minutes et gagnez jusqu'à 3 $",
+
+    "offerFallbackTitle": "Offre",
+    "offerFallbackDescription": "Complétez cette offre et gagnez des récompenses"
+  },
+
+  "earningsPage": {
+    "goHome": "Aller à l'accueil",
+    "openNotifications": "Ouvrir les notifications",
+    "openWallet": "Ouvrir le portefeuille",
+    "goCashout": "Aller au retrait",
+    "cashout": "Retrait",
+    "openAccount": "Ouvrir le compte",
+
+    "userWithdrew": "Un utilisateur a retiré",
+    "userEarned": "Un utilisateur a gagné",
+    "offerWalls": "Offres",
+
+    "viewAll": "Voir tout",
+
+    "featured": "En vedette",
+    "survey": "Sondage",
+
+    "noFeaturedResults": "Aucun résultat en vedette pour ce filtre.",
+    "noProvidersFound": "Aucun fournisseur trouvé pour ce filtre.",
+
+    "categories": {
+      "viewAll": "Voir tout",
+      "fastCompletion": "Exécution rapide",
+      "signUpTrial": "Essai d'inscription",
+      "saveMoney": "Économiser de l'argent",
+      "casino": "Casino",
+      "puzzle": "Puzzle",
+      "sweepstake": "Tirage au sort"
+    },
+
+    "searchPlaceholder": "Rechercher un jeu ou un fournisseur",
+
+    "sort": {
+      "sortBy": "Trier par",
+      "default": "Trier par",
+      "lowToHigh": "Prix : croissant",
+      "highToLow": "Prix : décroissant",
+      "popular": "Popularité",
+      "short": "Trier",
+      "low": "Bas",
+      "high": "Élevé"
+    },
+
+    "providers": {
+      "all": "Fournisseurs",
+      "single": "Fournisseur",
+      "monlix": "Monlix",
+      "mylead": "MyLead",
+      "gemiad": "GemiAd",
+      "nortik": "Nortik",
+      "cpxResearch": "CPX Research"
+    },
+
+    "games": {
+      "tileTapMaster": "Tile Tap Master",
+      "goblinsWoods": "Forêt des gobelins",
+      "slot": "Machine à sous",
+      "angryBird": "Angry Bird",
+      "screwOutFactory": "Usine Screw Out",
+      "bigGiant": "Big Giant"
+    }
+  }
+}
