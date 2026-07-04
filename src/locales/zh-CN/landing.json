@@ -93,5 +93,2300 @@
     "brooklyn_text": "我最喜欢 LabWards 的地方是它非常直接明了。没有复杂步骤，也没有隐藏套路。我利用空闲时间完成问卷或任务，收益增长得很快！",
     "cameron_text": "我已经使用 LabWards 三个月了，仅靠每日任务和问卷就能稳定赚取额外收入。这是我发现最好的线上赚钱平台！",
     "robert_text": "提现速度无与伦比。我第一次申请比特币提现吗，不到10分钟就到账了。强烈推荐给任何想在线赚钱的人。"
+  },
+  "rewards": {
+    "title_first": "一个平台，",
+    "title_second": "多种奖励",
+
+    "visa": "Visa",
+    "bitcoin": "比特币",
+    "apple": "苹果",
+    "paypal": "PayPal",
+    "worldcoin": "Worldcoin",
+    "amazon": "亚马逊",
+    "solana": "Solana",
+    "playstation": "PlayStation",
+    "spotify": "Spotify",
+    "polygon": "Polygon"
+  },
+
+  "footer": {
+    "support": "支持",
+    "features": "功能",
+    "connect": "联系我们",
+
+    "contact": "联系我们",
+    "faq": "常见问题",
+    "games": "游戏",
+    "rewards": "奖励",
+    "tasks": "任务",
+
+    "terms": "条款",
+    "service_terms": "服务条款",
+    "privacy": "隐私政策",
+    "cookie": "Cookie 政策",
+
+    "trust_score": "信任评分 4.5",
+    "reviews": "200 条评价",
+
+    "description": "立即注册并领取您的即时奖励。每完成一项任务，您都能赚取收益。",
+
+    "copyright": "©2026 Lab Wards，版权所有",
+
+    "light": "浅色",
+    "dark": "深色",
+
+    "terms_use": "使用条款"
+  },
+
+  "signin": {
+    "title": "登录",
+    "email": "电子邮箱",
+    "email_placeholder": "请输入您的电子邮箱",
+    "password": "密码",
+    "password_placeholder": "密码",
+    "signin": "登录",
+    "signing_in": "登录中...",
+    "or": "或",
+    "google": "使用 Google 登录",
+    "facebook": "使用 Facebook 登录",
+    "worldcoin": "使用 Worldcoin 登录",
+    "redirecting": "跳转中...",
+    "no_account": "还没有账户？",
+    "signup": "注册",
+    "trust_score": "信任评分 4.5",
+    "reviews": "200 条评价",
+    "enter_credentials": "请输入邮箱和密码",
+    "login_failed": "登录失败",
+    "signin_failed": "登录失败，请重试。",
+    "server_error": "连接服务器失败",
+    "auth_loading": "认证系统正在加载，请稍候后重试。",
+    "facebook_disabled": "Facebook 登录未启用，请联系支持。",
+    "popup_blocked": "弹窗被拦截，请允许弹窗后重试。",
+    "google_failed": "Google 登录失败"
+  },
+
+  "signup": {
+    "title": "注册",
+    "banner": "已有数千人刚刚赚到收益 — 不要错过您的首次提现 🚀",
+    "email": "电子邮箱",
+    "email_placeholder": "请输入您的电子邮箱",
+    "password": "密码",
+    "password_placeholder": "密码",
+    "button": "注册",
+    "creating": "正在创建账户...",
+    "or": "或",
+    "worldcoin": "使用 Worldcoin 注册",
+    "google": "使用 Google 注册",
+    "facebook": "使用 Facebook 注册",
+    "redirecting": "跳转中...",
+    "have_account": "已经有账户？",
+    "signin": "登录",
+    "close": "关闭注册弹窗",
+    "trust_score": "信任评分 4.5",
+    "reviews": "200 条评价",
+
+    "fill_fields": "请填写邮箱和密码。",
+    "registration_failed": "注册失败",
+    "network_error": "网络错误",
+    "google_failed": "Google 注册失败",
+    "server_failed": "连接服务器失败",
+    "auth_loading": "认证系统正在加载，请稍候后重试。",
+    "facebook_disabled": "Facebook 注册未启用，请联系支持。",
+    "popup_blocked": "弹窗被拦截，请允许弹窗后重试。",
+    "failed": "注册失败，请重试。"
+  },
+  "games": {
+    "play_earn": "玩游戏赚钱",
+    "hero_title": "玩游戏，赚奖励",
+    "hero_desc": "完成游戏任务，达成里程碑，在享受乐趣的同时赚取真钱。",
+
+    "stats": {
+      "available_games": "可用游戏",
+      "avg_payout": "平均奖励",
+      "active_players": "活跃玩家",
+      "paid_out": "已支付"
+    },
+
+    "featured": "精选游戏",
+    "play_now": "立即开始",
+
+    "easy": "简单",
+    "medium": "中等",
+
+    "how_it_works": "运作方式",
+    "steps": {
+      "browse": "浏览游戏",
+      "play": "开始游戏",
+      "milestones": "完成里程碑",
+      "payout": "获得奖励"
+    },
+
+    "why_play": "为什么玩游戏",
+
+    "features": {
+      "high_payouts": "高额奖励",
+      "flexible_timeframes": "灵活时间",
+      "instant_credit": "即时到账",
+      "daily_bonuses": "每日奖励"
+    },
+
+    "list": {
+      "sea_of_conquest": "征服之海",
+      "farming_simulator": "农场模拟器",
+      "spongebob_adventures": "海绵宝宝大冒险",
+      "time_7_days": "7天",
+      "time_10_days": "10天",
+      "time_5_days": "5天"
+    },
+
+    "difficulty": {
+      "easy": "简单",
+      "medium": "中等"
+    },
+
+    "features_desc": {
+      "high_payouts": "每款游戏最高可赚取 150 美元，我们提供行业内最高奖励。",
+      "flexible_timeframes": "按自己的节奏完成游戏，大多数游戏需要 5–14 天。",
+      "instant_credit": "完成里程碑后立即获得奖励。",
+      "daily_bonuses": "每日登录和挑战可获得额外奖励。"
+    }
+  },
+
+  "bonus": {
+    "sign_up_bonus": {
+      "title": "注册奖励",
+      "subtitle": "最高赢取 30 美元",
+      "button": "旋转"
+    },
+    "streak": {
+      "title": "7天连续签到",
+      "subtitle": "每日赚取 1 美元以保持连续签到",
+      "button": "前往签到"
+    },
+    "verification": {
+      "title": "验证任务",
+      "subtitle": "每项可赚 0.2 美元",
+      "button": "前往验证"
+    }
+  },
+
+  "bonus_page": {
+    "title": "注册奖励",
+    "timer_label": "结束于",
+    "reward_label": "48小时内赚取超过 1 美元即可获得",
+    "reward_highlight": "额外 3 个免费宝箱",
+    "cta": "开始赚钱"
+  },
+
+  "streak": {
+    "title": "7天连续签到",
+    "reset_in": "连续签到重置倒计时",
+    "description": "每天至少完成一个任务以保持连续签到并获得免费宝箱",
+    "description_sec": "免费宝箱",
+    "go_to_tasks": "前往任务"
+  },
+
+  "verification": {
+    "title": "验证任务",
+
+    "telegram_title": "Telegram",
+    "telegram_sub": "加入我们的 Telegram",
+
+    "x_title": "关注 X",
+    "x_sub": "在 X 上关注我们",
+
+    "discord_title": "Discord",
+    "discord_sub": "加入我们的 Discord",
+
+    "reward": "0.05 美元",
+
+    "join": "立即加入",
+    "follow": "关注"
+  },
+
+  "tasks_hub": {
+    "title": "任务中心",
+    "subtitle": "在一个地方完成独立任务并跟踪进度。",
+
+    "go_earn": "前往赚钱",
+    "leaderboard": "排行榜",
+
+    "tip": "提示：使用任务列表中的筛选器可快速找到高价值或特定设备任务。",
+
+    "stats": {
+      "live_tasks": {
+        "label": "进行中的任务",
+        "value": "500+"
+      },
+      "avg_completion": {
+        "label": "平均完成时间",
+        "value": "8分钟"
+      },
+      "task_categories": {
+        "label": "任务类别",
+        "value": "12"
+      }
+    }
+  },
+  "chat_page": {
+  "title": "聊天室",
+
+  "dropdown": {
+    "language": "语言",
+    "rooms": "房间"
+  },
+
+  "rooms": {
+    "general": "综合",
+    "community": "社区"
+  },
+
+  "ticker": {
+    "user_xy_withdrew": "用户 XY 已提现",
+    "user_yz_earned": "用户 YZ 已赚取",
+    "user_ab_earned": "用户 AB 已赚取",
+    "user_cd_withdrew": "用户 CD 已提现",
+
+    "slots": "老虎机",
+    "worldcoin": "Worldcoin",
+    "offer_walls": "任务墙",
+    "torox": "Torox"
+  },
+
+  "messages": {
+    "loading": "正在加载消息...",
+    "empty": "暂无消息",
+    "first_message": "成为第一个打招呼的人！"
+  },
+
+  "input": {
+    "placeholder": "输入你的消息...."
+  },
+
+  "errors": {
+    "sign_in_required": "请先登录后发送消息",
+    "send_failed": "消息发送失败"
   }
+},
+
+"cashout_page": {
+  "topbar": {
+    "cashout": "提现",
+    "support": "支持"
+  },
+
+  "sections": {
+    "popular": "热门",
+    "withdraw_cash": "提取现金",
+    "giftcard": "礼品卡"
+  },
+
+  "ticker": {
+    "user_withdrew": "用户已提现",
+    "user_earned": "用户已赚取",
+    "slots": "老虎机",
+    "worldcoin": "Worldcoin",
+    "slot": "老虎机",
+    "monopoly": "大富翁",
+    "big_giant": "巨人"
+  },
+
+  "modal": {
+    "title": "提现 {{name}}",
+    "minimum_withdrawal": "最低提现金额为 $0.5",
+
+    "destination": "收款地址",
+    "enter_destination": "输入收款地址",
+    "wallet_address": "{{name}} 地址",
+    "enter_wallet": "输入钱包地址",
+
+    "paypal_email": "PayPal 邮箱",
+    "email_placeholder": "you@example.com",
+
+    "bank_details": "银行卡 / 银行信息",
+    "bank_placeholder": "输入银行卡或银行信息",
+
+    "save": "保存",
+
+    "amount": "金额",
+    "balance": "余额",
+    "amount_placeholder": "例如 $120",
+    "max": "最大",
+
+    "transaction_details": "交易详情",
+    "payment_rate": "{{ticker}} 支付汇率",
+    "transaction_fee": "交易手续费 ({{percent}}%)",
+    "fee": "手续费",
+    "free": "免费",
+    "you_receive": "您将收到",
+
+    "cashout": "提现",
+    "submitting": "提交中..."
+  },
+
+  "errors": {
+    "valid_amount": "请输入有效金额",
+    "minimum_amount": "最低提现金额为 $0.5",
+    "provide_destination": "请提供 {{field}}",
+    "sign_in": "请先登录",
+    "submit_failed": "提交失败"
+  },
+
+  "success": {
+    "withdrawal_submitted": "提现申请已提交！"
+  },
+
+  "fees": {
+    "network_fee_1": "~1% 网络手续费",
+    "network_fee_01": "~0.1% 网络手续费",
+    "network_fee_15": "~1.5% 网络手续费",
+    "network_fee_05": "~0.5% 网络手续费"
+  },
+
+  "badges": {
+    "off_30": "优惠 30%"
+  }
+},
+
+"cards_cc": {
+  "bitcoin": "比特币",
+  "dogecoin": "狗狗币",
+  "solana": "Solana",
+  "ethereum": "以太坊",
+  "litecoin": "莱特币",
+  "paypal": "PayPal",
+  "worldcoin": "Worldcoin",
+  "visa": "Visa",
+  "amazon": "亚马逊",
+  "app_stores": "应用商店",
+  "spotify": "Spotify",
+  "playstations": "PlayStation",
+  "steam": "Steam"
+},
+
+"contact_page": {
+  "header": {
+    "title": "联系我们",
+    "help_center": "帮助中心"
+  },
+
+  "hero": {
+    "title": "与我们联系",
+    "description": "我们随时为您提供帮助！您可以通过以下社交渠道或支持方式联系我们。",
+    "fastest_response": "如需最快回复，请加入我们的 Discord 社区。"
+  },
+
+  "social_section": {
+    "title": "关注我们",
+    "members": "成员"
+  },
+
+  "support_section": {
+    "title": "其他联系方式",
+    "response_time": "响应时间"
+  },
+
+  "social": {
+    "discord": {
+      "name": "Discord",
+      "description": "加入我们的社区，获取即时支持并与其他用户交流"
+    },
+    "telegram": {
+      "name": "Telegram",
+      "description": "通过 Telegram 获取公告和快速支持"
+    },
+    "twitter": {
+      "name": "Twitter / X",
+      "description": "关注我们，获取更新、促销和最新公告"
+    }
+  },
+
+  "support": {
+    "email": {
+      "title": "邮件支持",
+      "description": "发送邮件给我们以获取详细帮助",
+      "value": "support@labwards.com"
+    },
+    "live_chat": {
+      "title": "在线聊天",
+      "description": "实时与我们的支持团队沟通",
+      "value": "全天候 24/7"
+    }
+  }
+},
+ "cookie_page": {
+    "header": {
+      "title": "Cookie 政策",
+      "back": "返回"
+    },
+    "hero": {
+      "title": "Cookie 政策",
+      "last_updated": "最后更新："
+    },
+    "intro": {
+      "text": "我们使用 Cookie 和类似技术来提升您的浏览体验、分析网站流量并个性化内容。本 Cookie 政策说明了 Cookie 是什么、我们如何使用它们，以及您对其使用的选择。"
+    },
+    "what_are_cookies": {
+      "title": "什么是 Cookie",
+      "description_1": "Cookie 是您访问网站时存储在设备上的小型文本文件。它们帮助网站记住您的偏好以及您与网站的交互方式。",
+      "description_2": "我们还使用类似技术，例如网络信标、像素和本地存储。当我们提到 Cookie 时，也包括这些技术。"
+    },
+    "manage": {
+      "title": "管理您的 Cookie 偏好",
+      "save_button": "保存偏好设置"
+    },
+    "cookie_types": {
+      "essential": {
+        "title": "必要 Cookie",
+        "description": "网站正常运行所必需，包括安全性、身份验证和会话管理。",
+        "required": "必需",
+        "examples": ["会话 ID", "身份验证令牌", "CSRF 令牌", "负载均衡"]
+      },
+      "analytics": {
+        "title": "分析 Cookie",
+        "description": "帮助我们匿名了解用户如何与网站交互。",
+        "examples": ["Google Analytics", "页面浏览量", "用户行为", "性能指标"]
+      },
+      "marketing": {
+        "title": "营销 Cookie",
+        "description": "用于根据浏览行为展示相关广告。",
+        "examples": ["广告定向", "转化跟踪", "再营销像素", "社交媒体"]
+      },
+      "functional": {
+        "title": "功能性 Cookie",
+        "description": "用于个性化功能，例如记住偏好和设置。",
+        "examples": ["语言偏好", "主题设置", "最近浏览", "表单数据"]
+      }
+    },
+    "how_we_use": {
+      "title": "我们如何使用 Cookie",
+      "items": [
+        "保持您的登录状态",
+        "记住您的偏好",
+        "防止欺诈",
+        "了解使用行为",
+        "改进我们的服务",
+        "提供相关内容和广告",
+        "衡量营销效果"
+      ]
+    },
+    "third_party": {
+      "title": "第三方 Cookie",
+      "description": "某些 Cookie 由第三方服务设置。",
+      "items": {
+        "Goganalytics": "Google Analytics：",
+        "analytics": "网站分析和性能跟踪",
+        "adstitle": "广告合作伙伴：",
+        "ads": "广告跟踪和转化归因",
+        "socialtitle": "社交媒体：",
+        "social": "分享和登录功能",
+        "paymentstitle": "支付处理方：",
+        "payments": "安全支付功能"
+      },
+      "note": "这些第三方拥有各自的隐私政策。"
+    },
+    "browser": {
+      "title": "在浏览器中管理 Cookie",
+      "note": "您可以通过浏览器设置控制 Cookie。阻止 Cookie 可能会影响网站功能。",
+      "warning": "如果没有必要 Cookie，某些功能可能无法正常工作。",
+      "items": {
+        "chrometitle": "Chrome：",
+        "chrome": "设置 → 隐私和安全 → Cookie",
+        "firefoxtitle": "Firefox：",
+        "firefox": "选项 → 隐私与安全 → Cookie",
+        "safarititle": "Safari：",
+        "safari": "偏好设置 → 隐私 → Cookie",
+        "edgetitle": "Edge：",
+        "edge": "设置 → 隐私、搜索和服务 → Cookie"
+      }
+    },
+    "contact": {
+      "title": "关于 Cookie 的问题？",
+      "text": "如果您对我们的 Cookie 使用有任何疑问，请联系我们：",
+      "email": "support@labwards.com"
+    },
+    "related": {
+      "title": "相关政策",
+      "terms": "服务条款",
+      "privacy": "隐私政策"
+    },
+    "warning1": "注意：阻止或删除 Cookie 可能会影响您在我们网站上的体验。如果没有必要 Cookie，某些功能可能无法正常运行。"
+  },
+   "faq_page": {
+    "header": {
+      "title": "常见问题",
+      "contact": "联系我们"
+    },
+    "hero": {
+      "title": "常见问题解答",
+      "description": "查找有关 LabWards 的常见问题答案"
+    },
+    "categories": {
+      "getting_started": {
+        "title": "开始使用",
+        "question1": "如何创建账户？",
+        "answer1": "创建账户非常简单！点击注册并使用您的邮箱或社交账号完成注册。",
+        "question2": "LabWards 是免费使用的吗？",
+        "answer2": "是的！LabWards 完全免费使用，没有任何隐藏费用。",
+        "question3": "使用 LabWards 需要多大年龄？",
+        "answer3": "您必须年满 18 岁。",
+        "question4": "LabWards 在我的国家可用吗？",
+        "answer4": "LabWards 在全球大多数国家均可使用。"
+      },
+
+      "earning_tasks": {
+        "title": "收益与任务",
+        "question1": "如何在 LabWards 上赚钱？",
+        "answer1": "您可以通过完成游戏、问卷、优惠任务、观看视频以及测试应用来赚钱。",
+        "question2": "为什么我的任务没有到账？",
+        "answer2": "这可能是由于使用 VPN、步骤未完成或广告商拒绝导致的。",
+        "question3": "奖励到账需要多长时间？",
+        "answer3": "大多数奖励会立即到账，但部分奖励可能需要 24–48 小时。",
+        "question4": "我可以多次完成同一个任务吗？",
+        "answer4": "大多数任务只能完成一次。"
+      },
+
+      "payments": {
+        "title": "支付与提现",
+        "question1": "最低提现金额是多少？",
+        "answer1": "最低提现金额通常为 5 美元。",
+        "question2": "提现需要多长时间？",
+        "answer2": "大多数提现会立即处理或在 24 小时内完成。",
+        "question3": "支持哪些支付方式？",
+        "answer3": "支持 PayPal、银行转账、加密货币和礼品卡。",
+        "question4": "提现有手续费吗？",
+        "answer4": "大多数支付方式不收取提现手续费。"
+      },
+
+      "security": {
+        "title": "账户与安全",
+        "question1": "如何重置密码？",
+        "answer1": "请在登录页面使用“忘记密码”功能。",
+        "question2": "为什么我的账户被暂停？",
+        "answer2": "这可能是由于违反服务条款导致的。",
+        "question3": "我的个人信息安全吗？",
+        "answer3": "是的，我们使用强加密技术保护您的数据。",
+        "question4": "如何删除我的账户？",
+        "answer4": "前往 设置 > 账户 > 删除账户。"
+      },
+
+      "referrals": {
+        "title": "推荐计划",
+        "question1": "推荐计划如何运作？",
+        "answer1": "分享您的推荐链接并赚取奖励。",
+        "question2": "我可以通过推荐赚多少钱？",
+        "answer2": "您可以终身获得被推荐用户收益的 10%。",
+        "question3": "推荐奖励何时到账？",
+        "answer3": "当被推荐用户完成符合条件的任务后，奖励将到账。"
+      }
+    }
+  },
+
+  "help_page": {
+    "header": {
+      "title": "帮助中心",
+      "subtitle": "查找答案并获取支持"
+    },
+    "search": {
+      "placeholder": "搜索帮助内容..."
+    },
+    "categories": {
+      "getting_started": {
+        "title": "开始使用",
+        "article1": "如何创建账户",
+        "article2": "完成您的第一个任务",
+        "article3": "了解奖励机制",
+        "article4": "设置支付方式"
+      },
+
+      "video_tutorials": {
+        "title": "视频教程",
+        "article1": "平台使用指南",
+        "article2": "最大化您的收益",
+        "article3": "提现流程说明",
+        "article4": "技巧与窍门"
+      },
+
+      "account_billing": {
+        "title": "账户与支付",
+        "article1": "管理您的账户",
+        "article2": "支付方式",
+        "article3": "提现限制",
+        "article4": "账户验证"
+      },
+
+      "contact_support": {
+        "title": "联系支持",
+        "article1": "在线聊天支持",
+        "article2": "邮件支持",
+        "article3": "报告问题",
+        "article4": "功能建议"
+      }
+    },
+
+    "actions": {
+      "live_chat": "开始在线聊天",
+      "browse_articles": "浏览所有文章"
+    }
+  },
+  "help_center_page": {
+  "header": {
+    "title": "帮助中心",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "title": "我们如何帮助您？",
+    "description": "浏览以下分类，找到您需要的帮助"
+  },
+  "stats": {
+    "articles": "帮助文章",
+    "support": "客服支持",
+    "response": "平均响应时间",
+    "satisfaction": "满意度"
+  },
+  "categories_section_title": "按分类浏览",
+  "categories": {
+    "getting_started": {
+      "title": "快速开始",
+      "description": "了解如何使用 LabWards 的基础知识",
+      "articles_label": "篇文章",
+      "item1": "如何创建账户",
+      "item2": "设置个人资料",
+      "item3": "完成您的第一个任务",
+      "item4": "了解奖励系统",
+      "item5": "支付方式概览"
+    },
+    "earning_tasks": {
+      "title": "赚钱与任务",
+      "description": "关于赚钱的一切",
+      "articles_label": "篇文章",
+      "item1": "可用任务类型",
+      "item2": "如何最大化收益",
+      "item3": "任务完成技巧",
+      "item4": "任务未到账的原因",
+      "item5": "报告奖励未到账"
+    },
+    "payments": {
+      "title": "支付与提现",
+      "description": "管理您的收益并提现",
+      "articles_label": "篇文章",
+      "item1": "最低提现金额",
+      "item2": "提现处理时间",
+      "item3": "支持的支付方式",
+      "item4": "身份验证",
+      "item5": "税务信息"
+    },
+    "security": {
+      "title": "账户与安全",
+      "description": "保护您的账户安全",
+      "articles_label": "篇文章",
+      "item1": "修改密码",
+      "item2": "双重身份验证",
+      "item3": "账户验证",
+      "item4": "恢复账户",
+      "item5": "隐私设置"
+    }
+  }
+},
+"privacy_policy_page": {
+  "header": {
+    "title": "隐私政策"
+  },
+  "hero": {
+    "title": "隐私政策",
+    "last_updated": "最后更新："
+  },
+  "intro": {
+    "text": "在 LabWards，我们非常重视您的隐私。本隐私政策说明了当您使用我们的服务时，我们如何收集、使用、披露和保护您的个人信息。使用 LabWards 即表示您同意本政策中描述的做法。"
+  },
+  "sections": {
+    "information_collect": {
+      "title": "我们收集的信息",
+      "personal_info": "个人信息：",
+      "personal_items": {
+        "item1": "姓名、电子邮件地址和出生日期",
+        "item2": "支付信息（PayPal 邮箱、加密钱包地址）",
+        "item3": "您选择提供的个人资料信息",
+        "item4": "电话号码（用于验证时提供）"
+      },
+      "auto_info": "自动收集的信息：",
+      "auto_items": {
+        "item1": "设备信息（浏览器类型、操作系统）",
+        "item2": "IP 地址和大致位置",
+        "item3": "使用数据（访问页面、完成任务、停留时间）",
+        "item4": "Cookie 和类似追踪技术"
+      },
+      "third_party": "来自第三方的信息：",
+      "third_party_items": {
+        "item1": "社交登录信息（Google、Facebook、Apple）",
+        "item2": "广告合作伙伴提供的任务完成数据",
+        "item3": "防欺诈和验证服务"
+      }
+    },
+
+    "usage": {
+      "title": "我们如何使用您的信息",
+      "description": "我们使用您的信息来：",
+      "items": {
+        "item1": "提供、维护并改进我们的服务",
+        "item2": "处理交易并发送相关信息",
+        "item3": "验证身份并防止欺诈",
+        "item4": "为您匹配相关任务和调查",
+        "item5": "与您沟通更新、促销和支持信息",
+        "item6": "分析使用模式以改善用户体验",
+        "item7": "遵守法律义务",
+        "item8": "保护平台的安全和完整性"
+      }
+    },
+
+    "sharing": {
+      "title": "信息共享",
+      "description": "我们可能会与以下对象共享您的信息：",
+      "items": {
+        "item1": "广告合作伙伴：用于验证任务完成情况并处理奖励",
+        "item2": "支付处理商：用于处理提现和付款",
+        "item3": "服务提供商：协助运营平台（托管、分析、支持）",
+        "item4": "法律机构：法律要求时或为保护我们的权利"
+      },
+      "note": "我们不会将您的个人信息出售给第三方用于营销目的。"
+    },
+
+    "security": {
+      "title": "数据安全",
+      "description": "我们采用行业标准的安全措施来保护您的数据：",
+      "items": {
+        "item1": "所有数据传输均采用 SSL/TLS 加密",
+        "item2": "敏感信息安全加密存储",
+        "item3": "定期进行安全审计和漏洞评估",
+        "item4": "系统访问控制和身份验证",
+        "item5": "员工数据保护培训"
+      },
+      "note": "尽管我们努力保护您的信息，但互联网传输方式无法做到 100% 安全，因此我们无法保证绝对安全。"
+    },
+
+    "rights": {
+      "title": "您的权利与选择",
+      "description": "您有权：",
+      "items": {
+        "item11": "访问：",
+        "item12": "请求获取您的个人数据副本",
+        "item21": "更正：",
+        "item22": "更新不准确或不完整的信息",
+        "item31": "删除：",
+        "item32": "请求删除您的个人数据",
+        "item41": "退出订阅：",
+        "item42": "取消营销通信订阅",
+        "item51": "导出：",
+        "item52": "以可移植格式获取您的数据",
+        "item61": "限制：",
+        "item62": "限制我们使用您的数据"
+      },
+      "contact": "如需行使这些权利，请联系我们："
+    },
+
+    "retention": {
+      "title": "数据保留",
+      "description": "我们会在以下情况下保留您的个人信息：",
+      "items": {
+        "item1": "您的账户仍然活跃",
+        "item2": "为提供服务所必需",
+        "item3": "法律要求（税务记录、法律义务）",
+        "item4": "解决争议或执行协议所需"
+      },
+      "note": "账户删除后，我们可能会以匿名形式保留部分信息用于分析或满足法律要求。"
+    },
+
+    "contact": {
+      "title": "联系我们",
+      "description": "如果您对本隐私政策或数据处理有任何疑问，请联系我们：",
+      "email": "电子邮箱"
+    }
+  },
+  "related": {
+    "title": "相关政策",
+    "terms": "服务条款",
+    "cookies": "Cookie 政策"
+  }
+},
+"serviceprovider": "服务提供商",
+"legalauthorities": "法律机构",
+ "rewards_page": {
+    "header": {
+      "title": "奖励"
+    },
+    "hero": {
+      "badge": "多种提现方式",
+      "title": "按你的方式收款",
+      "description": "可选择多种提现方式。提现至 PayPal、加密货币、礼品卡或银行转账。快速、安全、无忧！"
+    },
+    "stats": {
+      "min_withdrawal": "最低提现",
+      "payout_methods": "提现方式",
+      "processing": "处理时间",
+      "paid_out": "已支付"
+    },
+    "reward_types": {
+      "title": "收款方式",
+      "cash_rewards": {
+        "title": "现金奖励",
+        "description": "将真实收益直接提现至 PayPal、银行账户或加密钱包。"
+      },
+      "gift_cards": {
+        "title": "礼品卡",
+        "description": "将收益兑换为 Amazon、Steam、iTunes 等礼品卡。"
+      },
+      "crypto": {
+        "title": "加密货币",
+        "description": "将收益转换为比特币、以太坊、莱特币或其他加密货币。"
+      },
+      "mobile_topup": {
+        "title": "手机充值",
+        "description": "直接使用收益为手机账户充值。"
+      }
+    },
+    "payout_methods_section": {
+      "title": "热门提现方式",
+      "labels": {
+        "min_withdraw": "最低提现：",
+        "processing": "处理时间：",
+        "fee": "手续费："
+      },
+      "methods": {
+        "paypal": {
+          "name": "PayPal",
+          "processing": "即时",
+          "fee": "免费"
+        },
+        "visa": {
+          "name": "VISA 卡",
+          "processing": "1-3 天",
+          "fee": "免费"
+        },
+        "bitcoin": {
+          "name": "比特币",
+          "processing": "即时",
+          "fee": "网络手续费"
+        },
+        "amazon": {
+          "name": "亚马逊礼品卡",
+          "processing": "即时",
+          "fee": "免费"
+        }
+      }
+    },
+    "features": {
+      "title": "为什么我们的奖励更好",
+      "instant_payouts": {
+        "title": "即时到账",
+        "description": "大多数提现会立即处理。在你需要时快速获得收益。"
+      },
+      "secure_transactions": {
+        "title": "安全交易",
+        "description": "所有交易均经过加密，并采用行业标准安全保护。"
+      },
+      "low_minimums": {
+        "title": "低门槛提现",
+        "description": "最低仅需 5 美元即可提现，无需等到赚取数百美元。"
+      },
+      "no_fees": {
+        "title": "无隐藏费用",
+        "description": "赚多少拿多少，没有隐藏费用或额外扣款。"
+      }
+    }
+  },
+
+  "settings_page": {
+    "title": "设置",
+
+    "change_password": {
+      "title": "修改密码",
+      "current_password": "当前密码",
+      "current_placeholder": "输入当前密码",
+      "new_password": "新密码",
+      "new_placeholder": "至少 8 个字符",
+      "confirm_password": "确认新密码",
+      "confirm_placeholder": "再次输入新密码",
+      "update_button": "更新密码",
+      "saving": "保存中..."
+    },
+
+    "security": {
+      "title": "安全",
+      "two_factor_title": "双重身份验证",
+      "two_factor_desc": "为您的账户增加额外的安全保护",
+      "login_alerts_title": "登录提醒",
+      "login_alerts_desc": "账户有新登录时收到通知",
+      "session_timeout_title": "自动会话超时",
+      "session_timeout_desc": "30 分钟无操作后自动退出登录"
+    },
+
+    "danger_zone": {
+      "title": "危险区域",
+      "description": "删除账户后，您的所有数据（包括余额、历史记录和个人资料）将被永久删除。此操作无法撤销。",
+      "delete_button": "删除账户"
+    },
+
+    "toast": {
+      "fill_fields": "请填写所有密码字段",
+      "password_mismatch": "新密码不匹配",
+      "password_short": "新密码至少需要 8 个字符",
+      "signin_first": "请先登录",
+      "change_failed": "密码修改失败",
+      "password_success": "密码修改成功",
+      "change_error": "无法修改密码",
+      "twofa_soon": "双重验证功能即将上线",
+      "delete_contact": "如需删除账户，请联系 support@earnlab.com"
+    }
+  },
+  "support": {
+    "title": "在线支持",
+    "helpTitle": "需要帮助吗？",
+    "onlineStatus": "我们的客服在线",
+    "faq": "常见问题",
+    "welcomeMessage": "在联系在线客服之前，请先查看帮助中心链接。您可能会立即找到问题或疑问的答案！",
+    "messagePlaceholder": "输入您的消息....",
+    "send": "发送",
+    "supportLabel": "客服",
+    "contactSignin": "请先登录后再联系客服。",
+    "sendFailed": "发送失败"
+  },
+
+  "topbar": {
+    "notifications": "通知",
+    "wallet": "钱包",
+    "cashout": "提现",
+    "account": "账户",
+    "goHome": "返回首页"
+  },
+
+  "ticker": {
+    "userWithdrew": "用户已提现",
+    "userEarned": "用户已赚取"
+  },
+
+  "game": {
+    "slots": "老虎机",
+    "slot": "老虎机",
+    "monopoly": "大富翁",
+    "torox": "Torox",
+    "angryBird": "愤怒的小鸟",
+    "bigGiant": "大巨人"
+  },
+
+  "survey": {
+    "title": "调查问卷",
+    "cashout": "提现",
+    "progress": "{{current}}/{{total}}",
+
+    "questions": {
+      "householdIncome": "您的家庭年收入大约是多少（美元）？",
+      "ageRange": "哪个年龄段最符合您？",
+      "occupation": "您目前的职业是什么？",
+      "education": "您的最高学历是什么？",
+      "country": "您目前居住在哪个国家？",
+      "maritalStatus": "您的婚姻状况如何？",
+      "children": "您有几个孩子？",
+      "employment": "您的就业状态是什么？",
+      "interests": "您的主要爱好或兴趣是什么？"
+    },
+
+    "placeholders": {
+      "numbersOnly": "仅输入数字",
+      "ageExample": "例如：25-34",
+      "occupationExample": "例如：全职员工",
+      "educationExample": "例如：学士学位",
+      "countryExample": "例如：美国",
+      "maritalExample": "例如：已婚",
+      "employmentExample": "例如：全职",
+      "interestsExample": "例如：游戏、旅行"
+    },
+
+    "buttons": {
+      "back": "返回",
+      "next": "下一步",
+      "startSurvey": "开始调查",
+      "submitting": "提交中",
+      "redirecting": "跳转中"
+    },
+
+    "messages": {
+      "answerRequired": "继续之前请回答问题。",
+      "noProvider": "暂无可用的调查提供商，请稍后再试。",
+      "completed": "调查已成功完成！",
+      "redirectNotice": "调查完成！正在跳转到任务墙…",
+      "completionSuccess": "调查完成！正在跳转…",
+      "submitFailed": "提交失败，请重试。"
+    }
+  },
+  "surveysInfo": {
+    "title": "问卷调查",
+    "shareOpinion": "分享您的意见",
+    "heroTitle": "通过分享观点赚取收入",
+    "heroDescription": "完成顶级调研公司的问卷并赚取真实现金。您的意见很重要，品牌愿意为此付费！",
+
+    "stats": {
+      "dailySurveys": "每日问卷",
+      "avgPerSurvey": "每份平均收益",
+      "surveyTakers": "参与用户",
+      "paidOut": "已支付"
+    },
+
+    "partners": "我们的问卷合作伙伴",
+
+    "providerLabels": {
+      "avgPay": "平均收益：",
+      "surveys": "问卷数量：",
+      "duration": "时长："
+    },
+
+    "howItWorks": "运作方式",
+
+    "steps": {
+      "step1Title": "完善资料",
+      "step1Desc": "填写您的人口统计信息，以获得更精准的问卷匹配",
+
+      "step2Title": "浏览问卷",
+      "step2Desc": "查看按奖励和时长排序的可用问卷",
+
+      "step3Title": "回答问题",
+      "step3Desc": "诚实分享您对不同话题的看法",
+
+      "step4Title": "赚取奖励",
+      "step4Desc": "完成问卷后立即获得报酬"
+    },
+
+    "tipsTitle": "成功小贴士",
+
+    "tips": {
+      "tip1": "完整填写个人资料以获得更好的问卷匹配",
+      "tip2": "诚实作答——答案不一致可能导致取消资格",
+      "tip3": "每天多次查看新问卷",
+      "tip4": "开启通知，不错过高收益问卷",
+      "tip5": "保持耐心——随着时间推移，符合资格的概率会提高"
+    },
+
+    "benefitsTitle": "为什么选择我们的问卷？",
+
+    "benefits": {
+      "benefit1Title": "每份问卷赚取 $2-10",
+      "benefit1Desc": "通过分享真实意见获得报酬。问卷越长，奖励越高。",
+
+      "benefit2Title": "快速完成",
+      "benefit2Desc": "大多数问卷只需 5-15 分钟，可在空闲时间完成。",
+
+      "benefit3Title": "隐私保护",
+      "benefit3Desc": "您的个人信息始终受到保护。未经同意，我们绝不会共享您的数据。",
+
+      "benefit4Title": "精准匹配",
+      "benefit4Desc": "根据您的个人资料匹配问卷，提高通过率。"
+    },
+
+    "bitlabs": "BitLabs",
+    "cpx": "CPX Research",
+    "theorem": "Theorem Reach",
+    "pollfish": "Pollfish"
+  },
+
+  "tasksInfo": {
+    "title": "任务",
+    "heroBadge": "简单任务，真实奖励",
+    "heroTitle": "完成任务，赚取现金",
+    "heroDescription": "从数百个简单任务中进行选择。下载应用、注册服务、完成优惠活动，并立即获得报酬。无需经验！",
+
+    "stats": {
+      "availableTasks": "可用任务",
+      "avgPerTask": "每项平均收益",
+      "activeUsers": "活跃用户",
+      "paidOut": "已支付"
+    },
+
+    "taskTypesTitle": "任务类型",
+
+    "taskTypes": {
+      "appTestingTitle": "应用测试",
+      "appTestingDesc": "下载并测试新的移动应用程序",
+
+      "simpleTasksTitle": "简单任务",
+      "simpleTasksDesc": "完成简单的在线任务和操作",
+
+      "reviewTitle": "评价与评分",
+      "reviewDesc": "撰写评论并为产品或服务评分",
+
+      "signupTitle": "注册优惠",
+      "signupDesc": "注册服务并赚取奖励"
+    },
+
+    "labels": {
+      "reward": "奖励",
+      "time": "时间"
+    },
+
+    "howItWorks": "运作方式",
+
+    "steps": {
+      "step1Title": "浏览任务",
+      "step1Desc": "按奖励和时间筛选可用任务",
+
+      "step2Title": "完成任务",
+      "step2Desc": "按照简单说明完成任务",
+
+      "step3Title": "提交证明",
+      "step3Desc": "如有需要，上传截图或验证信息",
+
+      "step4Title": "获得报酬",
+      "step4Desc": "即时收到付款到您的账户"
+    },
+
+    "benefitsTitle": "为什么选择我们的任务？",
+
+    "benefits": {
+      "benefit1Title": "高竞争力报酬",
+      "benefit1Desc": "每项任务赚得比其他平台更多。我们直接与广告商合作，提供最佳收益。",
+
+      "benefit2Title": "即时审核",
+      "benefit2Desc": "大多数任务会立即审核通过。几分钟内即可到账。",
+
+      "benefit3Title": "100% 真实可靠",
+      "benefit3Desc": "所有任务均来自经过验证的合作伙伴。无骗局，无垃圾信息，只有真实赚钱机会。",
+
+      "benefit4Title": "灵活时间安排",
+      "benefit4Desc": "随时随地工作。按照自己的时间安排完成任务。"
+    }
+  },
+  "terms": {
+  "quickNavigation": "快速导航",
+
+  "nav": {
+    "acceptance": "1. 条款接受",
+    "eligibility": "2. 使用资格",
+    "account": "3. 账户注册",
+    "services": "4. 服务",
+    "earnings": "5. 收益与付款",
+    "conduct": "6. 用户行为",
+    "termination": "7. 终止",
+    "liability": "8. 责任限制"
+  },
+
+  "sections": {
+    "acceptance": {
+      "title": "条款接受",
+      "p1": "访问或使用 LabWards（“本服务”）即表示您同意受本服务条款（“条款”）约束。如果您不同意这些条款，则不得使用本服务。",
+      "p2": "我们保留随时修改这些条款的权利。更改将在发布后立即生效。您继续使用本服务即表示接受修改后的条款。"
+    },
+
+    "eligibility": {
+      "title": "使用资格",
+      "intro": "使用 LabWards，您必须：",
+      "item1": "年满 18 周岁",
+      "item2": "具有签订具有法律约束力协议的能力",
+      "item3": "未被适用法律禁止使用本服务",
+      "item4": "提供准确完整的注册信息",
+      "outro": "本服务可能并非在所有司法辖区均可用。确保遵守当地法律是您的责任。"
+    },
+
+    "account": {
+      "title": "账户注册",
+      "intro": "创建账户时，您同意：",
+      "item1": "提供准确、最新且完整的信息",
+      "item2": "根据需要维护并更新您的信息",
+      "item3": "妥善保管您的密码并保持机密",
+      "item4": "对您账户下的所有活动负责",
+      "item5": "每人仅创建一个账户",
+      "outro": "对于违反这些要求或涉嫌欺诈活动的账户，我们保留暂停或终止的权利。"
+    },
+
+    "services": {
+      "title": "服务",
+      "intro": "LabWards 提供一个平台，用户可以通过完成各种任务赚取奖励，包括但不限于：",
+      "item1": "完成问卷调查",
+      "item2": "玩手机游戏",
+      "item3": "测试应用程序",
+      "item4": "观看视频",
+      "item5": "注册优惠活动",
+      "item6": "推荐新用户",
+      "outro": "任务可用性、奖励及相关条款可能会发生变化，恕不另行通知。第三方优惠受其各自条款与条件约束。"
+    },
+
+    "earnings": {
+      "title": "收益与付款",
+      "intro": "关于收益和付款：",
+      "item1": "任务成功完成并验证后，收益将记入账户",
+      "item2": "最低提现金额适用，并可能因支付方式不同而有所变化",
+      "item3": "若发现欺诈或错误，我们保留调整收益的权利",
+      "item4": "若账户因违规被终止，待处理收益可能被没收",
+      "item5": "您需自行承担适用于收益的税费",
+      "outro": "付款处理时间因所选支付方式而异。对于第三方支付处理商造成的延迟，我们不承担责任。"
+    },
+
+    "conduct": {
+      "title": "用户行为",
+      "intro": "您同意不得：",
+      "item1": "创建多个账户或使用虚假身份",
+      "item2": "使用 VPN、代理或工具隐藏您的位置",
+      "item3": "使用机器人、脚本或自动化方式完成任务",
+      "item4": "提供虚假信息或提交欺诈性完成记录",
+      "item5": "试图操纵或利用推荐系统",
+      "item6": "共享账户访问权限或出售账户",
+      "item7": "骚扰、辱骂或伤害其他用户或员工",
+      "item8": "违反任何适用法律或第三方权利",
+      "warning": "违规行为可能导致账户暂停、收益没收及永久封禁。"
+    },
+
+    "termination": {
+      "title": "终止",
+      "intro": "我们可随时终止或暂停您的账户，无论是否有原因，也无需提前通知。终止原因可能包括：",
+      "item1": "违反本条款",
+      "item2": "欺诈或可疑活动",
+      "item3": "长期不活跃",
+      "item4": "执法机构或政府部门要求",
+      "outro": "您也可以随时通过账户设置终止账户。终止后，您必须在 30 天内提取符合条件的收益。"
+    },
+
+    "liability": {
+      "title": "责任限制",
+      "intro": "本服务按“现状”提供，不附带任何形式的保证。在法律允许的最大范围内：",
+      "item1": "我们不提供任何明示或暗示的保证",
+      "item2": "我们不对任何间接、附带或后果性损害负责",
+      "item3": "我们的总责任不超过您过去 12 个月内获得的收益金额",
+      "item4": "我们不对第三方服务或优惠负责"
+    },
+
+    "contact": {
+      "title": "联系我们",
+      "desc": "如果您对这些条款有任何疑问，请通过以下方式联系我们："
+    }
+  },
+
+  "relatedPolicies": "相关政策",
+  "privacyPolicy": "隐私政策",
+  "cookiePolicy": "Cookie 政策"
+},
+
+"wallet": {
+  "title": "我的钱包",
+  "subtitle": "管理您的收益和提现",
+
+  "balance": {
+    "label": "可用余额",
+    "redeemGiftCard": "兑换礼品卡",
+    "history": "历史记录"
+  },
+
+  "stats": {
+    "pendingWithdrawal": "待处理提现",
+    "thisMonth": "本月",
+    "totalEarned": "累计收益"
+  },
+
+  "withdrawals": {
+    "title": "提现申请",
+    "pending": "处理中",
+    "rejected": "已拒绝",
+    "reason": "原因",
+    "withdrawal": "提现"
+  },
+
+  "transactions": {
+    "title": "最近交易",
+    "loading": "正在加载交易记录...",
+    "empty": "暂无交易记录",
+    "taskCompleted": "任务已完成",
+    "giftCardPayout": "礼品卡支付",
+    "completed": "已完成"
+  }
+},
+"affiliate": {
+    "title": "联盟计划",
+    "subtitle": "每推荐一位朋友加入 Labwards，即可赚取佣金",
+
+    "tabs": {
+      "dashboard": "仪表板",
+      "codes": "邀请码",
+      "tiers": "等级"
+    },
+
+    "referral_link_title": "您的推荐链接",
+    "referral_link_desc": "将此链接分享给朋友以赚取佣金！",
+    "copy": "复制",
+    "copied": "✓ 已复制！",
+    "affiliate_code": "您的推广码",
+
+    "share": {
+      "twitter": "𝕏 推特",
+      "facebook": "脸书",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    },
+
+    "stats": {
+      "available_claim": "可领取金额",
+      "pending_referrals": "待确认推荐",
+      "total_referred": "总推荐用户",
+      "total_earned": "总收入"
+    },
+
+    "claim_button1": "领取 ",
+    "claim_button2": "到钱包",
+
+    "referred_users_title": "您推荐的用户",
+    "no_referred_users": "暂无推荐用户，分享您的链接开始赚取奖励！",
+
+    "code_title": "您的推荐码",
+    "code_desc": "分享此邀请码给朋友以赚取佣金！",
+    "earnings_title": "您的推荐收益",
+    "pending_earnings": "待结算收益",
+
+    "tiers_info": "推荐越多用户，佣金比例越高！",
+
+    "tiers": {
+      "tier": "等级",
+      "commission_rate": "佣金比例",
+      "requirement": "要求",
+      "default": "默认（0 位推荐）",
+      "tier2": "10+ 位推荐",
+      "tier3": "25+ 位推荐",
+      "tier4": "50+ 位推荐（VIP）"
+    },
+
+    "how_it_works": "运作方式",
+    "steps": {
+      "1": "与朋友分享您的推荐链接",
+      "2": "当他们注册并完成任务时，您即可获得佣金",
+      "3": "推荐用户越多，您的佣金比例越高",
+      "4": "管理员可为顶级推广者设置自定义佣金比例",
+      "5": "可随时将收益领取到您的钱包"
+    },
+
+    "loading": "加载中..."
+  },
+
+  "earn_menu": {
+    "menu": {
+      "earn": "赚取",
+      "leaderboard": "排行榜",
+      "reward": "奖励",
+      "faq": "常见问题",
+      "support": "支持"
+    },
+    "close_menu": "关闭菜单",
+    "cashout": "提现",
+    "tournaments": "锦标赛",
+    "ongoing": "进行中",
+    "status": {
+      "active": "进行中",
+      "coming_soon": "即将推出",
+      "ended": "已结束"
+    }
+  },
+
+  "chat_room": {
+    "title": "聊天室",
+    "system_message": "我们通常会在 30 分钟内回复，欢迎留下您的问题",
+    "agent_message": "您好，感谢联系支持团队！今天我们可以如何帮助您？",
+    "input_placeholder": "输入您的消息...",
+    "agent_name": "Anna",
+    "user_name": "您"
+  },
+  "featuredSurvey": {
+    "title": "精选问卷",
+    "subtitle": "完成精选任务以获得更高奖励",
+    "seeMore": "查看更多",
+    "startSurvey": "开始问卷",
+    "survey1": "问卷 1",
+    "survey2": "问卷 2",
+    "survey3": "问卷 3",
+    "survey4": "问卷 4",
+    "survey5": "问卷 5",
+    "minutes": "2 分钟"
+  },
+
+  "featuredTask": {
+    "title": "精选高级任务",
+    "subtitle": "精心挑选的高奖励任务",
+    "viewAll": "查看全部",
+    "all": "全部",
+    "priority": "优先",
+    "noOffers": "所选筛选条件下暂无高级任务。"
+  },
+
+  "feedBar": {
+    "liveActivity": "实时动态",
+    "loadingActivity": "正在加载动态...",
+    "noRecentActivity": "暂无最近动态",
+    "now": "刚刚",
+    "event": "事件"
+  },
+
+  "forgotPassword": {
+    "title": "忘记密码",
+    "subtitle": "请输入与您的账户关联的邮箱地址",
+    "emailPlaceholder": "邮箱地址",
+    "existingMember": "已有账户？",
+    "requestReset": "申请重置密码"
+  },
+
+  "chat": "聊天",
+  "users_online": "在线用户",
+  "loading_messages": "正在加载消息...",
+  "no_messages": "暂无消息",
+  "say_hello": "成为第一个打招呼的人！",
+  "enter_message": "输入消息...",
+  "general": "综合",
+  "trading": "交易",
+  "help": "帮助",
+  "admin": "管理员",
+  "moderator": "版主",
+  "sign_in_send": "请先登录后再发送消息",
+  "send_failed": "发送消息失败",
+
+  "notif_maria_earned": "Maria 赚取了 $5.00",
+  "notif_jacob_withdrew": "Jacob 提现了 $10.70",
+  "notif_alex_earned": "Alex 赚取了 $15.00",
+  "notif_emma_withdrew": "Emma 提现了 $10.70",
+  "notif_michael_earned": "Michael 赚取了 $15.00",
+  "notif_sarah_withdrew": "Sarah 提现了 $10.70",
+
+  "minutes_ago": "3 分钟前",
+  "notifications": "通知",
+  "all": "全部",
+  "previous": "之前",
+  "special": "特别",
+  "account": "账户",
+  "earnings": "收益",
+  "cashouts": "提现",
+  "competitions": "竞赛",
+  "no_new_notifications": "暂无新通知",
+  "notification": "通知",
+  "slide": "滑动",
+
+  "offerWalls": {
+    "title": "任务墙",
+    "subtitle": "完成任务以获得更高奖励",
+    "loadError": "当前无法加载任务墙，请稍后再试。",
+    "defaultDescription": "玩 5 分钟即可获得奖励",
+    "failError": "获取任务墙失败：",
+    "fallbackName": "任务墙",
+
+    "blockBlast": {
+      "name": "方块爆破",
+      "description": "匹配方块并清除行，赢取丰厚奖励"
+    },
+    "questMaster": {
+      "name": "任务大师",
+      "description": "踏上史诗冒险并赚取积分"
+    },
+    "harvestValley": {
+      "name": "丰收山谷",
+      "description": "打造梦想农场，每日收获现金"
+    },
+    "turboDrift": {
+      "name": "极速漂移",
+      "description": "穿越城市竞速并收集氮气金币"
+    },
+    "jackpotSpin": {
+      "name": "大奖旋转",
+      "description": "旋转高级转盘，有机会赢得大奖"
+    },
+    "starVoyage": {
+      "name": "星际航行",
+      "description": "探索银河，寻找隐藏的太空宝藏"
+    },
+    "monsterSquad": {
+      "name": "怪兽小队",
+      "description": "收集稀有怪兽并战斗赢取奖励"
+    }
+  },
+
+  "premiumOffers": {
+    "premiumOffers": "高级优惠",
+    "exclusiveHighRewardOffers": "专属高奖励优惠",
+    "taskDetails": "任务详情",
+    "status": "状态",
+    "notStarted": "未开始",
+    "category": "类别",
+    "provider": "提供商",
+    "premium": "高级",
+    "description": "描述",
+    "rewards": "奖励",
+    "deviceNotSupported": "设备不支持",
+    "offerAvailableFor": "此优惠仅适用于：",
+    "yourDevice": "您的设备：",
+    "allPlatforms": "所有平台",
+    "desktop": "桌面端",
+    "android": "安卓",
+    "ios": "iOS",
+    "startTask": "开始任务",
+    "notAvailableForDevice": "您的设备无法使用",
+    "failedcountry": "检测国家失败：",
+    "failedtostart": "启动任务失败：",
+    "failedtopremiumoffers": "获取高级优惠失败：",
+    "noPremiumOffersAvailable": "暂无高级优惠",
+    "premiumOffersComingSoon": "高级优惠即将推出！稍后回来查看专属高奖励机会。"
+  },
+  "pricingHoldTimes": {
+  "title": "定价与冻结时间",
+  "subtitle": "了解您的奖励何时可用",
+
+  "tiers": {
+    "under5": "低于 $5",
+    "instantCredit": "即时到账",
+
+    "tenToFifteen": "$10 – $15",
+    "hold15Days": "冻结 15 天",
+
+    "fifteenToTwentyFive": "$15 – $25",
+    "hold25Days": "冻结 25 天",
+
+    "above25": "$25+",
+    "hold35Days": "冻结 35 天"
+  },
+
+  "speedUpTitle": "加快审核速度",
+  "speedUpDescription": "提交任务证明可加快审核并缩短冻结时间。已验证的提交可能会立即处理！"
+},
+
+"recentActivity": {
+  "title": "最近活动",
+  "description": "实时收益、奖励和提现",
+
+  "tabs": {
+    "all": "全部",
+    "earnings": "收益",
+    "cashout": "提现",
+    "rewards": "奖励"
+  },
+
+  "headers": {
+    "provider": "提供商",
+    "time": "时间",
+    "amount": "金额",
+    "name": "名称",
+    "type": "类型",
+    "user": "用户"
+  },
+
+  "activityTypes": {
+    "earn": "赚取",
+    "crypto": "加密货币",
+    "reward": "奖励",
+    "activity": "活动"
+  },
+
+  "emptyState": {
+    "title": "暂无最近活动",
+    "description": "当用户完成任务并提现收益时，活动将显示在这里。"
+  },
+
+  "liveFeed": "实时活动动态",
+  "unknown": "未知",
+  "defaultActivity": "活动",
+
+  "time": {
+    "justNow": "刚刚",
+    "minsAgo": "{{count}} 分钟前",
+    "hoursAgo": "{{count}} 小时前",
+    "daysAgo": "{{count}} 天前"
+  }
+},
+
+"redOrBlackGame": {
+  "loading": "正在加载游戏...",
+  "signInRequired": "请先登录后再玩",
+  "playOncePerDay": "您每天只能玩一次！",
+  "earnMoreRequired": "您今天至少需要赚取 $1.00 才能参与每日奖励！",
+  "playFailed": "游戏启动失败",
+  "winToast": "🎉 您赢得了 ",
+  "loseToast": "祝您下次好运！明天再来试试吧。",
+
+  "title": "🎰 每日红黑奖励",
+  "subtitle": "今天至少赚取 $1.00 即可解锁每日奖励抽奖！",
+
+  "todayEarnings": "今日收益",
+  "needMore": "还需：",
+  "more": "",
+  "balance": "余额",
+
+  "status": {
+    "playedToday": "✅ 今天已玩 - 明天再来！",
+    "ready": "🎯 准备开始！",
+    "locked": "💰 赚取 $1.00 后解锁"
+  },
+
+  "result": {
+    "won": "🎉 您赢了！",
+    "lost": "😔 您输了",
+    "resultLabel": "结果"
+  },
+
+  "bonusRewards": "🎁 每日奖励",
+  "minimumWin": "最低奖励",
+  "maximumWin": "最高奖励",
+  "bonusDescription": "免费每日抽奖 - 无需下注！奖励金额随机生成。",
+
+  "buttons": {
+    "red": "🔴 红色",
+    "black": "⚫ 黑色"
+  },
+
+  "gameInfo": {
+    "title": "🎯 每日奖励游戏 - 每天一次免费抽奖",
+    "unlock": "💰 今日至少赚取 $1.00 即可解锁抽奖",
+    "reward": "🎁 立即赢取 $0.10 - $10.00！"
+  }
+},
+"rewardStreakBoxes": {
+  "dailyStreak": "每日连续签到",
+  "dailyBonus": "每日奖励",
+  "totalEarned": "总收益",
+  "yourRank": "你的等级",
+
+  "days": "天",
+
+  "ranks": {
+    "bronze": "青铜",
+    "silver": "白银",
+    "gold": "黄金",
+    "platinum": "铂金",
+    "diamond": "钻石"
+  },
+
+  "errors": {
+    "fetchStatsFailed": "获取统计数据失败"
+  }
+},
+
+"surveyWalls": {
+  "title": "调查墙",
+  "subtitle": "分享你的意见并赚取奖励",
+  "providers": {
+    "bitlab": "Bitlab",
+    "cpxResearch": "CPX Research",
+    "pollfish": "Pollfish",
+    "inbrain": "Inbrain",
+    "theoremReach": "TheoremReach"
+  }
+},
+
+"supportChat": {
+  "welcomeMessage": "在联系在线客服之前，请先查看帮助中心链接。你可能会立即找到问题的答案！",
+  "signInRequired": "请先登录后再联系支持团队。",
+  "sendFailed": "发送失败",
+
+  "header": {
+    "title": "客服支持",
+    "close": "关闭"
+  },
+
+  "helpSection": {
+    "title": "需要帮助吗？",
+    "online": "我们的客服在线",
+    "faq": "常见问题"
+  },
+
+  "messages": {
+    "brandName": "LabWards",
+    "support": "客服"
+  },
+
+  "input": {
+    "placeholder": "输入你的消息...."
+  }
+},
+
+"wallet1": {
+  "title": "钱包",
+  "withdrawal": "提现",
+  "promoCode": "优惠码",
+
+  "cash": "现金",
+  "crypto": "加密货币",
+  "vouchers": "代金券",
+  "myWallet": "我的钱包",
+
+  "paymentMethod": "支付方式",
+  "chain": "链",
+
+  "walletAddress": "钱包地址",
+  "enterWalletAddress": "输入你的钱包地址",
+
+  "recipientEmail": "收款邮箱",
+
+  "amount": "金额",
+  "customAmount": "自定义金额",
+  "orEnterCustomAmount": "或输入自定义金额：",
+
+  "createWithdrawal": "创建提现",
+  "processing": "处理中...",
+
+  "enterPromoCode": "输入优惠码",
+  "applyPromoCode": "使用优惠码",
+  "redeeming": "兑换中...",
+
+  "paymentDetails": "支付详情",
+  "cryptoType": "加密货币类型",
+  "amountUSD": "金额（美元）",
+  "payAmount": "支付金额",
+  "invoiceId": "发票编号",
+  "status": "状态",
+  "confirmPayment": "确认付款",
+  "confirming": "确认中...",
+  "close": "关闭",
+
+  "virtualvisa": "虚拟 Visa",
+  "tron": "波场 (Tron)",
+  "ripple": "瑞波币 (XRP)",
+  "usdcoin": "USD Coin",
+
+  "messages": {
+    "paymentConfirmed": "付款确认成功！",
+    "paymentConfirmFailed": "付款确认失败",
+    "enterPromo": "请输入优惠码",
+    "signInPromo": "请先登录后兑换优惠码",
+    "promoRedeemed": "优惠码兑换成功",
+    "promoFailed": "优惠码兑换失败",
+    "enterRecipientEmail": "请输入收款邮箱",
+    "enterWallet": "请输入钱包地址",
+    "validAmount": "请输入有效金额",
+    "paypalMinimum": "PayPal 最低提现金额为 $5",
+    "signInWithdrawal": "请先登录后创建提现",
+    "withdrawalSubmitted": "提现申请已提交！等待管理员审核。",
+    "withdrawalFailed": "创建提现失败",
+    "tryAgain": "创建提现失败，请重试。"
+  }
+},
+  "watchWalls": {
+    "title": "视频任务墙",
+    "description": "观看视频并赚取奖励",
+    "offers": {
+      "vegasCraze": "Vegas Craze",
+      "morningShow": "晨间秀",
+      "amazon": "亚马逊"
+    }
+  },
+
+  "benefits": {
+    "badge": "多种提现方式",
+    "title": "按你的方式收款",
+    "description": "选择多种提现方式并即时领取奖励。我们支持所有主流支付平台。",
+
+    "paymentMethods": {
+      "paypal": "PayPal",
+      "visa": "VISA",
+      "amazon": "亚马逊",
+      "worldcoin": "Worldcoin",
+      "bitcoin": "比特币",
+      "litecoin": "莱特币",
+      "dogecoin": "狗狗币",
+      "solana": "Solana"
+    },
+
+    "features": {
+      "instantPayouts": {
+        "title": "即时到账",
+        "description": "通过我们的快速处理系统立即获得奖励"
+      },
+      "noHiddenFees": {
+        "title": "无隐藏费用",
+        "description": "透明收费，零隐藏成本"
+      },
+      "flexibleOptions": {
+        "title": "灵活选择",
+        "description": "选择最适合你的支付方式"
+      }
+    }
+  },
+
+  "footer1": {
+    "cta": {
+      "title": "准备开始赚钱了吗？",
+      "description": "加入成千上万今天正在赚取真实收入的用户",
+      "button": "立即开始"
+    },
+
+    "brandDescription": "将你的空闲时间变成真实奖励。完成任务、问卷和优惠活动即可赚钱。",
+    "madeWithPassion": "满怀热情为我们的社区打造",
+
+    "sections": {
+      "product": "产品",
+      "support": "支持",
+      "connect": "联系我们"
+    },
+
+    "links": {
+      "games": "游戏",
+      "tasks": "任务",
+      "surveys": "问卷调查",
+      "rewards": "奖励",
+      "helpCenter": "帮助中心",
+      "contactUs": "联系我们",
+      "faq": "常见问题",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "cookies": "Cookie 政策"
+    },
+
+    "copyright": "© 2025 LabWards. 保留所有权利。"
+  },
+   "questions": {
+    "badge": "优势",
+    "title": "我们为您准备好了答案",
+    "description": "快速找到有关收益、提现、推荐奖励等最常见问题的答案",
+
+    "questions": {
+      "q1": {
+        "question": "如何开始在 Labwards 上赚钱？",
+        "answer1": "创建一个免费账户并登录。",
+        "answer2": "从可用任务中选择——问卷调查、游戏、应用注册或每日签到。",
+        "answer3": "按照说明完成任务即可立即获得奖励。",
+        "answer4": "您可以在“我的任务”部分跟踪进度，达到最低提现金额后即可使用您喜欢的支付方式提现。"
+      },
+      "q2": {
+        "question": "支持哪些提现方式？",
+        "answer": "我们提供多种提现方式，包括 PayPal、Visa、Amazon 礼品卡、Worldcoin、Bitcoin、Litecoin、Dogecoin 和 Solana。选择最适合您的方式即可！"
+      },
+      "q3": {
+        "question": "收到付款需要多长时间？",
+        "answer": "大多数付款都会即时处理！加密货币提现通常几分钟内完成，而 PayPal 和礼品卡在高峰期可能需要最多 24 小时。"
+      },
+      "q4": {
+        "question": "推荐计划如何运作？",
+        "answer": "通过您的专属推荐链接邀请朋友，您将永久获得他们收益的 10% 佣金。推荐人数和收益都没有上限。"
+      },
+      "q5": {
+        "question": "Labwards 是免费使用的吗？",
+        "answer": "当然！Labwards 100% 免费注册和使用。没有隐藏费用、订阅费用或其他成本。您只需完成任务即可赚取真实收入。"
+      }
+    }
+  },
+
+  "testimonials1": {
+    "realStories": "真实故事",
+    "title": "用户怎么说",
+    "subtitle": "加入成千上万信赖我们平台的快乐用户。",
+
+    "items": {
+      "1": {
+        "text": "仅仅玩手机游戏一周，我就赚到了第一个 50 美元。即时 PayPal 提现太棒了！",
+        "location": "美国",
+        "name": "James R."
+      },
+      "2": {
+        "text": "起初我很怀疑，但完成几个问卷后，我成功直接提现到 PayPal。快速又可靠！",
+        "location": "英国",
+        "name": "Sarah M."
+      },
+      "3": {
+        "text": "这是我用过最好的赚钱平台。每日挑战让我保持动力，比特币提现吗？即时到账。",
+        "location": "加拿大",
+        "name": "David K."
+      },
+      "4": {
+        "text": "我喜欢这里有这么多赚钱方式！通过游戏和问卷，我每月轻松赚到 200 美元以上作为副业收入。",
+        "location": "澳大利亚",
+        "name": "Emily C."
+      },
+      "5": {
+        "text": "推荐计划太棒了。我仅靠邀请朋友就赚了超过 500 美元。强烈推荐！",
+        "location": "德国",
+        "name": "Michael T."
+      },
+      "6": {
+        "text": "终于找到一个真正会付款的平台！我提现成 Amazon 礼品卡用于购物，超级简单！",
+        "location": "荷兰",
+        "name": "Jessica L."
+      }
+    }
+  },
+
+  "verify": {
+    "title1": "立即加入 Labwards",
+    "title2": "社区",
+    "subtitle": "成千上万的用户已经每天都在赚钱。几秒钟即可创建免费账户，开始将您的时间转化为收入。",
+    "startEarning": "免费开始赚钱",
+    "joinDiscord": "加入 Discord",
+    "noCreditCard": "无需信用卡",
+    "instantSignup": "即时注册",
+    "fastPayouts": "快速提现"
+  },
+   "whyChooseUs": {
+    "badge": "为什么选择我们",
+    "title": "您赚钱所需的一切",
+    "subtitle": "我们的平台旨在让赚钱变得简单、有趣且安全。立即开启您的赚钱之旅。",
+
+    "mobileGames": {
+      "title": "手机游戏",
+      "description": "畅玩高评分游戏并赚取真实收益。每天新增高收益游戏！",
+      "hot": "热门",
+      "games": "游戏",
+      "avgPay": "平均收益",
+      "start": "开始",
+      "browse": "浏览游戏",
+      "game1": "征服之海",
+      "game2": "农场游戏",
+      "game3": "海绵宝宝"
+    },
+
+    "quickSurveys": {
+      "title": "快速问卷",
+      "description": "分享您的观点，每份问卷可赚取 2-10 美元。",
+      "badge": "5分钟",
+      "point1": "每份问卷 2-10 美元",
+      "point2": "每份耗时 3-10 分钟",
+      "cta": "参与问卷"
+    },
+
+    "dailyChallenges": {
+      "title": "每日挑战",
+      "description": "完成每日目标，连续奖励最高可达 50 美元！",
+      "badge": "额外奖励",
+      "cta": "查看挑战"
+    },
+
+    "appTesting": {
+      "title": "应用测试",
+      "description": "测试新应用，每次完成测试可赚取 10-75 美元！",
+      "badge": "高收益",
+      "cta": "浏览应用"
+    },
+
+    "cashout": {
+      "title": "12+ 提现方式",
+      "description": "按您喜欢的方式收款——即时到账！",
+      "badge": "即时到账",
+      "cta": "立即提现"
+    }
+  },
+
+  "leaderboard": {
+    "title": "排行榜",
+    "subtitle": "与顶级赚取者竞争并赢取奖励！",
+    "competitionEnds": "比赛结束倒计时",
+    "topEarner": "最高收益者",
+    "participants": "参与者",
+    "topWinners": "前三名获胜者",
+    "fullRankings": "完整排名",
+    "loading": "加载中...",
+    "you": "你",
+    "points": "积分",
+    "pts": "分",
+    "openProgress": "查看 {{name}} 排行榜进度"
+  },
+   "account1": {
+    "title": "账户",
+    "viewProfile": "查看资料",
+    "labwardId": "Labward ID",
+    "level": "等级",
+    "gold": "黄金",
+    "silver": "白银",
+    "bronze": "青铜",
+
+    "availableBalance": "可用余额",
+    "totalEarnings": "总收益",
+    "withdrawn": "已提现",
+    "completedPayouts": "已完成提现",
+
+    "all": "全部",
+    "offers": "优惠任务",
+    "tasks": "任务",
+    "cashout": "提现",
+    "reward": "奖励",
+    "exportCsv": "导出 CSV",
+
+    "name": "名称",
+    "date": "日期",
+    "type": "类型",
+    "amount": "金额",
+    "status": "状态",
+    "action": "操作",
+    "completed": "已完成",
+    "pending": "处理中",
+    "loading": "加载中...",
+
+    "profileInfo": "个人资料",
+    "username": "用户名",
+    "save": "保存",
+    "emailAddress": "邮箱地址",
+    "verified": "已验证",
+    "change": "修改",
+    "publicStatus": "公开状态",
+    "securitySettings": "邮箱修改可在安全设置中进行",
+
+    "emailNotifications": "邮件通知",
+    "connections": "连接",
+    "referral": "推荐",
+    "mutedUsers": "已屏蔽用户",
+    "deleteAccount": "删除账户",
+
+    "worldcoin": "Worldcoin",
+    "notConnected": "未连接",
+    "link": "连接",
+
+    "totalInvitee": "邀请总人数",
+    "noReferrals": "暂无推荐",
+    "referrals": "推荐",
+
+    "cashoutConfirmation": "提现确认",
+    "cashoutSubtitle": "提现时接收确认通知",
+    "failedtoload": "加载账户页面数据失败",
+    "signin": "请先登录以更新资料",
+    "profileUpdated": "资料已更新",
+    "unabletosave": "当前无法更新资料",
+    "changeprofilepic": "更换头像",
+    "avataruploadchange": "头像可在个人资料设置中修改",
+    "muhammadh": "Muhammed H",
+    "csv": "CSV 导出将在下次更新中提供",
+    "open": "打开",
+    "worldcoinavailable": "Worldcoin 连接功能即将上线",
+    "unmute": "取消静音",
+    "delacc": "请联系支持团队删除账户",
+
+    "earnConfirmation": "收益确认",
+    "earnSubtitle": "接收收益通知",
+
+    "leaderboardWinnings": "排行榜奖励",
+    "leaderboardSubtitle": "随时了解排行榜获奖和排名",
+
+    "promotionalAlerts": "促销提醒",
+    "promotionalSubtitle": "获取独家优惠和促销活动",
+
+    "newsletterUpdates": "新闻通讯更新",
+    "newsletterSubtitle": "接收每周新闻通讯和技巧"
+  },
+
+  "others": {
+    "bonusCode": "奖励码",
+    "bonusDescription": "有奖励码吗？在这里输入以兑换奖励并增加余额！",
+    "enterBonusCode": "输入奖励码",
+    "redeemBonusCode": "兑换奖励码",
+    "redeeming": "兑换中...",
+
+    "pleaseEnterBonusCode": "请输入奖励码",
+    "pleaseSignIn": "请先登录以兑换奖励码",
+    "bonusRedeemed": "奖励码兑换成功",
+    "failedRedeem": "奖励码兑换失败",
+
+    "selfExclusion": "自我限制",
+    "selfExclusionDescription": "自我限制功能允许您随时暂停游戏。选择暂停时间后，我们将暂时关闭您对游戏的访问权限。您仍然可以赚钱并使用其他功能。",
+
+    "activateSelfExclusion": "启用自我限制",
+
+    "day1": "1 天",
+    "day3": "3 天",
+    "day7": "7 天",
+    "day14": "14 天",
+    "day30": "30 天"
+  },
+  "profile": {
+  "leaderboard": "排行榜",
+  "all": "全部",
+  "badges": "徽章",
+  "statistics": "统计",
+  "offers": "优惠",
+
+  "offersCompleted": "已完成任务",
+  "totalEarnings": "总收益",
+  "usersReferred": "邀请用户数",
+  "last30DEarnings": "最近30天收益",
+
+  "name": "姓名",
+  "reward": "奖励",
+  "time": "时间",
+
+  "noOffers": "暂无可显示任务",
+  "privateProfile": "该用户资料为私密。",
+  "couldNotLoadUser": "无法加载用户信息。",
+  "couldNotLoadProfile": "无法加载资料，请先登录。",
+
+  "joined": "加入于 ",
+  "day": "天",
+  "month": "月",
+  "year": "年",
+
+  "justNow": "刚刚",
+  "minutesAgo": "{{count}} 分钟前",
+  "minutesAgo_plural": "{{count}} 分钟前",
+
+  "hoursAgo": "{{count}} 小时前",
+  "hoursAgo_plural": "{{count}} 小时前",
+
+  "daysAgo": "{{count}} 天前",
+  "daysAgo_plural": "{{count}} 天前",
+
+  "monthsAgo": "{{count}} 个月前",
+  "monthsAgo_plural": "{{count}} 个月前",
+
+  "yearsAgo": "{{count}} 年前",
+  "yearsAgo_plural": "{{count}} 年前",
+
+  "user": "用户",
+  "max": "最大",
+  "beginner": "新手",
+  "amateur": "业余"
+},
+
+"preferences": {
+  "privateProfile": "私密资料",
+  "privateProfileDescription": "隐藏你的活动、用户名和统计数据，不向其他用户显示",
+
+  "activityBar": "活动栏",
+  "activityBarDescription": "显示最近活动和互动动态",
+  "profile": "资料现在为",
+
+  "displayInUSD": "以美元显示",
+  "displayInUSDDescription": "以美元显示所有金额，方便查看",
+
+  "pleaseSignIn": "请先登录以更新偏好设置",
+  "updateFailed": "更新隐私设置失败"
+},
+
+"profileControls": {
+  "bonusCode": "奖励码",
+  "enterCode": "输入代码",
+  "redeem": "兑换",
+  "redeemed": "已兑换",
+  "redeemFailed": "兑换失败",
+  "claimtoFailed": "领取失败",
+
+  "dailyStreak": "每日连续签到",
+  "checking": "检查中...",
+  "dayStreak": "连续 {{count}} 天",
+  "rewardsPageNote": "访问奖励页面领取每日奖励",
+
+  "monthlyLeaders": "月度排行榜",
+  "noLeaders": "暂无排行",
+  "anonymous": "匿名",
+
+  "recentTasks": "最近任务",
+  "task": "任务",
+
+  "claimFailed": "领取失败",
+  "claimed": "领取成功！",
+  "playFailed": "游戏失败",
+  "playResultReceived": "已收到游戏结果"
+},
+
+"profileDashboard": {
+  "completed": "已完成",
+  "onHold": "处理中",
+  "started": "已开始",
+  "searchTasks": "搜索任务",
+
+  "id": "编号",
+  "name": "名称",
+  "provider": "提供商",
+  "status": "状态",
+  "completionTime": "完成时间",
+  "reward": "奖励",
+  "date": "日期",
+
+  "noTasks": "该部分暂无任务",
+  "untitled": "未命名",
+  "inProgress": "进行中",
+
+  "loadingProfile": "正在加载资料...",
+  "joined": "加入时间",
+  "earnId": "收益 ID",
+
+  "silver": "白银",
+  "xpStart": "0 经验值",
+  "xpEnd": "100,000 经验值",
+
+  "overview": "概览",
+  "myWallet": "我的钱包",
+  "settings": "设置",
+  "transactions": "交易",
+  "withdrawals": "提现",
+
+  "totalEarned": "总收益",
+  "last30DaysEarned": "最近30天收益",
+  "lifetimeRevenue": "累计收入",
+  "earningsOnHold": "冻结收益"
+},
+ "homepage": {
+    "welcomeBack": "欢迎回来",
+    "welcomeDescription": "在您的个人仪表板中跟踪进度、查看近期活动并管理奖励",
+
+    "dailyStreak": "每日连续签到",
+    "dailyBonus": "每日奖励",
+    "totalEarned": "总收入",
+    "currentRank": "当前排名",
+    "numberOfTasks": "任务数量",
+
+    "slightlyHigher": "略高于平均水平",
+
+    "offersAvailable": "可用优惠",
+    "playAndEarn": "玩游戏赚钱",
+    "farmLobby": "农场大厅",
+    "turboChange": "极速变换",
+    "presMark": "总统标记",
+    "desc": "游玩 5 分钟，最高赚取 $3",
+
+    "offerFallbackTitle": "优惠",
+    "offerFallbackDescription": "完成此优惠即可获得奖励"
+  },
+
+  "earningsPage": {
+    "goHome": "返回首页",
+    "openNotifications": "打开通知",
+    "openWallet": "打开钱包",
+    "goCashout": "前往提现",
+    "cashout": "提现",
+    "openAccount": "打开账户",
+
+    "userWithdrew": "用户已提现",
+    "userEarned": "用户已赚取",
+    "offerWalls": "任务墙",
+
+    "viewAll": "查看全部",
+
+    "featured": "精选",
+    "survey": "问卷调查",
+
+    "noFeaturedResults": "所选筛选条件下没有精选结果。",
+    "noProvidersFound": "所选筛选条件下未找到提供商。",
+
+    "categories": {
+      "viewAll": "查看全部",
+      "fastCompletion": "快速完成",
+      "signUpTrial": "注册试用",
+      "saveMoney": "省钱",
+      "casino": "赌场",
+      "puzzle": "益智",
+      "sweepstake": "抽奖"
+    },
+
+    "searchPlaceholder": "搜索游戏或提供商",
+
+    "sort": {
+      "sortBy": "排序方式",
+      "default": "排序方式",
+      "lowToHigh": "价格：从低到高",
+      "highToLow": "价格：从高到低",
+      "popular": "热门程度",
+      "short": "排序",
+      "low": "低",
+      "high": "高"
+    },
+
+    "providers": {
+      "all": "提供商",
+      "single": "提供商",
+      "monlix": "Monlix",
+      "mylead": "MyLead",
+      "gemiad": "GemiAd",
+      "nortik": "Nortik",
+      "cpxResearch": "CPX Research"
+    },
+
+    "games": {
+      "tileTapMaster": "方块点击大师",
+      "goblinsWoods": "哥布林森林",
+      "slot": "老虎机",
+      "angryBird": "愤怒的小鸟",
+      "screwOutFactory": "螺丝拆卸工厂",
+      "bigGiant": "巨人"
+    }
+  }
+
 }
