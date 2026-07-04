@@ -9,6 +9,7 @@ import es from "./es/landing.json";
 import fr from "./fr/landing.json";
 import de from "./de/landing.json";
 import ar from "./ar/landing.json";
+import zh from "./zh-CN/landing.json";
 
 const resources = {
   en: { translation: en },
@@ -18,6 +19,7 @@ const resources = {
   es: { translation: es },
   fr: { translation: fr },
   de: { translation: de },
+  "zh-CN": { translation: zh },
 };
 
 if (!i18n.isInitialized) {

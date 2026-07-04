@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "title_highlight": "为你已在网上做的事情",
+    "title_rest": "获得报酬",
+    "subtitle": "完成问卷调查、玩游戏并完成快速任务，即可赚取真钱、加密货币和奖励。",
+    "cta": "立即开始赚钱"
+  },
+
+  "navbar": {
+    "signin": "登录",
+    "signup": "注册"
+  },
+
+  "live_payouts": {
+    "title_highlight": "实时",
+    "title_rest": "支付记录",
+    "total_label": "过去24小时内的总支付金额",
+    "empty": "支付记录一旦生成，将显示在这里。",
+    "empty_desktop": "目前尚未发布任何支付活动。"
+  },
+
+  "tasks": {
+    "title_highlight": "通过完成",
+    "title_rest": "简单任务赚钱",
+    "surveys_title": "填写问卷",
+    "surveys_desc": "参与简短且经过验证的问卷调查，分享你的意见并立即赚取现金。奖励清晰，无需猜测。",
+    "games_title": "玩游戏",
+    "games_desc": "玩热门游戏、达成里程碑并获得奖励。玩得越多，赚得越多。",
+    "offers_title": "完成任务",
+    "offers_desc": "注册、测试应用或填写简单表单，只需几次点击即可轻松获得奖励。"
+  },
+
+  "faq": {
+    "title_highlight": "常见问题",
+    "questions": {
+      "start_earning": {
+        "q": "如何开始在 LabWard 上赚钱？",
+        "a": "在 LabWard 创建账户快速且简单。你可以使用电子邮件、Google、Facebook 或 Steam 注册。登录后，你将可以访问 Earn 区域完成任务，并进入 Games 区域体验 Boxes 和 Battles。登录后即可开始探索。"
+      },
+      "payout_methods": {
+        "q": "支持多少种提现方式？",
+        "a": "LabWard 支持超过15种提现方式，包括 PayPal、比特币、以太坊、Solana、VISA 礼品卡、Steam 钱包兑换码、Google Play 余额、Amazon 礼品卡等。我们会根据用户反馈不断增加新的提现方式。"
+      },
+      "withdraw": {
+        "q": "如何从 LabWard 提现？",
+        "a": "进入仪表板中的 Rewards 页面，选择你喜欢的提现方式，输入提现金额（最低 0.50 美元），然后确认交易。你的收益将在对应方式的处理时间内发送。"
+      },
+      "withdraw_time": {
+        "q": "提现需要多长时间？",
+        "a": "大多数提现会在24小时内处理完成。加密货币支付（BTC、ETH、SOL）通常几分钟内到账。PayPal 转账需要 1–2 个工作日。礼品卡兑换码通常在审核通过后立即通过电子邮件发送。"
+      },
+      "worldwide": {
+        "q": "LabWard 在全球都可用吗？",
+        "a": "是的！LabWard 在超过180个国家可用。不过，某些特定任务和问卷可能会因广告商要求而受到地区限制。人口较多的地区通常会有更多可用任务。"
+      }
+    }
+  },
+
+  "testimonials": {
+    "title_highlight": "用户如何评价",
+    "title_rest": "我们"
+  },
+
+  "stats": {
+    "title_highlight": "你也可以成为",
+    "title_rest": "赚钱用户的一员",
+    "total_rewards": "累计奖励",
+    "average": "平均赚取金额",
+    "users": "用户总数",
+    "tasks": "已完成任务"
+  },
+
+  "cta": {
+    "title_highlight": "今天就开始赚取真实奖励",
+    "desc": "加入成千上万的用户，通过完成简单任务、玩游戏和回答问卷来赚取现金与奖励。只需几分钟即可开始。",
+    "button": "开始使用"
+  },
+
+  "cards": {
+    "left_title": "Yappin 游戏",
+    "left_desc": "达到8级即可赚取奖励",
+
+    "center_title": "章鱼鬃毛",
+    "center_desc": "达到2级即可赚取奖励",
+
+    "right_title": "快速问卷",
+    "right_desc": "完成2份问卷"
+  },
+
+  "testimonials_cards": {
+    "leslie_text": "一开始我有些怀疑，但完成几份问卷后，我就能直接提现到 PayPal。快速、简单又可靠——我已经彻底喜欢上它了！",
+    "bessie_text": "说实话，我一开始没抱太大期望，但 LabWards 让我惊喜。任务简单，提现快速，一切都和承诺的一样。",
+    "brooklyn_text": "我最喜欢 LabWards 的地方是它非常直接明了。没有复杂步骤，也没有隐藏套路。我利用空闲时间完成问卷或任务，收益增长得很快！",
+    "cameron_text": "我已经使用 LabWards 三个月了，仅靠每日任务和问卷就能稳定赚取额外收入。这是我发现最好的线上赚钱平台！",
+    "robert_text": "提现速度无与伦比。我第一次申请比特币提现吗，不到10分钟就到账了。强烈推荐给任何想在线赚钱的人。"
+  }
+}
