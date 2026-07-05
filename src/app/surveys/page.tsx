@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { toast } from "@/utils/toast";
 import { useTranslation } from "react-i18next";
+import ServeyWalls from "@/Components/Servey/ServeyWalls";
 
 /* ── CSS ─────────────────────────────────────────────────────────── */
 const TICKER_CSS = `
@@ -199,9 +200,7 @@ export default function SurveysPage() {
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [redirecting, setRedirecting] = useState(false);
   const [doneMsg, setDoneMsg] = useState("");
-  const timerRef = useRef<number | null>(null);
   const [profileCompleted, setProfileCompleted] = useState(false);
   const { t } = useTranslation();
 
@@ -349,12 +348,7 @@ export default function SurveysPage() {
     };
   }, []);
 
-  useEffect(
-    () => () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    },
-    [],
-  );
+
 
   const setAnswer = (val: string) => {
     const v = question.numericOnly ? val.replace(/\D/g, "") : val;
@@ -395,6 +389,7 @@ export default function SurveysPage() {
       });
 
       let ok = false;
+      let lastMsg = "";
       for (const ep of COMPLETION_ENDPOINTS) {
         const r = await fetch(`${API}${ep}`, { method: "POST", headers, body });
         if (r.status === 404 || r.status === 405) continue;
@@ -403,19 +398,15 @@ export default function SurveysPage() {
 
         if (!r.ok) throw new Error(d.message || `Error ${r.status}`);
         ok = true;
-        setDoneMsg(d.message || "Survey completed! Redirecting…");
+        lastMsg = d.message || "Survey completed!";
         break;
       }
       if (!ok) throw new Error("Completion endpoint unavailable.");
 
-      setRedirecting(true);
       toast.success(t("survey.messages.completed"));
       localStorage.setItem("profileCompleted", "true");
       setProfileCompleted(true);
-      timerRef.current = window.setTimeout(
-        () => router.replace(`/tasks?source=survey&surveyCompleted=true`),
-        1400,
-      );
+      setDoneMsg(lastMsg);
     } catch (e) {
       toast.error((e as Error).message || t("survey.messages.submitFailed"));
     } finally {
@@ -437,7 +428,7 @@ export default function SurveysPage() {
       .catch(() => {});
   }, []);
 
-  const busy = submitting || redirecting;
+  const busy = submitting;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
@@ -643,12 +634,10 @@ export default function SurveysPage() {
                   boxShadow: "0 6px 18px rgba(10,192,125,0.3)",
                 }}
               >
-                {busy ? (
+                {submitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    {submitting
-                      ? t("survey.buttons.submitting")
-                      : t("survey.buttons.redirecting")}
+                    {t("survey.buttons.submitting")}
                   </>
                 ) : (
                   <>
@@ -668,17 +657,29 @@ export default function SurveysPage() {
                 )}
               </button>
             </div>
-
-            {/* Redirect notice */}
-            {redirecting && (
-              <div className="flex items-center gap-2 rounded-[8px] border border-[#0AC07D]/30 bg-[#0AC07D]/10 px-4 py-3 text-sm text-[#0AC07D]">
-                <Loader2 className="w-4 h-4 animate-spin" />
-                {doneMsg || t("survey.messages.completionSuccess")}
-              </div>
-            )}
           </div>
         </main>
-      ) : null}
+      ) : (
+        <main className="flex-1 flex flex-col w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 pt-5 pb-6 sm:py-10 overflow-hidden">
+          {/* Success banner */}
+          <div className="w-full rounded-[12px] border border-[#0AC07D]/30 bg-[#0AC07D]/10 px-5 py-4 sm:py-5 mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#0AC07D]/20 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0AC07D"/>
+                </svg>
+              </div>
+              <div>
+                <h2 className="text-white font-bold text-lg">{doneMsg || t("survey.messages.completionSuccess")}</h2>
+                <p className="text-[#8C8FA8] text-sm mt-0.5">Choose a survey provider below to start earning</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Available Surveys */}
+          <ServeyWalls />
+        </main>
+      )}
 
       {/* ── Floating Support Button ──────────────────────────────── */}
       <button
