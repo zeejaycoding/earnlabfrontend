@@ -2352,6 +2352,114 @@
       "screwOutFactory": "سکرو آؤٹ فیکٹری",
       "bigGiant": "بگ جائنٹ"
     }
+  },
+ 
+  "profileOverview": {
+    "last7Days": "گزشتہ 7 دن",
+    "recentEarnings": "حالیہ کمائی",
+
+    "totalCompleted": "مکمل شدہ ٹوٹل",
+    "offersCompleted": "مکمل شدہ آفرز",
+
+    "last30Days": "گزشتہ 30 دن",
+    "monthlyEarnings": "ماہانہ کمائی",
+
+    "latestActivity": "تازہ سرگرمی",
+    "noRecentActivity": "کوئی حالیہ سرگرمی نہیں",
+    "noRecentActivityDesc": "اپنی سرگرمی یہاں دیکھنے کے لیے آفرز اور گیمز مکمل کریں",
+
+    "browseNewOffers": "نئی آفرز دیکھیں",
+    "viewAllRewards": "تمام ریوارڈز دیکھیں",
+
+    "task": "ٹاسک"
+  },
+   "security": {
+    "twoFactorAuth": "ٹو فیکٹر تصدیق",
+    "enableTitle": "ٹو فیکٹر تصدیق فعال کریں",
+    "scanQrDescription": "ٹو فیکٹر تصدیق سیٹ اپ کرنے کے لیے QR کوڈ کو اپنے Authenticator ایپ سے اسکین کریں",
+    "complete": "مکمل کریں"
+  },
+
+   "settings": {
+    "tabs": {
+      "personal": "ذاتی معلومات",
+      "security": "سیکیورٹی",
+      "preferences": "ترجیحات",
+      "others": "دیگر",
+      "support": "سپورٹ"
+    },
+
+    "personal": {
+      "profileAvatar": "پروفائل اواتار",
+      "clickToChange": "اپنا اواتار ایموجی تبدیل کرنے کے لیے کلک کریں",
+      "avatarDesc": "یہ آپ کے پروفائل پر دکھایا جائے گا",
+      "username": "یوزر نیم",
+      "email": "ای میل ایڈریس",
+      "dob": "تاریخ پیدائش",
+      "postcode": "پوسٹ کوڈ",
+      "save": "محفوظ کریں",
+      "savebutton":"محفوظ کریں"
+    },
+
+    "security": {
+      "twoFactorAuth": "ٹو فیکٹر تصدیق"
+    },
+
+    "support": {
+      "faq": "عمومی سوالات",
+      "chat": "چیٹ",
+      "withdrawalTimes": "رقم نکالنے کے اوقات",
+      "general": "جنرل",
+      "support": "سپورٹ",
+      "onlineUsers": "آن لائن صارفین",
+      "openFullChat": "مکمل چیٹ کھولیں",
+      "frequentlyAsked": "اکثر پوچھے گئے سوالات",
+
+      "withdrawalUnder5": "$5 سے کم",
+      "withdrawalInstant": "فوری",
+      "withdrawal10_15": "$10-15",
+      "withdrawal15Days": "15 دن",
+      "withdrawal15_25": "$15-25",
+      "withdrawal25Days": "25 دن",
+      "withdrawal25Plus": "$25+",
+      "withdrawal35Days": "35 دن",
+
+      "faq1_q": "میں اپنی کمائی کیسے نکال سکتا ہوں؟",
+      "faq1_a": "اپنے والٹ میں جائیں، رقم نکالنے کا طریقہ منتخب کریں اور ہدایات پر عمل کریں۔ کم از کم $5 ہے۔",
+
+      "faq2_q": "میرا ٹاسک زیرِ تصدیق کیوں ہے؟",
+      "faq2_a": "ٹاسکس کو تصدیق میں 24-48 گھنٹے لگ سکتے ہیں۔ یقینی بنائیں کہ آپ نے تمام شرائط پوری کی ہیں۔",
+
+      "faq3_q": "میں اپنی ڈیلی اسٹریک کیسے بڑھا سکتا ہوں؟",
+      "faq3_a": "روزانہ لاگ اِن کریں اور کم از کم ایک ٹاسک یا سروے مکمل کریں۔"
+    }
+  },
+
+   "transactions": {
+    "tabs": {
+      "main": "مین",
+      "game": "گیم"
+    },
+
+    "searchPlaceholder": "ٹرانزیکشنز تلاش کریں",
+
+    "table": {
+      "id": "آئی ڈی",
+      "type": "قسم",
+      "description": "تفصیل",
+      "amount": "رقم",
+      "date": "تاریخ"
+    },
+
+    "status": {
+      "loading": "ٹرانزیکشنز لوڈ ہو رہی ہیں...",
+      "empty": "کوئی ٹرانزیکشن نہیں ملی"
+    },
+
+    "types": {
+      "taskCompleted": "ٹاسک مکمل",
+      "giftCardPayout": "گفٹ کارڈ ادائیگی"
+    }
   }
     
   }

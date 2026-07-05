@@ -6,11 +6,16 @@ import DateImg from '../../../public/assets/date.png'
 import SecurityComponent from "./SecurityComponent";
 import PreferencesComponent from "./PreferencesComponent";
 import OthersComponents from "./OthersComponents";
+import { useTranslation } from "react-i18next";
 
-type Tab = "personal" | "security" | "preferences" | "others" | "support";
 
 const SettingsDashboard = () => {
+    const { t } = useTranslation();
+    type Tab = "personal" | "security" | "preferences" | "others" | "support";
+
     const [activeTab, setActiveTab] = useState<Tab>("personal");
+
+    
 
     return (
         <div className="w-full bg-[#151728] flex justify-center items-start">
@@ -19,11 +24,11 @@ const SettingsDashboard = () => {
                 {/* Tabs */}
                 <div className="flex border-b border-gray-700 mb-6">
                     {[
-                        { key: "personal", label: "Personal Information" },
-                        { key: "security", label: "Security" },
-                        { key: "preferences", label: "Preferences" },
-                        { key: "others", label: "Others" },
-                        { key: "support", label: "Support" },
+                        { key: "personal", label: t("settings.tabs.personal") },
+                        { key: "security", label: t("settings.tabs.security") },
+                        { key: "preferences", label: t("settings.tabs.preferences") },
+                        { key: "others", label: t("settings.tabs.others") },
+                        { key: "support", label: t("settings.tabs.support") },
                     ].map((tab) => (
                         <button
                             key={tab.key}
@@ -75,6 +80,7 @@ const Input = ({
 );
 
 const PersonalInformation = () => {
+    const { t } = useTranslation();
     const [selectedEmoji, setSelectedEmoji] = useState<string>('😊');
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const [saving, setSaving] = useState(false);
@@ -142,7 +148,7 @@ const PersonalInformation = () => {
         <form className="space-y-4">
             {/* Avatar Emoji Selector */}
             <div className="flex flex-col gap-2 mb-6">
-                <label className="text-[#B3B6C7] text-md">Profile Avatar</label>
+                <label className="text-[#B3B6C7] text-md">{t("settings.personal.profileAvatar")}</label>
                 <div className="flex items-center gap-4">
                     <button
                         type="button"
@@ -152,8 +158,8 @@ const PersonalInformation = () => {
                         {selectedEmoji}
                     </button>
                     <div className="text-sm text-[#9CA3AF]">
-                        <p>Click to change your avatar emoji</p>
-                        <p className="text-xs text-[#6B7280] mt-1">This will be shown on your profile</p>
+                        <p>{t("settings.personal.clickToChange")}</p>
+                        <p className="text-xs text-[#6B7280] mt-1">{t("settings.personal.avatarDesc")}</p>
                     </div>
                 </div>
                 
@@ -180,7 +186,7 @@ const PersonalInformation = () => {
                             disabled={saving}
                             className="w-full py-2 rounded-md bg-gradient-to-t from-[#099F86] to-[#0EA88F] text-white font-medium transition disabled:opacity-50"
                         >
-                            {saving ? 'Saving...' : 'Save Avatar'}
+                            {saving ? t("settings_page.change_password.saving") : t("settings.personal.save")}
                         </button>
                     </div>
                 )}
@@ -189,7 +195,7 @@ const PersonalInformation = () => {
             <Input label="Username" />
             <Input label="Email Address" type="email" />
             <div className="flex flex-col gap-2 mb-4">
-                <label className="text-gray-300 text-sm">Date of birth</label>
+                <label className="text-gray-300 text-sm">{t("settings.personal.dob")}</label>
                 <div className="relative">
                     <input
                         type="text"
@@ -211,7 +217,7 @@ const PersonalInformation = () => {
                 type="submit"
                 className="w-full py-4 rounded-md bg-gradient-to-t cursor-pointer from-[#099F86] to-[#0EA88F] text-white font-medium transition"
             >
-                Save
+                {t("settings.personal.savebutton")}
             </button>
         </form>
     );
@@ -232,10 +238,11 @@ const Others = () => (
 const Support = () => {
     const router = useRouter();
     const [activeChannel, setActiveChannel] = useState<"faq" | "chat">("faq");
+    const { t } = useTranslation();
 
     const channels = [
-        { id: "General", label: "General", online: true },
-        { id: "Support", label: "Support", online: false },
+        { id: "General", label: t("settings.support.general"), online: true },
+        { id: "Support", label: t("settings.support.support"), online: false },
     ];
 
     return (
@@ -250,7 +257,7 @@ const Support = () => {
                             : "bg-[#26293E] text-[#9CA3AF] hover:text-white"
                     }`}
                 >
-                    FAQ
+                    {t("settings.support.faq")}
                 </button>
                 <button
                     onClick={() => setActiveChannel("chat")}
@@ -260,7 +267,7 @@ const Support = () => {
                             : "bg-[#26293E] text-[#9CA3AF] hover:text-white"
                     }`}
                 >
-                    Chat
+                    {t("settings.support.chat")}
                 </button>
             </div>
 
@@ -269,42 +276,42 @@ const Support = () => {
                 <div className="space-y-6">
                     {/* Withdrawal Times */}
                     <div className="bg-[#26293E] rounded-lg p-6 border border-[#30334A]">
-                        <h3 className="text-lg font-semibold text-white mb-4">Withdrawal Times</h3>
+                        <h3 className="text-lg font-semibold text-white mb-4">{t("settings.support.withdrawalTimes")}</h3>
                         <div className="space-y-3">
                             <div className="flex justify-between items-center py-2 border-b border-[#30334A]">
-                                <span className="text-[#9CA3AF]">Under $5</span>
-                                <span className="text-white font-medium">Instant</span>
+                                <span className="text-[#9CA3AF]">{t("settings.support.withdrawalUnder5")}</span>
+                                <span className="text-white font-medium">{t("settings.support.withdrawalInstant")}</span>
                             </div>
                             <div className="flex justify-between items-center py-2 border-b border-[#30334A]">
-                                <span className="text-[#9CA3AF]">$10-15</span>
-                                <span className="text-white font-medium">15 days</span>
+                                <span className="text-[#9CA3AF]">{t("settings.support.withdrawal10_15")}</span>
+                                <span className="text-white font-medium">{t("settings.support.withdrawal15Days")}</span>
                             </div>
                             <div className="flex justify-between items-center py-2 border-b border-[#30334A]">
-                                <span className="text-[#9CA3AF]">$15-25</span>
-                                <span className="text-white font-medium">25 days</span>
+                                <span className="text-[#9CA3AF]">{t("settings.support.withdrawal15_25")}</span>
+                                <span className="text-white font-medium">{t("settings.support.withdrawal25Days")}</span>
                             </div>
                             <div className="flex justify-between items-center py-2">
-                                <span className="text-[#9CA3AF]">$25+</span>
-                                <span className="text-white font-medium">35 days</span>
+                                <span className="text-[#9CA3AF]">{t("settings.support.withdrawal25Plus")}</span>
+                                <span className="text-white font-medium">{t("settings.support.withdrawal35Days")}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* FAQ Section */}
                     <div className="bg-[#26293E] rounded-lg p-6 border border-[#30334A]">
-                        <h3 className="text-lg font-semibold text-white mb-4">Frequently Asked Questions</h3>
+                        <h3 className="text-lg font-semibold text-white mb-4">{t("settings.support.frequentlyAsked")}</h3>
                         <div className="space-y-4">
                             <div>
-                                <h4 className="text-white font-medium mb-2">How do I withdraw my earnings?</h4>
-                                <p className="text-[#9CA3AF] text-sm">Go to your Wallet, select a withdrawal method, and follow the instructions. Minimum withdrawal is $5.</p>
+                                <h4 className="text-white font-medium mb-2">{t("settings.support.faq1_q")}</h4>
+                                <p className="text-[#9CA3AF] text-sm">{t("settings.support.faq1_a")}</p>
                             </div>
                             <div className="border-t border-[#30334A] pt-4">
-                                <h4 className="text-white font-medium mb-2">Why is my task pending?</h4>
-                                <p className="text-[#9CA3AF] text-sm">Tasks may take 24-48 hours to verify. Make sure you completed all requirements and submitted proof if requested.</p>
+                                <h4 className="text-white font-medium mb-2">{t("settings.support.faq2_q")}</h4>
+                                <p className="text-[#9CA3AF] text-sm">{t("settings.support.faq2_a")}</p>
                             </div>
                             <div className="border-t border-[#30334A] pt-4">
-                                <h4 className="text-white font-medium mb-2">How do I increase my daily streak?</h4>
-                                <p className="text-[#9CA3AF] text-sm">Log in daily and complete at least one task or survey to maintain your streak.</p>
+                                <h4 className="text-white font-medium mb-2">{t("settings.support.faq3_q")}</h4>
+                                <p className="text-[#9CA3AF] text-sm">{t("settings.support.faq3_a")}</p>
                             </div>
                         </div>
                     </div>
@@ -316,8 +323,8 @@ const Support = () => {
                 <div className="bg-[#26293E] rounded-lg p-6 border border-[#30334A]">
                     <div className="flex items-center justify-between mb-6">
                         <div>
-                            <h3 className="text-lg font-semibold text-white">Chat Channels</h3>
-                            <p className="text-sm text-[#9CA3AF]">2 Users online</p>
+                            <h3 className="text-lg font-semibold text-white">{t("settings.support.chat")}</h3>
+                            <p className="text-sm text-[#9CA3AF]">{t("settings.support.onlineUsers")}</p>
                         </div>
                     </div>
 
@@ -337,7 +344,7 @@ const Support = () => {
                         onClick={() => router.push("/chat")}
                         className="w-full py-3 bg-gradient-to-t from-[#099F86] to-[#0EA88F] text-white font-medium rounded-lg hover:opacity-90 transition"
                     >
-                        Open Full Chat
+                        {t("settings.support.openFullChat")}
                     </button>
                 </div>
             )}

@@ -2361,6 +2361,115 @@
       "screwOutFactory": "Screw Out Factory",
       "bigGiant": "Big Giant"
     }
+  },
+    "profileOverview": {
+    "last7Days": "Last 7 Days",
+    "recentEarnings": "Recent earnings",
+
+    "totalCompleted": "Total Completed",
+    "offersCompleted": "Offers completed",
+
+    "last30Days": "Last 30 Days",
+    "monthlyEarnings": "Monthly earnings",
+
+    "latestActivity": "Latest Activity",
+    "noRecentActivity": "No recent activity",
+    "noRecentActivityDesc": "Complete offers and games to see your activity here",
+
+    "browseNewOffers": "Browse New Offers",
+    "viewAllRewards": "View All Rewards",
+
+    "task": "Task"
+  },
+   "security": {
+    "twoFactorAuth": "Two-factor Authentication",
+    "enableTitle": "Enable Two-Factor Authentication",
+    "scanQrDescription": "Scan the QR code with your authenticator app to set up two-factor authentication",
+    "complete": "Complete"
+  },
+
+
+   "settings": {
+    "tabs": {
+      "personal": "Personal Information",
+      "security": "Security",
+      "preferences": "Preferences",
+      "others": "Others",
+      "support": "Support"
+    },
+
+    "personal": {
+      "profileAvatar": "Profile Avatar",
+      "clickToChange": "Click to change your avatar emoji",
+      "avatarDesc": "This will be shown on your profile",
+      "username": "Username",
+      "email": "Email Address",
+      "dob": "Date of birth",
+      "postcode": "Post code",
+      "save": "Save Avatar",
+      "savebutton":"Save"
+
+    },
+
+    "security": {
+      "twoFactorAuth": "Two-factor Authentication"
+    },
+
+    "support": {
+      "faq": "FAQ",
+      "chat": "Chat",
+      "withdrawalTimes": "Withdrawal Times",
+      "general": "General",
+      "support": "Support",
+      "onlineUsers": "Users online",
+      "openFullChat": "Open Full Chat",
+      "frequentlyAsked": "Frequently Asked Questions",
+
+      "withdrawalUnder5": "Under $5",
+      "withdrawalInstant": "Instant",
+      "withdrawal10_15": "$10-15",
+      "withdrawal15Days": "15 days",
+      "withdrawal15_25": "$15-25",
+      "withdrawal25Days": "25 days",
+      "withdrawal25Plus": "$25+",
+      "withdrawal35Days": "35 days",
+
+      "faq1_q": "How do I withdraw my earnings?",
+      "faq1_a": "Go to your Wallet, select a withdrawal method, and follow the instructions. Minimum withdrawal is $5.",
+
+      "faq2_q": "Why is my task pending?",
+      "faq2_a": "Tasks may take 24-48 hours to verify. Make sure you completed all requirements and submitted proof if requested.",
+
+      "faq3_q": "How do I increase my daily streak?",
+      "faq3_a": "Log in daily and complete at least one task or survey to maintain your streak."
+    }
+  },
+
+   "transactions": {
+    "tabs": {
+      "main": "Main",
+      "game": "Game"
+    },
+
+    "searchPlaceholder": "Search transactions",
+
+    "table": {
+      "id": "ID",
+      "type": "Type",
+      "description": "Description",
+      "amount": "Amount",
+      "date": "Date"
+    },
+
+    "status": {
+      "loading": "Loading transactions...",
+      "empty": "No transactions found"
+    },
+
+    "types": {
+      "taskCompleted": "Task Completed",
+      "giftCardPayout": "Gift Card Payout"
+    }
   }
 
 }

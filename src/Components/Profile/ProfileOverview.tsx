@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { TrendingUp, Award, Clock, ExternalLink, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 interface RecentEarning {
     _id: string;
@@ -25,6 +26,7 @@ interface ProfileStats {
 
 const ProfileOverview: React.FC = () => {
     const [recentEarnings, setRecentEarnings] = useState<RecentEarning[]>([]);
+    const { t } = useTranslation();
     const [stats, setStats] = useState<ProfileStats>({
         totalEarningsCents: 0,
         completedOffersCount: 0,
@@ -118,13 +120,13 @@ const ProfileOverview: React.FC = () => {
                             <TrendingUp className="text-green-400" size={24} />
                         </div>
                         <div>
-                            <p className="text-xs text-gray-400">Last 7 Days</p>
+                            <p className="text-xs text-gray-400">{t("profileOverview.last7Days")}</p>
                             <h3 className="text-2xl font-bold text-white">
                                 ${(stats.last7DaysEarningsCents / 100).toFixed(2)}
                             </h3>
                         </div>
                     </div>
-                    <p className="text-xs text-gray-500">Recent earnings</p>
+                    <p className="text-xs text-gray-500">{t("profileOverview.recentEarnings")}</p>
                 </div>
 
                 {/* Completed Offers */}
@@ -134,13 +136,13 @@ const ProfileOverview: React.FC = () => {
                             <Award className="text-teal-400" size={24} />
                         </div>
                         <div>
-                            <p className="text-xs text-gray-400">Total Completed</p>
+                            <p className="text-xs text-gray-400">{t("profileOverview.totalCompleted")}</p>
                             <h3 className="text-2xl font-bold text-white">
                                 {stats.completedOffersCount}
                             </h3>
                         </div>
                     </div>
-                    <p className="text-xs text-gray-500">Offers completed</p>
+                    <p className="text-xs text-gray-500">{t("profileOverview.offersCompleted")}</p>
                 </div>
 
                 {/* Last 30 Days */}
@@ -150,13 +152,13 @@ const ProfileOverview: React.FC = () => {
                             <Clock className="text-purple-400" size={24} />
                         </div>
                         <div>
-                            <p className="text-xs text-gray-400">Last 30 Days</p>
+                            <p className="text-xs text-gray-400">{t("profileOverview.last30Days")}</p>
                             <h3 className="text-2xl font-bold text-white">
                                 ${(stats.last30DaysEarningsCents / 100).toFixed(2)}
                             </h3>
                         </div>
                     </div>
-                    <p className="text-xs text-gray-500">Monthly earnings</p>
+                    <p className="text-xs text-gray-500">{t("profileOverview.monthlyEarnings")}</p>
                 </div>
             </div>
 
@@ -164,15 +166,15 @@ const ProfileOverview: React.FC = () => {
             <div className="bg-[#26293E] rounded-lg p-5 border border-gray-700">
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                     <Award className="text-teal-400" size={20} />
-                    Latest Activity
+                    {t("profileOverview.latestActivity")}
                 </h3>
 
                 {recentEarnings.length === 0 ? (
                     <div className="text-center py-8">
                         <Award className="mx-auto mb-3 text-gray-600" size={48} />
-                        <p className="text-gray-400 text-sm">No recent activity</p>
+                        <p className="text-gray-400 text-sm">{t("profileOverview.noRecentActivity")}</p>
                         <p className="text-gray-500 text-xs mt-1">
-                            Complete offers and games to see your activity here
+                            {t("profileOverview.noRecentActivityDesc")}
                         </p>
                     </div>
                 ) : (
@@ -233,14 +235,14 @@ const ProfileOverview: React.FC = () => {
                     className="p-4 bg-gradient-to-r from-[#099F86] to-[#0EA88F] rounded-lg text-white font-medium hover:opacity-90 transition flex items-center justify-center gap-2 text-sm md:text-base"
                 >
                     <Award size={20} />
-                    <span className="truncate">Browse New Offers</span>
+                    <span className="truncate">{t("profileOverview.browseNewOffers")}</span>
                 </button>
                 <button
                     onClick={() => router.push("/rewards")}
                     className="p-4 bg-[#26293E] border border-gray-700 rounded-lg text-white font-medium hover:border-teal-500 transition flex items-center justify-center gap-2 text-sm md:text-base"
                 >
                     <TrendingUp size={20} />
-                    <span className="truncate">View All Rewards</span>
+                    <span className="truncate">{t("profileOverview.viewAllRewards")}</span>
                 </button>
             </div>
         </div>

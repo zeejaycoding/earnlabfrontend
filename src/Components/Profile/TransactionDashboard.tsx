@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface Transaction {
     _id: string;
@@ -15,6 +16,7 @@ interface Transaction {
 }
 
 const TransactionDashboard: React.FC = () => {
+    const { t } = useTranslation();
     const [currentTab, setCurrentTab] = useState<string>("Main");
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [loading, setLoading] = useState(true);
@@ -109,7 +111,7 @@ const TransactionDashboard: React.FC = () => {
     return (
         <div className="w-full">
             <div className="flex gap-6 border-b border-gray-700">
-                {["Main", "Game"].map((tab) => (
+                {[t("transactions.tabs.main"), t("transactions.tabs.game")].map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setCurrentTab(tab)}
@@ -128,25 +130,25 @@ const TransactionDashboard: React.FC = () => {
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-md" />
                 <input
                     type="text"
-                    placeholder="Search transactions"
+                    placeholder={t("transactions.searchPlaceholder")}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full pl-10 pr-1 py-4 rounded-md bg-[#26293E] text-sm text-gray-300 focus:outline-none focus:border-teal-400"
                 />
             </div>
 
-            {["Main", "Game"].map(
+            {[t("transactions.tabs.main"), t("transactions.tabs.game")].map(
                 (tab) =>
                     currentTab === tab && (
                         <div key={tab} className="mt-2 overflow-x-auto w-full">
                             <div className="min-w-[1000px]">
                                 {/* Header */}
                                 <div className="grid grid-cols-5 py-2 bg-[#0D0F1E] text-gray-300 text-sm rounded-md mb-2">
-                                    <div className="px-6 py-3 text-center text-xs">ID</div>
-                                    <div className="px-6 py-3 text-center text-xs">Type</div>
-                                    <div className="px-6 py-3 text-center text-xs">Description</div>
-                                    <div className="px-6 py-3 text-center text-xs">Amount</div>
-                                    <div className="px-6 py-3 text-center text-xs">Date</div>
+                                    <div className="px-6 py-3 text-center text-xs">{t("transactions.table.id")}</div>
+                                    <div className="px-6 py-3 text-center text-xs">{t("transactions.table.type")}</div>
+                                    <div className="px-6 py-3 text-center text-xs">{t("transactions.table.description")}</div>
+                                    <div className="px-6 py-3 text-center text-xs">{t("transactions.table.amount")}</div>
+                                    <div className="px-6 py-3 text-center text-xs">{t("transactions.table.date")}</div>
                                 </div>
 
                                 {/* Loading State */}
@@ -163,11 +165,11 @@ const TransactionDashboard: React.FC = () => {
                                             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{animationDelay: '150ms'}}></div>
                                             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{animationDelay: '300ms'}}></div>
                                         </div>
-                                        <p className="text-emerald-400 font-medium animate-pulse">Loading transactions...</p>
+                                        <p className="text-emerald-400 font-medium animate-pulse">{t("transactions.status.loading")}</p>
                                     </div>
                                 ) : filteredTransactions.length === 0 ? (
                                     <div className="text-center py-12 text-gray-400">
-                                        No transactions found
+                                        {t("transactions.status.empty")}
                                     </div>
                                 ) : (
                                     filteredTransactions.map((tx) => (

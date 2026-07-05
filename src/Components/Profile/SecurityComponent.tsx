@@ -4,8 +4,10 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import SaveImg from '../../../public/assets/save.png'
 import QrImg from '../../../public/assets/qr.png'
+import { useTranslation } from "react-i18next";
 
 const SecurityComponent = () => {
+    const { t } = useTranslation();
     const [enabled, setEnabled] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
@@ -34,7 +36,7 @@ const SecurityComponent = () => {
         <div className="w-full h-96">
             <div className="flex items-center justify-between">
                 <span className="text-gray-200 text-sm md:text-base font-medium">
-                    Two-factor Authentication
+                      {t("security.twoFactorAuth")}
                 </span>
 
                 <button
@@ -61,7 +63,7 @@ const SecurityComponent = () => {
 
                 
                         <h2 className="md:text-2xl text-lg font-bold mt-10 text-center text-white mb-4">
-                            Enable Two-Factor Authentication
+                            {t("security.enableTitle")}
                         </h2>
 
                         <div className="flex justify-center mb-4">
@@ -76,7 +78,7 @@ const SecurityComponent = () => {
 
                         <div className="flex items-center justify-center gap-1 mb-6">
                             <p className="text-[#8C8FA8] text-center text-sm">
-                                Scan the QR code with your authenticator app to set up two-factor authentication
+                                {t("security.scanQrDescription")}
                             </p>
                             <Image src={SaveImg} alt="Auth Icon" width={20} height={20} className="object-contain" />
                         </div>
@@ -100,7 +102,7 @@ const SecurityComponent = () => {
                             onClick={() => setShowModal(false)}
                             className="w-full py-4 cursor-pointer rounded-md bg-[#099F86] text-white font-medium transition"
                         >
-                            Complete
+                            {t("security.complete")}
                         </button>
                     </div>
                 </div>
