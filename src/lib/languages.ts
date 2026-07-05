@@ -9,6 +9,7 @@ export const languages = [
    { code: "it", label: "Italiano" },
    { code: "ru", label: "Русский" },
     { code: "ja", label: "日本語" },
+    { code: "hi", label: "हिन्दी" },
 ];
 
 export const defaultLanguage = "en";
