@@ -8,6 +8,7 @@ export const languages = [
    { code: "zh-CN", label: "中文" },
    { code: "it", label: "Italiano" },
    { code: "ru", label: "Русский" },
+    { code: "ja", label: "日本語" },
 ];
 
 export const defaultLanguage = "en";

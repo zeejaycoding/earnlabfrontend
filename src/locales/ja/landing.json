@@ -1,0 +1,2401 @@
+{
+  "hero": {
+    "title_highlight": "オンラインで",
+    "title_rest": "いつもの活動で報酬を獲得",
+    "subtitle": "アンケートに回答したり、ゲームをプレイしたり、簡単なオファーを完了して、現金・暗号資産・各種報酬を獲得しましょう。",
+    "cta": "今すぐ報酬を獲得"
+  },
+
+  "navbar": {
+    "signin": "ログイン",
+    "signup": "新規登録"
+  },
+
+  "live_payouts": {
+    "title_highlight": "リアルタイム",
+    "title_rest": "支払い",
+    "total_label": "過去24時間の支払い総額",
+    "empty": "支払い履歴は記録され次第、ここに表示されます。",
+    "empty_desktop": "まだ支払い履歴は公開されていません。"
+  },
+
+  "tasks": {
+    "title_highlight": "簡単なタスクで",
+    "title_rest": "報酬を獲得",
+    "surveys_title": "アンケートに回答",
+    "surveys_desc": "短く信頼性の高いアンケートに回答して、すぐに現金を獲得。報酬は明確で安心です。",
+    "games_title": "ゲームをプレイ",
+    "games_desc": "人気ゲームをプレイして目標を達成し、報酬を獲得しましょう。遊べば遊ぶほど稼げます。",
+    "offers_title": "オファーを完了",
+    "offers_desc": "登録、アプリの試用、簡単なフォーム入力などで、数クリックで手軽に報酬を獲得できます。"
+  },
+
+  "faq": {
+    "title_highlight": "よくある質問",
+    "questions": {
+      "start_earning": {
+        "q": "LabWardで報酬を獲得するにはどうすればよいですか？",
+        "a": "LabWardのアカウント作成は簡単です。メールアドレス、Google、Facebook、またはSteamで登録できます。ログイン後は、「Earn」セクションでオファーを完了したり、「Games」セクションでBoxesやBattlesをプレイしたりできます。まずはログインして始めましょう。"
+      },
+      "payout_methods": {
+        "q": "利用できる支払い方法はいくつありますか？",
+        "a": "LabWardでは、PayPal、Bitcoin、Ethereum、Solana、VISAギフトカード、Steamウォレットコード、Google Playクレジット、Amazonギフトカードなど、15種類以上の支払い方法に対応しています。ユーザーからのご要望に応じて、新しい支払い方法も随時追加しています。"
+      },
+      "withdraw": {
+        "q": "LabWardから出金するには？",
+        "a": "ダッシュボードの「Rewards」セクションへ移動し、ご希望の支払い方法を選択してください。最低出金額（0.50ドル）を入力して取引を確定すると、選択した方法の処理時間に応じて報酬が送金されます。"
+      },
+      "withdraw_time": {
+        "q": "出金にはどのくらい時間がかかりますか？",
+        "a": "ほとんどの出金は24時間以内に処理されます。暗号資産（BTC、ETH、SOL）は通常数分以内に着金します。PayPalへの送金は1～2営業日、ギフトカードコードは承認後すぐにメールで送信されます。"
+      },
+      "worldwide": {
+        "q": "LabWardは世界中で利用できますか？",
+        "a": "はい！LabWardは180か国以上で利用可能です。ただし、一部のオファーやアンケートは広告主の要件により地域限定となる場合があります。利用者の多い地域ほど利用可能なタスクも多くなります。"
+      }
+    }
+  },
+
+  "testimonials": {
+    "title_highlight": "ユーザーの声",
+    "title_rest": "をご紹介"
+  },
+
+  "stats": {
+    "title_highlight": "あなたも",
+    "title_rest": "報酬獲得者の仲間に",
+    "total_rewards": "獲得された報酬総額",
+    "average": "平均獲得金額",
+    "users": "ユーザー数",
+    "tasks": "完了したタスク数"
+  },
+
+  "cta": {
+    "title_highlight": "今すぐ本物の報酬を獲得しよう",
+    "desc": "何千人ものユーザーと一緒に、簡単なタスクやゲーム、アンケートで現金や報酬を獲得しましょう。始めるのに数分しかかかりません。",
+    "button": "始める"
+  },
+
+  "cards": {
+    "left_title": "Yappinゲーム",
+    "left_desc": "レベル8に到達して報酬を獲得",
+
+    "center_title": "オクトパス・メイン",
+    "center_desc": "レベル2に到達して報酬を獲得",
+
+    "right_title": "クイックアンケート",
+    "right_desc": "アンケートを2件回答"
+  },
+
+  "testimonials_cards": {
+    "leslie_text": "最初は半信半疑でしたが、数件のアンケートに回答しただけでPayPalに出金できました。速くて簡単、しかも本当に信頼できます。すっかり気に入りました！",
+    "bessie_text": "正直、最初はあまり期待していませんでした。でもLabWardには驚かされました。タスクは簡単で、支払いは速く、すべてが約束どおりに機能しています。",
+    "brooklyn_text": "LabWardの一番気に入っている点は、そのシンプルさです。複雑な手順も隠れた条件もありません。空いた時間にアンケートやオファーをこなすだけで、報酬がどんどん増えていきます！",
+    "cameron_text": "LabWardを3か月使っていますが、毎日のオファーやアンケートだけで安定して副収入を得られています。オンラインで稼ぐために今まで使った中で最高のプラットフォームです！",
+    "robert_text": "支払い速度は他とは比べものになりません。初めてBitcoinで出金したとき、10分もかからず着金しました。オンラインで稼ぎたい人にはぜひおすすめです。"
+  },
+   "rewards": {
+    "title_first": "1つのプラットフォームで",
+    "title_second": "多彩な報酬",
+
+    "visa": "Visa",
+    "bitcoin": "Bitcoin",
+    "apple": "Apple",
+    "paypal": "PayPal",
+    "worldcoin": "Worldcoin",
+    "amazon": "Amazon",
+    "solana": "Solana",
+    "playstation": "PlayStation",
+    "spotify": "Spotify",
+    "polygon": "Polygon"
+  },
+
+  "footer": {
+    "support": "サポート",
+    "features": "機能",
+    "connect": "お問い合わせ",
+
+    "contact": "お問い合わせ",
+    "faq": "よくある質問",
+    "games": "ゲーム",
+    "rewards": "報酬",
+    "tasks": "タスク",
+
+    "terms": "利用規約",
+    "service_terms": "サービス利用規約",
+    "privacy": "プライバシーポリシー",
+    "cookie": "Cookieポリシー",
+
+    "trust_score": "TrustScore 4.5",
+    "reviews": "200件のレビュー",
+
+    "description": "今すぐ登録して初回ボーナスを獲得しましょう。タスクを完了するたびに報酬を受け取れます。",
+
+    "copyright": "©2026 Lab Wards. All Rights Reserved.",
+
+    "light": "ライト",
+    "dark": "ダーク",
+
+    "terms_use": "利用規約"
+  },
+
+  "signin": {
+    "title": "ログイン",
+    "email": "メールアドレス",
+    "email_placeholder": "メールアドレスを入力してください",
+    "password": "パスワード",
+    "password_placeholder": "パスワード",
+    "signin": "ログイン",
+    "signing_in": "ログイン中...",
+    "or": "または",
+    "google": "Googleでログイン",
+    "facebook": "Facebookでログイン",
+    "worldcoin": "Worldcoinでログイン",
+    "redirecting": "リダイレクト中...",
+    "no_account": "まだアカウントをお持ちではありませんか？",
+    "signup": "新規登録",
+    "trust_score": "TrustScore 4.5",
+    "reviews": "200件のレビュー",
+    "enter_credentials": "メールアドレスとパスワードを入力してください",
+    "login_failed": "ログインに失敗しました",
+    "signin_failed": "ログインに失敗しました。もう一度お試しください。",
+    "server_error": "サーバーへの接続に失敗しました",
+    "auth_loading": "認証システムを読み込み中です。しばらくしてからもう一度お試しください。",
+    "facebook_disabled": "Facebookログインは現在利用できません。サポートまでお問い合わせください。",
+    "popup_blocked": "ポップアップがブロックされました。ポップアップを許可してから再度お試しください。",
+    "google_failed": "Googleログインに失敗しました"
+  },
+
+  "signup": {
+    "title": "新規登録",
+    "banner": "何千人ものユーザーが報酬を獲得中。あなたも最初の報酬を受け取りましょう 🚀",
+    "email": "メールアドレス",
+    "email_placeholder": "メールアドレスを入力してください",
+    "password": "パスワード",
+    "password_placeholder": "パスワード",
+    "button": "新規登録",
+    "creating": "アカウントを作成中...",
+    "or": "または",
+    "worldcoin": "Worldcoinで登録",
+    "google": "Googleで登録",
+    "facebook": "Facebookで登録",
+    "redirecting": "リダイレクト中...",
+    "have_account": "すでにアカウントをお持ちですか？",
+    "signin": "ログイン",
+    "close": "登録モーダルを閉じる",
+    "trust_score": "TrustScore 4.5",
+    "reviews": "200件のレビュー",
+
+    "fill_fields": "メールアドレスとパスワードを入力してください。",
+    "registration_failed": "登録に失敗しました",
+    "network_error": "ネットワークエラー",
+    "google_failed": "Google登録に失敗しました",
+    "server_failed": "サーバーへの接続に失敗しました",
+    "auth_loading": "認証システムを読み込み中です。しばらくしてからもう一度お試しください。",
+    "facebook_disabled": "Facebook登録は現在利用できません。サポートまでお問い合わせください。",
+    "popup_blocked": "ポップアップがブロックされました。ポップアップを許可してから再度お試しください。",
+    "failed": "登録に失敗しました。もう一度お試しください。"
+  },
+   "games": {
+    "play_earn": "プレイして稼ぐ",
+    "hero_title": "ゲームをプレイして報酬を獲得",
+    "hero_desc": "ゲームミッションをクリアし、目標を達成して、楽しみながら本物の報酬を獲得しましょう。",
+
+    "stats": {
+      "available_games": "利用可能なゲーム",
+      "avg_payout": "平均報酬",
+      "active_players": "アクティブプレイヤー",
+      "paid_out": "支払い済み"
+    },
+
+    "featured": "注目のゲーム",
+    "play_now": "今すぐプレイ",
+
+    "easy": "簡単",
+    "medium": "普通",
+
+    "how_it_works": "利用方法",
+    "steps": {
+      "browse": "ゲームを探す",
+      "play": "ゲームをプレイ",
+      "milestones": "目標を達成",
+      "payout": "報酬を受け取る"
+    },
+
+    "why_play": "ゲームで稼ぐ理由",
+
+    "features": {
+      "high_payouts": "高額報酬",
+      "flexible_timeframes": "柔軟な期間",
+      "instant_credit": "即時反映",
+      "daily_bonuses": "毎日ボーナス"
+    },
+
+    "list": {
+      "sea_of_conquest": "Sea of Conquest",
+      "farming_simulator": "Farming Simulator",
+      "spongebob_adventures": "スポンジ・ボブ アドベンチャー",
+      "time_7_days": "7日間",
+      "time_10_days": "10日間",
+      "time_5_days": "5日間"
+    },
+
+    "difficulty": {
+      "easy": "簡単",
+      "medium": "普通"
+    },
+
+    "features_desc": {
+      "high_payouts": "ゲームごとに最大150ドル獲得できます。業界最高水準の報酬をご提供します。",
+      "flexible_timeframes": "自分のペースでゲームを進められます。ほとんどのゲームは5〜14日で完了します。",
+      "instant_credit": "目標を達成するとすぐに報酬が反映されます。",
+      "daily_bonuses": "毎日のログインやチャレンジで追加報酬を獲得できます。"
+    }
+  },
+
+  "bonus": {
+    "sign_up_bonus": {
+      "title": "新規登録ボーナス",
+      "subtitle": "最大30ドル獲得",
+      "button": "スピン"
+    },
+    "streak": {
+      "title": "7日間連続ログイン",
+      "subtitle": "毎日1ドル獲得して連続記録を維持",
+      "button": "連続記録へ"
+    },
+    "verification": {
+      "title": "認証",
+      "subtitle": "1回につき0.2ドル獲得",
+      "button": "認証へ"
+    }
+  },
+
+  "bonus_page": {
+    "title": "新規登録ボーナス",
+    "timer_label": "終了まで",
+    "reward_label": "48時間以内に1ドル以上稼ぐと",
+    "reward_highlight": "無料ケースをさらに3個獲得",
+    "cta": "今すぐ稼ぐ"
+  },
+
+  "streak": {
+    "title": "7日間連続ログイン",
+    "reset_in": "リセットまで",
+    "description": "毎日少なくとも1つのタスクを完了して連続記録を維持し、無料ケースを獲得しましょう。",
+    "description_sec": "無料ケース",
+    "go_to_tasks": "タスクへ"
+  },
+
+  "verification": {
+    "title": "認証",
+
+    "telegram_title": "Telegram",
+    "telegram_sub": "Telegramに参加",
+
+    "x_title": "Xをフォロー",
+    "x_sub": "Xでフォロー",
+
+    "discord_title": "Discord",
+    "discord_sub": "Discordに参加",
+
+    "reward": "0.05ドル",
+
+    "join": "参加する",
+    "follow": "フォロー"
+  },
+
+  "tasks_hub": {
+    "title": "タスクハブ",
+    "subtitle": "さまざまなタスクを完了し、進捗を1か所で管理できます。",
+
+    "go_earn": "収益ページへ",
+    "leaderboard": "ランキング",
+
+    "tip": "ヒント：タスクリストのフィルターを使うと、高報酬やデバイス限定のタスクを素早く見つけられます。",
+
+    "stats": {
+      "live_tasks": {
+        "label": "進行中のタスク",
+        "value": "500+"
+      },
+      "avg_completion": {
+        "label": "平均完了時間",
+        "value": "8分"
+      },
+      "task_categories": {
+        "label": "タスクカテゴリ",
+        "value": "12"
+      }
+    }
+  },
+    "chat_page": {
+    "title": "チャットルーム",
+
+    "dropdown": {
+      "language": "言語",
+      "rooms": "ルーム"
+    },
+
+    "rooms": {
+      "general": "一般",
+      "community": "コミュニティ"
+    },
+
+    "ticker": {
+      "user_xy_withdrew": "ユーザーXYが出金しました",
+      "user_yz_earned": "ユーザーYZが獲得しました",
+      "user_ab_earned": "ユーザーABが獲得しました",
+      "user_cd_withdrew": "ユーザーCDが出金しました",
+
+      "slots": "スロット",
+      "worldcoin": "ワールドコイン",
+      "offer_walls": "オファーウォール",
+      "torox": "Torox"
+    },
+
+    "messages": {
+      "loading": "メッセージを読み込み中...",
+      "empty": "まだメッセージはありません",
+      "first_message": "最初に挨拶を送りましょう！"
+    },
+
+    "input": {
+      "placeholder": "メッセージを入力してください..."
+    },
+
+    "errors": {
+      "sign_in_required": "メッセージを送信するにはサインインしてください",
+      "send_failed": "メッセージの送信に失敗しました"
+    }
+  },
+
+  "cashout_page": {
+    "topbar": {
+      "cashout": "出金",
+      "support": "サポート"
+    },
+
+    "sections": {
+      "popular": "人気",
+      "withdraw_cash": "現金を出金",
+      "giftcard": "ギフトカード"
+    },
+
+    "ticker": {
+      "user_withdrew": "ユーザーが出金しました",
+      "user_earned": "ユーザーが獲得しました",
+      "slots": "スロット",
+      "worldcoin": "ワールドコイン",
+      "slot": "スロット",
+      "monopoly": "モノポリー",
+      "big_giant": "ビッグジャイアント"
+    },
+
+    "modal": {
+      "title": "{{name}} を出金",
+      "minimum_withdrawal": "最低出金額は0.5ドルです",
+
+      "destination": "送金先",
+      "enter_destination": "送金先を入力してください",
+      "wallet_address": "{{name}} アドレス",
+      "enter_wallet": "ウォレットアドレスを入力してください",
+
+      "paypal_email": "PayPalメールアドレス",
+      "email_placeholder": "you@example.com",
+
+      "bank_details": "カード / 銀行情報",
+      "bank_placeholder": "カードまたは銀行口座情報を入力してください",
+
+      "save": "保存",
+
+      "amount": "金額",
+      "balance": "残高",
+      "amount_placeholder": "例: $120",
+      "max": "最大",
+
+      "transaction_details": "取引詳細",
+      "payment_rate": "{{ticker}} 支払いレート",
+      "transaction_fee": "取引手数料 ({{percent}}%)",
+      "fee": "手数料",
+      "free": "無料",
+      "you_receive": "受取額",
+
+      "cashout": "出金",
+      "submitting": "送信中..."
+    },
+
+    "errors": {
+      "valid_amount": "有効な金額を入力してください",
+      "minimum_amount": "最低出金額は0.5ドルです",
+      "provide_destination": "{{field}}を入力してください",
+      "sign_in": "まずサインインしてください",
+      "submit_failed": "送信に失敗しました"
+    },
+
+    "success": {
+      "withdrawal_submitted": "出金リクエストが送信されました！"
+    },
+
+    "fees": {
+      "network_fee_1": "約1%のネットワーク手数料",
+      "network_fee_01": "約0.1%のネットワーク手数料",
+      "network_fee_15": "約1.5%のネットワーク手数料",
+      "network_fee_05": "約0.5%のネットワーク手数料"
+    },
+
+    "badges": {
+      "off_30": "30% OFF"
+    }
+  },
+
+  "cards_cc": {
+    "bitcoin": "ビットコイン",
+    "dogecoin": "ドージコイン",
+    "solana": "ソラナ",
+    "ethereum": "イーサリアム",
+    "litecoin": "ライトコイン",
+    "paypal": "PayPal",
+    "worldcoin": "ワールドコイン",
+    "visa": "Visa",
+    "amazon": "Amazon",
+    "app_stores": "アプリストア",
+    "spotify": "Spotify",
+    "playstations": "PlayStation",
+    "steam": "Steam"
+  },
+
+  "contact_page": {
+    "header": {
+      "title": "お問い合わせ",
+      "help_center": "ヘルプセンター"
+    },
+
+    "hero": {
+      "title": "お問い合わせはこちら",
+      "description": "ご不明な点がございましたら、お気軽にお問い合わせください。以下のSNSやサポート窓口からご連絡いただけます。",
+      "fastest_response": "最も迅速な対応をご希望の場合は、Discordコミュニティにご参加ください。"
+    },
+
+    "social_section": {
+      "title": "SNSでつながる",
+      "members": "メンバー"
+    },
+
+    "support_section": {
+      "title": "その他のお問い合わせ方法",
+      "response_time": "対応時間"
+    },
+
+    "social": {
+      "discord": {
+        "name": "Discord",
+        "description": "コミュニティに参加して、すぐにサポートを受けたり他のユーザーと交流しましょう"
+      },
+
+      "telegram": {
+        "name": "Telegram",
+        "description": "Telegramでお知らせを受け取り、迅速なサポートをご利用いただけます"
+      },
+
+      "twitter": {
+        "name": "Twitter / X",
+        "description": "最新情報やキャンペーン、お知らせをチェックしましょう"
+      }
+    },
+
+    "support": {
+      "email": {
+        "title": "メールサポート",
+        "description": "詳しいお問い合わせはメールでご連絡ください",
+        "value": "support@labwards.com"
+      },
+
+      "live_chat": {
+        "title": "ライブチャット",
+        "description": "サポートチームとリアルタイムでチャットできます",
+        "value": "24時間365日対応"
+      }
+    }
+  },
+    "cookie_page": {
+    "header": {
+      "title": "Cookieポリシー",
+      "back": "戻る"
+    },
+    "hero": {
+      "title": "Cookieポリシー",
+      "last_updated": "最終更新日: "
+    },
+    "intro": {
+      "text": "当社は、お客様の閲覧体験を向上させ、サイトの利用状況を分析し、コンテンツをパーソナライズするために、Cookieおよび類似の技術を使用しています。このCookieポリシーでは、Cookieとは何か、当社がどのように使用するか、およびCookieの使用に関するお客様の選択肢について説明します。"
+    },
+    "what_are_cookies": {
+      "title": "Cookieとは",
+      "description_1": "Cookieは、ウェブサイトを訪問した際にお客様のデバイスに保存される小さなテキストファイルです。これにより、ウェブサイトはお客様の設定や利用状況を記憶できます。",
+      "description_2": "当社では、ウェブビーコン、ピクセル、ローカルストレージなどの類似技術も使用しています。本ポリシーで「Cookie」と記載する場合、これらすべてを含みます。"
+    },
+    "manage": {
+      "title": "Cookie設定の管理",
+      "save_button": "設定を保存"
+    },
+    "cookie_types": {
+      "essential": {
+        "title": "必須Cookie",
+        "description": "セキュリティ、認証、セッション管理など、ウェブサイトを正常に機能させるために必要です。",
+        "required": "必須",
+        "examples": [
+          "セッションID",
+          "認証トークン",
+          "CSRFトークン",
+          "ロードバランシング"
+        ]
+      },
+      "analytics": {
+        "title": "分析Cookie",
+        "description": "ユーザーがウェブサイトをどのように利用しているかを匿名で分析するために使用されます。",
+        "examples": [
+          "Google Analytics",
+          "ページビュー",
+          "ユーザー行動",
+          "パフォーマンス指標"
+        ]
+      },
+      "marketing": {
+        "title": "マーケティングCookie",
+        "description": "閲覧履歴に基づいて関連性の高い広告を表示するために使用されます。",
+        "examples": [
+          "広告ターゲティング",
+          "コンバージョントラッキング",
+          "リターゲティングピクセル",
+          "ソーシャルメディア"
+        ]
+      },
+      "functional": {
+        "title": "機能Cookie",
+        "description": "設定や環境を記憶するなど、パーソナライズ機能を提供します。",
+        "examples": [
+          "言語設定",
+          "テーマ設定",
+          "最近閲覧した項目",
+          "フォームデータ"
+        ]
+      }
+    },
+    "how_we_use": {
+      "title": "Cookieの利用目的",
+      "items": [
+        "ログイン状態を維持する",
+        "設定を記憶する",
+        "不正利用を防止する",
+        "利用状況を分析する",
+        "サービスを改善する",
+        "関連性の高いコンテンツや広告を提供する",
+        "マーケティング効果を測定する"
+      ]
+    },
+    "third_party": {
+      "title": "第三者のCookie",
+      "description": "一部のCookieは第三者サービスによって設定されます。",
+      "items": {
+        "Goganalytics": "Google Analytics:",
+        "analytics": "ウェブサイトの分析およびパフォーマンス追跡",
+        "adstitle": "広告パートナー:",
+        "ads": "広告追跡およびコンバージョン測定",
+        "socialtitle": "ソーシャルメディア:",
+        "social": "共有機能およびログイン機能",
+        "paymentstitle": "決済サービス:",
+        "payments": "安全な決済機能"
+      },
+      "note": "これらの第三者は、それぞれ独自のプライバシーポリシーを定めています。"
+    },
+    "browser": {
+      "title": "ブラウザでのCookie管理",
+      "note": "Cookieはブラウザの設定から管理できます。Cookieを無効にすると、一部の機能が正常に動作しない場合があります。",
+      "warning": "必須Cookieを無効にすると、一部の機能をご利用いただけなくなる場合があります。",
+      "items": {
+        "chrometitle": "Chrome:",
+        "chrome": "設定 → プライバシーとセキュリティ → Cookie",
+        "firefoxtitle": "Firefox:",
+        "firefox": "設定 → プライバシーとセキュリティ → Cookie",
+        "safarititle": "Safari:",
+        "safari": "環境設定 → プライバシー → Cookie",
+        "edgetitle": "Edge:",
+        "edge": "設定 → プライバシー、検索、サービス → Cookie"
+      }
+    },
+    "contact": {
+      "title": "Cookieに関するご質問",
+      "text": "Cookieの利用についてご質問がある場合は、以下までお問い合わせください。",
+      "email": "support@labwards.com"
+    },
+    "related": {
+      "title": "関連ポリシー",
+      "terms": "利用規約",
+      "privacy": "プライバシーポリシー"
+    },
+    "warning1": "注意: Cookieをブロックまたは削除すると、当サイトでの利用体験に影響する場合があります。必須Cookieが無効の場合、一部の機能が正常に動作しないことがあります。"
+  },
+   "faq_page": {
+    "header": {
+      "title": "よくある質問",
+      "contact": "お問い合わせ"
+    },
+    "hero": {
+      "title": "よくある質問",
+      "description": "LabWardsに関するよくある質問への回答をご覧ください。"
+    },
+    "categories": {
+      "getting_started": {
+        "title": "はじめに",
+        "question1": "アカウントを作成するにはどうすればよいですか？",
+        "answer1": "アカウント作成は簡単です！「サインアップ」をクリックし、メールアドレスまたはSNSアカウントで登録してください。",
+        "question2": "LabWardsは無料で利用できますか？",
+        "answer2": "はい！LabWardsは完全無料で、隠れた料金はありません。",
+        "question3": "LabWardsを利用するには何歳以上である必要がありますか？",
+        "answer3": "18歳以上である必要があります。",
+        "question4": "LabWardsは私の国でも利用できますか？",
+        "answer4": "LabWardsは世界中のほとんどの国で利用可能です。"
+      },
+      "earning_tasks": {
+        "title": "収益とタスク",
+        "question1": "LabWardsでどのようにお金を稼げますか？",
+        "answer1": "ゲーム、アンケート、オファー、動画視聴、アプリテストを完了して報酬を獲得できます。",
+        "question2": "タスクの報酬が付与されなかったのはなぜですか？",
+        "answer2": "VPNの使用、手順の未完了、または広告主による却下が原因の場合があります。",
+        "question3": "報酬が反映されるまでどのくらいかかりますか？",
+        "answer3": "ほとんどの報酬は即時ですが、一部は24～48時間かかる場合があります。",
+        "question4": "同じタスクを複数回完了できますか？",
+        "answer4": "ほとんどのタスクは1回のみ完了できます。"
+      },
+      "payments": {
+        "title": "支払いと出金",
+        "question1": "最低出金額はいくらですか？",
+        "answer1": "通常、最低出金額は5ドルです。",
+        "question2": "出金にはどのくらい時間がかかりますか？",
+        "answer2": "ほとんどの出金は即時、または24時間以内に処理されます。",
+        "question3": "利用可能な支払い方法は何ですか？",
+        "answer3": "PayPal、銀行振込、暗号資産、ギフトカードをご利用いただけます。",
+        "question4": "出金手数料はかかりますか？",
+        "answer4": "ほとんどの支払い方法では出金手数料はかかりません。"
+      },
+      "security": {
+        "title": "アカウントとセキュリティ",
+        "question1": "パスワードをリセットするにはどうすればよいですか？",
+        "answer1": "ログインページの「パスワードを忘れた場合」をご利用ください。",
+        "question2": "アカウントが停止されたのはなぜですか？",
+        "answer2": "利用規約違反が原因で停止される場合があります。",
+        "question3": "個人情報は安全ですか？",
+        "answer3": "はい。強力な暗号化技術を使用してデータを保護しています。",
+        "question4": "アカウントを削除するにはどうすればよいですか？",
+        "answer4": "設定 > アカウント > アカウント削除 から削除できます。"
+      },
+      "referrals": {
+        "title": "紹介プログラム",
+        "question1": "紹介プログラムはどのように機能しますか？",
+        "answer1": "紹介リンクを共有すると、紹介ボーナスを獲得できます。",
+        "question2": "紹介でどのくらい稼げますか？",
+        "answer2": "紹介したユーザーの収益の10％を生涯受け取ることができます。",
+        "question3": "紹介ボーナスはいつ付与されますか？",
+        "answer3": "紹介したユーザーが対象タスクを完了すると付与されます。"
+      }
+    }
+  },
+
+  "help_page": {
+    "header": {
+      "title": "ヘルプセンター",
+      "subtitle": "回答を見つけてサポートを受けましょう"
+    },
+    "search": {
+      "placeholder": "ヘルプを検索..."
+    },
+    "categories": {
+      "getting_started": {
+        "title": "はじめに",
+        "article1": "アカウントの作成方法",
+        "article2": "最初のタスクを完了する方法",
+        "article3": "報酬の仕組み",
+        "article4": "支払い方法の設定"
+      },
+      "video_tutorials": {
+        "title": "動画チュートリアル",
+        "article1": "プラットフォームの使い方",
+        "article2": "収益を最大化する方法",
+        "article3": "出金手順の説明",
+        "article4": "ヒントとコツ"
+      },
+      "account_billing": {
+        "title": "アカウントと支払い",
+        "article1": "アカウント管理",
+        "article2": "支払い方法",
+        "article3": "出金限度額",
+        "article4": "アカウント認証"
+      },
+      "contact_support": {
+        "title": "サポートへのお問い合わせ",
+        "article1": "ライブチャットサポート",
+        "article2": "メールサポート",
+        "article3": "問題を報告する",
+        "article4": "機能リクエスト"
+      }
+    },
+    "actions": {
+      "live_chat": "ライブチャットを開始",
+      "browse_articles": "すべての記事を見る"
+    }
+  },
+    "help_center_page": {
+    "header": {
+      "title": "ヘルプセンター",
+      "contact": "お問い合わせ"
+    },
+    "hero": {
+      "title": "どのようなサポートが必要ですか？",
+      "description": "以下のカテゴリーから必要なヘルプをご確認ください。"
+    },
+    "stats": {
+      "articles": "ヘルプ記事",
+      "support": "サポート",
+      "response": "平均応答時間",
+      "satisfaction": "満足度"
+    },
+    "categories_section_title": "カテゴリーから探す",
+    "categories": {
+      "getting_started": {
+        "title": "はじめに",
+        "description": "LabWardsの基本的な使い方を学びましょう",
+        "articles_label": "記事",
+        "item1": "アカウントの作成方法",
+        "item2": "プロフィールの設定",
+        "item3": "最初のタスクを完了する方法",
+        "item4": "報酬システムについて",
+        "item5": "支払い方法の概要"
+      },
+      "earning_tasks": {
+        "title": "収益とタスク",
+        "description": "収益を得る方法について",
+        "articles_label": "記事",
+        "item1": "利用可能なタスクの種類",
+        "item2": "収益を最大化する方法",
+        "item3": "タスク完了のコツ",
+        "item4": "タスクが承認されない理由",
+        "item5": "未反映の報酬を報告する"
+      },
+      "payments": {
+        "title": "支払いと出金",
+        "description": "収益の管理と出金について",
+        "articles_label": "記事",
+        "item1": "最低出金額",
+        "item2": "出金処理時間",
+        "item3": "対応している支払い方法",
+        "item4": "本人確認",
+        "item5": "税務情報"
+      },
+      "security": {
+        "title": "アカウントとセキュリティ",
+        "description": "アカウントを安全に保つ方法",
+        "articles_label": "記事",
+        "item1": "パスワードの変更",
+        "item2": "二段階認証",
+        "item3": "アカウント認証",
+        "item4": "アカウントの復旧",
+        "item5": "プライバシー設定"
+      }
+    }
+  },
+  "privacy_policy_page": {
+    "header": {
+      "title": "プライバシーポリシー"
+    },
+    "hero": {
+      "title": "プライバシーポリシー",
+      "last_updated": "最終更新日: "
+    },
+    "intro": {
+      "text": "LabWardsでは、お客様のプライバシーを重要視しています。本プライバシーポリシーでは、当社サービスをご利用いただく際に、個人情報をどのように収集、利用、開示、および保護するかについて説明します。LabWardsをご利用いただくことで、本ポリシーに記載された内容に同意したものとみなされます。"
+    },
+    "sections": {
+      "information_collect": {
+        "title": "収集する情報",
+        "personal_info": "個人情報:",
+        "personal_items": {
+          "item1": "氏名、メールアドレス、生年月日",
+          "item2": "支払い情報（PayPalメールアドレス、暗号資産ウォレットアドレス）",
+          "item3": "ご自身で提供されたプロフィール情報",
+          "item4": "電話番号（本人確認のため提供された場合）"
+        },
+        "auto_info": "自動的に収集される情報:",
+        "auto_items": {
+          "item1": "デバイス情報（ブラウザ種類、OSなど）",
+          "item2": "IPアドレスおよびおおよその位置情報",
+          "item3": "利用データ（閲覧ページ、完了したタスク、滞在時間など）",
+          "item4": "Cookieおよび類似の追跡技術"
+        },
+        "third_party": "第三者から取得する情報:",
+        "third_party_items": {
+          "item1": "ソーシャルログイン情報（Google、Facebook、Apple）",
+          "item2": "広告パートナーから提供されるタスク完了データ",
+          "item3": "不正防止および本人確認サービス"
+        }
+      },
+      "usage": {
+        "title": "情報の利用目的",
+        "description": "当社はお客様の情報を以下の目的で利用します:",
+        "items": {
+          "item1": "サービスの提供・維持・改善",
+          "item2": "取引処理および関連情報の送信",
+          "item3": "本人確認と不正防止",
+          "item4": "適切なタスクやアンケートの提供",
+          "item5": "更新情報・キャンペーン・サポートに関するご連絡",
+          "item6": "利用状況の分析によるユーザー体験の向上",
+          "item7": "法的義務の遵守",
+          "item8": "プラットフォームの安全性と信頼性の維持"
+        }
+      },
+      "sharing": {
+        "title": "情報の共有",
+        "description": "当社は以下の相手と情報を共有する場合があります:",
+        "items": {
+          "item1": "広告パートナー：タスク完了の確認および報酬処理",
+          "item2": "決済サービス事業者：出金および支払い処理",
+          "item3": "サービス提供事業者：ホスティング、分析、サポートなどの運営支援",
+          "item4": "法的機関：法律に基づく場合、または当社の権利保護のため"
+        },
+        "note": "当社は、お客様の個人情報を第三者のマーケティング目的で販売することはありません。"
+      },
+      "security": {
+        "title": "データセキュリティ",
+        "description": "当社は業界標準のセキュリティ対策を実施しています:",
+        "items": {
+          "item1": "すべての通信にSSL/TLS暗号化を使用",
+          "item2": "機密情報の安全な暗号化保存",
+          "item3": "定期的なセキュリティ監査および脆弱性評価",
+          "item4": "アクセス制御と認証システム",
+          "item5": "従業員へのデータ保護教育"
+        },
+        "note": "当社は情報保護に努めていますが、インターネット上で100%安全な通信方法は存在しません。絶対的な安全性を保証するものではありません。"
+      },
+      "rights": {
+        "title": "お客様の権利",
+        "description": "お客様には以下の権利があります:",
+        "items": {
+          "item11": "アクセス: ",
+          "item12": "個人データのコピーを請求する",
+          "item21": "訂正: ",
+          "item22": "不正確または不完全な情報を更新する",
+          "item31": "削除: ",
+          "item32": "個人データの削除を請求する",
+          "item41": "配信停止: ",
+          "item42": "マーケティング通知を停止する",
+          "item51": "データのエクスポート: ",
+          "item52": "ポータブル形式でデータを受け取る",
+          "item61": "利用制限: ",
+          "item62": "データ利用の制限を請求する"
+        },
+        "contact": "これらの権利を行使する場合は、以下までお問い合わせください: "
+      },
+      "retention": {
+        "title": "データ保持",
+        "description": "当社は以下の期間、個人情報を保持します:",
+        "items": {
+          "item1": "アカウントが有効である間",
+          "item2": "サービス提供に必要な期間",
+          "item3": "法律で義務付けられる期間（税務・法的義務など）",
+          "item4": "紛争解決や契約履行に必要な期間"
+        },
+        "note": "アカウント削除後も、分析目的や法的要件に従い、一部の情報を匿名化して保持する場合があります。"
+      },
+      "contact": {
+        "title": "お問い合わせ",
+        "description": "本プライバシーポリシーまたはデータの取り扱いについてご質問がある場合は、お問い合わせください。",
+        "email": "メール"
+      }
+    },
+    "related": {
+      "title": "関連ポリシー",
+      "terms": "利用規約",
+      "cookies": "Cookieポリシー"
+    }
+  },
+  "serviceprovider": "サービス提供事業者",
+  "legalauthorities": "法的機関",
+  "rewards_page": {
+    "header": {
+      "title": "報酬"
+    },
+    "hero": {
+      "badge": "複数の出金方法",
+      "title": "お好きな方法で報酬を受け取り",
+      "description": "複数の出金方法からお選びいただけます。PayPal、暗号資産、ギフトカード、銀行振込などに出金可能。迅速・安全・簡単です！"
+    },
+    "stats": {
+      "min_withdrawal": "最低出金額",
+      "payout_methods": "出金方法",
+      "processing": "処理時間",
+      "paid_out": "支払い済み"
+    },
+    "reward_types": {
+      "title": "報酬の受け取り方法",
+      "cash_rewards": {
+        "title": "現金報酬",
+        "description": "PayPal、銀行口座、または暗号資産ウォレットへ直接現金を出金できます。"
+      },
+      "gift_cards": {
+        "title": "ギフトカード",
+        "description": "Amazon、Steam、iTunesなどのギフトカードと交換できます。"
+      },
+      "crypto": {
+        "title": "暗号資産",
+        "description": "報酬をBitcoin、Ethereum、Litecoinなどの暗号資産へ交換できます。"
+      },
+      "mobile_topup": {
+        "title": "モバイルチャージ",
+        "description": "報酬を使って携帯電話へ直接チャージできます。"
+      }
+    },
+    "payout_methods_section": {
+      "title": "人気の出金方法",
+      "labels": {
+        "min_withdraw": "最低出金額:",
+        "processing": "処理時間:",
+        "fee": "手数料:"
+      },
+      "methods": {
+        "paypal": {
+          "name": "PayPal",
+          "processing": "即時",
+          "fee": "無料"
+        },
+        "visa": {
+          "name": "VISAカード",
+          "processing": "1～3日",
+          "fee": "無料"
+        },
+        "bitcoin": {
+          "name": "ビットコイン",
+          "processing": "即時",
+          "fee": "ネットワーク手数料"
+        },
+        "amazon": {
+          "name": "Amazonギフトカード",
+          "processing": "即時",
+          "fee": "無料"
+        }
+      }
+    },
+    "features": {
+      "title": "当社の報酬が選ばれる理由",
+      "instant_payouts": {
+        "title": "即時出金",
+        "description": "ほとんどの出金は即時処理されます。必要な時にすぐ受け取れます。"
+      },
+      "secure_transactions": {
+        "title": "安全な取引",
+        "description": "すべての取引は業界標準のセキュリティで暗号化・保護されています。"
+      },
+      "low_minimums": {
+        "title": "低い最低出金額",
+        "description": "わずか5ドルから出金可能。高額になるまで待つ必要はありません。"
+      },
+      "no_fees": {
+        "title": "隠れた手数料なし",
+        "description": "獲得した金額をそのまま受け取れます。追加料金や予期しない控除はありません。"
+      }
+    }
+  },
+
+  "settings_page": {
+    "title": "設定",
+
+    "change_password": {
+      "title": "パスワードを変更",
+      "current_password": "現在のパスワード",
+      "current_placeholder": "現在のパスワードを入力",
+      "new_password": "新しいパスワード",
+      "new_placeholder": "8文字以上",
+      "confirm_password": "新しいパスワードの確認",
+      "confirm_placeholder": "新しいパスワードを再入力",
+      "update_button": "パスワードを更新",
+      "saving": "保存中..."
+    },
+
+    "security": {
+      "title": "セキュリティ",
+      "two_factor_title": "二要素認証",
+      "two_factor_desc": "アカウントに追加のセキュリティを設定します",
+      "login_alerts_title": "ログイン通知",
+      "login_alerts_desc": "新しいログインがあった際に通知を受け取ります",
+      "session_timeout_title": "自動セッションタイムアウト",
+      "session_timeout_desc": "30分間操作がない場合、自動的にサインアウトします"
+    },
+
+    "danger_zone": {
+      "title": "危険な操作",
+      "description": "アカウントを削除すると、残高、履歴、プロフィールを含むすべてのデータが完全に削除されます。この操作は元に戻せません。",
+      "delete_button": "アカウントを削除"
+    },
+
+    "toast": {
+      "fill_fields": "すべてのパスワード欄を入力してください",
+      "password_mismatch": "新しいパスワードが一致しません",
+      "password_short": "新しいパスワードは8文字以上で入力してください",
+      "signin_first": "まずサインインしてください",
+      "change_failed": "パスワードの変更に失敗しました",
+      "password_success": "パスワードが正常に変更されました",
+      "change_error": "パスワードを変更できませんでした",
+      "twofa_soon": "二要素認証は近日中に利用可能になります",
+      "delete_contact": "アカウントを削除するには、support@earnlab.com までお問い合わせください"
+    }
+  },
+   "support": {
+    "title": "ライブサポート",
+    "helpTitle": "お困りですか？",
+    "onlineStatus": "サポートはオンラインです",
+    "faq": "よくある質問",
+    "welcomeMessage": "ライブサポートへお問い合わせいただく前に、ヘルプセンターをご確認ください。問題やご質問への回答がすぐに見つかる場合があります！",
+    "messagePlaceholder": "メッセージを入力してください....",
+    "send": "送信",
+    "supportLabel": "サポート",
+    "contactSignin": "サポートへお問い合わせするにはサインインしてください。",
+    "sendFailed": "送信に失敗しました"
+  },
+
+  "topbar": {
+    "notifications": "通知",
+    "wallet": "ウォレット",
+    "cashout": "出金",
+    "account": "アカウント",
+    "goHome": "ホームへ戻る"
+  },
+
+  "ticker": {
+    "userWithdrew": "ユーザーが出金しました",
+    "userEarned": "ユーザーが獲得しました"
+  },
+
+  "game": {
+    "slots": "スロット",
+    "slot": "スロット",
+    "monopoly": "モノポリー",
+    "torox": "Torox",
+    "angryBird": "アングリーバード",
+    "bigGiant": "ビッグジャイアント"
+  },
+
+  "survey": {
+    "title": "アンケート",
+    "cashout": "出金",
+    "progress": "{{current}}/{{total}}",
+
+    "questions": {
+      "householdIncome": "あなたの世帯年収はおおよそいくらですか？",
+      "ageRange": "あなたの年齢層を選択してください。",
+      "occupation": "現在の職業を教えてください。",
+      "education": "最終学歴を教えてください。",
+      "country": "現在お住まいの国を教えてください。",
+      "maritalStatus": "婚姻状況を教えてください。",
+      "children": "お子様は何人いますか？",
+      "employment": "現在の雇用状況を教えてください。",
+      "interests": "あなたの主な趣味や興味は何ですか？"
+    },
+
+    "placeholders": {
+      "numbersOnly": "数字のみ入力してください",
+      "ageExample": "例: 25～34歳",
+      "occupationExample": "例: 正社員",
+      "educationExample": "例: 学士号",
+      "countryExample": "例: 日本",
+      "maritalExample": "例: 既婚",
+      "employmentExample": "例: フルタイム",
+      "interestsExample": "例: ゲーム、旅行"
+    },
+
+    "buttons": {
+      "back": "戻る",
+      "next": "次へ",
+      "startSurvey": "アンケートを開始",
+      "submitting": "送信中",
+      "redirecting": "リダイレクト中"
+    },
+
+    "messages": {
+      "answerRequired": "続行する前に質問に回答してください。",
+      "noProvider": "現在利用可能なアンケート提供元がありません。しばらくしてからもう一度お試しください。",
+      "completed": "アンケートが正常に完了しました！",
+      "redirectNotice": "アンケートが完了しました！オファーウォールへ移動しています…",
+      "completionSuccess": "アンケートが完了しました！リダイレクトしています…",
+      "submitFailed": "送信に失敗しました。もう一度お試しください。"
+    }
+  },
+  "surveysInfo": {
+    "title": "アンケート",
+    "shareOpinion": "あなたの意見を共有しましょう",
+    "heroTitle": "意見を伝えて報酬を獲得",
+    "heroDescription": "大手調査会社のアンケートに回答して、現金を獲得しましょう。あなたの意見には価値があり、企業はその対価を支払います！",
+
+    "stats": {
+      "dailySurveys": "毎日のアンケート",
+      "avgPerSurvey": "平均報酬",
+      "surveyTakers": "アンケート参加者",
+      "paidOut": "支払い総額"
+    },
+
+    "partners": "アンケートパートナー",
+
+    "providerLabels": {
+      "avgPay": "平均報酬:",
+      "surveys": "アンケート数:",
+      "duration": "所要時間:"
+    },
+
+    "howItWorks": "利用方法",
+
+    "steps": {
+      "step1Title": "プロフィールを完成させる",
+      "step1Desc": "より適したアンケートを受け取るためにプロフィール情報を入力します",
+
+      "step2Title": "アンケートを探す",
+      "step2Desc": "報酬や所要時間で並べ替えられたアンケートを確認します",
+
+      "step3Title": "質問に回答する",
+      "step3Desc": "さまざまなトピックについて正直な意見を共有します",
+
+      "step4Title": "報酬を受け取る",
+      "step4Desc": "アンケート完了後、すぐに報酬を受け取れます"
+    },
+
+    "tipsTitle": "成功のためのヒント",
+
+    "tips": {
+      "tip1": "プロフィールをすべて入力すると、より多くのアンケートに参加できます",
+      "tip2": "正直に回答してください。一貫性のない回答は対象外となる場合があります",
+      "tip3": "新しいアンケートを毎日何度か確認しましょう",
+      "tip4": "通知を有効にして高報酬アンケートを見逃さないようにしましょう",
+      "tip5": "焦らず続けることで、参加資格を得られる確率が高まります"
+    },
+
+    "benefitsTitle": "当社でアンケートに参加するメリット",
+
+    "benefits": {
+      "benefit1Title": "1件あたり2～10ドル獲得",
+      "benefit1Desc": "正直な意見を共有するだけで報酬を獲得できます。長いアンケートほど高報酬です。",
+
+      "benefit2Title": "短時間で完了",
+      "benefit2Desc": "ほとんどのアンケートは5～15分で完了します。空き時間を有効活用できます。",
+
+      "benefit3Title": "プライバシー保護",
+      "benefit3Desc": "個人情報は常に保護されます。同意なしにデータを共有することはありません。",
+
+      "benefit4Title": "プロフィールに合ったアンケート",
+      "benefit4Desc": "あなたのプロフィールに合ったアンケートを提供し、参加資格を得やすくします。"
+    },
+
+    "bitlabs": "BitLabs",
+    "cpx": "CPX Research",
+    "theorem": "Theorem Reach",
+    "pollfish": "Pollfish"
+  },
+
+  "tasksInfo": {
+    "title": "タスク",
+    "heroBadge": "簡単なタスクで本物の報酬",
+    "heroTitle": "タスクを完了して報酬を獲得",
+    "heroDescription": "何百もの簡単なタスクから選択できます。アプリのダウンロード、サービス登録、オファー完了などで即時報酬を獲得しましょう。経験は不要です！",
+
+    "stats": {
+      "availableTasks": "利用可能なタスク",
+      "avgPerTask": "平均報酬",
+      "activeUsers": "アクティブユーザー",
+      "paidOut": "支払い総額"
+    },
+
+    "taskTypesTitle": "タスクの種類",
+
+    "taskTypes": {
+      "appTestingTitle": "アプリテスト",
+      "appTestingDesc": "新しいモバイルアプリをダウンロードしてテストします",
+
+      "simpleTasksTitle": "簡単なタスク",
+      "simpleTasksDesc": "簡単なオンラインタスクや操作を完了します",
+
+      "reviewTitle": "レビュー・評価",
+      "reviewDesc": "商品やサービスのレビューや評価を行います",
+
+      "signupTitle": "登録オファー",
+      "signupDesc": "サービスに登録してボーナスを獲得します"
+    },
+
+    "labels": {
+      "reward": "報酬",
+      "time": "時間"
+    },
+
+    "howItWorks": "利用方法",
+
+    "steps": {
+      "step1Title": "タスクを探す",
+      "step1Desc": "報酬や所要時間で絞り込んで利用可能なタスクを探します",
+
+      "step2Title": "タスクを完了する",
+      "step2Desc": "簡単な手順に従ってタスクを完了します",
+
+      "step3Title": "証拠を提出する",
+      "step3Desc": "必要に応じてスクリーンショットや確認情報を提出します",
+
+      "step4Title": "報酬を受け取る",
+      "step4Desc": "報酬はアカウントに即時反映されます"
+    },
+
+    "benefitsTitle": "当社でタスクを行うメリット",
+
+    "benefits": {
+      "benefit1Title": "高い報酬",
+      "benefit1Desc": "他のプラットフォームより高い報酬を提供しています。広告主と直接提携しているため、最高の報酬率を実現しています。",
+
+      "benefit2Title": "即時承認",
+      "benefit2Desc": "ほとんどのタスクは即時承認されます。数分以内に報酬がアカウントへ反映されます。",
+
+      "benefit3Title": "100%信頼できる",
+      "benefit3Desc": "すべてのタスクは認証済みパートナーから提供されています。詐欺やスパムはなく、本物の収益機会のみです。",
+
+      "benefit4Title": "自由なスケジュール",
+      "benefit4Desc": "好きな時間に、世界中どこからでも自分のペースでタスクを完了できます。"
+    }
+  },
+  "terms": {
+    "quickNavigation": "クイックナビゲーション",
+
+    "nav": {
+      "acceptance": "1. 利用規約への同意",
+      "eligibility": "2. 利用資格",
+      "account": "3. アカウント登録",
+      "services": "4. サービス",
+      "earnings": "5. 報酬と支払い",
+      "conduct": "6. ユーザーの行動",
+      "termination": "7. 利用停止・終了",
+      "liability": "8. 責任の制限"
+    },
+
+    "sections": {
+      "acceptance": {
+        "title": "利用規約への同意",
+        "p1": "LabWards（以下「本サービス」）にアクセスまたは利用することにより、お客様は本利用規約（以下「本規約」）に同意したものとみなされます。本規約に同意できない場合は、本サービスをご利用いただけません。",
+        "p2": "当社は本規約をいつでも変更する権利を有します。変更は掲載された時点で直ちに有効となります。変更後も本サービスを利用し続けることで、変更後の規約に同意したものとみなされます。"
+      },
+
+      "eligibility": {
+        "title": "利用資格",
+        "intro": "LabWardsを利用するには、以下の条件を満たす必要があります。",
+        "item1": "18歳以上であること",
+        "item2": "法的拘束力のある契約を締結できる能力を有していること",
+        "item3": "適用法令により本サービスの利用が禁止されていないこと",
+        "item4": "正確かつ完全な登録情報を提供すること",
+        "outro": "本サービスは一部の地域では利用できない場合があります。現地法令を遵守する責任はお客様にあります。"
+      },
+
+      "account": {
+        "title": "アカウント登録",
+        "intro": "アカウント作成時、お客様は以下に同意するものとします。",
+        "item1": "正確で最新かつ完全な情報を提供すること",
+        "item2": "必要に応じて情報を更新・維持すること",
+        "item3": "パスワードを安全かつ秘密に保つこと",
+        "item4": "アカウントで行われるすべての活動に責任を負うこと",
+        "item5": "1人につき1つのアカウントのみ作成すること",
+        "outro": "これらの要件に違反した場合や不正行為が疑われる場合、当社はアカウントを停止または削除する権利を有します。"
+      },
+
+      "services": {
+        "title": "サービス",
+        "intro": "LabWardsでは、以下を含むさまざまなタスクを完了することで報酬を獲得できるプラットフォームを提供しています。",
+        "item1": "アンケートへの回答",
+        "item2": "モバイルゲームのプレイ",
+        "item3": "アプリケーションのテスト",
+        "item4": "動画の視聴",
+        "item5": "オファーへの登録",
+        "item6": "新規ユーザーの紹介",
+        "outro": "タスクの提供状況、報酬、条件は変更される場合があります。第三者によるオファーには、それぞれの利用規約が適用されます。"
+      },
+
+      "earnings": {
+        "title": "報酬と支払い",
+        "intro": "報酬および支払いについて：",
+        "item1": "報酬はタスク完了と確認後に付与されます",
+        "item2": "最低出金額は支払い方法によって異なります",
+        "item3": "不正行為や誤りが確認された場合、報酬を調整する権利を有します",
+        "item4": "規約違反によりアカウントが停止された場合、保留中の報酬は失効することがあります",
+        "item5": "報酬に関する税金はお客様の責任となります",
+        "outro": "支払い処理時間は支払い方法によって異なります。第三者決済サービスによる遅延について当社は責任を負いません。"
+      },
+
+      "conduct": {
+        "title": "ユーザーの行動",
+        "intro": "お客様は以下の行為を行ってはなりません。",
+        "item1": "複数アカウントの作成や偽名の使用",
+        "item2": "VPN、プロキシ、位置情報を隠すツールの使用",
+        "item3": "ボット、スクリプト、自動化ツールによるタスク実行",
+        "item4": "虚偽情報の提供や不正なタスク完了の申請",
+        "item5": "紹介プログラムの不正利用や操作",
+        "item6": "アカウントの共有または売買",
+        "item7": "他のユーザーやスタッフへの嫌がらせや迷惑行為",
+        "item8": "適用法令または第三者の権利の侵害",
+        "warning": "違反した場合、アカウント停止、報酬没収、永久利用禁止となる場合があります。"
+      },
+
+      "termination": {
+        "title": "利用停止・終了",
+        "intro": "当社は理由の有無にかかわらず、事前通知の有無を問わずアカウントを停止または終了する場合があります。理由には以下が含まれます。",
+        "item1": "本規約への違反",
+        "item2": "不正または疑わしい活動",
+        "item3": "長期間の利用停止",
+        "item4": "法執行機関または政府機関からの要請",
+        "outro": "お客様はアカウント設定からいつでもアカウントを削除できます。終了後は30日以内に出金可能な報酬を引き出してください。"
+      },
+
+      "liability": {
+        "title": "責任の制限",
+        "intro": "本サービスは「現状有姿」で提供され、いかなる保証も行いません。法律で認められる最大限の範囲において：",
+        "item1": "明示・黙示を問わず、すべての保証を否認します",
+        "item2": "間接的、偶発的、または結果的損害について責任を負いません",
+        "item3": "当社の責任総額は、過去12か月間にお客様が獲得した報酬額を超えません",
+        "item4": "第三者サービスやオファーについて責任を負いません"
+      },
+
+      "contact": {
+        "title": "お問い合わせ",
+        "desc": "本規約についてご質問がある場合は、以下までお問い合わせください。"
+      }
+    },
+
+    "relatedPolicies": "関連ポリシー",
+    "privacyPolicy": "プライバシーポリシー",
+    "cookiePolicy": "Cookieポリシー"
+  },
+
+  "wallet": {
+    "title": "マイウォレット",
+    "subtitle": "報酬と出金を管理",
+
+    "balance": {
+      "label": "利用可能残高",
+      "redeemGiftCard": "ギフトカードを引き換える",
+      "history": "履歴"
+    },
+
+    "stats": {
+      "pendingWithdrawal": "出金保留中",
+      "thisMonth": "今月",
+      "totalEarned": "総獲得額"
+    },
+
+    "withdrawals": {
+      "title": "出金リクエスト",
+      "pending": "保留中",
+      "rejected": "却下",
+      "reason": "理由",
+      "withdrawal": "出金"
+    },
+
+    "transactions": {
+      "title": "最近の取引",
+      "loading": "取引を読み込み中...",
+      "empty": "まだ取引はありません",
+      "taskCompleted": "タスク完了",
+      "giftCardPayout": "ギフトカード支払い",
+      "completed": "完了"
+    }
+  },
+  "affiliate": {
+    "title": "アフィリエイトプログラム",
+    "subtitle": "Labwardsに友達を紹介して報酬を獲得しましょう",
+
+    "tabs": {
+      "dashboard": "ダッシュボード",
+      "codes": "コード",
+      "tiers": "ランク"
+    },
+
+    "referral_link_title": "あなたの紹介リンク",
+    "referral_link_desc": "このリンクを友達と共有してコミッションを獲得しましょう！",
+    "copy": "コピー",
+    "copied": "✓ コピーしました！",
+    "affiliate_code": "あなたの紹介コード",
+
+    "share": {
+      "twitter": "𝕏 Twitter",
+      "facebook": "Facebook",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    },
+
+    "stats": {
+      "available_claim": "引き出し可能",
+      "pending_referrals": "保留中の紹介",
+      "total_referred": "紹介したユーザー数",
+      "total_earned": "総獲得額"
+    },
+
+    "claim_button1": "",
+    "claim_button2": "ウォレットに受け取る",
+
+    "referred_users_title": "紹介したユーザー",
+    "no_referred_users": "まだ紹介したユーザーはいません。リンクを共有して始めましょう！",
+
+    "code_title": "あなたの紹介コード",
+    "code_desc": "このコードを友達と共有してコミッションを獲得しましょう！",
+    "earnings_title": "紹介報酬",
+    "pending_earnings": "保留中の報酬",
+
+    "tiers_info": "より多くのユーザーを紹介すると、コミッション率がアップします！",
+
+    "tiers": {
+      "tier": "ランク",
+      "commission_rate": "コミッション率",
+      "requirement": "条件",
+      "default": "デフォルト（紹介0人）",
+      "tier2": "10人以上紹介",
+      "tier3": "25人以上紹介",
+      "tier4": "50人以上紹介（VIP）"
+    },
+
+    "how_it_works": "仕組み",
+    "steps": {
+      "1": "紹介リンクを友達と共有します",
+      "2": "友達が登録してオファーを完了すると、コミッションを獲得できます",
+      "3": "紹介人数が増えるほど、コミッション率が上がります",
+      "4": "管理者は優秀な紹介者にカスタムレートを設定できます",
+      "5": "獲得した報酬はいつでもウォレットに受け取れます"
+    },
+
+    "loading": "読み込み中..."
+  },
+
+  "earn_menu": {
+    "menu": {
+      "earn": "獲得",
+      "leaderboard": "ランキング",
+      "reward": "報酬",
+      "faq": "よくある質問",
+      "support": "サポート"
+    },
+    "close_menu": "メニューを閉じる",
+    "cashout": "出金",
+    "tournaments": "トーナメント",
+    "ongoing": "開催中",
+    "status": {
+      "active": "開催中",
+      "coming_soon": "近日公開",
+      "ended": "終了"
+    }
+  },
+
+  "chat_room": {
+    "title": "チャットルーム",
+    "system_message": "通常30分以内に返信いたします。お気軽にご質問ください。",
+    "agent_message": "こんにちは！サポートへお問い合わせいただきありがとうございます。本日はどのようなご用件でしょうか？",
+    "input_placeholder": "メッセージを入力してください...",
+    "agent_name": "Anna",
+    "user_name": "あなた"
+  },
+   "featuredSurvey": {
+    "title": "注目のアンケート",
+    "subtitle": "注目のタスクを完了して、より大きな報酬を獲得しましょう",
+    "seeMore": "もっと見る",
+    "startSurvey": "アンケートを開始",
+    "survey1": "アンケート 1",
+    "survey2": "アンケート 2",
+    "survey3": "アンケート 3",
+    "survey4": "アンケート 4",
+    "survey5": "アンケート 5",
+    "minutes": "2分"
+  },
+
+  "featuredTask": {
+    "title": "注目のプレミアムタスク",
+    "subtitle": "厳選された高報酬オファー",
+    "viewAll": "すべて表示",
+    "all": "すべて",
+    "priority": "優先",
+    "noOffers": "選択した条件に利用可能なプレミアムオファーはありません。"
+  },
+
+  "feedBar": {
+    "liveActivity": "ライブアクティビティ",
+    "loadingActivity": "アクティビティを読み込み中...",
+    "noRecentActivity": "最近のアクティビティはありません",
+    "now": "今",
+    "event": "イベント"
+  },
+
+  "forgotPassword": {
+    "title": "パスワードをお忘れですか？",
+    "subtitle": "アカウントに登録されているメールアドレスを入力してください",
+    "emailPlaceholder": "メールアドレス",
+    "existingMember": "すでにアカウントをお持ちですか？",
+    "requestReset": "パスワードリセットを申請"
+  },
+
+  "chat": "チャット",
+  "users_online": "オンラインユーザー",
+  "loading_messages": "メッセージを読み込み中...",
+  "no_messages": "まだメッセージはありません",
+  "say_hello": "最初に挨拶しましょう！",
+  "enter_message": "メッセージを入力...",
+  "general": "一般",
+  "trading": "取引",
+  "help": "ヘルプ",
+  "admin": "管理者",
+  "moderator": "モデレーター",
+  "sign_in_send": "メッセージを送信するにはサインインしてください",
+  "send_failed": "メッセージの送信に失敗しました",
+
+  "notif_maria_earned": "Maria が $5.00 を獲得しました",
+  "notif_jacob_withdrew": "Jacob が $10.70 を出金しました",
+  "notif_alex_earned": "Alex が $15.00 を獲得しました",
+  "notif_emma_withdrew": "Emma が $10.70 を出金しました",
+  "notif_michael_earned": "Michael が $15.00 を獲得しました",
+  "notif_sarah_withdrew": "Sarah が $10.70 を出金しました",
+  "minutes_ago": "3分前",
+
+  "notifications": "通知",
+  "all": "すべて",
+  "previous": "以前",
+  "special": "特別",
+  "account": "アカウント",
+  "earnings": "収益",
+  "cashouts": "出金",
+  "competitions": "コンテスト",
+  "no_new_notifications": "新しい通知はありません",
+  "notification": "通知",
+  "slide": "スライド",
+
+  "offerWalls": {
+    "title": "オファーウォール",
+    "subtitle": "オファーを完了して、より大きな報酬を獲得しましょう",
+    "loadError": "現在オファーウォールを読み込めません。しばらくしてからもう一度お試しください。",
+    "defaultDescription": "5分間プレイして報酬を獲得",
+    "failError": "オファーウォールの取得に失敗しました:",
+    "fallbackName": "オファーウォール",
+
+    "blockBlast": {
+      "name": "Block Blast",
+      "description": "ブロックを揃えてラインを消し、大きな報酬を獲得しましょう"
+    },
+    "questMaster": {
+      "name": "Quest Master",
+      "description": "壮大な冒険に出発し、ポイントを獲得しましょう"
+    },
+    "harvestValley": {
+      "name": "Harvest Valley",
+      "description": "理想の農場を作り、毎日報酬を獲得しましょう"
+    },
+    "turboDrift": {
+      "name": "Turbo Drift",
+      "description": "街を駆け抜けてニトロコインを集めましょう"
+    },
+    "jackpotSpin": {
+      "name": "Jackpot Spin",
+      "description": "プレミアムリールを回して豪華賞品を狙いましょう"
+    },
+    "starVoyage": {
+      "name": "Star Voyage",
+      "description": "銀河を探索し、隠された宇宙の宝を見つけましょう"
+    },
+    "monsterSquad": {
+      "name": "Monster Squad",
+      "description": "レアモンスターを集めて報酬を目指して戦いましょう"
+    }
+  },
+
+  "premiumOffers": {
+    "premiumOffers": "プレミアムオファー",
+    "exclusiveHighRewardOffers": "限定の高報酬オファー",
+    "taskDetails": "タスク詳細",
+    "status": "ステータス",
+    "notStarted": "未開始",
+    "category": "カテゴリー",
+    "provider": "提供元",
+    "premium": "プレミアム",
+    "description": "説明",
+    "rewards": "報酬",
+    "deviceNotSupported": "このデバイスには対応していません",
+    "offerAvailableFor": "このオファーは以下のデバイスで利用可能です:",
+    "yourDevice": "お使いのデバイス:",
+    "allPlatforms": "すべてのプラットフォーム",
+    "desktop": "デスクトップ",
+    "android": "Android",
+    "ios": "iOS",
+    "startTask": "タスクを開始",
+    "notAvailableForDevice": "お使いのデバイスでは利用できません",
+    "failedcountry": "国の検出に失敗しました:",
+    "failedtostart": "オファーの開始に失敗しました:",
+    "failedtopremiumoffers": "プレミアムオファーの取得に失敗しました:",
+    "noPremiumOffersAvailable": "利用可能なプレミアムオファーはありません",
+    "premiumOffersComingSoon": "プレミアムオファーは近日公開予定です！後でもう一度ご確認ください。"
+  },
+   "pricingHoldTimes": {
+    "title": "価格と保留期間",
+    "subtitle": "報酬が利用可能になるタイミングを確認しましょう",
+
+    "tiers": {
+      "under5": "$5未満",
+      "instantCredit": "即時反映",
+
+      "tenToFifteen": "$10～$15",
+      "hold15Days": "15日間保留",
+
+      "fifteenToTwentyFive": "$15～$25",
+      "hold25Days": "25日間保留",
+
+      "above25": "$25以上",
+      "hold35Days": "35日間保留"
+    },
+
+    "speedUpTitle": "承認をより早く",
+    "speedUpDescription": "オファーの証拠を提出すると、承認が早まり保留期間を短縮できます。確認済みの提出は即時承認される場合があります！"
+  },
+
+  "recentActivity": {
+    "title": "最近のアクティビティ",
+    "description": "リアルタイムの収益、報酬、出金履歴",
+
+    "tabs": {
+      "all": "すべて",
+      "earnings": "収益",
+      "cashout": "出金",
+      "rewards": "報酬"
+    },
+
+    "headers": {
+      "provider": "提供元",
+      "time": "時間",
+      "amount": "金額",
+      "name": "名前",
+      "type": "種類",
+      "user": "ユーザー"
+    },
+
+    "activityTypes": {
+      "earn": "収益",
+      "crypto": "暗号資産",
+      "reward": "報酬",
+      "activity": "アクティビティ"
+    },
+
+    "emptyState": {
+      "title": "最近のアクティビティはありません",
+      "description": "ユーザーがオファーを完了したり報酬を出金すると、ここに表示されます。"
+    },
+
+    "liveFeed": "リアルタイムアクティビティ",
+    "unknown": "不明",
+    "defaultActivity": "アクティビティ",
+
+    "time": {
+      "justNow": "たった今",
+      "minsAgo": "{{count}}分前",
+      "hoursAgo": "{{count}}時間前",
+      "daysAgo": "{{count}}日前"
+    }
+  },
+
+  "redOrBlackGame": {
+    "loading": "ゲームを読み込み中...",
+    "signInRequired": "プレイするにはサインインしてください",
+    "playOncePerDay": "このゲームは1日1回のみプレイできます！",
+    "earnMoreRequired": "デイリーボーナスをプレイするには、本日最低$1.00を獲得する必要があります！",
+    "playFailed": "ゲームの開始に失敗しました",
+    "winToast": "🎉 おめでとうございます！獲得：",
+    "loseToast": "今回は残念でした！また明日挑戦してください。",
+
+    "title": "🎰 デイリー赤・黒ボーナス",
+    "subtitle": "本日$1.00以上稼いで、デイリーボーナススピンをアンロックしましょう！",
+
+    "todayEarnings": "本日の収益",
+    "needMore": "必要額：",
+    "more": "不足",
+    "balance": "残高",
+
+    "status": {
+      "playedToday": "✅ 本日はプレイ済み - また明日！",
+      "ready": "🎯 プレイ可能！",
+      "locked": "💰 $1.00稼ぐとアンロック"
+    },
+
+    "result": {
+      "won": "🎉 当たり！",
+      "lost": "😔 はずれ",
+      "resultLabel": "結果"
+    },
+
+    "bonusRewards": "🎁 デイリーボーナス報酬",
+    "minimumWin": "最低獲得額",
+    "maximumWin": "最高獲得額",
+    "bonusDescription": "毎日1回無料でスピンできます。賭け金は不要で、賞金はランダムに決定されます。",
+
+    "buttons": {
+      "red": "🔴 赤",
+      "black": "⚫ 黒"
+    },
+
+    "gameInfo": {
+      "title": "🎯 デイリーボーナスゲーム - 1日1回無料スピン",
+      "unlock": "💰 本日$1.00以上稼ぐとスピンをアンロック",
+      "reward": "🎁 $0.10～$10.00を即時獲得できるチャンス！"
+    }
+  },
+  "rewardStreakBoxes": {
+  "dailyStreak": "デイリーストリーク",
+  "dailyBonus": "デイリーボーナス",
+  "totalEarned": "合計獲得額",
+  "yourRank": "あなたのランク",
+
+  "days": "日",
+
+  "ranks": {
+    "bronze": "ブロンズ",
+    "silver": "シルバー",
+    "gold": "ゴールド",
+    "platinum": "プラチナ",
+    "diamond": "ダイヤモンド"
+  },
+
+  "errors": {
+    "fetchStatsFailed": "統計情報の取得に失敗しました"
+  }
+},
+
+"surveyWalls": {
+  "title": "アンケートウォール",
+  "subtitle": "あなたの意見を共有して報酬を獲得しましょう",
+  "providers": {
+    "bitlab": "Bitlab",
+    "cpxResearch": "CPX Research",
+    "pollfish": "Pollfish",
+    "inbrain": "Inbrain",
+    "theoremReach": "TheoremReach"
+  }
+},
+
+"supportChat": {
+  "welcomeMessage": "ライブサポートにお問い合わせいただく前に、ヘルプデスクをご確認ください。問題やご質問への回答がすぐに見つかる場合があります！",
+  "signInRequired": "サポートに連絡するにはサインインしてください。",
+  "sendFailed": "メッセージの送信に失敗しました",
+
+  "header": {
+    "title": "サポート",
+    "close": "閉じる"
+  },
+
+  "helpSection": {
+    "title": "お困りですか？",
+    "online": "サポートはオンラインです",
+    "faq": "よくある質問"
+  },
+
+  "messages": {
+    "brandName": "LabWards",
+    "support": "サポート"
+  },
+
+  "input": {
+    "placeholder": "メッセージを入力してください..."
+  }
+},
+
+"wallet1": {
+  "title": "ウォレット",
+  "withdrawal": "出金",
+  "promoCode": "プロモコード",
+
+  "cash": "現金",
+  "crypto": "暗号資産",
+  "vouchers": "バウチャー",
+  "myWallet": "マイウォレット",
+
+  "paymentMethod": "支払い方法",
+  "chain": "チェーン",
+
+  "walletAddress": "ウォレットアドレス",
+  "enterWalletAddress": "ウォレットアドレスを入力してください",
+
+  "recipientEmail": "受取人のメールアドレス",
+
+  "amount": "金額",
+  "customAmount": "カスタム金額",
+  "orEnterCustomAmount": "または金額を入力してください：",
+
+  "createWithdrawal": "出金を作成",
+  "processing": "処理中...",
+
+  "enterPromoCode": "プロモコードを入力してください",
+  "applyPromoCode": "プロモコードを適用",
+  "redeeming": "引き換え中...",
+
+  "paymentDetails": "支払い詳細",
+  "cryptoType": "暗号資産の種類",
+  "amountUSD": "金額（USD）",
+  "payAmount": "支払金額",
+  "invoiceId": "請求書ID",
+  "status": "ステータス",
+  "confirmPayment": "支払いを確認",
+  "confirming": "確認中...",
+  "close": "閉じる",
+
+  "virtualvisa": "バーチャルVisa",
+  "tron": "Tron",
+  "ripple": "Ripple (XRP)",
+  "usdcoin": "USD Coin",
+
+  "messages": {
+    "paymentConfirmed": "支払いが正常に確認されました！",
+    "paymentConfirmFailed": "支払いの確認に失敗しました",
+    "enterPromo": "プロモコードを入力してください",
+    "signInPromo": "プロモコードを利用するにはサインインしてください",
+    "promoRedeemed": "プロモコードが正常に適用されました",
+    "promoFailed": "プロモコードの適用に失敗しました",
+    "enterRecipientEmail": "受取人のメールアドレスを入力してください",
+    "enterWallet": "ウォレットアドレスを入力してください",
+    "validAmount": "有効な金額を入力してください",
+    "paypalMinimum": "PayPalの最低出金額は5ドルです",
+    "signInWithdrawal": "出金するにはサインインしてください",
+    "withdrawalSubmitted": "出金リクエストが送信されました！管理者の確認をお待ちください。",
+    "withdrawalFailed": "出金リクエストの作成に失敗しました",
+    "tryAgain": "出金リクエストの作成に失敗しました。もう一度お試しください。"
+  }
+},
+"watchWalls": {
+    "title": "動画ウォール",
+    "description": "動画を視聴して報酬を獲得",
+    "offers": {
+      "vegasCraze": "Vegas Craze",
+      "morningShow": "The Morning Show",
+      "amazon": "Amazon"
+    }
+  },
+
+  "benefits": {
+    "badge": "複数の出金オプション",
+    "title": "お好きな方法で報酬を受け取ろう",
+    "description": "複数の出金方法から選択して、すぐに報酬を受け取れます。主要な決済プラットフォームに対応しています。",
+
+    "paymentMethods": {
+      "paypal": "PayPal",
+      "visa": "VISA",
+      "amazon": "Amazon",
+      "worldcoin": "Worldcoin",
+      "bitcoin": "Bitcoin",
+      "litecoin": "Litecoin",
+      "dogecoin": "Dogecoin",
+      "solana": "Solana"
+    },
+
+    "features": {
+      "instantPayouts": {
+        "title": "即時出金",
+        "description": "高速処理システムにより、報酬をすぐに受け取れます。"
+      },
+      "noHiddenFees": {
+        "title": "隠れた手数料なし",
+        "description": "追加料金のない、わかりやすい料金体系です。"
+      },
+      "flexibleOptions": {
+        "title": "柔軟な支払い方法",
+        "description": "あなたに最適な支払い方法を自由に選べます。"
+      }
+    }
+  },
+
+  "footer1": {
+    "cta": {
+      "title": "今すぐ報酬を獲得しませんか？",
+      "description": "実際に収益を得ている何千人ものユーザーに参加しましょう。",
+      "button": "始める"
+    },
+
+    "brandDescription": "空いた時間を本物の報酬に変えましょう。タスク、アンケート、オファーを完了して収益を獲得できます。",
+
+    "madeWithPassion": "コミュニティへの情熱を込めて制作",
+
+    "sections": {
+      "product": "サービス",
+      "support": "サポート",
+      "connect": "つながる"
+    },
+
+    "links": {
+      "games": "ゲーム",
+      "tasks": "タスク",
+      "surveys": "アンケート",
+      "rewards": "報酬",
+      "helpCenter": "ヘルプセンター",
+      "contactUs": "お問い合わせ",
+      "faq": "よくある質問",
+      "terms": "利用規約",
+      "privacy": "プライバシーポリシー",
+      "cookies": "Cookieポリシー"
+    },
+
+    "copyright": "© 2025 LabWards. All rights reserved."
+  },
+  "questions": {
+    "badge": "特典",
+    "title": "必要な答えがここにあります",
+    "description": "収益、出金、紹介制度などに関するよくある質問への回答をご覧ください。",
+
+    "questions": {
+      "q1": {
+        "question": "Labwardsで収益を始めるにはどうすればいいですか？",
+        "answer1": "無料アカウントを作成してログインしてください。",
+        "answer2": "アンケート、ゲーム、アプリ登録、デイリーチェックインなどの利用可能なタスクを選択します。",
+        "answer3": "指示に従ってタスクを完了すると、すぐに報酬を獲得できます。",
+        "answer4": "「マイタスク」で進捗を確認し、最低出金額に達したら、お好きな支払い方法で出金できます。"
+      },
+      "q2": {
+        "question": "利用できる出金方法は何ですか？",
+        "answer": "PayPal、Visa、Amazonギフトカード、Worldcoin、Bitcoin、Litecoin、Dogecoin、Solanaなど、さまざまな出金方法をご利用いただけます。お好きな方法をお選びください。"
+      },
+      "q3": {
+        "question": "支払いを受け取るまでどのくらいかかりますか？",
+        "answer": "ほとんどの支払いは即時処理されます。暗号資産の出金は通常数分以内に完了し、PayPalやギフトカードは混雑時には最大24時間かかる場合があります。"
+      },
+      "q4": {
+        "question": "紹介プログラムはどのように機能しますか？",
+        "answer": "あなた専用の紹介リンクを友達に共有すると、その友達が獲得した報酬の10％を永久に受け取ることができます。紹介人数や報酬額に制限はありません。"
+      },
+      "q5": {
+        "question": "Labwardsは無料で利用できますか？",
+        "answer": "もちろんです！Labwardsは100％無料で利用できます。隠れた料金やサブスクリプションは一切ありません。タスクを完了するだけで本物の報酬を獲得できます。"
+      }
+    }
+  },
+
+  "testimonials1": {
+    "realStories": "ユーザーの声",
+    "title": "ユーザーのレビュー",
+    "subtitle": "私たちのプラットフォームを信頼する何千人ものユーザーに参加しましょう。",
+
+    "items": {
+      "1": {
+        "text": "スマホでゲームをプレイするだけで、1週間以内に最初の50ドルを稼げました。PayPalへの即時出金が最高です！",
+        "location": "アメリカ",
+        "name": "James R."
+      },
+      "2": {
+        "text": "最初は半信半疑でしたが、いくつかのアンケートに回答しただけでPayPalに出金できました。本当に早くて安心です！",
+        "location": "イギリス",
+        "name": "Sarah M."
+      },
+      "3": {
+        "text": "今まで使った中で最高の収益プラットフォームです。毎日のチャレンジがやる気を維持してくれ、Bitcoinの支払いも即時です。",
+        "location": "カナダ",
+        "name": "David K."
+      },
+      "4": {
+        "text": "稼ぎ方がたくさんあるのが気に入っています！ゲームやアンケートだけで、毎月200ドル以上の副収入を得ています。",
+        "location": "オーストラリア",
+        "name": "Emily C."
+      },
+      "5": {
+        "text": "紹介プログラムは本当に素晴らしいです。友達を招待しただけで500ドル以上稼ぎました。自信を持っておすすめします！",
+        "location": "ドイツ",
+        "name": "Michael T."
+      },
+      "6": {
+        "text": "実際に支払ってくれる信頼できるプラットフォームをようやく見つけました！Amazonギフトカードに交換しましたが、とても簡単でした。",
+        "location": "オランダ",
+        "name": "Jessica L."
+      }
+    }
+  },
+
+  "verify": {
+    "title1": "Labwards",
+    "title2": "コミュニティに参加しましょう",
+    "subtitle": "すでに何千人ものユーザーが毎日報酬を獲得しています。数秒で無料アカウントを作成し、あなたの時間を収益に変えましょう。",
+    "startEarning": "無料で収益を始める",
+    "joinDiscord": "Discordに参加",
+    "noCreditCard": "クレジットカード不要",
+    "instantSignup": "すぐに登録",
+    "fastPayouts": "迅速な出金"
+  },
+   "whyChooseUs": {
+    "badge": "私たちを選ぶ理由",
+    "title": "収益を得るために必要なすべて",
+    "subtitle": "私たちのプラットフォームは、シンプルで楽しく、安全に稼げるよう設計されています。今すぐ始めましょう。",
+
+    "mobileGames": {
+      "title": "モバイルゲーム",
+      "description": "人気ゲームをプレイして本物の報酬を獲得。高報酬ゲームを毎日追加！",
+      "hot": "人気",
+      "games": "ゲーム",
+      "avgPay": "平均報酬",
+      "start": "開始",
+      "browse": "ゲームを見る",
+      "game1": "Sea of Conquest",
+      "game2": "Farming Game",
+      "game3": "SpongeBob"
+    },
+
+    "quickSurveys": {
+      "title": "簡単アンケート",
+      "description": "あなたの意見を共有して、アンケート1件につき2～10ドルを獲得。",
+      "badge": "5分",
+      "point1": "アンケート1件で2～10ドル",
+      "point2": "所要時間3～10分",
+      "cta": "アンケートを始める"
+    },
+
+    "dailyChallenges": {
+      "title": "デイリーチャレンジ",
+      "description": "毎日の目標を達成して、最大50ドルの連続ボーナスを獲得！",
+      "badge": "ボーナス",
+      "cta": "チャレンジを見る"
+    },
+
+    "appTesting": {
+      "title": "アプリテスト",
+      "description": "新しいアプリをテストして、1件あたり10～75ドルを獲得！",
+      "badge": "高報酬",
+      "cta": "アプリを見る"
+    },
+
+    "cashout": {
+      "title": "12種類以上の出金方法",
+      "description": "お好きな方法で即時に受け取り！",
+      "badge": "即時",
+      "cta": "今すぐ出金"
+    }
+  },
+
+  "leaderboard": {
+    "title": "ランキング",
+    "subtitle": "トップユーザーと競い合い、報酬を獲得しましょう！",
+    "competitionEnds": "終了まで",
+    "topEarner": "トップ獲得者",
+    "participants": "参加者",
+    "topWinners": "上位3名",
+    "fullRankings": "ランキング一覧",
+    "loading": "読み込み中...",
+    "you": "あなた",
+    "points": "ポイント",
+    "pts": "pt",
+    "openProgress": "{{name}} のランキング進捗を開く"
+  },
+   "account1": {
+    "title": "アカウント",
+    "viewProfile": "プロフィールを見る",
+    "labwardId": "Labward ID",
+    "level": "レベル",
+    "gold": "ゴールド",
+    "silver": "シルバー",
+    "bronze": "ブロンズ",
+
+    "availableBalance": "利用可能残高",
+    "totalEarnings": "総収益",
+    "withdrawn": "出金済み",
+    "completedPayouts": "完了した出金",
+
+    "all": "すべて",
+    "offers": "オファー",
+    "tasks": "タスク",
+    "cashout": "出金",
+    "reward": "報酬",
+    "exportCsv": "CSVをエクスポート",
+
+    "name": "名前",
+    "date": "日付",
+    "type": "種類",
+    "amount": "金額",
+    "status": "ステータス",
+    "action": "操作",
+    "completed": "完了",
+    "pending": "保留中",
+    "loading": "読み込み中...",
+
+    "profileInfo": "プロフィール情報",
+    "username": "ユーザー名",
+    "save": "保存",
+    "emailAddress": "メールアドレス",
+    "verified": "認証済み",
+    "change": "変更",
+    "publicStatus": "公開ステータス",
+    "securitySettings": "メールアドレスの変更はセキュリティ設定から行えます",
+
+    "emailNotifications": "メール通知",
+    "connections": "連携",
+    "referral": "紹介",
+    "mutedUsers": "ミュートしたユーザー",
+    "deleteAccount": "アカウントを削除",
+
+    "worldcoin": "Worldcoin",
+    "notConnected": "未接続",
+    "link": "連携",
+
+    "totalInvitee": "紹介した人数",
+    "noReferrals": "紹介はありません",
+    "referrals": "紹介",
+
+    "cashoutConfirmation": "出金確認",
+    "cashoutSubtitle": "出金時に確認通知を受け取ります",
+    "failedtoload": "アカウントページのデータを読み込めませんでした",
+    "signin": "プロフィールを更新するにはログインしてください",
+    "profileUpdated": "プロフィールを更新しました",
+    "unabletosave": "現在プロフィールを更新できません",
+    "changeprofilepic": "プロフィール画像を変更",
+    "avataruploadchange": "プロフィール画像はプロフィール設定から変更できます",
+    "muhammadh": "Muhammed H",
+    "csv": "CSVエクスポートは次回のアップデートで利用可能になります",
+    "open": "開く",
+    "worldcoinavailable": "Worldcoin連携は近日中に利用可能になります",
+    "unmute": "ミュート解除",
+    "delacc": "アカウントを削除するにはサポートへお問い合わせください",
+
+    "earnConfirmation": "収益通知",
+    "earnSubtitle": "収益に関する通知を受け取ります",
+
+    "leaderboardWinnings": "ランキング報酬",
+    "leaderboardSubtitle": "ランキングの順位や報酬の更新を受け取ります",
+
+    "promotionalAlerts": "プロモーション通知",
+    "promotionalSubtitle": "限定キャンペーンや特典情報を受け取ります",
+
+    "newsletterUpdates": "ニュースレター",
+    "newsletterSubtitle": "最新情報やヒントを含む週刊ニュースレターを受け取ります"
+  },
+
+  "others": {
+    "bonusCode": "ボーナスコード",
+    "bonusDescription": "ボーナスコードをお持ちですか？ここに入力して報酬を受け取り、残高を増やしましょう！",
+    "enterBonusCode": "ボーナスコードを入力",
+    "redeemBonusCode": "ボーナスコードを利用",
+    "redeeming": "利用中...",
+
+    "pleaseEnterBonusCode": "ボーナスコードを入力してください",
+    "pleaseSignIn": "ボーナスコードを利用するにはログインしてください",
+    "bonusRedeemed": "ボーナスコードが正常に適用されました",
+    "failedRedeem": "ボーナスコードの利用に失敗しました",
+
+    "selfExclusion": "セルフ除外",
+    "selfExclusionDescription": "セルフ除外機能を使用すると、いつでもゲームを一時的に休止できます。休止期間を選択すると、その間ゲームへのアクセスが停止されます。その他の機能や報酬システムは引き続き利用できます。",
+
+    "activateSelfExclusion": "セルフ除外を有効にする",
+
+    "day1": "1日",
+    "day3": "3日",
+    "day7": "7日",
+    "day14": "14日",
+    "day30": "30日"
+  },
+  "profile": {
+    "leaderboard": "ランキング",
+    "all": "すべて",
+    "badges": "バッジ",
+    "statistics": "統計",
+    "offers": "オファー",
+
+    "offersCompleted": "完了したオファー",
+    "totalEarnings": "総収益",
+    "usersReferred": "紹介したユーザー",
+    "last30DEarnings": "過去30日間の収益",
+
+    "name": "名前",
+    "reward": "報酬",
+    "time": "時間",
+
+    "noOffers": "表示するオファーはありません",
+    "privateProfile": "このユーザーのプロフィールは非公開です。",
+    "couldNotLoadUser": "ユーザープロフィールを読み込めませんでした。",
+    "couldNotLoadProfile": "プロフィールを読み込めませんでした。サインインしてください。",
+
+    "joined": "参加日 ",
+    "day": "日",
+    "month": "か月",
+    "year": "年",
+
+    "justNow": "たった今",
+    "minutesAgo": "{{count}}分前",
+    "minutesAgo_plural": "{{count}}分前",
+
+    "hoursAgo": "{{count}}時間前",
+    "hoursAgo_plural": "{{count}}時間前",
+
+    "daysAgo": "{{count}}日前",
+    "daysAgo_plural": "{{count}}日前",
+
+    "monthsAgo": "{{count}}か月前",
+    "monthsAgo_plural": "{{count}}か月前",
+
+    "yearsAgo": "{{count}}年前",
+    "yearsAgo_plural": "{{count}}年前",
+
+    "user": "ユーザー",
+    "max": "最大",
+    "beginner": "初心者",
+    "amateur": "アマチュア"
+  },
+
+  "preferences": {
+    "privateProfile": "プロフィールを非公開にする",
+    "privateProfileDescription": "他のユーザーにアクティビティ、ユーザー名、統計情報を表示しません",
+
+    "activityBar": "アクティビティバー",
+    "activityBarDescription": "最近のアクティビティややり取りを表示します",
+    "profile": "プロフィールは現在",
+
+    "displayInUSD": "USDで表示",
+    "displayInUSDDescription": "すべての金額をUSDで表示します",
+
+    "pleaseSignIn": "設定を更新するにはサインインしてください",
+    "updateFailed": "プライバシー設定の更新に失敗しました"
+  },
+
+  "profileControls": {
+    "bonusCode": "ボーナスコード",
+    "enterCode": "コードを入力",
+    "redeem": "利用する",
+    "redeemed": "利用済み",
+    "redeemFailed": "コードの利用に失敗しました",
+    "claimtoFailed": "受け取りに失敗しました",
+
+    "dailyStreak": "デイリーストリーク",
+    "checking": "確認中...",
+    "dayStreak": "{{count}}日連続",
+    "rewardsPageNote": "毎日のボーナスは報酬ページをご覧ください",
+
+    "monthlyLeaders": "今月のランキング",
+    "noLeaders": "まだランキングはありません",
+    "anonymous": "匿名",
+
+    "recentTasks": "最近のタスク",
+    "task": "タスク",
+
+    "claimFailed": "受け取りに失敗しました",
+    "claimed": "受け取りました！",
+    "playFailed": "プレイに失敗しました",
+    "playResultReceived": "プレイ結果を受信しました"
+  },
+
+  "profileDashboard": {
+    "completed": "完了",
+    "onHold": "保留中",
+    "started": "開始済み",
+    "searchTasks": "タスクを検索",
+
+    "id": "ID",
+    "name": "名前",
+    "provider": "プロバイダー",
+    "status": "ステータス",
+    "completionTime": "完了時間",
+    "reward": "報酬",
+    "date": "日付",
+
+    "noTasks": "このセクションにはタスクがありません",
+    "untitled": "無題",
+    "inProgress": "進行中",
+
+    "loadingProfile": "プロフィールを読み込み中...",
+    "joined": "参加日",
+    "earnId": "Earn ID",
+
+    "silver": "シルバー",
+    "xpStart": "0 XP",
+    "xpEnd": "100,000 XP",
+
+    "overview": "概要",
+    "myWallet": "マイウォレット",
+    "settings": "設定",
+    "transactions": "取引",
+    "withdrawals": "出金",
+
+    "totalEarned": "総収益",
+    "last30DaysEarned": "過去30日間の収益",
+    "lifetimeRevenue": "累計収益",
+    "earningsOnHold": "保留中の収益"
+  },
+   "homepage": {
+    "welcomeBack": "おかえりなさい",
+    "welcomeDescription": "進捗を確認し、最近のアクティビティを表示し、個人ダッシュボードから報酬を管理しましょう。",
+
+    "dailyStreak": "デイリーストリーク",
+    "dailyBonus": "デイリーボーナス",
+    "totalEarned": "合計獲得額",
+    "currentRank": "現在のランク",
+    "numberOfTasks": "タスク数",
+
+    "slightlyHigher": "平均よりやや高い",
+
+    "offersAvailable": "利用可能なオファー",
+    "playAndEarn": "プレイして稼ぐ",
+    "farmLobby": "ファームロビー",
+    "turboChange": "ターボチェンジ",
+    "presMark": "プレスマーク",
+    "desc": "5分プレイして最大3ドル獲得",
+
+    "offerFallbackTitle": "オファー",
+    "offerFallbackDescription": "このオファーを完了して報酬を獲得しましょう"
+  },
+
+  "earningsPage": {
+    "goHome": "ホームへ移動",
+    "openNotifications": "通知を開く",
+    "openWallet": "ウォレットを開く",
+    "goCashout": "出金ページへ",
+    "cashout": "出金",
+    "openAccount": "アカウントを開く",
+
+    "userWithdrew": "ユーザーが出金しました",
+    "userEarned": "ユーザーが獲得しました",
+    "offerWalls": "オファーウォール",
+
+    "viewAll": "すべて表示",
+
+    "featured": "注目",
+    "survey": "アンケート",
+
+    "noFeaturedResults": "選択したフィルターに一致する注目結果はありません。",
+    "noProvidersFound": "選択したフィルターに一致するプロバイダーが見つかりません。",
+
+    "categories": {
+      "viewAll": "すべて表示",
+      "fastCompletion": "短時間で完了",
+      "signUpTrial": "無料登録・トライアル",
+      "saveMoney": "節約",
+      "casino": "カジノ",
+      "puzzle": "パズル",
+      "sweepstake": "懸賞"
+    },
+
+    "searchPlaceholder": "ゲームまたはプロバイダーを検索",
+
+    "sort": {
+      "sortBy": "並び替え",
+      "default": "並び替え",
+      "lowToHigh": "報酬：低い順",
+      "highToLow": "報酬：高い順",
+      "popular": "人気順",
+      "short": "並び替え",
+      "low": "低い",
+      "high": "高い"
+    },
+
+    "providers": {
+      "all": "プロバイダー",
+      "single": "プロバイダー",
+      "monlix": "Monlix",
+      "mylead": "MyLead",
+      "gemiad": "GemiAd",
+      "nortik": "Nortik",
+      "cpxResearch": "CPX Research"
+    },
+
+    "games": {
+      "tileTapMaster": "Tile Tap Master",
+      "goblinsWoods": "Goblins Woods",
+      "slot": "スロット",
+      "angryBird": "Angry Bird",
+      "screwOutFactory": "Screw Out Factory",
+      "bigGiant": "Big Giant"
+    }
+  }
+}
