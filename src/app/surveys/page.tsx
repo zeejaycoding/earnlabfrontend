@@ -399,8 +399,7 @@ export default function SurveysPage() {
         const r = await fetch(`${API}${ep}`, { method: "POST", headers, body });
         if (r.status === 404 || r.status === 405) continue;
         const d = await r.json().catch(() => ({}));
-        const text = await r.text();
-        console.log("SURVEY RESPONSE:", r.status, text);
+        console.log("SURVEY RESPONSE:", r.status, JSON.stringify(d));
 
         if (!r.ok) throw new Error(d.message || `Error ${r.status}`);
         ok = true;
