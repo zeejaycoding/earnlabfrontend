@@ -139,7 +139,7 @@ const StartTaskModal: React.FC<StartTaskModalProps> = ({ isOpen, onClose, task =
                         return;
                       }
                       const body = await res.json().catch(() => ({}));
-                      toast.success(body?.message || "Task completed — reward credited");
+                      toast.success(body?.message || "Task completed — reward on hold");
                       // notify parent to refresh tasks list
                       onComplete?.();
                       onClose();

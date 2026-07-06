@@ -30,6 +30,7 @@ interface AccountProfile {
   email: string;
   avatarUrl?: string;
   balanceCents: number;
+  pendingBalanceCents: number;
   profilePrivacy: "public" | "private";
 }
 
@@ -81,6 +82,7 @@ interface ApiProfilePayload {
   email?: string;
   avatarUrl?: string;
   balanceCents?: number;
+  pendingBalanceCents?: number;
   profilePrivacy?: "public" | "private";
 }
 
@@ -216,6 +218,7 @@ const defaultMutedUsers: MutedUser[] = [
 ];
 
   const [recentOffers, setRecentOffers] = useState<RecentOffer[]>([]);
+  const [offerLogs, setOfferLogs] = useState<any[]>([]);
   const [historyFilter, setHistoryFilter] = useState<HistoryFilter>("all");
   const [usernameDraft, setUsernameDraft] = useState("");
   const [publicStatusDraft, setPublicStatusDraft] = useState("Summary");
@@ -332,6 +335,7 @@ if (!token) {
         email: payload.email || "",
         avatarUrl: payload.avatarUrl,
         balanceCents: payload.balanceCents || 0,
+        pendingBalanceCents: payload.pendingBalanceCents ?? 0,
         profilePrivacy: payload.profilePrivacy || "public",
       };
 
@@ -366,6 +370,17 @@ if (!token) {
               last30DaysCents: gameData.stats?.last30DaysCents || prev.last30DaysCents,
               referralCount: gameData.stats?.referralCount || prev.referralCount,
             }));
+          }
+        }
+
+        // fetch offer logs to show real hold/pending status
+        const offerLogRes = await fetch(`${API_BASE}/api/v1/user/offer-logs`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (offerLogRes.ok) {
+          const offerLogData = await offerLogRes.json();
+          if (Array.isArray(offerLogData.items)) {
+            setOfferLogs(offerLogData.items);
           }
         }
       }
@@ -435,21 +450,61 @@ if (!token) {
   };
 
   const historyRows = useMemo<HistoryRow[]>(() => {
-    if (recentOffers.length === 0) {
+    // build a lookup from offer logs by offerId
+    const logByOfferId: Record<string, any> = {};
+    const logByName: Record<string, any> = {};
+    offerLogs.forEach((log: any) => {
+      logByOfferId[log._id] = log;
+      logByOfferId[log.offerId] = log;
+      logByName[log.offerName?.toLowerCase()] = log;
+    });
+
+    if (recentOffers.length === 0 && offerLogs.length === 0) {
       return createFallbackHistory();
     }
 
-    return recentOffers.slice(0, 8).map((offer, index) => ({
-      id: offer._id || `recent-${index}`,
-      name: offer.title || "Offer",
-      date: formatDateLabel(offer.completedAt),
-      type: "reward",
-      amountCents: offer.rewardCents || 0,
-      status: "completed",
-      category: index % 3 === 0 ? "offers" : index % 3 === 1 ? "tasks" : "reward",
-      href: `/tasks`,
-    }));
-  }, [recentOffers]);
+    // first, add rows from offer logs (richer data with real status)
+    const rows: HistoryRow[] = [];
+    const seenIds = new Set<string>();
+
+    offerLogs.slice(0, 20).forEach((log: any) => {
+      if (seenIds.has(log._id?.toString())) return;
+      seenIds.add(log._id?.toString());
+      const isHeld = log.status === "held";
+      rows.push({
+        id: log._id?.toString() || `log-${rows.length}`,
+        name: log.offerName || "Earning",
+        date: formatDateLabel(log.createdAt),
+        type: "reward",
+        amountCents: log.amountCents || 0,
+        status: isHeld ? "pending" : "completed",
+        category: log.provider === "task" ? "tasks" : log.provider === "referral" ? "reward" : "offers",
+        href: `/tasks`,
+      });
+    });
+
+    // fall back to recentOffers for items not covered by offer logs
+    if (rows.length < 8) {
+      recentOffers.forEach((offer, index) => {
+        if (seenIds.has(offer._id)) return;
+        seenIds.add(offer._id);
+        const log = logByName[offer.title?.toLowerCase()];
+        const isHeld = log?.status === "held";
+        rows.push({
+          id: offer._id || `recent-${index}`,
+          name: offer.title || "Offer",
+          date: formatDateLabel(offer.completedAt),
+          type: "reward",
+          amountCents: offer.rewardCents || 0,
+          status: isHeld ? "pending" : "completed",
+          category: index % 3 === 0 ? "offers" : index % 3 === 1 ? "tasks" : "reward",
+          href: `/tasks`,
+        });
+      });
+    }
+
+    return rows.slice(0, 8);
+  }, [recentOffers, offerLogs]);
 
   const filteredHistoryRows = useMemo(() => {
     if (historyFilter === "all") return historyRows;
@@ -458,17 +513,17 @@ if (!token) {
 
   const accountTotals = useMemo(() => {
     const availableBalance = profile?.balanceCents || 0;
-    const totalEarnings = Math.max(stats.totalEarningsCents, availableBalance);
-    const withdrawn = Math.max(totalEarnings - availableBalance, 0);
-    const completedPayouts = stats.last30DaysCents > 0 ? stats.last30DaysCents : totalEarnings;
+    const pendingBalance = profile?.pendingBalanceCents ?? 0;
+    const totalEarnings = Math.max(stats.totalEarningsCents, availableBalance + pendingBalance);
+    const withdrawn = Math.max(totalEarnings - (availableBalance + pendingBalance), 0);
 
     return {
       availableBalance,
+      pendingBalance,
       totalEarnings,
       withdrawn,
-      completedPayouts,
     };
-  }, [profile?.balanceCents, stats.last30DaysCents, stats.totalEarningsCents]);
+  }, [profile?.balanceCents, profile?.pendingBalanceCents, stats.totalEarningsCents]);
 
   const toggleNotification = (key: string) => {
     setNotificationSettings((prev) => {
@@ -585,6 +640,11 @@ if (!token) {
                   activeBars={3}
                 />
                 <MetricCard
+                  value={formatCurrency(accountTotals.pendingBalance)}
+                  label={t("account1.onHold")}
+                  activeBars={4}
+                />
+                <MetricCard
                   value={formatCurrency(accountTotals.totalEarnings)}
                   label={t("account1.totalEarnings")}
                   activeBars={6}
@@ -592,11 +652,6 @@ if (!token) {
                 <MetricCard
                   value={formatCurrency(accountTotals.withdrawn)}
                   label={t("account1.withdrawn")}
-                  activeBars={6}
-                />
-                <MetricCard
-                  value={formatCurrency(accountTotals.completedPayouts)}
-                  label={t("account1.completedPayouts")}
                   activeBars={6}
                 />
               </div>
@@ -653,7 +708,11 @@ if (!token) {
                     <span className="text-white">{row.type === "reward" ?  t("account1.reward") : row.type}</span>
                     <span className="text-white">{formatCurrency(row.amountCents)}</span>
                     <span>
-                      <span className="inline-flex rounded-full bg-[#091E1F] px-3 py-1 text-[11px] text-[#18C3A7]">
+                      <span className={`inline-flex rounded-full px-3 py-1 text-[11px] ${
+                        row.status === "completed"
+                          ? "bg-[#091E1F] text-[#18C3A7]"
+                          : "bg-[#1E1A0A] text-[#F5A623]"
+                      }`}>
                         {row.status === "completed" ? t("account1.completed") : t("account1.pending")}
                       </span>
                     </span>
