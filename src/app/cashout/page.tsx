@@ -158,8 +158,15 @@ function CashoutMethodModal({ card, isOpen, onClose, onSuccess, userBalance = 0 
   const [destination, setDestination] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  /* Reset modal state when a different card is selected */
+  const cardId = card?.id;
+  useEffect(() => {
+    setAmount("");
+    setDestination("");
+    setSubmitting(false);
+  }, [cardId]);
 
-  
+
 
 
 
