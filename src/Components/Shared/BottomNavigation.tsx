@@ -149,7 +149,7 @@ const BottomNavigation: React.FC = () => {
               { id: "rewards", label: "Rewards", path: "/rewards", icon: <DollarSign className="w-[18px] h-[18px]" /> },
               { id: "leaderboard", label: "Leaderboard", path: "/leaderboard", icon: <Trophy className="w-[18px] h-[18px]" /> },
               { id: "referrals", label: "Referrals", path: "/referrals", icon: <Share2 className="w-[18px] h-[18px]" /> },
-              { id: "live-chat", label: "Chat", icon: <MessageSquare className="w-[18px] h-[18px]" />, onClick: () => openLiveChatPanel() },
+              { id: "live-chat", label: "Chat", path: "/chat", icon: <MessageSquare className="w-[18px] h-[18px]" /> },
               { id: "support", label: "Support", path: "/support", icon: <HelpCircle className="w-[18px] h-[18px]" /> },
               { id: "settings", label: "Settings", path: "/settings", icon: <Settings className="w-[18px] h-[18px]" /> },
               { id: "cashout", label: "Cashout", path: "/cashout", icon: <Wallet className="w-[18px] h-[18px]" /> },
