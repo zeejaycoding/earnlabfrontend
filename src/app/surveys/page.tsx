@@ -428,7 +428,7 @@ export default function SurveysPage() {
     })
       .then((r) => r.json())
       .then((data) => {
-        const done = data?.profileCompleted === true;
+        const done = data?.profile?.profileCompleted === true;
         if (done) localStorage.setItem("profileCompleted", "true");
         setProfileCompleted(done);
       })
