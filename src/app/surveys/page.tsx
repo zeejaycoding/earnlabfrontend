@@ -202,6 +202,7 @@ export default function SurveysPage() {
   const [submitting, setSubmitting] = useState(false);
   const [doneMsg, setDoneMsg] = useState("");
   const [profileCompleted, setProfileCompleted] = useState(false);
+  const [profileLoading, setProfileLoading] = useState(true);
   const { t } = useTranslation();
 
   const QUESTIONS: SurveyQuestion[] = [
@@ -425,7 +426,8 @@ export default function SurveysPage() {
       .then((data) => {
         setProfileCompleted(data?.profileCompleted === true);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setProfileLoading(false));
   }, []);
 
   const busy = submitting;
@@ -567,7 +569,7 @@ export default function SurveysPage() {
       </div>
 
       {/* ── Main Survey Content ──────────────────────────────────── */}
-      {!profileCompleted ? (
+      {profileLoading ? null : !profileCompleted ? (
         <main className="flex-1 flex flex-col w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 pt-5 pb-6 sm:py-10 overflow-hidden">
           {/* Progress */}
           <div className="mb-5 sm:mb-8 w-full">
