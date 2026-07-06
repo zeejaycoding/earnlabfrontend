@@ -26,7 +26,8 @@ const PageNavigation = () => {
     { id: "rewards", href: "/rewards", label: "Rewards", icon: Gift },
     { id: "leaderboard", href: "/leaderboard", label: "Leaderboard", icon: Trophy },
     { id: "referrals", href: "/referrals", label: "Referrals", icon: Share2 },
-    { id: "live-chat", label: "Live Chat", href: "/chat", icon: MessageCircle },
+     { id: "live-chat", label: "Live Chat", icon: MessageCircle, onClick: () => openLiveChatPanel() },
+
   ];
 
   const isActive = (itemOrHref: NavItem | string) => {

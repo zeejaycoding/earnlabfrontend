@@ -110,6 +110,18 @@ const BottomNavigation: React.FC = () => {
     },
   ];
 
+  const menuItems: NavItem[] = [
+    { id: "account", label: "Account", path: "/account", icon: <User className="w-[18px] h-[18px]" /> },
+    { id: "profiles", label: "Profiles", path: "/profile", icon: <Users className="w-[18px] h-[18px]" /> },
+    { id: "rewards", label: "Rewards", path: "/rewards", icon: <DollarSign className="w-[18px] h-[18px]" /> },
+    { id: "leaderboard", label: "Leaderboard", path: "/leaderboard", icon: <Trophy className="w-[18px] h-[18px]" /> },
+    { id: "referrals", label: "Referrals", path: "/referrals", icon: <Share2 className="w-[18px] h-[18px]" /> },
+    { id: "live-chat", label: "Chat", icon: <MessageSquare className="w-[18px] h-[18px]" />, onClick: () => openLiveChatPanel() },
+    { id: "support", label: "Support", path: "/support", icon: <HelpCircle className="w-[18px] h-[18px]" /> },
+    { id: "settings", label: "Settings", path: "/settings", icon: <Settings className="w-[18px] h-[18px]" /> },
+    { id: "cashout", label: "Cashout", path: "/cashout", icon: <Wallet className="w-[18px] h-[18px]" /> },
+  ];
+
   const handleNavClick = (item: NavItem) => {
     if (item.isAction) {
       if (item.id === "menu") {
@@ -143,17 +155,7 @@ const BottomNavigation: React.FC = () => {
             </button>
           </div>
           <div className="flex flex-col p-2 max-h-[60vh] overflow-y-auto">
-            {(([
-              { id: "account", label: "Account", path: "/account", icon: <User className="w-[18px] h-[18px]" /> },
-              { id: "profiles", label: "Profiles", path: "/profile", icon: <Users className="w-[18px] h-[18px]" /> },
-              { id: "rewards", label: "Rewards", path: "/rewards", icon: <DollarSign className="w-[18px] h-[18px]" /> },
-              { id: "leaderboard", label: "Leaderboard", path: "/leaderboard", icon: <Trophy className="w-[18px] h-[18px]" /> },
-              { id: "referrals", label: "Referrals", path: "/referrals", icon: <Share2 className="w-[18px] h-[18px]" /> },
-              { id: "live-chat", label: "Chat", path: "/chat", icon: <MessageSquare className="w-[18px] h-[18px]" /> },
-              { id: "support", label: "Support", path: "/support", icon: <HelpCircle className="w-[18px] h-[18px]" /> },
-              { id: "settings", label: "Settings", path: "/settings", icon: <Settings className="w-[18px] h-[18px]" /> },
-              { id: "cashout", label: "Cashout", path: "/cashout", icon: <Wallet className="w-[18px] h-[18px]" /> },
-            ] as NavItem[]).map((item) => (
+            {menuItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => {
