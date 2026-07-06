@@ -242,7 +242,7 @@ const defaultMutedUsers: MutedUser[] = [
   },
   {
     id: "fallback-2",
-    name: t("account1.verification"),
+    name: t("account1.verified"),
     date: "29 Jan 2026",
     type: "reward",
     amountCents: 16,
@@ -260,7 +260,7 @@ const defaultMutedUsers: MutedUser[] = [
   },
   {
     id: "fallback-4",
-    name: t("account1.verification"),
+    name: t("account1.verified"),
     date: "29 Jan 2026",
     type: "reward",
     amountCents: 16,
