@@ -419,14 +419,22 @@ export default function SurveysPage() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
+    // Check localStorage cache first
+    const localDone = localStorage.getItem("profileCompleted") === "true";
+    if (localDone) setProfileCompleted(true);
+
     fetch(`${API}/api/v1/user/profile`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((r) => r.json())
       .then((data) => {
-        setProfileCompleted(data?.profileCompleted === true);
+        const done = data?.profileCompleted === true;
+        if (done) localStorage.setItem("profileCompleted", "true");
+        setProfileCompleted(done);
       })
-      .catch(() => {})
+      .catch(() => {
+        // If API fails, keep localStorage value if set
+      })
       .finally(() => setProfileLoading(false));
   }, []);
 
