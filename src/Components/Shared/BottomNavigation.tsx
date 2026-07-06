@@ -143,7 +143,7 @@ const BottomNavigation: React.FC = () => {
             </button>
           </div>
           <div className="flex flex-col p-2 max-h-[60vh] overflow-y-auto">
-            {[
+            {(([
               { id: "account", label: "Account", path: "/account", icon: <User className="w-[18px] h-[18px]" /> },
               { id: "profiles", label: "Profiles", path: "/profile", icon: <Users className="w-[18px] h-[18px]" /> },
               { id: "rewards", label: "Rewards", path: "/rewards", icon: <DollarSign className="w-[18px] h-[18px]" /> },
@@ -153,7 +153,7 @@ const BottomNavigation: React.FC = () => {
               { id: "support", label: "Support", path: "/support", icon: <HelpCircle className="w-[18px] h-[18px]" /> },
               { id: "settings", label: "Settings", path: "/settings", icon: <Settings className="w-[18px] h-[18px]" /> },
               { id: "cashout", label: "Cashout", path: "/cashout", icon: <Wallet className="w-[18px] h-[18px]" /> },
-            ].map((item) => (
+            ] as NavItem[]).map((item) => (
               <button
                 key={item.id}
                 onClick={() => {
