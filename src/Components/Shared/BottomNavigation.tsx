@@ -2,15 +2,32 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { DollarSign, CheckSquare, FileText, Menu, X, Wallet, Users, User, LogOut, MessageCircle, Trophy, Share2, MessageSquare, HelpCircle, Settings } from "lucide-react";
+import {
+  DollarSign,
+  CheckSquare,
+  FileText,
+  Menu,
+  X,
+  Wallet,
+  Users,
+  User,
+  LogOut,
+  MessageCircle,
+  Trophy,
+  Share2,
+  MessageSquare,
+  HelpCircle,
+  Settings,
+} from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "@/store/store";
 import { clearUser } from "@/store/userSlice";
+import Image from "next/image";
 
 interface NavItem {
   id: string;
   label: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   path?: string;
   onClick?: () => void;
   isAction?: boolean;
@@ -21,7 +38,7 @@ const BottomNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  
+
   const dispatch = useDispatch();
   const profile = useSelector((s: RootState) => s.user.profile);
   const token = useSelector((s: RootState) => s.user.token);
@@ -29,16 +46,20 @@ const BottomNavigation: React.FC = () => {
 
   // Check for authentication
   useEffect(() => {
-    const localToken = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const localToken =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
     setIsAuthenticated(!!localToken);
   }, [token]);
 
   // Fetch notification count
   useEffect(() => {
-    const localToken = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const localToken =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
     if (!localToken) return;
     const api = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-    fetch(`${api}/api/v1/user/notifications`, { headers: { Authorization: `Bearer ${localToken}` } })
+    fetch(`${api}/api/v1/user/notifications`, {
+      headers: { Authorization: `Bearer ${localToken}` },
+    })
       .then((r) => r.json())
       .then((data) => {
         if (data && Array.isArray(data.notifications)) {
@@ -46,79 +67,114 @@ const BottomNavigation: React.FC = () => {
           setNotificationCount(unread);
         }
       })
-      .catch(() => { });
+      .catch(() => {});
   }, [token]);
 
   const handleSignOut = async () => {
     try {
-      const localToken = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+      const localToken =
+        typeof window !== "undefined" ? localStorage.getItem("token") : null;
       const api = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
       if (localToken) {
-        try { await fetch(`${api}/api/v1/auth/logout`, { method: "POST", headers: { Authorization: `Bearer ${localToken}` } }); } catch { }
+        try {
+          await fetch(`${api}/api/v1/auth/logout`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${localToken}` },
+          });
+        } catch {}
       }
-      if (typeof window !== "undefined") { localStorage.removeItem("token"); localStorage.removeItem("user"); }
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+      }
       setIsAuthenticated(false);
       setIsMenuOpen(false);
       dispatch(clearUser());
-      try { router.push("/"); } catch { }
-    } catch { }
+      try {
+        router.push("/");
+      } catch {}
+    } catch {}
+  };
+
+  const highlightedSrc: Record<string, string> = {
+    home: "/home-highlight.png",
+    earn: "/wallet-highlight.png",
+    tasks: "/tasks-highlight.png",
+    surveys: "/surveys-highlight.png",
+    menu: "/menu-highlight.png",
+  };
+
+  const normalSrc: Record<string, string> = {
+    home: "/home-svgrepo-com.png",
+    earn: "/wallet-minus-svgrepo-com 1.png",
+    tasks: "/tasks-svgrepo-com 1.png",
+    surveys: "/document-1-svgrepo-com 1.png",
+    menu: "/menu-svgrepo-com 1.png",
   };
 
   const navItems: NavItem[] = [
-    {
-      id: "home",
-      label: "Home",
-      icon: (
-        <div className="relative flex items-center justify-center w-[22px] h-[22px] rounded-full bg-[#E5484D] text-white font-medium text-[11px] uppercase">
-          {profile?.avatarUrl ? (
-            <img src={profile.avatarUrl} alt="User" className="w-[22px] h-[22px] rounded-full object-cover" />
-          ) : (
-            (profile?.displayName?.[0] || profile?.username?.[0] || "?")
-          )}
-          {notificationCount > 0 && (
-            <span className="absolute -top-[3px] -right-[3px] w-[9px] h-[9px] bg-white border border-[#16192E] rounded-full shadow-sm"></span>
-          )}
-        </div>
-      ),
-      path: "/home",
-    },
-    {
-      id: "earn",
-      label: "Earn",
-      icon: <DollarSign className="w-5 h-5" />,
-      path: "/earn",
-    },
-    {
-      id: "tasks",
-      label: "Tasks",
-      icon: <CheckSquare className="w-5 h-5" />,
-      path: "/tasks",
-    },
-    {
-      id: "surveys",
-      label: "Surveys",
-      icon: <FileText className="w-5 h-5" />,
-      path: "/surveys",
-    },
-    {
-      id: "menu",
-      label: "Menu",
-      icon: <Menu className="w-5 h-5" />,
-      path: "#",
-      isAction: true,
-    },
+    { id: "home", label: "Home", path: "/home" },
+    { id: "earn", label: "Earn", path: "/earn" },
+    { id: "tasks", label: "Tasks", path: "/tasks" },
+    { id: "surveys", label: "Surveys", path: "/surveys" },
+    { id: "menu", label: "Menu", path: "#", isAction: true },
   ];
 
   const menuItems: NavItem[] = [
-    { id: "account", label: "Account", path: "/account", icon: <User className="w-[18px] h-[18px]" /> },
-    { id: "profiles", label: "Profiles", path: "/profile", icon: <Users className="w-[18px] h-[18px]" /> },
-    { id: "rewards", label: "Rewards", path: "/rewards", icon: <DollarSign className="w-[18px] h-[18px]" /> },
-    { id: "leaderboard", label: "Leaderboard", path: "/leaderboard", icon: <Trophy className="w-[18px] h-[18px]" /> },
-    { id: "referrals", label: "Referrals", path: "/referrals", icon: <Share2 className="w-[18px] h-[18px]" /> },
-    { id: "chat", label: "Chat", path: "/chat", icon: <MessageSquare className="w-[18px] h-[18px]" /> },
-    { id: "support", label: "Support", path: "/support", icon: <HelpCircle className="w-[18px] h-[18px]" /> },
-    { id: "settings", label: "Settings", path: "/settings", icon: <Settings className="w-[18px] h-[18px]" /> },
-    { id: "cashout", label: "Cashout", path: "/cashout", icon: <Wallet className="w-[18px] h-[18px]" /> },
+    {
+      id: "account",
+      label: "Account",
+      path: "/account",
+      icon: <User className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "profiles",
+      label: "Profiles",
+      path: "/profile",
+      icon: <Users className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "rewards",
+      label: "Rewards",
+      path: "/rewards",
+      icon: <DollarSign className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "leaderboard",
+      label: "Leaderboard",
+      path: "/leaderboard",
+      icon: <Trophy className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "referrals",
+      label: "Referrals",
+      path: "/referrals",
+      icon: <Share2 className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "chat",
+      label: "Chat",
+      path: "/chat",
+      icon: <MessageSquare className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "support",
+      label: "Support",
+      path: "/support",
+      icon: <HelpCircle className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "settings",
+      label: "Settings",
+      path: "/settings",
+      icon: <Settings className="w-[18px] h-[18px]" />,
+    },
+    {
+      id: "cashout",
+      label: "Cashout",
+      path: "/cashout",
+      icon: <Wallet className="w-[18px] h-[18px]" />,
+    },
   ];
 
   const handleNavClick = (item: NavItem) => {
@@ -137,7 +193,7 @@ const BottomNavigation: React.FC = () => {
   const isActive = (path?: string) => {
     if (!path) return false;
     if (path === "#") return false;
-    return pathname === path || pathname.startsWith(path + '/');
+    return pathname === path || pathname.startsWith(path + "/");
   };
 
   if (!isAuthenticated) return null;
@@ -149,7 +205,10 @@ const BottomNavigation: React.FC = () => {
         <div className="lg:hidden fixed bottom-[60px] left-0 right-0 z-[45] bg-[#151728] border-t border-[#1E2133] animate-in slide-in-from-bottom-2 duration-200 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] rounded-t-xl overflow-hidden pb-safe">
           <div className="flex justify-between items-center px-5 py-4 border-b border-[#1E2133]">
             <span className="text-white font-bold font-['Manrope']">Menu</span>
-            <button onClick={() => setIsMenuOpen(false)} className="text-[#8C8FA8] hover:text-white transition-colors bg-[#26293E] p-1 rounded-md">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-[#8C8FA8] hover:text-white transition-colors bg-[#26293E] p-1 rounded-md"
+            >
               <X className="w-4 h-4" />
             </button>
           </div>
@@ -174,7 +233,10 @@ const BottomNavigation: React.FC = () => {
               </button>
             ))}
             <div className="h-[1px] bg-[#1E2133] my-1 mx-2"></div>
-            <button onClick={handleSignOut} className="flex items-center gap-3 px-4 py-3.5 text-[#F87171] hover:bg-[#1E2133] rounded-lg transition-colors font-medium">
+            <button
+              onClick={handleSignOut}
+              className="flex items-center gap-3 px-4 py-3.5 text-[#F87171] hover:bg-[#1E2133] rounded-lg transition-colors font-medium"
+            >
               <LogOut className="w-[18px] h-[18px]" /> Sign Out
             </button>
           </div>
@@ -187,21 +249,32 @@ const BottomNavigation: React.FC = () => {
           {navItems.map((item) => {
             const active = isActive(item.path) && !item.isAction;
             // The menu is active if it's open
-            const isMenuActive = item.id === 'menu' && isMenuOpen;
+            const isMenuActive = item.id === "menu" && isMenuOpen;
             const displayActive = active || isMenuActive;
-            
+
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
                 className={`flex flex-col items-center justify-center flex-1 h-full gap-[3px] transition-colors duration-200 ${
-                  displayActive ? "text-[#0AC07D]" : "text-[#6B6E8A] hover:text-[#B3B6C7]"
+                  displayActive
+                    ? "text-[#0AC07D]"
+                    : "text-[#6B6E8A] hover:text-[#B3B6C7]"
                 }`}
               >
-                <div className={`transition-transform duration-200 flex items-center justify-center ${displayActive ? "scale-110" : "scale-100"} ${item.id === "home" && displayActive ? "" : ""}`}>
-                  {item.icon}
+                <div
+                  className={`transition-transform duration-200 flex items-center justify-center ${displayActive ? "scale-110" : "scale-100"} ${item.id === "home" && displayActive ? "" : ""}`}
+                >
+                  <Image
+                    src={displayActive ? highlightedSrc[item.id] : normalSrc[item.id]}
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                 </div>
-                <span className={`text-[10px] font-medium leading-none ${displayActive ? "text-[#0AC07D]" : "text-[#6B6E8A]"}`}>
+                <span
+                  className={`text-[10px] font-medium leading-none ${displayActive ? "text-[#0AC07D]" : "text-[#6B6E8A]"}`}
+                >
                   {item.label}
                 </span>
               </button>

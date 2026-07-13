@@ -7,22 +7,10 @@ import { useSocket } from "@/contexts/SocketProvider";
 import { toast } from "@/utils/toast";
 import LogoImg from "../../../public/assets/logo.png";
 import { useTranslation } from "react-i18next";
+import TickerBar from "@/Components/Shared/TickerBar";
+import TopBar from "@/Components/Topbar";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-
-const TICKER_CSS = `
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.support-ticker-track {
-  display: flex;
-  gap: 12px;
-  width: max-content;
-  animation: scrollLeft 40s linear infinite;
-}
-.support-ticker-track:hover { animation-play-state: paused; }
-`;
 
 interface Message {
   _id?: string;
@@ -45,27 +33,6 @@ interface SupportMessagePayload {
 }
 
 /* ── Icons ─────────────────────────────────────────────────── */
-
-const IcoBell = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const IcoCashout = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M17.5 10.5C18.88 10.5 20 11.62 20 13V18C20 19.38 18.88 20.5 17.5 20.5H6.5C5.12 20.5 4 19.38 4 18V13C4 11.62 5.12 10.5 6.5 10.5H17.5ZM17.5 3.5C18.88 3.5 20 4.62 20 6V8.5H4V6C4 4.62 5.12 3.5 6.5 3.5H17.5Z"
-      fill="white"
-    />
-  </svg>
-);
 
 const IcoFAQ = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -136,10 +103,7 @@ export default function SupportPage() {
   const router = useRouter();
   const { socket } = useSocket();
 
-  /* topbar state */
-  const [notifCount, setNotifCount] = useState(0);
   const [profileInitial, setProfileInitial] = useState("B");
-  const [showNotif, setShowNotif] = useState(false);
 
   /* chat state */
   const [rooms, setRooms] = useState<ChatRoom[]>([]);
@@ -150,81 +114,6 @@ export default function SupportPage() {
   const { t } = useTranslation();
 
   const WELCOME_MESSAGE = t("support.welcomeMessage");
-  const TICKER_ITEMS = [
-    {
-      img: "/game-tile-tap-master.png",
-      name: t("game.slots"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-slot.png",
-      name: t("game.slot"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-monopoly.png",
-      name: t("game.monopoly"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-torox.png",
-      name: t("game.torox"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-angry-bird.png",
-      name: t("game.angryBird"),
-      action: t("ticker.userEarned"),
-      amount: "$0.5",
-    },
-    {
-      img: "/game-big-giant.png",
-      name: t("game.bigGiant"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    // duplicate for seamless loop
-    {
-      img: "/game-tile-tap-master.png",
-      name: t("game.slots"),
-      action: t("support.contactSignin"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-slot.png",
-      name: t("game.slot"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-monopoly.png",
-      name: t("game.monopoly"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-torox.png",
-      name: t("game.torox"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-    {
-      img: "/game-angry-bird.png",
-      name: t("game.angryBird"),
-      action: t("ticker.userEarned"),
-      amount: "$0.5",
-    },
-    {
-      img: "/game-big-giant.png",
-      name: t("game.bigGiant"),
-      action: t("ticker.userWithdrew"),
-      amount: "$0.8",
-    },
-  ];
 
   const chatRef = useRef<HTMLDivElement>(null);
   const stickRef = useRef(true);
@@ -233,7 +122,7 @@ export default function SupportPage() {
   const getToken = () =>
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-  /* init: profile & notif count */
+  /* init: profile initial */
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
@@ -250,20 +139,6 @@ export default function SupportPage() {
         if (init) setProfileInitial(init);
       }
     } catch {}
-
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    fetch(`${apiBase}/api/v1/user/notifications`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        if (Array.isArray(d?.notifications))
-          setNotifCount(
-            d.notifications.filter((n: { read?: boolean }) => !n.read).length,
-          );
-      })
-      .catch(() => {});
   }, []);
 
   /* scroll-to-bottom when messages change */
@@ -404,114 +279,10 @@ export default function SupportPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
-      <style>{TICKER_CSS}</style>
 
-      {/* ── Topbar ─────────────────────────────────────────────── */}
-      <div className="sticky top-0 z-40 bg-[#14162A] border-b border-[#1E2133]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-16 py-2 md:py-3">
-          <div className="flex items-center justify-between gap-3">
-            {/* Logo */}
-            <button
-              onClick={() => router.push("/home")}
-              className="flex items-center"
-              aria-label={t("topbar.goHome")}
-            >
-              <img
-                src="/logo-labwards.png"
-                alt="Labwards"
-                className="h-9 sm:h-10 md:h-11 w-auto object-contain"
-              />
-            </button>
+      <TopBar />
 
-            {/* Right controls */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Bell */}
-              <button
-                onClick={() => setShowNotif((v) => !v)}
-                className="relative h-[42px] w-[42px] sm:h-[44px] sm:w-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] flex items-center justify-center hover:opacity-90 transition-opacity"
-                aria-label={t("topbar.notifications")}
-              >
-                <IcoBell />
-                {notifCount > 0 && (
-                  <span className="absolute top-1 right-1 min-w-[14px] h-[14px] px-1 rounded-full bg-[#0AC07D] text-white text-[9px] leading-[14px] font-bold text-center">
-                    {notifCount > 99 ? "99+" : notifCount}
-                  </span>
-                )}
-              </button>
-
-              {/* Wallet */}
-              <button
-                onClick={() => router.push("/wallet")}
-                className="h-[42px] sm:h-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] px-2 sm:px-4 flex items-center gap-1.5 sm:gap-2 hover:opacity-90 transition-opacity"
-                aria-label={t("topbar.wallet")}
-              >
-                <span className="text-[#B3B6C7] text-[14px] font-bold">$</span>
-                <span className="text-white font-bold text-[20px] sm:text-[22px] leading-none">
-                  120
-                </span>
-                <span className="hidden sm:inline text-[#B3B6C7] text-[14px]">
-                  USD
-                </span>
-              </button>
-
-              {/* Cashout */}
-              <button
-                onClick={() => router.push("/cashout")}
-                className="h-[42px] sm:h-[44px] rounded-[8px] px-3 sm:px-5 flex items-center gap-2 text-white font-bold text-[15px] hover:opacity-90 transition-opacity"
-                style={{
-                  background:
-                    "linear-gradient(12.07deg, rgba(255,255,255,0) 16.27%, rgba(255,255,255,0.4) 93.68%), #099F86",
-                  boxShadow: "0px 7px 19px rgba(20,169,144,0.3)",
-                }}
-              >
-                <IcoCashout />
-                <span className="hidden sm:inline">{t("topbar.cashout")}</span>
-              </button>
-
-              {/* Profile */}
-              <button
-                onClick={() => router.push("/account")}
-                className="h-[42px] sm:h-[44px] w-[50px] sm:w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[18px] hover:opacity-90 transition-opacity"
-                aria-label={t("topbar.account")}
-              >
-                {profileInitial}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Activity Ticker ─────────────────────────────────────── */}
-      <div className="mx-4 sm:mx-6 md:mx-16 mt-4 h-[72px] overflow-hidden rounded-[10px] bg-[#151728] border border-[#1E2133] flex items-center shrink-0">
-        <div className="support-ticker-track px-3">
-          {TICKER_ITEMS.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-[10px] bg-[#181A2C] px-3 py-[10px] rounded-[10px] flex-shrink-0 h-[56px]"
-              style={{ minWidth: "220px" }}
-            >
-              <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#1E2133]">
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col justify-center gap-[2px]">
-                <p className="text-[11px] font-medium text-[#6B6E8A] m-0">
-                  {item.action}
-                </p>
-                <span className="text-[13px] font-medium text-[#B3B6C7]">
-                  {item.name}
-                </span>
-              </div>
-              <span className="text-[16px] font-bold text-[#0AC07D] ml-auto">
-                {item.amount}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <TickerBar />
 
       {/* ── Main content ────────────────────────────────────────── */}
       <main className="flex-1 flex flex-col max-w-[1440px] w-full mx-auto px-4 sm:px-6 md:px-16 py-5 sm:py-8">

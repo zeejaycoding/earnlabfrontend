@@ -18,6 +18,7 @@ import {
 import { useSocket } from "@/contexts/SocketProvider";
 import LogoImg from "../../public/assets/logo.png";
 import FullScreenMenu from "@/Components/Shared/FullScreenMenu";
+import DesktopNavLinks from "@/Components/Shared/DesktopNavLinks";
 
 const TopBar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -176,6 +177,9 @@ const TopBar: React.FC = () => {
       <Link href="/home" className="flex-shrink-0">
         <Image src={LogoImg} alt="LabWards" className="h-6 sm:h-7 md:h-9 w-auto object-contain" />
       </Link>
+
+      {/* Desktop Nav Links */}
+      <DesktopNavLinks variant="authenticated" />
 
       {/* Right controls */}
       <div className="flex items-center gap-1 sm:gap-2">

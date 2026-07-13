@@ -38,14 +38,8 @@ function TickerItem({
 }) {
   return (
     <div className="flex items-center gap-2 sm:gap-3 bg-[#1A1D2E] rounded-md sm:rounded-lg px-2 sm:px-[14px] py-1.5 sm:py-2 min-w-max border border-[#2A2D3E]">
-      <div className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] rounded bg-[#0E1121] border border-[#2A2D3E] flex items-center justify-center overflow-hidden">
-        <Image 
-          src={logoSrc} 
-          alt={value} 
-          width={24} 
-          height={24} 
-          className={`w-full h-full object-contain ${logoSrc.includes('worldcoin') ? 'invert brightness-200 mix-blend-screen' : ''}`} 
-        />
+      <div className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] flex items-center justify-center">
+        <Image src={logoSrc} alt={value} width={24} height={24} className="w-full h-full object-contain" />
       </div>
       <div className="flex flex-col">
         <span className="text-[9px] sm:text-[11px] font-medium text-[#8C8FA8] leading-[10px] sm:leading-[12px]">
@@ -62,15 +56,22 @@ function TickerItem({
   );
 }
 
-const STATIC_TICKER = [
-  { label: "User withdrew", value: "Bitcoin", amount: "$3.50" },
-  { label: "User earned", value: "OfferToro", amount: "$0.80" },
-  { label: "User withdrew", value: "Ethereum", amount: "$15.00" },
-  { label: "User earned", value: "AdGate", amount: "$1.20" },
-  { label: "User withdrew", value: "PayPal", amount: "$5.00" },
-  { label: "User earned", value: "Lootably", amount: "$0.45" },
-  { label: "User withdrew", value: "Dogecoin", amount: "$1.50" },
-  { label: "User earned", value: "Ayestudios", amount: "$3.75" },
+interface StaticTickerItem {
+  label: string;
+  value: string;
+  amount: string;
+  logoSrc?: string;
+}
+
+const STATIC_TICKER: StaticTickerItem[] = [
+  { label: "User withdrew", value: "Giftcard",  amount: "$10",   logoSrc: "/streamline-logos_amazon-logo-block.png" },
+  { label: "User earned",  value: "Offerwall",  amount: "$8.5",  logoSrc: "/image-003.png" },
+  { label: "User withdrew",value: "Giftcard",   amount: "$0.8",  logoSrc: "/Group.png" },
+  { label: "User earned",  value: "Monopoly",   amount: "$6",    logoSrc: "/image-005.png" },
+  { label: "User withdrew",value: "Worldcoin",  amount: "0.8",   logoSrc: "/curlyic.png" },
+  { label: "User earned",  value: "Torox",      amount: "$0.45", logoSrc: "/game-torox.png" },
+  { label: "User withdrew",value: "Ethereum",   amount: "$15",   logoSrc: "/ethereum.png" },
+  { label: "User earned",  value: "Solana",     amount: "$3.75", logoSrc: "/simple-icons_solana.png" },
 ];
 
 export default function TickerBar() {
@@ -88,6 +89,10 @@ export default function TickerBar() {
         // fallback to static ticker
       });
   }, []);
+
+  function resolveLogoSrc(item: StaticTickerItem): string {
+    return item.logoSrc || getLogoForText(item.value, item.label);
+  }
 
   const tickerItems = useMemo(() => {
     let base =
@@ -114,7 +119,7 @@ export default function TickerBar() {
           })
         : STATIC_TICKER.map((item) => ({
             ...item,
-            logoSrc: getLogoForText(item.value, item.label),
+            logoSrc: resolveLogoSrc(item),
           }));
 
     if (base.length < 6) {
@@ -122,7 +127,7 @@ export default function TickerBar() {
         ...base,
         ...STATIC_TICKER.map((item) => ({
           ...item,
-          logoSrc: getLogoForText(item.value, item.label),
+          logoSrc: resolveLogoSrc(item),
         })),
       ];
     }

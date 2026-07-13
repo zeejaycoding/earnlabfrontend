@@ -5,22 +5,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import GiftCardRedemptionModal from "@/Components/Shared/GiftCardRedemptionModal";
+import TickerBar from "@/Components/Shared/TickerBar";
+import TopBar from "@/Components/Topbar";
 import { toast } from "@/utils/toast";
 import { useTranslation } from "react-i18next";
-
-
-/* ── Ticker CSS ──────────────────────────────────────────────────── */
-const TICKER_CSS = `
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.cashout-ticker {
-  display: flex; gap: 12px; width: max-content;
-  animation: scrollLeft 40s linear infinite;
-}
-.cashout-ticker:hover { animation-play-state: paused; }
-`;
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -345,11 +333,7 @@ export default function CashoutPage() {
   const [methodOpen, setMethodOpen]   = useState(false);
   const [giftOpen, setGiftOpen]       = useState(false);
   const [balanceCents, setBalanceCents] = useState(0);
-  const [notifCount, setNotifCount]   = useState(0);
-  const [profileInit, setProfileInit] = useState("B");
       const { t } = useTranslation();
-
-
 
       const WITHDRAW_CASH: CashoutCard[] = [
   { id: "paypal",    name: t("cards_cc.paypal"),   brandName: t("cards_cc.paypal"),   logoSrc: "/assets/paypal.png",    gradient: "linear-gradient(135deg,#20214B,#2B2E6A)", category: "cash",   method: "paypal"        },
@@ -378,16 +362,10 @@ const GIFTCARDS: CashoutCard[] = [
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    try {
-      const raw = localStorage.getItem("user");
-      if (raw) { const u = JSON.parse(raw) as { displayName?: string; username?: string; email?: string }; setProfileInit((u.displayName || u.username || u.email || "B").charAt(0).toUpperCase()); }
-    } catch {}
     const token = localStorage.getItem("token");
     if (!token) return;
     fetch(`${API}/api/v1/user/profile`, { headers: { Authorization: `Bearer ${token}` } })
       .then(r => r.json()).then(d => { if (typeof d?.profile?.balanceCents === "number") setBalanceCents(d.profile.balanceCents); }).catch(() => {});
-    fetch(`${API}/api/v1/user/notifications`, { headers: { Authorization: `Bearer ${token}` } })
-      .then(r => r.json()).then(d => { if (Array.isArray(d?.notifications)) setNotifCount(d.notifications.filter((n: { read?: boolean }) => !n.read).length); }).catch(() => {});
   }, []);
 
   const handleCardClick = (card: CashoutCard) => {
@@ -397,75 +375,14 @@ const GIFTCARDS: CashoutCard[] = [
   };
 
 
-    const TICKER_ITEMS = [
-  { img: "/game-tile-tap-master.png", name: t("cashout_page.ticker.slots"),     action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-slot.png",            name:  t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-monopoly.png",        name:  t("cashout_page.ticker.slots"),      action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-torox.png",           name: t("cashout_page.ticker.monopoly"),  action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-angry-bird.png",      name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-big-giant.png",       name: t("cashout_page.ticker.big_giant"), action: t("cashout_page.ticker.user_earned"),   amount: "$1.0" },
-  { img: "/game-tile-tap-master.png", name:  t("cashout_page.ticker.slots"),     action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-slot.png",            name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-monopoly.png",        name:  t("cashout_page.ticker.slots"),      action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-torox.png",           name: t("cashout_page.ticker.monopoly"),  action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-angry-bird.png",      name: t("cashout_page.ticker.worldcoin"), action: t("cashout_page.ticker.user_withdrew"), amount: "$0.8" },
-  { img: "/game-big-giant.png",       name: t("cashout_page.ticker.big_giant"), action: t("cashout_page.ticker.user_withdrew"),   amount: "$1.0" },
-];
 
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
-      <style>{TICKER_CSS}</style>
 
-      {/* ── Topbar ──────────────────────────────────────────────── */}
-      <div className="sticky top-0 z-40 bg-[#14162A] border-b border-[#1E2133]">
-        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 md:px-16 py-2 md:py-3 flex items-center justify-between gap-2 sm:gap-3">
-          <button onClick={() => router.push("/home")} aria-label="Home" className="flex-shrink-0">
-            <img src="/logo-labwards.png" alt="LabWards" className="h-8 sm:h-10 md:h-11 w-auto object-contain" />
-          </button>
-          <div className="flex items-center gap-1.5 sm:gap-3">
-            <button onClick={() => router.push("/notifications")}
-              className="relative h-[38px] w-[38px] sm:h-[44px] sm:w-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] flex items-center justify-center hover:opacity-90 flex-shrink-0">
-              <IcoBell />
-              {notifCount > 0 && <span className="absolute top-1 right-1 min-w-[14px] h-[14px] px-1 rounded-full bg-[#0AC07D] text-[9px] font-bold text-white text-center leading-[14px]">{notifCount > 99 ? "99+" : notifCount}</span>}
-            </button>
-            <button onClick={() => router.push("/wallet")}
-              className="h-[38px] sm:h-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] px-2 sm:px-4 flex items-center gap-1 sm:gap-1.5 hover:opacity-90">
-              <span className="text-[#B3B6C7] text-[12px] sm:text-[14px] font-bold">$</span>
-              <span className="text-white font-bold text-[16px] sm:text-[22px] leading-none">120</span>
-              <span className="text-[#B3B6C7] text-[12px] sm:text-[14px]">USD</span>
-            </button>
-            <button onClick={() => router.push("/cashout")}
-              className="hidden sm:flex h-[44px] rounded-[8px] px-5 items-center gap-2 text-white font-bold text-[15px] hover:opacity-90"
-              style={{ background: "linear-gradient(12.07deg,rgba(255,255,255,0) 16.27%,rgba(255,255,255,0.4) 93.68%),#099F86", boxShadow: "0px 7px 19px rgba(20,169,144,0.3)" }}>
-              <IcoCashoutBtn />
-              {t("cashout_page.topbar.cashout")}
-            </button>
-            <button onClick={() => router.push("/account")}
-              className="h-[38px] w-[38px] sm:h-[44px] sm:w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[16px] sm:text-[18px] hover:opacity-90 flex-shrink-0">
-              {profileInit}
-            </button>
-          </div>
-        </div>
-      </div>
+      <TopBar />
 
-      {/* ── Activity Ticker ──────────────────────────────────────── */}
-      <div className="mx-3 sm:mx-6 md:mx-16 mt-3 sm:mt-4 h-[56px] sm:h-[72px] overflow-hidden rounded-[10px] bg-[#151728] border border-[#1E2133] flex items-center shrink-0">
-        <div className="cashout-ticker px-2 sm:px-3">
-          {TICKER_ITEMS.map((t, i) => (
-            <div key={i} className="flex items-center gap-[8px] sm:gap-[10px] bg-[#181A2C] px-2 sm:px-3 py-[8px] sm:py-[10px] rounded-[10px] flex-shrink-0 h-[44px] sm:h-[56px]" style={{ minWidth: "155px" }}>
-              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#1E2133]">
-                <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
-              </div>
-              <div className="flex flex-col justify-center gap-[1px] sm:gap-[2px]">
-                <p className="text-[10px] sm:text-[11px] font-medium text-[#6B6E8A] m-0">{t.action}</p>
-                <span className="text-[12px] sm:text-[13px] font-medium text-[#B3B6C7]">{t.name}</span>
-              </div>
-              <span className="text-[13px] sm:text-[16px] font-bold text-[#0AC07D] ml-auto">{t.amount}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <TickerBar />
 
       {/* ── Sections ─────────────────────────────────────────────── */}
       <main className="flex-1 max-w-[1440px] w-full mx-auto px-3 sm:px-6 md:px-16 py-4 sm:py-8 flex flex-col gap-6 sm:gap-10">

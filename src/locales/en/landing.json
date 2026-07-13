@@ -58,8 +58,7 @@
   },
 
   "testimonials": {
-    "title_highlight": "What people are saying",
-    "title_rest": "about us"
+    "title_highlight": "What people are saying"
   },
 
   "stats": {
@@ -106,8 +105,15 @@
   "worldcoin": "Worldcoin",
   "amazon": "Amazon",
   "solana": "Solana",
-  "playstation": "PlayStation",
+  "playstation": "Play Station",
+  "netflix":"Netflix",
   "spotify": "Spotify",
+    "google_play": "Google Play",
+  "apple_itunes": "Apple iTunes",
+  "xbox":"Xbox",
+
+  "roblox":"Roblox",
+  "nintendo":"Nintendo",
   "polygon": "Polygon"
 },
 "footer": {
@@ -447,6 +453,7 @@
   "solana": "Solana",
   "ethereum": "Ethereum",
   "litecoin": "Litecoin",
+  "usdt": "USDT (TRC20)",
   "paypal": "PayPal",
   "worldcoin": "Worldcoin",
   "visa": "Visa",
@@ -2471,6 +2478,100 @@
       "taskCompleted": "Task Completed",
       "giftCardPayout": "Gift Card Payout"
     }
+  },
+   "withdrawalModal": {
+    "title": "Request Withdrawal",
+    "requestSubmitted": "Request Submitted!",
+    "requestSuccess": "Your withdrawal request has been submitted and is pending admin review.",
+
+    "availableBalance": "Available Balance",
+    "withdrawalMethod": "Withdrawal Method",
+    "amount": "Amount (USD)",
+    "customAmountPlaceholder": "Or enter custom amount",
+
+    "giftCardType": "Gift Card Type",
+    "selectGiftCardType": "Select a gift card type",
+
+    "cryptocurrency": "Cryptocurrency",
+    "selectCryptocurrency": "Select cryptocurrency",
+
+    "destination": "Destination",
+    "walletAddress": "Wallet Address",
+    "paypalEmail": "PayPal Email Address",
+    "giftCardEmail": "Email Address (for gift card delivery)",
+    "bankDetails": "Bank Account Details",
+
+    "destinationPlaceholder": "Enter destination",
+    "walletPlaceholder": "Enter wallet address...",
+    "bankPlaceholder": "Enter bank account details...",
+    "emailPlaceholder": "your@email.com",
+    "paypalPlaceholder": "your.paypal@email.com",
+
+    "paypalHelp": "Enter the email address linked to your PayPal account",
+
+    "paypalInfo": "PayPal withdrawals will be sent directly to your PayPal email address.",
+    "giftcardInfo": "Gift card codes will be sent to your email address.",
+    "cryptoInfo": "Cryptocurrency will be sent to your wallet address.",
+    "defaultInfo": "Your withdrawal will be reviewed by our admin team.",
+
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+
+    "errors": {
+      "loadMethods": "Failed to load withdrawal methods",
+      "selectMethod": "Please select a withdrawal method",
+      "invalidAmount": "Please enter a valid amount",
+      "minimumAmount": "Minimum withdrawal amount is $5",
+      "insufficientBalance": "Insufficient balance",
+      "giftcardEmail": "Please enter your email address for gift card delivery",
+      "paypalEmail": "Please enter your PayPal email address",
+      "walletAddress": "Please enter your wallet address",
+      "destination": "Please enter a valid destination",
+      "invalidEmail": "Please enter a valid email address",
+      "selectGiftCard": "Please select a gift card type",
+      "selectCrypto": "Please select a cryptocurrency",
+      "submitFailed": "Failed to submit withdrawal request. Please try again."
+    }
+  },
+
+   "withdrawDashboard": {
+    "loading": "Loading withdrawal history...",
+
+    "title": "Withdrawal History",
+    "requestWithdrawal": "Request Withdrawal",
+
+    "availableBalance": "Available Balance",
+
+    "searchPlaceholder": "Search by ID, method, or status...",
+
+    "emptySearch": "No withdrawals found matching your search",
+    "emptyHistory": "No withdrawal requests yet. Click 'Request Withdrawal' to get started!",
+
+    "table": {
+      "requestId": "Request ID",
+      "method": "Method",
+      "amount": "Amount",
+      "status": "Status",
+      "date": "Date",
+      "action": "Action"
+    },
+
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "completed": "Completed",
+      "rejected": "Rejected"
+    },
+
+    "methods": {
+      "giftCard": "Gift Card",
+      "paypal": "PayPal",
+      "crypto": "Crypto",
+      "bankTransfer": "Bank Transfer"
+    },
+
+    "view": "View"
   }
 
 }

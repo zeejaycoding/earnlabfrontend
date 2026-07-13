@@ -6,8 +6,10 @@ import SignInModal from '@/Components/HomePage/SigninModal';
 import SignUpModal from '@/Components/HomePage/SignupModal';
 import ForgotPasswordModal from '@/Components/HomePage/ForgotPasswordModal';
 import { useTranslation } from "react-i18next";
+import DesktopNavLinks from "@/Components/Shared/DesktopNavLinks";
+import TickerBar from "@/Components/Shared/TickerBar";
 
-
+import { Facebook, Globe } from "lucide-react";
 
 const FAQItem = ({
   q,
@@ -173,6 +175,7 @@ type RecentActivityResponse = {
     offerName?: string;
     provider?: string;
     timestamp?: string;
+    logoSrc?: string | null;
   }>;
   stats?: {
     totalPayout24hCents?: number;
@@ -204,75 +207,83 @@ const MOCK_LANDING_VIEW_MODEL: LandingViewModel = {
   activities: [
     {
       type: 'payout',
-      username: 'Ava',
+      username: 'User',
       countryCode: 'US',
       countryName: 'United States',
-      amount: 80,
-      method: 'paypal',
-      timestamp: '2026-04-09T08:15:00.000Z',
+      amount: 1000,
+      method: 'giftcard',
+      timestamp: '2026-07-10T08:15:00.000Z',
+      logoSrc: '/streamline-logos_amazon-logo-block.png',
     },
     {
       type: 'earning',
-      username: 'Liam',
+      username: 'User',
       countryCode: 'GB',
       countryName: 'United Kingdom',
-      amount: 50,
+      amount: 850,
       provider: 'Offerwall',
-      timestamp: '2026-04-09T08:42:00.000Z',
+      timestamp: '2026-07-10T08:42:00.000Z',
+      logoSrc: '/image-003.png',
     },
     {
       type: 'payout',
-      username: 'Noah',
+      username: 'User',
       countryCode: 'DE',
       countryName: 'Germany',
-      amount: 120,
-      method: 'bitcoin',
-      timestamp: '2026-04-09T09:08:00.000Z',
+      amount: 80,
+      method: 'giftcard',
+      timestamp: '2026-07-10T09:08:00.000Z',
+      logoSrc: '/Group.png',
     },
     {
       type: 'earning',
-      username: 'Emma',
+      username: 'User',
       countryCode: 'CA',
       countryName: 'Canada',
-      amount: 65,
-      provider: 'Survey',
-      timestamp: '2026-04-09T09:24:00.000Z',
+      amount: 600,
+      provider: 'Monopoly',
+      timestamp: '2026-07-10T09:24:00.000Z',
+      logoSrc: '/image-005.png',
     },
     {
       type: 'payout',
-      username: 'Mason',
+      username: 'User',
       countryCode: 'AU',
       countryName: 'Australia',
-      amount: 95,
-      method: 'solana',
-      timestamp: '2026-04-09T09:41:00.000Z',
+      amount: 80,
+      method: 'worldcoin',
+      timestamp: '2026-07-10T09:41:00.000Z',
+      logoSrc: '/curlyic.png',
     },
     {
       type: 'earning',
-      username: 'Sophia',
+      username: 'User',
       countryCode: 'IN',
       countryName: 'India',
       amount: 45,
-      provider: 'Games',
-      timestamp: '2026-04-09T10:03:00.000Z',
+      provider: 'Torox',
+      timestamp: '2026-07-10T10:03:00.000Z',
+      logoSrc: '/game-torox.png',
     },
     {
       type: 'payout',
-      username: 'Ethan',
+      username: 'User',
       countryCode: 'BR',
       countryName: 'Brazil',
-      amount: 70,
-      method: 'visa',
-      timestamp: '2026-04-09T10:17:00.000Z',
+      amount: 1500,
+      method: 'ethereum',
+      timestamp: '2026-07-10T10:17:00.000Z',
+      logoSrc: '/ethereum.png',
     },
     {
       type: 'earning',
-      username: 'Olivia',
+      username: 'User',
       countryCode: 'FR',
       countryName: 'France',
-      amount: 58,
-      provider: 'Tasks',
-      timestamp: '2026-04-09T10:34:00.000Z',
+      amount: 375,
+      provider: 'Solana',
+      timestamp: '2026-07-10T10:34:00.000Z',
+      logoSrc: '/simple-icons_solana.png',
     },
   ],
   stats: {
@@ -528,56 +539,16 @@ const faqData = [
 ];
 
 const REWARD_LOGOS = [
-  {
-    id: 'visa',
-    name: t('rewards.visa'),
-    src: '/assets/visa.png',
-  },
-  {
-    id: 'bitcoin',
-    name: t('rewards.bitcoin'),
-    src: '/assets/bit.png',
-  },
-  {
-    id: 'apple',
-    name: t('rewards.apple'),
-    src: '/assets/apple.png',
-  },
-  {
-    id: 'paypal',
-    name: t('rewards.paypal'),
-    src: '/assets/paypal.png',
-  },
-  {
-    id: 'worldcoin',
-    name: t('rewards.worldcoin'),
-    src: '/assets/worldcoin.png',
-  },
-  {
-    id: 'amazon',
-    name: t('rewards.amazon'),
-    src: '/assets/amazon.png',
-  },
-  {
-    id: 'solana',
-    name: t('rewards.solana'),
-    src: '/assets/sol.png',
-  },
-  {
-    id: 'playstation',
-    name: t('rewards.playstation'),
-    src: '/assets/play.png',
-  },
-  {
-    id: 'spotify',
-    name: t('rewards.spotify'),
-    src: '/assets/spot.png',
-  },
-  {
-    id: 'polygon',
-    name: t('rewards.polygon'),
-    src: '/assets/pol.png',
-  },
+  { id: 1, src: "/visa.png", bg: "#0619B9" },
+  { id: 2, src: "/bitcoin.png", bg: "#D85F02" },
+  { id: 3, src: "/skrill.png", bg: "#04A07C" },
+  { id: 4, src: "/cib_cashapp.png", bg: "#0391C0" },
+  { id: 5, src: "/apple.png", bg: "#FFFFFF" },
+  { id: 6, src: "/worlcoin-2.png", bg: "#FFFFFF" },
+  { id: 7, src: "/googleplay.png", bg: "#D802C3" },
+  { id: 8, src: "/nike.png", bg: "#D82902" },
+  { id: 9, src: "/mastercard.png", bg: "#1126D5" },
+  { id: 10, src: "/roblox.png", bg: "#8A11D5" },
 ];
 
 
@@ -746,9 +717,13 @@ useEffect(() => {
   })();
 
   const getPayoutItemMeta = (activity: LandingActivity) => {
+    const logoIcon = activity.logoSrc ? (
+      <img src={activity.logoSrc} alt="" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
+    ) : null;
+
     if (activity.type === 'payout') {
       return {
-        icon: <GlobeIcon />,
+        icon: logoIcon || <GlobeIcon />,
         label: `${activity.username} withdrew`,
         name: activity.method?.replace('_', ' ') || 'Wallet payout',
       };
@@ -756,14 +731,14 @@ useEffect(() => {
 
     if (activity.type === 'earning') {
       return {
-        icon: <ClipboardIcon />,
+        icon: logoIcon || <ClipboardIcon />,
         label: `${activity.username} earned`,
         name: activity.provider || activity.offerName || 'Offerwall',
       };
     }
 
     return {
-      icon: <SolanaCircleIcon />,
+      icon: logoIcon || <SolanaCircleIcon />,
       label: `${activity.username} referred`,
       name: 'Referral reward',
     };
@@ -774,6 +749,8 @@ useEffect(() => {
       {/* ═══════ NAVBAR ═══════ */}
       <nav className="w-full bg-[#16192E] px-4 sm:px-10 py-3 sm:py-4 flex items-center justify-between sticky top-0 z-50">
         <img src="/landing-image-003.png" alt="Lab Wards" className="h-7 sm:h-9" />
+        {/* Desktop Nav Links */}
+        <DesktopNavLinks variant="landing" onSignUp={() => setShowSignUp(true)} />
         {/* Mobile hamburger */}
         <button 
           onClick={() => setIsMobileMenuOpen(true)}
@@ -818,294 +795,334 @@ useEffect(() => {
         </div>
       )}
 
+      <TickerBar />
+
       {/* ═══════ HERO ═══════ */}
-      <section className="relative">
-        {/* Banner images */}
-        <div className="w-full h-[380px] sm:h-[400px] md:h-[450px] overflow-hidden flex">
-          <img
-            src="/landing-image-001.png"
-            alt=""
-            className="w-1/2 h-full object-cover"
-          />
-          <img
-            src="/landing-image-002.png"
-            alt=""
-            className="w-1/2 h-full object-cover"
-          />
-        </div>
-        {/* Wave overlay */}
-        <div className="absolute inset-0">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 1440 528"
-            preserveAspectRatio="none"
-          >
-            <defs>
-  <linearGradient
-    id="hero-grad"
-    x1="0.5"
-    y1="0.6"
-    x2="0.5"
-    y2="0"
+<section className="bg-[#0D0F1E] py-8">
+  <div
+    className="relative mx-auto w-full max-w-[1360px] h-[620px] overflow-hidden rounded-[40px] bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/landing-page.png')" }}
   >
-    <stop offset="0%" stopColor="#101324" />
-    <stop offset="100%" stopColor="#0D0F1E" stopOpacity="0.8" />
-  </linearGradient>
-</defs>
+    <div className="absolute inset-0 flex items-center justify-between px-[80px]">
+  {/* Left Content */}
+  <div className="max-w-[620px]">
+    <h1
+      className="text-[60px] leading-[72px] font-semibold text-white"
+      style={{ fontFamily: "DM Sans" }}
+    >
+      Get paid for what you already do online
+    </h1>
 
-<path
-  d="M0 0L1440 0L1440 400C1440 400 1341 507 1262 508C1179 510 1157 415 1076 401C938 377 866 511 726 519C567 528 525 366 370 401C289 419 258 509 176 508C95 507 0 401 0 401L0 0Z"
-  fill="url(#hero-grad)"
-/>
-          </svg>
-        </div>
+    <p
+      className="mt-6 max-w-[560px] text-[20px] leading-[32px] text-[#E6FFFD]"
+      style={{ fontFamily: "DM Sans", fontWeight: 400 }}
+    >
+      Complete surveys, play games, and finish quick offers to earn real
+      money, crypto, and rewards.
+    </p>
 
-        {/* Hero content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-4 sm:pt-16">
-          <h1 className="text-3xl sm:text-5xl md:text-[60px] font-semibold leading-[1.05] tracking-tight max-w-[620px]">
-            <span className="text-[#0AC07D]">            {t("hero.title_highlight")}
-</span>           {t("hero.title_rest")}
+    <button
+      onClick={() => setShowSignUp(true)}
+      className="mt-10 rounded-xl bg-white px-8 py-4 text-[#0D0F1E]"
+      style={{
+        fontFamily: "Manrope",
+        fontWeight: 700,
+        fontSize: "15px",
+        boxShadow: "0px 8px 24px #14A9904D",
+      }}
+    >
+      Get Started
+    </button>
+  </div>
 
-          </h1>
-          <p className="text-[#B3B6C7] text-sm sm:text-lg mt-3 sm:mt-4 max-w-[520px] leading-relaxed px-2">
-            {t("hero.subtitle")}
+  {/* Right Signup Card */}
+  <div
+    className="w-[390px] rounded-[24px] border backdrop-blur-md"
+    style={{
+      background: "#3F90CBAD",
+      borderColor: "#5D9BC8",
+      padding: "32px 20px",
+    }}
+  >
+    <h2
+      className="text-white text-[22px] font-semibold"
+      style={{ fontFamily: "DM Sans" }}
+    >
+      Get Started!
+    </h2>
+
+    <p
+      className="mt-2 text-[#E6FFFD] text-[14px]"
+      style={{ fontFamily: "DM Sans", fontWeight: 400 }}
+    >
+      It's free! Sign up and start to earn money!
+    </p>
+
+    {/* Facebook */}
+    <button onClick={() => setShowSignUp(true)} className="mt-6 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+  <img
+    src="/facebook.png"
+    alt="Facebook"
+    className="w-5 h-5 object-contain"
+  />
+  <span
+    className="text-[13px] text-white"
+    style={{ fontFamily: "DM Sans", fontWeight: 500 }}
+  >
+    Sign up via Facebook
+  </span>
+</button>
+
+<button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+  <img
+    src="/google.png"
+    alt="Google"
+    className="w-5 h-5 object-contain"
+  />
+  <span
+    className="text-[13px] text-white"
+    style={{ fontFamily: "DM Sans", fontWeight: 500 }}
+  >
+    Sign up via Google
+  </span>
+</button>
+
+    {/* Worldcoin */}
+    <button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+  <img
+    src="/worldcoin-1.png"
+    alt="Worldcoin"
+    className="w-5 h-5 object-contain"
+  />
+  <span
+    className="text-[13px] text-white"
+    style={{ fontFamily: "DM Sans", fontWeight: 500 }}
+  >
+    Sign up via Worldcoin
+  </span>
+</button>
+
+    {/* Divider */}
+    <div className="my-6 flex items-center gap-3">
+      <div className="h-px flex-1 bg-[#66AEC9]" />
+      <span
+        className="text-white text-[13px]"
+        style={{ fontFamily: "DM Sans" }}
+      >
+        Or
+      </span>
+      <div className="h-px flex-1 bg-[#66AEC9]" />
+    </div>
+
+    {/* Email */}
+    <input
+      type="email"
+      placeholder="Email address"
+      onClick={() => setShowSignUp(true)}
+      readOnly
+      className="h-[50px] w-full rounded-xl border border-[#7BB7CD] bg-[#C5E5F24D] px-4 text-white placeholder:text-[#FFFFFF99] outline-none cursor-pointer"
+      style={{
+        fontFamily: "Inter",
+        fontWeight: 500,
+        fontSize: "13px",
+      }}
+    />
+
+    {/* CTA */}
+    <button
+      onClick={() => setShowSignUp(true)}
+      className="mt-5 h-[52px] w-full rounded-xl bg-white cursor-pointer hover:bg-gray-100 transition-colors"
+      style={{
+        fontFamily: "Manrope",
+        fontWeight: 600,
+        fontSize: "14px",
+        color: "#151728",
+        boxShadow: "0px 8px 24px #14A9904D",
+      }}
+    >
+      Start Earning Now!
+    </button>
+  </div>
+</div>
+  </div>
+</section>
+
+      {/* ═══════ HOW IT WORKS ═══════ */}
+<section className="bg-[#0D0F1E] py-24">
+  <div className="max-w-[1360px] mx-auto px-4">
+    {/* Heading */}
+    <div className="text-center">
+      <h2
+        className="text-white text-[48px] font-semibold"
+        style={{ fontFamily: "DM Sans" }}
+      >
+        Start Earning in Just 4 Simple Steps
+      </h2>
+
+      <p
+        className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
+        style={{ fontFamily: "DM Sans" }}
+      >
+        Create your account, complete available tasks, and withdraw your
+        earnings.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="mt-20 flex justify-between gap-5">
+      {/* Card 1 */}
+      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+        <img
+          src="/step1.png"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+       <div className="absolute bottom-3 left-3 right-8">
+          <h3
+            className="text-white text-[24px] font-bold"
+            style={{ fontFamily: "Manrope" }}
+          >
+            Create account
+          </h3>
+
+          <p
+            className="mt-1 text-[13px] font-medium text-[#A9E5E2]"
+            style={{ fontFamily: "DM Sans" }}
+          >
+            Sign up in seconds and unlock your rewards journey.
           </p>
-          <button onClick={() => setShowSignUp(true)} className="mt-5 sm:mt-7 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-[#0AC07D] to-[#14A990] text-white font-bold shadow-[0_9px_24px_rgba(20,169,144,0.3)] text-sm sm:text-base hover:scale-105 hover:shadow-[0_12px_32px_rgba(20,169,144,0.5)] transition-all duration-300">
-            {t("hero.cta")}
-          </button>
         </div>
-      </section>
+      </div>
 
-      {/* ═══════ CARDS SECTION ═══════ */}
-      <section className="relative flex justify-center items-end gap-0 sm:gap-2 pt-16 sm:pt-20 pb-14 sm:pb-20 px-2 sm:px-4">
-        {/* Left card - tilted */}
-        <div className="w-[110px] sm:w-[250px] shrink-0 bg-[#1C1E32] border border-[#383C61] rounded-lg sm:rounded-xl p-2 sm:p-4 transform -rotate-[10deg] -translate-y-12 sm:-translate-y-10 translate-x-2 sm:translate-x-6 relative z-[1] hover:scale-105 transition-transform duration-300">
-          <div className="relative rounded-md sm:rounded-lg overflow-hidden h-[75px] sm:h-[170px] bg-[#0D0F1E]">
-            <img
-              src="/left-card.png"
-              alt=""
-                className="w-full h-full object-cover scale-110 transition-transform duration-500"
-            />
-          </div>
-          <div className="mt-1 sm:mt-3">
-            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">  {t("cards.left_title")}</h3>
-            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">  {t("cards.left_desc")}</p>
-            <p className="text-[#0AC07D] font-bold text-[10px] sm:text-xl mt-0.5 sm:mt-1">$0.2</p>
-          </div>
+      {/* Card 2 */}
+      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+        <img
+          src="/step2.png"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+       <div className="absolute bottom-3 left-3 right-8">
+          <h3
+            className="text-white text-[24px] font-bold"
+            style={{ fontFamily: "Manrope" }}
+          >
+            Select tasks
+          </h3>
+
+          <p
+            className="mt-1 text-[13px] font-medium text-[#B8A2F2]"
+            style={{ fontFamily: "DM Sans" }}
+          >
+            Choose simple tasks that match your interests.
+          </p>
         </div>
+      </div>
 
-        {/* Center card - larger */}
-        <div className="w-[180px] sm:w-[320px] shrink-0 bg-[#1C1E32] border border-[#383C61] rounded-xl p-3 sm:p-4 relative z-10 -translate-y-2 sm:-translate-y-3 hover:scale-105 transition-transform duration-300">
-          <div className="relative rounded-lg overflow-hidden h-[130px] sm:h-[230px] bg-[#0D0F1E]">
-            <img
-              src="/center-card.png"
-              alt=""
-              className="w-full h-full object-cover scale-110 transition-transform duration-500"
-            />
+      {/* Card 3 */}
+      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+        <img
+          src="/step3.png"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-          </div>
-          <div className="mt-2 sm:mt-3">
-            <h3 className="text-white font-semibold text-sm sm:text-2xl">  {t("cards.center_title")}</h3>
-            <p className="text-[#6B6E8A] text-[11px] sm:text-base">
-              {t("cards.center_desc")}
-            </p>
-            <p className="text-[#0AC07D] font-bold text-base sm:text-2xl mt-0.5 sm:mt-1">$0.8</p>
-          </div>
+        <div className="absolute bottom-3 left-3 right-8">
+          <h3
+            className="text-white text-[24px] font-bold"
+            style={{ fontFamily: "Manrope" }}
+          >
+            Choose pay method
+          </h3>
+
+          <p
+            className="mt-1 text-[13px] font-medium text-[#D7A4E7]"
+            style={{ fontFamily: "DM Sans" }}
+          >
+            Pick your preferred way to get paid.
+          </p>
         </div>
+      </div>
 
-        {/* Right card - tilted */}
-        <div className="w-[110px] sm:w-[250px] shrink-0 bg-[#1C1E32] border border-[#383C61] rounded-lg sm:rounded-xl p-2 sm:p-4 transform rotate-[10deg] -translate-y-12 sm:-translate-y-10 translate-x--8 sm:translate-x--4 relative z-[1] hover:scale-105 transition-transform duration-300">
-          <div className="relative rounded-md sm:rounded-lg overflow-hidden h-[75px] sm:h-[170px] bg-[#0D0F1E]">
-            <img
-              src="/right-card.png"
-              alt=""
-              className="w-full h-full object-cover scale-110 transition-transform duration-500"
+      {/* Card 4 */}
+      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+        <img
+          src="/step4.png"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-            />
-          </div>
-          <div className="mt-1 sm:mt-3">
-            <h3 className="text-white font-semibold text-[9px] sm:text-lg truncate">  {t("cards.right_title")}</h3>
-            <p className="text-[#6B6E8A] text-[7px] sm:text-sm truncate">  {t("cards.right_desc")}</p>
-            <p className="text-[#0AC07D] font-bold text-[10px] sm:text-xl mt-0.5 sm:mt-1">$0.4</p>
-          </div>
+       <div className="absolute bottom-3 left-3 right-8">
+          <h3
+            className="text-white text-[24px] font-bold"
+            style={{ fontFamily: "Manrope" }}
+          >
+            Receive Payment
+          </h3>
+
+          <p
+            className="mt-1 text-[13px] font-medium text-[#E7D1A4]"
+            style={{ fontFamily: "DM Sans" }}
+          >
+            Cash out your earnings quickly and securely.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* ═══════ LIVE PAYOUTS ═══════ */}
-      <section className="max-w-[1312px] mx-auto px-4 pt-10 sm:pt-16 pb-0">
-          <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
-                      {t("live_payouts.title_highlight")}{' '}
-            <span className="text-[#18C2A3]">{t("live_payouts.title_rest")}</span>
-          </h2>
+      {/* ═══════ HOW IT WORKS ═══════ */}
 
-        <div className="bg-[#111324] rounded-2xl p-4 sm:p-8">
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
-            {/* Total payout */}
-            <div className="bg-[#181A2C] rounded-xl p-5 sm:p-8 flex flex-col items-center justify-center gap-2 min-w-0 sm:min-w-[260px]">
-              <div
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center shadow-[0_12px_32px_rgba(10,175,135,0.45)]"
-                style={{ background: 'linear-gradient(150deg, #18D4A8 0%, #0FB88E 40%, #099F86 100%)' }}
-              >
-                <svg width="44" height="44" viewBox="0 0 56 52" fill="white">
-                  {/* Bag body */}
-                  <circle cx="20" cy="30" r="18"/>
-                  {/* Bag neck */}
-                  <rect x="14" y="11" width="12" height="8" rx="6"/>
-                  {/* Bag knot */}
-                  <circle cx="20" cy="7" r="5.5"/>
-                  {/* Coin stack */}
-                  <ellipse cx="44" cy="44" rx="11" ry="5" opacity="0.5"/>
-                  <ellipse cx="44" cy="37" rx="11" ry="5" opacity="0.72"/>
-                  <ellipse cx="44" cy="30" rx="11" ry="5"/>
-                </svg>
-              </div>
-              <h3 className="text-[#0AC07D] text-3xl font-bold">
-                {totalPayout24hText}
-              </h3>
-              <p className="text-[#8C8FA8] text-xs text-center">
-                          {t("live_payouts.total_label")}
+<section className="relative z-10 max-w-[1312px] mx-auto px-4 pt-6 sm:pt-10 pb-16 sm:pb-20">
+<div className="text-center mb-16">
+  <h2
+    className="text-[48px] font-semibold text-white"
+    style={{ fontFamily: "DM Sans" }}
+  >
+    Flexible Reward Options
+  </h2>
 
-              </p>
-            </div>
+  <p
+    className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
+    style={{ fontFamily: "DM Sans" }}
+  >
+    Withdraw your earnings using your preferred method.
+  </p>
+</div>
 
-            {/* Mobile: 2x2 grid */}
-            <div className="sm:hidden flex flex-col gap-3">
-              {payoutActivities.length === 0 ? (
-                <div className="rounded-xl border border-[#26293E] bg-[#181A2C] px-4 py-5 text-center text-[#8C8FA8] text-sm">
-                            {t("live_payouts.empty")}
 
-                </div>
-              ) : (
-                payoutActivities.slice(0, 4).map((activity, index) => {
-                  const meta = getPayoutItemMeta(activity);
-                  return (
-                    <PayoutItem
-                      key={`mobile-payout-${activity.username}-${activity.timestamp}-${index}`}
-                      icon={meta.icon}
-                      label={meta.label}
-                      name={meta.name}
-                      amount={formatCurrencyFromCents(activity.amount)}
-                    />
-                  );
-                })
-              )}
-            </div>
+  {/* GRID */}
+  {/* GRID */}
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
+  {REWARD_LOGOS.map((item) => (
+   <div
+  key={item.id}
+  className="rounded-[15px] w-full h-[164px] flex items-center justify-center px-[40px] py-[38px] hover:scale-105 transition-transform duration-300"
+  style={{ backgroundColor: item.bg }}
+>
+  <div className="w-14 h-14 flex items-center justify-center">
+    <img
+      src={item.src}
+      alt=""
+      className="w-full h-full object-contain"
+    />
+  </div>
 
-            {/* Desktop: Ticker rows */}
-            <div className="hidden sm:flex flex-1 flex-col gap-4 overflow-hidden">
-              {payoutActivities.length === 0 ? (
-                <div className="h-full rounded-xl border border-[#26293E] bg-[#181A2C] px-6 py-8 flex items-center justify-center text-[#8C8FA8] text-sm">
-                  {t("live_payouts.empty_desktop")}
-                </div>
-              ) : (
-                <>
-                  <div className="flex gap-4 animate-slideRight">
-                    {[...payoutRowOneActivities, ...payoutRowOneActivities].map(
-                      (activity, index) => {
-                        const meta = getPayoutItemMeta(activity);
-                        return (
-                          <PayoutItem
-                            key={`desktop-payout-row-1-${activity.username}-${activity.timestamp}-${index}`}
-                            icon={meta.icon}
-                            label={meta.label}
-                            name={meta.name}
-                            amount={formatCurrencyFromCents(activity.amount)}
-                          />
-                        );
-                      }
-                    )}
-                  </div>
-                  <div className="flex gap-4 animate-slideLeft">
-                    {[...payoutRowTwoActivities, ...payoutRowTwoActivities].map(
-                      (activity, index) => {
-                        const meta = getPayoutItemMeta(activity);
-                        return (
-                          <PayoutItem
-                            key={`desktop-payout-row-2-${activity.username}-${activity.timestamp}-${index}`}
-                            icon={meta.icon}
-                            label={meta.label}
-                            name={meta.name}
-                            amount={formatCurrencyFromCents(activity.amount)}
-                          />
-                        );
-                      }
-                    )}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
+    </div>
+  ))}
+</div>
+</section>
 
-      {/* ═══════ PARTNER NETWORKS ═══════ */}
-      <section className="w-full overflow-hidden" style={{ height: '460px' }}>
-        <div className="max-w-[1312px] mx-auto px-4 h-full">
-          <img
-            src="/updated2.png"
-            alt="Partner networks"
-            className="w-full h-full object-cover block"
-            style={{ objectPosition: 'center center' }}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </section>
 
-      {/* ═══════ EARN BY COMPLETING TASKS ═══════ */}
-      <section className="max-w-[1312px] mx-auto px-4 pt-0 pb-10 sm:pb-16">
-       
-          <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
-                      {t("tasks.title_highlight")}{' '}
-            <span className="text-[#18C2A3]">{t("tasks.title_rest")}</span>
-          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {[
-            {
-              img: '/surveys.png',
-              title: t("tasks.surveys_title"),
-              desc: t("tasks.surveys_desc"),
-            },
-            {
-              img: '/games.png',
-              title: t("tasks.games_title"),
-              desc: t("tasks.games_desc"),
-            },
-            {
-              img: '/offers.png',
-              title: t("tasks.offers_title"),
-              desc: t("tasks.offers_desc"),
-            },
-          ].map((item, i) => (
-            <div key={i} className="bg-[#111324] rounded-2xl overflow-hidden hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(24,194,163,0.12)] transition-all duration-300">
-              <div className="h-[180px] sm:h-[270px] flex items-center justify-center p-4 sm:p-6">
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="h-full object-contain"
-                />
-              </div>
-              <div className="text-center px-4 sm:px-6 pb-6 sm:pb-8">
-                <h3 className="text-white text-xl sm:text-2xl font-semibold">
-                  {item.title}
-                </h3>
-                <p className="text-[#6B6E8A] text-sm mt-2 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ═══════ TESTIMONIALS ═══════ */}
       <section className="py-14 sm:py-20 bg-[#E8EAF2] dark:bg-[#111324]">
         <div className="max-w-[1312px] mx-auto px-4">
           <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
-            {t("testimonials.title_highlight")}{' '}
-            <span className="text-[#18C2A3]">{t("testimonials.title_rest")}</span>
-          </h2>
+            {t("testimonials.title_highlight")}          </h2>
 
           {/* Cards — 3 visible at once on desktop */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
@@ -1144,38 +1161,85 @@ alt={testimonial.name}
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-5">
-            {/* Prev */}
-            <button
-              onClick={() => setTestimonialIdx((p) => (p - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
-              className="w-10 h-10 rounded-full border border-[#EBEDF5] dark:border-[#2A2D40] flex items-center justify-center text-[#1A1D2E] dark:text-white bg-white dark:bg-[#1A1D2E] hover:border-[#0AC07D] hover:text-[#0AC07D] transition-colors duration-200"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
+<div className="flex justify-center mt-12">
+  <div className="flex items-center gap-5 rounded-full border border-[#26293E] bg-[#16182A] px-5 py-3">
+    {/* Prev */}
+   <button
+  onClick={() =>
+    setTestimonialIdx(
+      (p) => (p - 1 + TESTIMONIALS.length) % TESTIMONIALS.length
+    )
+  }
+  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#3A3E57] bg-[#0D0F1E] transition hover:opacity-90"
+>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M20 12H6"
+      stroke="#FFFFFF"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M11 7L6 12L11 17"
+      stroke="#FFFFFF"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</button>
 
-            {/* Dots */}
-            <div className="flex items-center gap-2">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setTestimonialIdx(i)}
-                  className={`rounded-full transition-all duration-300 h-2.5 ${i === testimonialIdx ? 'bg-[#0AC07D] w-7' : 'bg-[#C7CAD9] dark:bg-[#2A2D40] w-2.5'}`}
-                />
-              ))}
-            </div>
+    {/* Indicators */}
+    <div className="flex items-center gap-2">
+      {TESTIMONIALS.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setTestimonialIdx(i)}
+          className={`rounded-full transition-all duration-300 ${
+           i === testimonialIdx
+  ? "w-[18px] h-[4px] bg-[#2DAD97]"
+  : "w-[18px] h-[4px] bg-[#30334A]"
+          }`}
+        />
+      ))}
+    </div>
 
-            {/* Next */}
-            <button
-              onClick={() => setTestimonialIdx((p) => (p + 1) % TESTIMONIALS.length)}
-              className="w-10 h-10 rounded-full border border-[#EBEDF5] dark:border-[#2A2D40] flex items-center justify-center text-[#1A1D2E] dark:text-white bg-white dark:bg-[#1A1D2E] hover:border-[#0AC07D] hover:text-[#0AC07D] transition-colors duration-200"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
+    {/* Next */}
+   <button
+  onClick={() =>
+    setTestimonialIdx((p) => (p + 1) % TESTIMONIALS.length)
+  }
+  className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition hover:opacity-90"
+>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M4 12H18"
+      stroke="#0D0F1E"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M13 7L18 12L13 17"
+      stroke="#0D0F1E"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</button>
+
+  </div>
+</div>
         </div>
       </section>
 
@@ -1269,7 +1333,7 @@ alt={testimonial.name}
 
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="hidden lg:block lg:w-[380px]">
-          <img src="/img18.png" className="w-full rounded-2xl" />
+          <img src="/faqitem.png" className="w-full rounded-2xl" />
         </div>
 
         <div className="flex-1">
@@ -1285,73 +1349,6 @@ alt={testimonial.name}
         </div>
       </div>
     </section>
-
-{/* ───────── DEEP TIDE WAVE (MORE SPACE BELOW CURVES) ───────── */}
-<div className="relative w-full leading-none -mt-10">
-  <svg
-    className="w-full block"
-    viewBox="0 0 1440 320"
-    preserveAspectRatio="none"
-  >
-    <defs>
-      <linearGradient id="deepWave" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="var(--deep-wave-1)" />
-        <stop offset="100%" stopColor="var(--deep-wave-2)" />
-      </linearGradient>
-    </defs>
-
-    <path
-      d="
-        M0,120
-
-        C120,10 240,250 360,120
-        C480,10 600,250 720,120
-        C840,10 960,250 1080,120
-        C1200,10 1320,250 1440,120
-
-        L1440,320 L0,320 Z
-      "
-      fill="url(#deepWave)"
-    />
-  </svg>
-</div>
-
-{/* ═══════ REWARDS ═══════ */}
-<section className="relative z-10 max-w-[1312px] mx-auto px-4 pt-6 sm:pt-10 pb-16 sm:pb-20">
- <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-10 sm:mb-12 text-[#1A1D2E] dark:text-white">
-  {t("rewards.title_first")}{" "}
-  <span className="text-[#18C2A3]">
-    {t("rewards.title_second")}
-  </span>
-</h2>
-
-  {/* GRID */}
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
-    {REWARD_LOGOS.map((item) => (
-      <div
-        key={item.id}
-        className="bg-white dark:bg-[#111324] border border-[#EBEDF5] dark:border-[#26293E] rounded-[15px]
-                   w-full h-[164px]
-                   flex flex-col items-center justify-center
-                   px-[40px] py-[38px]
-                   gap-[16px]
-                   hover:scale-105 transition-transform duration-300"
-      >
-        <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
-          <img
-            src={item.src}
-            alt={item.name}
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        <p className="text-[#4A4D6A] dark:text-[#B3B6C7] text-sm text-center">
-          {item.name}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
 
 
   </div>

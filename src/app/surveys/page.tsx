@@ -6,19 +6,19 @@ import { Loader2 } from "lucide-react";
 import { toast } from "@/utils/toast";
 import { useTranslation } from "react-i18next";
 import ServeyWalls from "@/Components/Servey/ServeyWalls";
+import TickerBar from "@/Components/Shared/TickerBar";
+import TopBar from "@/Components/Topbar";
 
-/* ── CSS ─────────────────────────────────────────────────────────── */
-const TICKER_CSS = `
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.survey-ticker {
-  display: flex; gap: 12px; width: max-content;
-  animation: scrollLeft 40s linear infinite;
-}
-.survey-ticker:hover { animation-play-state: paused; }
-`;
+const IcoHeadset = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M3 12C3 7.03 7.03 3 12 3s9 4.03 9 9v5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2v-1a7 7 0 0 0-14 0v1h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5"
+      stroke="white"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
+  </svg>
+);
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -54,125 +54,7 @@ type OfferwallApiItem = {
   };
 };
 
-/* ── Survey questions ────────────────────────────────────────────── */
 
-/* ── Ticker data ─────────────────────────────────────────────────── */
-const TICKER_ITEMS = [
-  {
-    img: "/game-tile-tap-master.png",
-    name: "Slots",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-slot.png",
-    name: "Worldcoin",
-    action: "User withdrew",
-    amount: "$0.5",
-  },
-  {
-    img: "/game-monopoly.png",
-    name: "Slot",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-torox.png",
-    name: "Monopoly",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-angry-bird.png",
-    name: "Worldcoin",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-big-giant.png",
-    name: "Big Giant",
-    action: "User earned",
-    amount: "$1.0",
-  },
-  // duplicate for seamless loop
-  {
-    img: "/game-tile-tap-master.png",
-    name: "Slots",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-slot.png",
-    name: "Worldcoin",
-    action: "User withdrew",
-    amount: "$0.5",
-  },
-  {
-    img: "/game-monopoly.png",
-    name: "Slot",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-torox.png",
-    name: "Monopoly",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-angry-bird.png",
-    name: "Worldcoin",
-    action: "User withdrew",
-    amount: "$0.8",
-  },
-  {
-    img: "/game-big-giant.png",
-    name: "Big Giant",
-    action: "User earned",
-    amount: "$1.0",
-  },
-];
-
-/* ── Icons ───────────────────────────────────────────────────────── */
-const IcoBell = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-const IcoCashout = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M17.5 10.5C18.88 10.5 20 11.62 20 13V18C20 19.38 18.88 20.5 17.5 20.5H6.5C5.12 20.5 4 19.38 4 18V13C4 11.62 5.12 10.5 6.5 10.5H17.5ZM17.5 3.5C18.88 3.5 20 4.62 20 6V8.5H4V6C4 4.62 5.12 3.5 6.5 3.5H17.5Z"
-      fill="white"
-    />
-  </svg>
-);
-const IcoHeadset = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M3 12C3 7.03 7.03 3 12 3s9 4.03 9 9v5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2v-1a7 7 0 0 0-14 0v1h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5"
-      stroke="white"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-const IcoX = () => (
-  <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-    <path
-      d="M1 1L10 10M1 10L10 1"
-      stroke="#1E2133"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-  </svg>
-);
 
 /* ── Helpers ─────────────────────────────────────────────────────── */
 const isSurveyProvider = (s: string) =>
@@ -188,11 +70,6 @@ const COMPLETION_ENDPOINTS = [
 /* ══════════════════════════════════════════════════════════════════ */
 export default function SurveysPage() {
   const router = useRouter();
-
-  /* topbar state */
-  const [notifCount, setNotifCount] = useState(0);
-  const [profileInit, setProfileInit] = useState("B");
-  const [showNotif, setShowNotif] = useState(false);
 
   /* survey state */
   const [providers, setProviders] = useState<SurveyProvider[]>([]);
@@ -262,38 +139,6 @@ export default function SurveysPage() {
     () => Math.round((stepIndex / totalSteps) * 100),
     [stepIndex, totalSteps],
   );
-
-  /* init profile + notif */
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const raw = localStorage.getItem("user");
-      if (raw) {
-        const u = JSON.parse(raw) as {
-          displayName?: string;
-          username?: string;
-          email?: string;
-        };
-        const c = (u.displayName || u.username || u.email || "B")
-          .charAt(0)
-          .toUpperCase();
-        if (c) setProfileInit(c);
-      }
-    } catch {}
-    const token = localStorage.getItem("token");
-    if (!token) return;
-    fetch(`${API}/api/v1/user/notifications`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        if (Array.isArray(d?.notifications))
-          setNotifCount(
-            d.notifications.filter((n: { read?: boolean }) => !n.read).length,
-          );
-      })
-      .catch(() => {});
-  }, []);
 
   /* load providers */
   useEffect(() => {
@@ -442,139 +287,10 @@ export default function SurveysPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
-      <style>{TICKER_CSS}</style>
 
-      {/* ── Mobile header (< md) ───────────────────────────────── */}
-      <div className="md:hidden sticky top-0 z-40 bg-[#0D0F1E] border-b border-[#1E2133]">
-        <div className="flex items-center justify-between px-4 py-3">
-          {/* Bell */}
-          <button
-            onClick={() => setShowNotif((v) => !v)}
-            className="relative w-9 h-9 flex items-center justify-center rounded-[8px] bg-[#1E2133] border border-[#30334A]"
-            aria-label="Notifications"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2C10.62 2 9.5 3.12 9.5 4.5V4.71C7.03 5.43 5.25 7.71 5.25 10.38V15.5L4 16.75V18H20V16.75L18.75 15.5V10.38C18.75 7.71 16.97 5.43 14.5 4.71V4.5C14.5 3.12 13.38 2 12 2ZM10 19.5C10 20.6 10.9 21.5 12 21.5C13.1 21.5 14 20.6 14 19.5H10Z"
-                fill="white"
-              />
-            </svg>
-            {notifCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-[14px] h-[14px] rounded-full bg-[#0AC07D] text-[8px] font-bold text-white flex items-center justify-center">
-                {notifCount > 9 ? "9+" : notifCount}
-              </span>
-            )}
-          </button>
+      <TopBar />
 
-          {/* Title */}
-          <span
-            className="text-white font-bold text-[18px]"
-            style={{ fontFamily: "'Manrope', sans-serif" }}
-          >
-            {t("survey.title")}
-          </span>
-
-          {/* X close */}
-          <button
-            onClick={() => router.back()}
-            className="w-7 h-7 flex items-center justify-center rounded-[6px] bg-[#8C8FA8] hover:bg-[#a0a3bb] transition-colors"
-            aria-label="Close"
-          >
-            <IcoX />
-          </button>
-        </div>
-      </div>
-
-      {/* ── Desktop topbar (>= md) ──────────────────────────────── */}
-      <div className="hidden md:block sticky top-0 z-40 bg-[#14162A] border-b border-[#1E2133]">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 py-3 flex items-center justify-between gap-3">
-          <button
-            onClick={() => router.push("/home")}
-            className="flex-shrink-0"
-            aria-label="Home"
-          >
-            <img
-              src="/logo-labwards.png"
-              alt="LabWards"
-              className="h-10 md:h-11 w-auto object-contain"
-            />
-          </button>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => setShowNotif((v) => !v)}
-              className="relative h-[44px] w-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] flex items-center justify-center hover:opacity-90"
-              aria-label="Notifications"
-            >
-              <IcoBell />
-              {notifCount > 0 && (
-                <span className="absolute top-1 right-1 min-w-[14px] h-[14px] px-1 rounded-full bg-[#0AC07D] text-[9px] leading-[14px] font-bold text-center text-white">
-                  {notifCount > 99 ? "99+" : notifCount}
-                </span>
-              )}
-            </button>
-            <button
-              onClick={() => router.push("/wallet")}
-              className="h-[44px] rounded-[8px] bg-[#1E2133] border border-[#30334A] px-4 flex items-center gap-2 hover:opacity-90"
-            >
-              <span className="text-[#B3B6C7] text-[14px] font-bold">$</span>
-              <span className="text-white font-bold text-[22px] leading-none">
-                120
-              </span>
-              <span className="text-[#B3B6C7] text-[14px]">USD</span>
-            </button>
-            <button
-              onClick={() => router.push("/cashout")}
-              className="h-[44px] rounded-[8px] px-5 flex items-center gap-2 text-white font-bold text-[15px] hover:opacity-90"
-              style={{
-                background:
-                  "linear-gradient(12.07deg, rgba(255,255,255,0) 16.27%, rgba(255,255,255,0.4) 93.68%), #099F86",
-                boxShadow: "0px 7px 19px rgba(20,169,144,0.3)",
-              }}
-            >
-              <IcoCashout />
-              {t("survey.cashout")}
-            </button>
-            <button
-              onClick={() => router.push("/account")}
-              className="h-[44px] w-[54px] rounded-[8px] bg-[#1E2133] border border-[#0AC07D] text-white font-bold text-[18px] hover:opacity-90"
-            >
-              {profileInit}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Activity Ticker ─────────────────────────────────────── */}
-      <div className="mx-3 sm:mx-6 md:mx-16 mt-3 sm:mt-4 h-[60px] sm:h-[72px] overflow-hidden rounded-[10px] bg-[#151728] border border-[#1E2133] flex items-center shrink-0">
-        <div className="survey-ticker px-2 sm:px-3">
-          {TICKER_ITEMS.map((t, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-[8px] sm:gap-[10px] bg-[#181A2C] px-2 sm:px-3 py-[8px] rounded-[10px] flex-shrink-0 h-[46px] sm:h-[56px]"
-              style={{ minWidth: "160px" }}
-            >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden flex-shrink-0 bg-[#1E2133]">
-                <img
-                  src={t.img}
-                  alt={t.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex flex-col justify-center gap-[2px]">
-                <p className="text-[10px] sm:text-[11px] font-medium text-[#6B6E8A] m-0">
-                  {t.action}
-                </p>
-                <span className="text-[12px] sm:text-[13px] font-medium text-[#B3B6C7]">
-                  {t.name}
-                </span>
-              </div>
-              <span className="text-[13px] sm:text-[16px] font-bold text-[#0AC07D] ml-auto">
-                {t.amount}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <TickerBar />
 
       {/* ── Main Survey Content ──────────────────────────────────── */}
       {profileLoading ? null : !profileCompleted ? (

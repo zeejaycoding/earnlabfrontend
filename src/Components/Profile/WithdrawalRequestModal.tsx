@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FaX } from "react-icons/fa6";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 interface WithdrawalMethod {
   key: string;
@@ -18,28 +19,9 @@ interface WithdrawalRequestModalProps {
   onSuccess: () => void;
 }
 
-const GIFT_CARD_TYPES = [
-  { id: "amazon", name: "Amazon" },
-  { id: "google_play", name: "Google Play" },
-  { id: "apple_itunes", name: "Apple iTunes" },
-  { id: "steam", name: "Steam" },
-  { id: "xbox", name: "Xbox" },
-  { id: "playstation", name: "PlayStation" },
-  { id: "netflix", name: "Netflix" },
-  { id: "spotify", name: "Spotify" },
-  { id: "roblox", name: "Roblox" },
-  { id: "nintendo", name: "Nintendo" },
-];
 
 const PRESET_AMOUNTS = [5, 10, 20, 25, 50, 100];
 
-const CRYPTO_TYPES = [
-  { id: "btc", name: "Bitcoin (BTC)" },
-  { id: "eth", name: "Ethereum (ETH)" },
-  { id: "ltc", name: "Litecoin (LTC)" },
-  { id: "usdt", name: "USDT (TRC20)" },
-  { id: "sol", name: "Solana (SOL)" },
-];
 
 const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
   isOpen,
@@ -56,6 +38,30 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState(false);
+  const { t } = useTranslation();
+
+  const CRYPTO_TYPES = [
+  { id: "btc", name: t("rewards.bitcoin") },
+  { id: "eth", name: t("cards_cc.ethereum") },
+  { id: "ltc", name:  t("cards_cc.litecoin") },
+  { id: "usdt", name: t("cards_cc.usdt")},
+  { id: "sol", name: t("cards_cc.solana") },
+];
+
+
+  const GIFT_CARD_TYPES = [
+  { id: "amazon", name: t("rewards.amazon") },
+  { id: "google_play", name: t("rewards.google_play") },
+  { id: "apple_itunes", name: t("rewards.apple_itunes") },
+  { id: "steam", name: t("cards_cc.steam") },
+  { id: "xbox", name: t("rewards.xbox") },
+  { id: "playstation", name: t("rewards.playstation") },
+  { id: "netflix", name: t("rewards.netflix") },
+  { id: "spotify", name: t("rewards.spotify") },
+  { id: "roblox", name: t("rewards.roblox") },
+  { id: "nintendo", name: t("rewards.nintendo") },
+];
+
 
   useEffect(() => {
     if (isOpen) {
@@ -72,7 +78,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
       }
     } catch (err) {
       console.error("Failed to fetch withdrawal methods:", err);
-      setError("Failed to load withdrawal methods");
+      setError(t("withdrawalModal.errors.failedToLoad"));
     }
   };
 
@@ -83,36 +89,36 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
 
     // Validation
     if (!selectedMethod) {
-      setError("Please select a withdrawal method");
+      setError(t("withdrawalModal.errors.selectMethod"));
       return;
     }
 
     if (!amount || parseFloat(amount) <= 0) {
-      setError("Please enter a valid amount");
+      setError(t("withdrawalModal.errors.invalidAmount"));
       return;
     }
 
     const amountValue = parseFloat(amount);
     if (amountValue < 5) {
-      setError("Minimum withdrawal amount is $5");
+      setError(t("withdrawalModal.errors.minimumAmount"));
       return;
     }
 
     const amountCents = Math.round(amountValue * 100);
     if (amountCents > userBalance) {
-      setError("Insufficient balance");
+      setError(t("withdrawalModal.errors.insufficientBalance"));
       return;
     }
 
     if (!destination) {
       setError(
         selectedMethod === "giftcard"
-          ? "Please enter your email address for gift card delivery"
+          ? t("withdrawalModal.errors.enterEmail")
           : selectedMethod === "paypal"
-            ? "Please enter your PayPal email address"
+            ? t("withdrawalModal.errors.enterPayPalEmail")
             : selectedMethod === "crypto"
-              ? "Please enter your wallet address"
-              : "Please enter a valid destination"
+              ? t("withdrawalModal.errors.walletAddress")
+              : t("withdrawalModal.errors.enterDestination")
       );
       return;
     }
@@ -121,18 +127,18 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
     if ((selectedMethod === "paypal" || selectedMethod === "giftcard") && destination) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(destination)) {
-        setError("Please enter a valid email address");
+        setError(t("withdrawalModal.errors.invalidEmail"));
         return;
       }
     }
 
     if (selectedMethod === "giftcard" && !giftCardType) {
-      setError("Please select a gift card type");
+      setError(t("withdrawalModal.errors.selectGiftCardType"));
       return;
     }
 
     if (selectedMethod === "crypto" && !cryptoType) {
-      setError("Please select a cryptocurrency");
+      setError(t("withdrawalModal.errors.selectCryptoType"));
       return;
     }
 
@@ -165,7 +171,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
     } catch (err: any) {
       setError(
         err.response?.data?.message ||
-          "Failed to submit withdrawal request. Please try again."
+          t("withdrawalModal.errors.submissionFailed")
       );
     } finally {
       setLoading(false);
@@ -179,7 +185,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
       <div className="bg-[#1E2133] rounded-lg p-5 max-w-sm w-full mx-4 border border-[#2A2D44] max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-white">Request Withdrawal</h2>
+          <h2 className="text-xl font-bold text-white">{t("withdrawalModal.title")}</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition"
@@ -192,11 +198,10 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
           <div className="text-center py-6">
             <div className="text-green-500 text-4xl mb-3">✓</div>
             <h3 className="text-lg font-bold text-white mb-2">
-              Request Submitted!
+              {t("withdrawalModal.success.title")}
             </h3>
             <p className="text-gray-400 text-sm">
-              Your withdrawal request has been submitted and is pending admin
-              review.
+              {t("withdrawalModal.success.description")}
             </p>
           </div>
         ) : (
@@ -210,7 +215,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
 
             {/* Balance Info */}
             <div className="bg-[#151728] rounded-lg p-2.5 border border-[#2A2D44]">
-              <p className="text-gray-400 text-xs">Available Balance</p>
+              <p className="text-gray-400 text-xs">{t("withdrawalModal.balance")}</p>
               <p className="text-xl font-bold text-[#18C3A7]">
                 ${(userBalance / 100).toFixed(2)}
               </p>
@@ -219,7 +224,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             {/* Method Selection */}
             <div>
               <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                Withdrawal Method
+                {t("withdrawalModal.method")}
               </label>
               <select
                 value={selectedMethod}
@@ -242,7 +247,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             {/* Preset Amount Buttons */}
             <div>
               <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                Amount (USD)
+                {t("withdrawalModal.amount")}
               </label>
               <div className="grid grid-cols-3 gap-2 mb-2">
                 {PRESET_AMOUNTS.map((preset) => (
@@ -266,7 +271,7 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
                 min="0"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                placeholder="Or enter custom amount"
+                placeholder={t("withdrawalModal.customAmountPlaceholder")}
                 className="w-full bg-[#151728] border border-[#2A2D44] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#18C3A7]"
               />
             </div>
@@ -275,14 +280,14 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             {selectedMethod === "giftcard" && (
               <div>
                 <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                  Gift Card Type
+                  {t("withdrawalModal.giftCardType")}
                 </label>
                 <select
                   value={giftCardType}
                   onChange={(e) => setGiftCardType(e.target.value)}
                   className="w-full bg-[#151728] border border-[#2A2D44] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#18C3A7]"
                 >
-                  <option value="">Select a gift card type</option>
+                  <option value="">{t("withdrawalModal.selectGiftCardType")}</option>
                   {GIFT_CARD_TYPES.map((type) => (
                     <option key={type.id} value={type.id}>
                       {type.name}
@@ -296,14 +301,14 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             {selectedMethod === "crypto" && (
               <div>
                 <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                  Cryptocurrency
+                  {t("withdrawalModal.cryptocurrency")}
                 </label>
                 <select
                   value={cryptoType}
                   onChange={(e) => setCryptoType(e.target.value)}
                   className="w-full bg-[#151728] border border-[#2A2D44] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#18C3A7]"
                 >
-                  <option value="">Select cryptocurrency</option>
+                  <option value="">{t("withdrawalModal.selectCryptocurrency")}</option>
                   {CRYPTO_TYPES.map((type) => (
                     <option key={type.id} value={type.id}>
                       {type.name}
@@ -317,14 +322,14 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             <div>
               <label className="block text-xs font-medium text-gray-300 mb-1.5">
                 {selectedMethod === "giftcard"
-                  ? "Email Address (for gift card delivery)"
+                  ? t("withdrawalModal.giftCardEmail")
                   : selectedMethod === "crypto"
-                    ? "Wallet Address"
+                    ? t("withdrawalModal.walletAddress")
                     : selectedMethod === "paypal"
-                      ? "PayPal Email Address"
+                      ? t("withdrawalModal.paypalEmail")
                       : selectedMethod === "bank_transfer"
-                        ? "Bank Account Details"
-                        : "Destination"}
+                        ? t("withdrawalModal.bankAccountDetails")
+                        : t("withdrawalModal.destination")}
               </label>
               <input
                 type={selectedMethod === "giftcard" || selectedMethod === "paypal" ? "email" : "text"}
@@ -332,21 +337,21 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
                 onChange={(e) => setDestination(e.target.value)}
                 placeholder={
                   selectedMethod === "giftcard"
-                    ? "your@email.com"
+                    ? t("withdrawalModal.giftCardEmailPlaceholder")
                     : selectedMethod === "paypal"
-                      ? "your.paypal@email.com"
+                      ? t("withdrawalModal.paypalEmailPlaceholder")
                       : selectedMethod === "crypto"
-                        ? "Enter wallet address..."
+                        ? t("withdrawalModal.walletAddressPlaceholder")
                         : selectedMethod === "bank_transfer"
-                          ? "Enter bank account details..."
-                          : "Enter destination"
+                          ? t("withdrawalModal.bankAccountDetailsPlaceholder")
+                          : t("withdrawalModal.destinationPlaceholder")
                 }
                 className="w-full bg-[#151728] border border-[#2A2D44] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#18C3A7]"
               />
               {/* PayPal specific help text */}
               {selectedMethod === "paypal" && (
                 <p className="text-xs text-gray-500 mt-1">
-                  Enter the email address linked to your PayPal account
+                  {t("withdrawalModal.paypalHelp")}
                 </p>
               )}
             </div>
@@ -355,12 +360,12 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-2.5 text-blue-400 text-xs">
               <p>
                 {selectedMethod === "paypal" 
-                  ? "PayPal withdrawals will be sent directly to your PayPal email address."
+                  ? t("withdrawalModal.paypalInfo")
                   : selectedMethod === "giftcard"
-                    ? "Gift card codes will be sent to your email address."
+                    ? t("withdrawalModal.giftCardInfo")
                     : selectedMethod === "crypto"
-                      ? "Cryptocurrency will be sent to your wallet address."
-                      : "Your withdrawal will be reviewed by our admin team."}
+                      ? t("withdrawalModal.cryptoInfo")
+                      : t("withdrawalModal.destinationInfo")}
               </p>
             </div>
 
@@ -371,14 +376,14 @@ const WithdrawalRequestModal: React.FC<WithdrawalRequestModalProps> = ({
                 onClick={onClose}
                 className="flex-1 bg-[#151728] border border-[#2A2D44] rounded-lg py-2 text-sm text-white hover:bg-[#1a1f2e] transition"
               >
-                Cancel
+                {t("withdrawalModal.cancel")}
               </button>
               <button
                 type="submit"
                 disabled={loading}
                 className="flex-1 bg-[#18C3A7] rounded-lg py-2 text-sm text-black font-semibold hover:bg-[#15b39a] transition disabled:opacity-50"
               >
-                {loading ? "Submitting..." : "Submit"}
+                {loading ? t("withdrawalModal.submitting") : t("withdrawalModal.submit")}
               </button>
             </div>
           </form>

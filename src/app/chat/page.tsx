@@ -9,6 +9,7 @@ import SupportChat from "@/Components/HomePage/SupportChat";
 import UserProfileModal from "@/Components/UserProfileModal";
 import { toast } from "@/utils/toast";
 import TopBar from "@/Components/Topbar";
+import TickerBar from "@/Components/Shared/TickerBar";
 import { useTranslation } from "react-i18next";
 
 
@@ -134,32 +135,7 @@ const rooms = [
   { id: "community", name: t("chat_page.rooms.community") }
 ];
 
-const tickerItems = [
-  {
-    img: "/img6.png",
-    user: t("chat_page.ticker.user_xy_withdrew"),
-    label: t("chat_page.ticker.slots"),
-    amount: "$0.5",
-  },
-  {
-    img: "/img7.png",
-    user: t("chat_page.ticker.user_yz_earned"),
-    label: t("chat_page.ticker.worldcoin"),
-    amount: "$10",
-  },
-  {
-    img: "/img8.png",
-    user: t("chat_page.ticker.user_ab_earned"),
-    label: t("chat_page.ticker.offer_walls"),
-    amount: "$2",
-  },
-  {
-    img: "/img9.png",
-    user: t("chat_page.ticker.user_cd_withdrew"),
-    label: t("chat_page.ticker.torox"),
-    amount: "$1.5",
-  },
-];
+
 
   const router = useRouter();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -466,21 +442,7 @@ const [selectedRoomId, setSelectedRoomId] = useState("general");
         </button>
       </div>
 
-      {/* ── Activity ticker ── */}
-      <div className="flex flex-row overflow-x-auto gap-[10px] px-4 py-2 border-b border-[#1E2133] flex-shrink-0">
-        {tickerItems.map((item, i) => (
-          <div key={i} className="flex-shrink-0 flex flex-row items-center gap-2 bg-[#151728] rounded-[8px] px-3 py-1.5 min-w-[160px] h-[48px]">
-            <div className="w-8 h-8 rounded-[5px] overflow-hidden flex-shrink-0 bg-[#1E2133]">
-              <Image src={item.img} alt={item.label} width={32} height={32} className="w-full h-full object-cover" />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-[10px] font-medium text-[#8C8FA8] leading-[14px]">{item.user}</span>
-              <span className="text-[11px] font-medium text-[#B3B6C7] leading-[14px]">{item.label}</span>
-            </div>
-            <span className="text-[14px] font-bold text-[#0AC07D] ml-auto pl-2">{item.amount}</span>
-          </div>
-        ))}
-      </div>
+      <TickerBar />
 
       {/* ── Messages area ── */}
       <div

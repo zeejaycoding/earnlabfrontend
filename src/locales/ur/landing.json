@@ -102,6 +102,13 @@
   "paypal": "پے پال",
   "worldcoin": "ورلڈ کوائن",
   "amazon": "ایمیزون",
+   "google_play": "گوگل پلے",
+    "apple_itunes": "ایپل آئی ٹیونز",
+    "xbox":"ایکس باکس",
+  "netflix":"نیٹ فلکس",
+  "roblox":"روبلوکس",
+  "nintendo":"نینٹینڈو",
+
   "solana": "سولانا",
   "playstation": "پلے اسٹیشن",
   "spotify": "اسپاٹیفائی",
@@ -440,6 +447,7 @@
   "litecoin": "لائٹ کوائن",
   "paypal": "پے پال",
   "worldcoin": "ورلڈ کوائن",
+   "usdt": "USDT (TRC20)",
   "visa": "ویزا",
   "amazon": "ایمیزون",
   "app_stores": "ایپ اسٹورز",
@@ -2460,6 +2468,101 @@
       "taskCompleted": "ٹاسک مکمل",
       "giftCardPayout": "گفٹ کارڈ ادائیگی"
     }
+  },
+
+   "withdrawalModal": {
+    "title": "رقم نکالنے کی درخواست",
+    "requestSubmitted": "درخواست جمع ہوگئی!",
+    "requestSuccess": "آپ کی رقم نکالنے کی درخواست جمع ہو گئی ہے اور ایڈمن کی منظوری کا انتظار کر رہی ہے۔",
+
+    "availableBalance": "دستیاب بیلنس",
+    "withdrawalMethod": "رقم نکالنے کا طریقہ",
+    "amount": "رقم (امریکی ڈالر)",
+    "customAmountPlaceholder": "یا اپنی مطلوبہ رقم درج کریں",
+
+    "giftCardType": "گفٹ کارڈ کی قسم",
+    "selectGiftCardType": "گفٹ کارڈ منتخب کریں",
+
+    "cryptocurrency": "کرپٹو کرنسی",
+    "selectCryptocurrency": "کرپٹو کرنسی منتخب کریں",
+
+    "destination": "منزل",
+    "walletAddress": "والٹ ایڈریس",
+    "paypalEmail": "پے پال ای میل ایڈریس",
+    "giftCardEmail": "ای میل ایڈریس (گفٹ کارڈ وصول کرنے کے لیے)",
+    "bankDetails": "بینک اکاؤنٹ کی تفصیلات",
+
+    "destinationPlaceholder": "منزل درج کریں",
+    "walletPlaceholder": "والٹ ایڈریس درج کریں...",
+    "bankPlaceholder": "بینک اکاؤنٹ کی تفصیلات درج کریں...",
+    "emailPlaceholder": "your@email.com",
+    "paypalPlaceholder": "your.paypal@email.com",
+
+    "paypalHelp": "اپنے پے پال اکاؤنٹ سے منسلک ای میل درج کریں",
+
+    "paypalInfo": "پے پال کی رقم براہ راست آپ کے پے پال ای میل پر بھیجی جائے گی۔",
+    "giftcardInfo": "گفٹ کارڈ کوڈ آپ کے ای میل پر بھیجے جائیں گے۔",
+    "cryptoInfo": "کرپٹو کرنسی آپ کے والٹ ایڈریس پر بھیجی جائے گی۔",
+    "defaultInfo": "آپ کی درخواست ہماری ایڈمن ٹیم کے جائزے کے بعد مکمل کی جائے گی۔",
+
+    "cancel": "منسوخ کریں",
+    "submit": "جمع کریں",
+    "submitting": "جمع کیا جا رہا ہے...",
+
+    "errors": {
+      "loadMethods": "رقم نکالنے کے طریقے لوڈ نہیں ہو سکے",
+      "selectMethod": "براہ کرم رقم نکالنے کا طریقہ منتخب کریں",
+      "invalidAmount": "براہ کرم درست رقم درج کریں",
+      "minimumAmount": "کم از کم رقم $5 ہے",
+      "insufficientBalance": "بیلنس ناکافی ہے",
+      "giftcardEmail": "براہ کرم گفٹ کارڈ وصول کرنے کے لیے اپنا ای میل درج کریں",
+      "paypalEmail": "براہ کرم اپنا پے پال ای میل درج کریں",
+      "walletAddress": "براہ کرم اپنا والٹ ایڈریس درج کریں",
+      "destination": "براہ کرم درست منزل درج کریں",
+      "invalidEmail": "براہ کرم درست ای میل ایڈریس درج کریں",
+      "selectGiftCard": "براہ کرم گفٹ کارڈ منتخب کریں",
+      "selectCrypto": "براہ کرم کرپٹو کرنسی منتخب کریں",
+      "submitFailed": "درخواست جمع نہیں ہو سکی، براہ کرم دوبارہ کوشش کریں۔"
+    }
+  },
+
+   "withdrawDashboard": {
+    "loading": "رقم نکالنے کی تاریخ لوڈ ہو رہی ہے...",
+
+    "title": "رقم نکالنے کی تاریخ",
+    "requestWithdrawal": "رقم نکالنے کی درخواست",
+
+    "availableBalance": "دستیاب بیلنس",
+
+    "searchPlaceholder": "آئی ڈی، طریقہ یا اسٹیٹس سے تلاش کریں...",
+
+    "emptySearch": "آپ کی تلاش کے مطابق کوئی ریکارڈ نہیں ملا",
+    "emptyHistory": "ابھی تک کوئی رقم نکالنے کی درخواست موجود نہیں۔ شروع کرنے کے لیے 'رقم نکالنے کی درخواست' پر کلک کریں۔",
+
+    "table": {
+      "requestId": "درخواست آئی ڈی",
+      "method": "طریقہ",
+      "amount": "رقم",
+      "status": "اسٹیٹس",
+      "date": "تاریخ",
+      "action": "عمل"
+    },
+
+    "status": {
+      "pending": "زیر التواء",
+      "approved": "منظور شدہ",
+      "completed": "مکمل",
+      "rejected": "مسترد"
+    },
+
+    "methods": {
+      "giftCard": "گفٹ کارڈ",
+      "paypal": "پے پال",
+      "crypto": "کرپٹو",
+      "bankTransfer": "بینک ٹرانسفر"
+    },
+
+    "view": "دیکھیں"
   }
     
   }

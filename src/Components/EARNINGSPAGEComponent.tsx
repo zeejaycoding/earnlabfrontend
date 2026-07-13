@@ -7,22 +7,7 @@ import EarnSideMenu from "@/Components/EARNINGSPAGEComponent/EarnSideMenu";
 import { FaAndroid, FaApple } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import type { TFunction } from "i18next";
-
-
-// ─── Ticker animation injected once ─────────────────────────────────────────
-const TICKER_CSS = `
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.ticker-track {
-  display: flex;
-  gap: 12px;
-  width: max-content;
-  animation: scrollLeft 40s linear infinite;
-}
-.ticker-track:hover { animation-play-state: paused; }
-`;
+import TickerBar from "@/Components/Shared/TickerBar";
 
 // ─── Inline SVG icons ────────────────────────────────────────────────────────
 
@@ -257,24 +242,6 @@ function deriveProviderCategories(input: string): Exclude<EarnFilterKey, "all">[
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const buildTickerItems = (t: TFunction): TickerItemData[] => [
-  { image: "/game-tile-tap-master.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
-  { special: "worldcoin", action: t("earningsPage.userWithdrew"), name: t("rewards.worldcoin"), amount: "$0.8" },
-  { image: "/game-slot.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
-  { image: "/game-monopoly.png", action: t("earningsPage.userWithdrew"), name: t("game.monopoly"), amount: "$0.8" },
-  { image: "/game-torox.png", action: t("earningsPage.userWithdrew"), name: t("game.torox"), amount: "$0.8" },
-  { special: "offerwall", action: t("earningsPage.userEarned"), name: t("offerWalls.title"), amount: "$0.5" },
-  { special: "solana", action: t("earningsPage.userWithdrew"), name: t("rewards.solana"), amount: "$0.2" },
-  // duplicate set for seamless loop
-  { image: "/game-tile-tap-master.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
-  { special: "worldcoin", action: t("earningsPage.userWithdrew"), name: t("rewards.worldcoin"), amount: "$0.8" },
-  { image: "/game-slot.png", action: t("earningsPage.userWithdrew"), name: t("game.slot"), amount: "$0.8" },
-  { image: "/game-monopoly.png", action: t("earningsPage.userWithdrew"), name: t("game.monopoly"), amount: "$0.8" },
-  { image: "/game-torox.png", action: t("earningsPage.userWithdrew"), name: t("game.torox"), amount: "$0.8" },
-  { special: "offerwall", action: t("earningsPage.userEarned"), name: t("offerWalls.title"), amount: "$0.5" },
-  { special: "solana", action: t("earningsPage.userWithdrew"), name: t("rewards.solana"), amount: "$0.2" },
-];
-
 const buildFeaturedGames = (t: TFunction): FeaturedGame[] => [
   {
     image: "/game-tile-tap-master.png",
@@ -388,48 +355,6 @@ const buildDefaultProviders = (t: TFunction): Provider[] => [
 ];
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
-
-interface TickerItemData {
-  image?: string;
-  special?: string;
-  action: string;
-  name: string;
-  amount: string;
-}
-
-const TickerCard: React.FC<TickerItemData> = ({ image, special, action, name, amount }) => {
-  const renderIcon = () => {
-    if (image) {
-      return (
-        <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-[#1E2133]">
-          <img src={image} alt={name} className="w-full h-full object-cover" />
-        </div>
-      );
-    }
-    if (special === "worldcoin") {
-      return <div className="w-12 h-12 flex items-center justify-center flex-shrink-0"><IcoWorldcoin /></div>;
-    }
-    if (special === "offerwall") {
-      return <div className="w-12 h-12 flex items-center justify-center flex-shrink-0"><IcoClipboard /></div>;
-    }
-    if (special === "solana") {
-      return <div className="w-12 h-12 flex items-center justify-center flex-shrink-0"><IcoSolana /></div>;
-    }
-    return <div className="w-12 h-12 rounded-lg bg-[#1E2133] flex-shrink-0" />;
-  };
-
-  return (
-    <div className="flex flex-row items-center gap-[10px] bg-[#181A2C] px-3 py-[10px] rounded-[10px] flex-shrink-0 h-[72px]"
-         style={{ minWidth: "244px" }}>
-      {renderIcon()}
-      <div className="flex flex-col justify-center gap-[4px]">
-        <p className="text-[12px] font-medium text-[#6B6E8A] leading-5 m-0">{action}</p>
-        <span className="text-[14px] font-medium text-[#B3B6C7] leading-5">{name}</span>
-      </div>
-      <h2 className="text-[18px] font-bold text-[#0AC07D] ml-auto leading-6 tracking-[0.4px]">{amount}</h2>
-    </div>
-  );
-};
 
 const FilterTabItem: React.FC<{
   filter: EarnFilterKey;
@@ -570,19 +495,6 @@ const ProviderCard: React.FC<{
   );
 };
 
-// ─── Section components ───────────────────────────────────────────────────────
-
-
-const ActivityTicker: React.FC<{ items: TickerItemData[] }> = ({ items }) => (
-  <div className="mx-4 sm:mx-6 md:mx-16 mt-4 md:mt-[22px] h-[72px] overflow-hidden rounded-[10px] bg-[#151728] border border-[#1E2133] flex items-center">
-    <div className="ticker-track px-3">
-      {items.map((item, idx) => (
-        <TickerCard key={idx} {...item} />
-      ))}
-    </div>
-  </div>
-);
-
 const useHorizontalSlider = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
@@ -633,7 +545,6 @@ const useHorizontalSlider = () => {
 const EARNINGSPAGEComponent: React.FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  const tickerItems = useMemo(() => buildTickerItems(t), [t]);
   const featuredGames = useMemo(() => buildFeaturedGames(t), [t]);
   const defaultProviders = useMemo(() => buildDefaultProviders(t), [t]);
   const [activeFilter, setActiveFilter] = useState<EarnFilterKey>("all");
@@ -1354,7 +1265,6 @@ const ProviderSection: React.FC<{
 
   return (
     <div className="bg-[#0B0D1F] min-h-screen font-sans text-white">
-      <style>{TICKER_CSS}</style>
       <EarnLegacyTopControls
         notificationCount={notificationCount}
         profileInitial={profileInitial}
@@ -1367,7 +1277,7 @@ const ProviderSection: React.FC<{
       />
       <main>
         <div className="max-w-[1440px] mx-auto">
-          <ActivityTicker items={tickerItems} />
+          <TickerBar />
           <div className="px-4 sm:px-6 md:px-16 pb-10">
             <FilterBar
               activeFilter={activeFilter}
