@@ -810,15 +810,14 @@ useEffect(() => {
       className="text-[60px] leading-[72px] font-semibold text-white"
       style={{ fontFamily: "DM Sans" }}
     >
-      Get paid for what you already do online
+      {t("hero.title_highlight")}
     </h1>
 
     <p
       className="mt-6 max-w-[560px] text-[20px] leading-[32px] text-[#E6FFFD]"
       style={{ fontFamily: "DM Sans", fontWeight: 400 }}
     >
-      Complete surveys, play games, and finish quick offers to earn real
-      money, crypto, and rewards.
+      {t("hero.subtitle")}
     </p>
 
     <button
@@ -831,7 +830,7 @@ useEffect(() => {
         boxShadow: "0px 8px 24px #14A9904D",
       }}
     >
-      Get Started
+       {t("hero.cta-1")}
     </button>
   </div>
 
@@ -848,14 +847,14 @@ useEffect(() => {
       className="text-white text-[22px] font-semibold"
       style={{ fontFamily: "DM Sans" }}
     >
-      Get Started!
+       {t("hero.cta")}
     </h2>
 
     <p
       className="mt-2 text-[#E6FFFD] text-[14px]"
       style={{ fontFamily: "DM Sans", fontWeight: 400 }}
     >
-      It's free! Sign up and start to earn money!
+      {t("hero.free")}
     </p>
 
     {/* Facebook */}
@@ -869,7 +868,7 @@ useEffect(() => {
     className="text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
-    Sign up via Facebook
+    {t("signup.facebook")}
   </span>
 </button>
 
@@ -883,7 +882,7 @@ useEffect(() => {
     className="text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
-    Sign up via Google
+    {t("signup.google")}
   </span>
 </button>
 
@@ -898,7 +897,7 @@ useEffect(() => {
     className="text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
-    Sign up via Worldcoin
+    {t("signup.worldcoin")}
   </span>
 </button>
 
@@ -909,7 +908,7 @@ useEffect(() => {
         className="text-white text-[13px]"
         style={{ fontFamily: "DM Sans" }}
       >
-        Or
+        {t("signup.or")}
       </span>
       <div className="h-px flex-1 bg-[#66AEC9]" />
     </div>
@@ -917,7 +916,7 @@ useEffect(() => {
     {/* Email */}
     <input
       type="email"
-      placeholder="Email address"
+      placeholder={t("signup.email")}
       onClick={() => setShowSignUp(true)}
       readOnly
       className="h-[50px] w-full rounded-xl border border-[#7BB7CD] bg-[#C5E5F24D] px-4 text-white placeholder:text-[#FFFFFF99] outline-none cursor-pointer"
@@ -940,7 +939,7 @@ useEffect(() => {
         boxShadow: "0px 8px 24px #14A9904D",
       }}
     >
-      Start Earning Now!
+      {t("hero.cta")}
     </button>
   </div>
 </div>
@@ -956,15 +955,14 @@ useEffect(() => {
         className="text-white text-[48px] font-semibold"
         style={{ fontFamily: "DM Sans" }}
       >
-        Start Earning in Just 4 Simple Steps
+        {t("hero.4steps")}
       </h2>
 
       <p
         className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
         style={{ fontFamily: "DM Sans" }}
       >
-        Create your account, complete available tasks, and withdraw your
-        earnings.
+        {t("hero.4steps-sub")}
       </p>
     </div>
 
@@ -983,14 +981,14 @@ useEffect(() => {
             className="text-white text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
-            Create account
+            {t("hero.createaccount")}
           </h3>
 
           <p
             className="mt-1 text-[13px] font-medium text-[#A9E5E2]"
             style={{ fontFamily: "DM Sans" }}
           >
-            Sign up in seconds and unlock your rewards journey.
+           { t("hero.signup")}
           </p>
         </div>
       </div>
@@ -1008,14 +1006,14 @@ useEffect(() => {
             className="text-white text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
-            Select tasks
+            {t("hero.selectTasks")}
           </h3>
 
           <p
             className="mt-1 text-[13px] font-medium text-[#B8A2F2]"
             style={{ fontFamily: "DM Sans" }}
           >
-            Choose simple tasks that match your interests.
+             {t("hero.selectsub")}
           </p>
         </div>
       </div>
@@ -1033,14 +1031,14 @@ useEffect(() => {
             className="text-white text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
-            Choose pay method
+            {t("hero.paymethod")}
           </h3>
 
           <p
             className="mt-1 text-[13px] font-medium text-[#D7A4E7]"
             style={{ fontFamily: "DM Sans" }}
           >
-            Pick your preferred way to get paid.
+            {t("hero.paymethod-sub")}
           </p>
         </div>
       </div>
@@ -1058,14 +1056,14 @@ useEffect(() => {
             className="text-white text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
-            Receive Payment
+            {t("hero.recievepayment")}
           </h3>
 
           <p
             className="mt-1 text-[13px] font-medium text-[#E7D1A4]"
             style={{ fontFamily: "DM Sans" }}
           >
-            Cash out your earnings quickly and securely.
+            {t("hero.recievepayment-sub")}
           </p>
         </div>
       </div>
@@ -1081,14 +1079,14 @@ useEffect(() => {
     className="text-[48px] font-semibold text-white"
     style={{ fontFamily: "DM Sans" }}
   >
-    Flexible Reward Options
+    {t("hero.flexiblerewards")}
   </h2>
 
   <p
     className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
     style={{ fontFamily: "DM Sans" }}
   >
-    Withdraw your earnings using your preferred method.
+     {t("hero.withdraw")}
   </p>
 </div>
 

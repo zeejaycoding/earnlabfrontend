@@ -1,10 +1,23 @@
 {
-  "hero": {
-    "title_highlight": "Soyez payé",
-    "title_rest": "pour ce que vous faites déjà en ligne",
-    "subtitle": "Répondez à des sondages, jouez à des jeux et complétez des offres rapides pour gagner de l’argent réel, des cryptomonnaies et des récompenses.",
-    "cta": "Commencer à gagner"
-  },
+ "hero": {
+  "title_highlight": "Gagnez de l'argent pour ce que vous faites déjà en ligne",
+  "subtitle": "Répondez à des sondages, jouez à des jeux et réalisez des offres rapides pour gagner de l'argent réel, des cryptomonnaies et des récompenses.",
+  "cta": "Commencez à gagner dès maintenant",
+  "cta-1": "Commencer",
+  "free": "C'est gratuit ! Inscrivez-vous et commencez à gagner de l'argent !",
+  "4steps": "Commencez à gagner en seulement 4 étapes simples",
+  "4steps-sub": "Créez votre compte, accomplissez les tâches disponibles et retirez vos gains.",
+  "createaccount": "Créer un compte",
+  "signup": "Inscrivez-vous en quelques secondes et débloquez vos récompenses.",
+  "selectTasks": "Sélectionner des tâches",
+  "selectsub": "Choisissez des tâches simples qui correspondent à vos centres d'intérêt.",
+  "paymethod": "Choisissez votre mode de paiement",
+  "paymethod-sub": "Sélectionnez votre méthode préférée pour recevoir vos paiements.",
+  "recievepayment": "Recevoir le paiement",
+  "recievepayment-sub": "Retirez vos gains rapidement et en toute sécurité.",
+  "flexiblerewards": "Options de récompense flexibles",
+  "withdraw": "Retirez vos gains en utilisant votre méthode préférée."
+},
 
   "navbar": {
     "signin": "Se connecter",

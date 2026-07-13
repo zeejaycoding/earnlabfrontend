@@ -1,9 +1,22 @@
 {
   "hero": {
-    "title_highlight": "Get paid",
-    "title_rest": "for what you already do online",
+    "title_highlight": "Get paid for what you already do online",
     "subtitle": "Complete surveys, play games, and finish quick offers to earn real money, crypto, and rewards.",
-    "cta": "Start Earning Now"
+    "cta": "Start Earning Now",
+    "cta-1":"Get Started",
+    "free":"It's free! Sign up and start to earn money!",
+    "4steps":"Start Earning in Just 4 Simple Steps",
+    "4steps-sub":"Create your account, complete available tasks, and withdraw your earnings",
+    "createaccount":"Create account",
+    "signup":"Sign up in seconds and unlock your rewards journey.",
+    "selectTasks":"Select Tasks",
+    "selectsub":"Choose simple tasks that match your interests.",
+    "paymethod":"Choose pay method",
+    "paymethod-sub":"Pick your preferred way to get paid.",
+    "recievepayment":"Receive Payment",
+    "recievepayment-sub":"Cash out your earnings quickly and securely.",
+    "flexiblerewards":"Flexible Reward Options",
+    "withdraw":"Withdraw your earnings using your preferred method."
   },
 
   "navbar": {

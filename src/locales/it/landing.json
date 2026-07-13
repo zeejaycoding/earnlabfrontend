@@ -1,10 +1,23 @@
 {
   "hero": {
-    "title_highlight": "Guadagna",
-    "title_rest": "per ciò che fai già online",
-    "subtitle": "Completa sondaggi, gioca e porta a termine offerte rapide per guadagnare denaro reale, criptovalute e premi.",
-    "cta": "Inizia a Guadagnare Ora"
-  },
+  "title_highlight": "Guadagna per quello che fai già online",
+  "subtitle": "Completa sondaggi, gioca e porta a termine offerte rapide per guadagnare denaro reale, criptovalute e premi.",
+  "cta": "Inizia a guadagnare ora",
+  "cta-1": "Inizia ora",
+  "free": "È gratis! Registrati e inizia a guadagnare!",
+  "4steps": "Inizia a guadagnare in soli 4 semplici passaggi",
+  "4steps-sub": "Crea il tuo account, completa le attività disponibili e preleva i tuoi guadagni.",
+  "createaccount": "Crea un account",
+  "signup": "Registrati in pochi secondi e inizia il tuo percorso di ricompense.",
+  "selectTasks": "Seleziona le attività",
+  "selectsub": "Scegli attività semplici che corrispondono ai tuoi interessi.",
+  "paymethod": "Scegli il metodo di pagamento",
+  "paymethod-sub": "Seleziona il metodo che preferisci per ricevere i pagamenti.",
+  "recievepayment": "Ricevi il pagamento",
+  "recievepayment-sub": "Preleva i tuoi guadagni in modo rapido e sicuro.",
+  "flexiblerewards": "Opzioni di ricompensa flessibili",
+  "withdraw": "Preleva i tuoi guadagni utilizzando il metodo che preferisci."
+},
 
   "navbar": {
     "signin": "Accedi",

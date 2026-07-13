@@ -1,10 +1,23 @@
 {
-  "hero": {
-    "title_highlight": "Geld verdienen",
-    "title_rest": "für das, was du online ohnehin schon tust",
-    "subtitle": "Fülle Umfragen aus, spiele Spiele und erledige schnelle Angebote, um echtes Geld, Krypto und Belohnungen zu verdienen.",
-    "cta": "Jetzt anfangen zu verdienen"
-  },
+ "hero": {
+  "title_highlight": "Verdiene Geld mit dem, was du bereits online machst",
+  "subtitle": "Nimm an Umfragen teil, spiele Spiele und erledige einfache Angebote, um echtes Geld, Kryptowährungen und Prämien zu verdienen.",
+  "cta": "Jetzt Geld verdienen",
+  "cta-1": "Jetzt starten",
+  "free": "Es ist kostenlos! Melde dich an und beginne, Geld zu verdienen!",
+  "4steps": "Beginne in nur 4 einfachen Schritten Geld zu verdienen",
+  "4steps-sub": "Erstelle dein Konto, erledige verfügbare Aufgaben und zahle deine Einnahmen aus.",
+  "createaccount": "Konto erstellen",
+  "signup": "Melde dich in wenigen Sekunden an und starte deine Prämienreise.",
+  "selectTasks": "Aufgaben auswählen",
+  "selectsub": "Wähle einfache Aufgaben, die zu deinen Interessen passen.",
+  "paymethod": "Zahlungsmethode wählen",
+  "paymethod-sub": "Wähle deine bevorzugte Auszahlungsmethode.",
+  "recievepayment": "Zahlung erhalten",
+  "recievepayment-sub": "Lass dir deine Einnahmen schnell und sicher auszahlen.",
+  "flexiblerewards": "Flexible Belohnungsoptionen",
+  "withdraw": "Zahle deine Einnahmen mit deiner bevorzugten Methode aus."
+},
 
   "navbar": {
     "signin": "Anmelden",

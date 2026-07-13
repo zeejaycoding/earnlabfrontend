@@ -1,10 +1,23 @@
 {
- "hero": {
-    "title_highlight": "Recibe pagos",
-    "title_rest": "por lo que ya haces en línea",
-    "subtitle": "Completa encuestas, juega videojuegos y finaliza ofertas rápidas para ganar dinero real, criptomonedas y recompensas.",
-    "cta": "Empieza a ganar ahora"
-  },
+"hero": {
+  "title_highlight": "Gana dinero por lo que ya haces en línea",
+  "subtitle": "Completa encuestas, juega videojuegos y realiza ofertas rápidas para ganar dinero real, criptomonedas y recompensas.",
+  "cta": "Empieza a ganar ahora",
+  "cta-1": "Comenzar ahora",
+  "free": "¡Es gratis! ¡Regístrate y empieza a ganar dinero!",
+  "4steps": "Empieza a ganar en solo 4 sencillos pasos",
+  "4steps-sub": "Crea tu cuenta, completa las tareas disponibles y retira tus ganancias.",
+  "createaccount": "Crear una cuenta",
+  "signup": "Regístrate en segundos y comienza tu camino hacia las recompensas.",
+  "selectTasks": "Selecciona tareas",
+  "selectsub": "Elige tareas sencillas que se adapten a tus intereses.",
+  "paymethod": "Elige el método de pago",
+  "paymethod-sub": "Selecciona la forma en que prefieres recibir tu dinero.",
+  "recievepayment": "Recibe tu pago",
+  "recievepayment-sub": "Retira tus ganancias de forma rápida y segura.",
+  "flexiblerewards": "Opciones de recompensas flexibles",
+  "withdraw": "Retira tus ganancias utilizando el método que prefieras."
+},
 
   "navbar": {
     "signin": "Iniciar sesión",
