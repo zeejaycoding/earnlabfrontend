@@ -798,23 +798,23 @@ useEffect(() => {
       <TickerBar />
 
       {/* ═══════ HERO ═══════ */}
-<section className="bg-[#0D0F1E] py-8">
+<section className="bg-[#0D0F1E] py-6 sm:py-8">
   <div
-    className="relative mx-auto w-full max-w-[1360px] h-[620px] overflow-hidden rounded-[40px] bg-cover bg-center bg-no-repeat"
+    className="relative mx-auto w-full max-w-[1360px] lg:min-h-[620px] rounded-[20px] sm:rounded-[40px] bg-cover bg-center bg-no-repeat"
     style={{ backgroundImage: "url('/landing-page.png')" }}
   >
-    <div className="absolute inset-0 flex items-center justify-between px-[80px]">
+    <div className="flex flex-col lg:flex-row items-center justify-between px-5 sm:px-8 lg:px-[80px] py-8 lg:py-0 gap-6 lg:gap-4">
   {/* Left Content */}
-  <div className="max-w-[620px]">
+  <div className="max-w-[620px] text-center lg:text-left">
     <h1
-      className="text-[60px] leading-[72px] font-semibold text-white"
+      className="text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[50px] lg:leading-[72px] font-semibold text-white"
       style={{ fontFamily: "DM Sans" }}
     >
       {t("hero.title_highlight")}
     </h1>
 
     <p
-      className="mt-6 max-w-[560px] text-[20px] leading-[32px] text-[#E6FFFD]"
+      className="mt-4 sm:mt-6 max-w-[560px] text-[14px] sm:text-[16px] lg:text-[20px] leading-[22px] sm:leading-[26px] lg:leading-[32px] text-[#E6FFFD] mx-auto lg:mx-0"
       style={{ fontFamily: "DM Sans", fontWeight: 400 }}
     >
       {t("hero.subtitle")}
@@ -822,7 +822,7 @@ useEffect(() => {
 
     <button
       onClick={() => setShowSignUp(true)}
-      className="mt-10 rounded-xl bg-white px-8 py-4 text-[#0D0F1E]"
+      className="mt-6 sm:mt-10 rounded-xl bg-white px-6 sm:px-8 py-3 sm:py-4 text-[#0D0F1E]"
       style={{
         fontFamily: "Manrope",
         fontWeight: 700,
@@ -836,50 +836,50 @@ useEffect(() => {
 
   {/* Right Signup Card */}
   <div
-    className="w-[390px] rounded-[24px] border backdrop-blur-md"
+    className="w-full max-w-[390px] rounded-[20px] sm:rounded-[24px] border backdrop-blur-md"
     style={{
       background: "#3F90CBAD",
       borderColor: "#5D9BC8",
-      padding: "32px 20px",
+      padding: "24px 16px",
     }}
   >
     <h2
-      className="text-white text-[22px] font-semibold"
+      className="text-white text-[18px] sm:text-[22px] font-semibold"
       style={{ fontFamily: "DM Sans" }}
     >
        {t("hero.cta")}
     </h2>
 
     <p
-      className="mt-2 text-[#E6FFFD] text-[14px]"
+      className="mt-2 text-[#E6FFFD] text-[12px] sm:text-[14px]"
       style={{ fontFamily: "DM Sans", fontWeight: 400 }}
     >
       {t("hero.free")}
     </p>
 
     {/* Facebook */}
-    <button onClick={() => setShowSignUp(true)} className="mt-6 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+    <button onClick={() => setShowSignUp(true)} className="mt-5 sm:mt-6 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
   <img
     src="/facebook.png"
     alt="Facebook"
     className="w-5 h-5 object-contain"
   />
   <span
-    className="text-[13px] text-white"
+    className="text-[12px] sm:text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
     {t("signup.facebook")}
   </span>
 </button>
 
-<button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+<button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
   <img
     src="/google.png"
     alt="Google"
     className="w-5 h-5 object-contain"
   />
   <span
-    className="text-[13px] text-white"
+    className="text-[12px] sm:text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
     {t("signup.google")}
@@ -887,14 +887,14 @@ useEffect(() => {
 </button>
 
     {/* Worldcoin */}
-    <button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
+    <button onClick={() => setShowSignUp(true)} className="mt-3 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-3 rounded-xl border border-[#84C4DC] bg-[#C5E5F24D] text-white cursor-pointer hover:bg-[#C5E5F280] transition-colors">
   <img
     src="/worldcoin-1.png"
     alt="Worldcoin"
     className="w-5 h-5 object-contain"
   />
   <span
-    className="text-[13px] text-white"
+    className="text-[12px] sm:text-[13px] text-white"
     style={{ fontFamily: "DM Sans", fontWeight: 500 }}
   >
     {t("signup.worldcoin")}
@@ -902,10 +902,10 @@ useEffect(() => {
 </button>
 
     {/* Divider */}
-    <div className="my-6 flex items-center gap-3">
+    <div className="my-4 sm:my-6 flex items-center gap-3">
       <div className="h-px flex-1 bg-[#66AEC9]" />
       <span
-        className="text-white text-[13px]"
+        className="text-white text-[12px] sm:text-[13px]"
         style={{ fontFamily: "DM Sans" }}
       >
         {t("signup.or")}
@@ -919,7 +919,7 @@ useEffect(() => {
       placeholder={t("signup.email")}
       onClick={() => setShowSignUp(true)}
       readOnly
-      className="h-[50px] w-full rounded-xl border border-[#7BB7CD] bg-[#C5E5F24D] px-4 text-white placeholder:text-[#FFFFFF99] outline-none cursor-pointer"
+      className="h-[44px] sm:h-[50px] w-full rounded-xl border border-[#7BB7CD] bg-[#C5E5F24D] px-4 text-white placeholder:text-[#FFFFFF99] outline-none cursor-pointer"
       style={{
         fontFamily: "Inter",
         fontWeight: 500,
@@ -930,7 +930,7 @@ useEffect(() => {
     {/* CTA */}
     <button
       onClick={() => setShowSignUp(true)}
-      className="mt-5 h-[52px] w-full rounded-xl bg-white cursor-pointer hover:bg-gray-100 transition-colors"
+      className="mt-4 sm:mt-5 h-[46px] sm:h-[52px] w-full rounded-xl bg-white cursor-pointer hover:bg-gray-100 transition-colors"
       style={{
         fontFamily: "Manrope",
         fontWeight: 600,
@@ -947,19 +947,19 @@ useEffect(() => {
 </section>
 
       {/* ═══════ HOW IT WORKS ═══════ */}
-<section className="bg-[#0D0F1E] py-24">
+<section className="bg-[#0D0F1E] py-14 sm:py-24">
   <div className="max-w-[1360px] mx-auto px-4">
     {/* Heading */}
     <div className="text-center">
       <h2
-        className="text-white text-[48px] font-semibold"
+        className="text-white text-[28px] sm:text-[36px] lg:text-[48px] font-semibold"
         style={{ fontFamily: "DM Sans" }}
       >
         {t("hero.4steps")}
       </h2>
 
       <p
-        className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
+        className="mt-3 sm:mt-5 text-[16px] sm:text-[20px] lg:text-[24px] font-medium text-[#A5A9C8]"
         style={{ fontFamily: "DM Sans" }}
       >
         {t("hero.4steps-sub")}
@@ -967,9 +967,9 @@ useEffect(() => {
     </div>
 
     {/* Cards */}
-    <div className="mt-20 flex justify-between gap-5">
+    <div className="mt-10 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
       {/* Card 1 */}
-      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step1.png"
           alt=""
@@ -978,14 +978,14 @@ useEffect(() => {
 
        <div className="absolute bottom-3 left-3 right-8">
           <h3
-            className="text-white text-[24px] font-bold"
+            className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
             {t("hero.createaccount")}
           </h3>
 
           <p
-            className="mt-1 text-[13px] font-medium text-[#A9E5E2]"
+            className="mt-1 text-[11px] sm:text-[12px] lg:text-[13px] font-medium text-[#A9E5E2]"
             style={{ fontFamily: "DM Sans" }}
           >
            { t("hero.signup")}
@@ -994,7 +994,7 @@ useEffect(() => {
       </div>
 
       {/* Card 2 */}
-      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step2.png"
           alt=""
@@ -1003,14 +1003,14 @@ useEffect(() => {
 
        <div className="absolute bottom-3 left-3 right-8">
           <h3
-            className="text-white text-[24px] font-bold"
+            className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
             {t("hero.selectTasks")}
           </h3>
 
           <p
-            className="mt-1 text-[13px] font-medium text-[#B8A2F2]"
+            className="mt-1 text-[11px] sm:text-[12px] lg:text-[13px] font-medium text-[#B8A2F2]"
             style={{ fontFamily: "DM Sans" }}
           >
              {t("hero.selectsub")}
@@ -1019,7 +1019,7 @@ useEffect(() => {
       </div>
 
       {/* Card 3 */}
-      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step3.png"
           alt=""
@@ -1028,14 +1028,14 @@ useEffect(() => {
 
         <div className="absolute bottom-3 left-3 right-8">
           <h3
-            className="text-white text-[24px] font-bold"
+            className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
             {t("hero.paymethod")}
           </h3>
 
           <p
-            className="mt-1 text-[13px] font-medium text-[#D7A4E7]"
+            className="mt-1 text-[11px] sm:text-[12px] lg:text-[13px] font-medium text-[#D7A4E7]"
             style={{ fontFamily: "DM Sans" }}
           >
             {t("hero.paymethod-sub")}
@@ -1044,7 +1044,7 @@ useEffect(() => {
       </div>
 
       {/* Card 4 */}
-      <div className="relative w-[325px] h-[512px] overflow-hidden rounded-[28px]">
+      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step4.png"
           alt=""
@@ -1053,14 +1053,14 @@ useEffect(() => {
 
        <div className="absolute bottom-3 left-3 right-8">
           <h3
-            className="text-white text-[24px] font-bold"
+            className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
           >
             {t("hero.recievepayment")}
           </h3>
 
           <p
-            className="mt-1 text-[13px] font-medium text-[#E7D1A4]"
+            className="mt-1 text-[11px] sm:text-[12px] lg:text-[13px] font-medium text-[#E7D1A4]"
             style={{ fontFamily: "DM Sans" }}
           >
             {t("hero.recievepayment-sub")}
@@ -1074,16 +1074,16 @@ useEffect(() => {
       {/* ═══════ HOW IT WORKS ═══════ */}
 
 <section className="relative z-10 max-w-[1312px] mx-auto px-4 pt-6 sm:pt-10 pb-16 sm:pb-20">
-<div className="text-center mb-16">
+<div className="text-center mb-8 sm:mb-16">
   <h2
-    className="text-[48px] font-semibold text-white"
+    className="text-[28px] sm:text-[36px] lg:text-[48px] font-semibold text-white"
     style={{ fontFamily: "DM Sans" }}
   >
     {t("hero.flexiblerewards")}
   </h2>
 
   <p
-    className="mt-5 text-[24px] font-medium text-[#A5A9C8]"
+    className="mt-3 sm:mt-5 text-[16px] sm:text-[20px] lg:text-[24px] font-medium text-[#A5A9C8]"
     style={{ fontFamily: "DM Sans" }}
   >
      {t("hero.withdraw")}
@@ -1097,10 +1097,10 @@ useEffect(() => {
   {REWARD_LOGOS.map((item) => (
    <div
   key={item.id}
-  className="rounded-[15px] w-full h-[164px] flex items-center justify-center px-[40px] py-[38px] hover:scale-105 transition-transform duration-300"
+  className="rounded-[15px] w-full h-[120px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[20px] sm:px-[30px] lg:px-[40px] py-[24px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
   style={{ backgroundColor: item.bg }}
 >
-  <div className="w-14 h-14 flex items-center justify-center">
+  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
     <img
       src={item.src}
       alt=""
@@ -1324,12 +1324,12 @@ alt={testimonial.name}
   <div className="relative z-10">
 
     {/* ═══════ FAQ ═══════ */}
-    <section className="max-w-[1312px] mx-auto px-4 py-20">
-      <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-12 text-[#1A1D2E] dark:text-white">
+    <section className="max-w-[1312px] mx-auto px-4 py-10 sm:py-20">
+      <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-8 sm:mb-12 text-[#1A1D2E] dark:text-white">
         {t("faq.title_highlight")}
       </h2>
 
-      <div className="flex flex-col lg:flex-row gap-10">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         <div className="hidden lg:block lg:w-[380px]">
           <img src="/faqitem.png" className="w-full rounded-2xl" />
         </div>
