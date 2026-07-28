@@ -242,6 +242,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
       if (!res.ok) throw new Error(data.message || "Failed to send");
       const newRoomId = data.roomId ? String(data.roomId) : activeRoomId;
       const newMsg: Message = {
+        _id: data.messageId ? String(data.messageId) : undefined,
         room: newRoomId || "",
         senderRole: "user",
         text: input.trim(),
