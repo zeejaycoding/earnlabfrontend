@@ -205,6 +205,19 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen, fetchRooms]);
 
+  // Join/leave socket room when activeRoomId changes
+  useEffect(() => {
+    if (!socket) return;
+    if (activeRoomId) {
+      socket.emit("support:join", { roomId: activeRoomId });
+    }
+    return () => {
+      if (activeRoomId) {
+        socket.emit("support:leave", { roomId: activeRoomId });
+      }
+    };
+  }, [socket, activeRoomId]);
+
   useEffect(() => {
     if (!socket) return;
     const onSupportMsg = (payload: SupportMessagePayload) => {
