@@ -7,6 +7,8 @@ import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
 import { useTranslation } from "react-i18next";
 
+const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+
 const REWARDS = [
   { id: 1, amount: "$0.25", color: "text-[#14A990]", image:"/0.25.png" },
   { id: 2, amount: "$0.25", color: "text-[#14A990]", image:"/0.25.png" },
@@ -18,8 +20,47 @@ const REWARDS = [
 
 export default function BonusPage() {
   const router = useRouter();
-  const [timeLeft, setTimeLeft] = useState("24h 45m 23s");
-    const { t } = useTranslation();
+  const [timeLeft, setTimeLeft] = useState("--h --m --s");
+  const [progress, setProgress] = useState(0);
+  const [claims, setClaims] = useState<Record<number, boolean>>({});
+  const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
+
+  const getToken = () =>
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) { setLoading(false); return; }
+    fetch(`${apiBase}/api/v1/rewards/bonus`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json().catch(() => ({})))
+      .then((data) => {
+        if (data && data.timeRemainingMs !== undefined) {
+          setProgress(data.progress ?? 0);
+          const claimMap: Record<number, boolean> = {};
+          if (Array.isArray(data.boxes)) {
+            data.boxes.forEach((b: any) => { claimMap[b.id] = !!b.claimed; });
+          }
+          setClaims(claimMap);
+          // start countdown
+          const updateTimer = () => {
+            const remaining = Math.max(0, data.timeRemainingMs - (Date.now() - fetchStart));
+            const h = Math.floor(remaining / 3600000);
+            const m = Math.floor((remaining % 3600000) / 60000);
+            const s = Math.floor((remaining % 60000) / 1000);
+            setTimeLeft(`${h}h ${m.toString().padStart(2, "0")}m ${s.toString().padStart(2, "0")}s`);
+          };
+          const fetchStart = Date.now();
+          updateTimer();
+          const id = setInterval(updateTimer, 1000);
+          return () => clearInterval(id);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0D0F1E] text-white flex flex-col">
@@ -67,7 +108,7 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
     alt={reward.amount}
     className={`w-full h-full object-contain ${
       reward.highlight ? "animate-spin-slow" : ""
-    }`}
+    } ${claims[reward.id] ? "opacity-40" : ""}`}
   />
 </div>                  <span className={`text-xl font-black ${reward.color}`}>{reward.amount}</span>
                 </div>
@@ -85,7 +126,7 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
 {/* Progress Bar */}
 <div className="w-full mb-8 px-2">
     <div className="relative h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
-    <div className="absolute left-0 top-0 h-full w-[40%] bg-[#14A990] shadow-[0_0_10px_#14A990]" />
+    <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${Math.min(progress, 100)}%` }} />
   </div>
 
   <div className="flex justify-between mt-3">

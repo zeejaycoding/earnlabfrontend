@@ -1,11 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
 import { useTranslation } from "react-i18next";
+
+const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 const DISCORD_URL =
   process.env.NEXT_PUBLIC_DISCORD_URL ||
@@ -75,7 +77,53 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
 
 export default function VerificationPage() {
   const router = useRouter();
-   const { t } = useTranslation();
+  const { t } = useTranslation();
+
+  const getToken = () =>
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  const [verifications, setVerifications] = useState<Record<string, boolean>>({
+    telegram: false,
+    twitter: false,
+    discord: false,
+  });
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) { setLoaded(true); return; }
+    fetch(`${apiBase}/api/v1/user/verifications`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json().catch(() => ({})))
+      .then((data) => {
+        if (data && data.verifications) setVerifications(data.verifications);
+      })
+      .catch(() => {})
+      .finally(() => setLoaded(true));
+  }, []);
+
+  const handleVerify = (platform: string, url: string) => {
+    const token = getToken();
+    if (!token) return;
+
+    window.open(url, "_blank");
+
+    if (verifications[platform]) return;
+
+    fetch(`${apiBase}/api/v1/user/verifications/complete`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ platform }),
+    })
+      .then((r) => r.json().catch(() => ({})))
+      .then((data) => {
+        if (data && data.platform) {
+          setVerifications((prev) => ({ ...prev, [platform]: true }));
+        }
+      })
+      .catch(() => {});
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0D0F1E] text-gray-900 dark:text-white flex flex-col">
@@ -105,11 +153,11 @@ export default function VerificationPage() {
             title={t("verification.telegram_title")}
             subtitle={t("verification.telegram_sub")}
             reward={t("verification.reward")}
-            buttonText={t("verification.join")}
+            buttonText={verifications.telegram ? t("verification.telegram_title") + " ✓" : t("verification.join")}
             icon={
               <div className="relative w-6 h-6">
                 <img
-                  src="./telegram-dark.png"
+                  src={verifications.telegram ? "./telegram.png" : "./telegram-dark.png"}
                   className="w-6 h-6 object-contain block dark:hidden"
                 />
                 <img
@@ -118,7 +166,7 @@ export default function VerificationPage() {
                 />
               </div>
             }
-            onClick={() => window.open(TELEGRAM_URL, "_blank")}
+            onClick={() => handleVerify("telegram", TELEGRAM_URL)}
           />
 
           {/* X */}
@@ -126,11 +174,11 @@ export default function VerificationPage() {
             title={t("verification.x_title")}
             subtitle={t("verification.x_sub")}
             reward={t("verification.reward")}
-            buttonText={t("verification.follow")}
+            buttonText={verifications.twitter ? t("verification.x_title") + " ✓" : t("verification.follow")}
             icon={
               <div className="relative w-6 h-6">
                 <img
-                  src="./x-dark.jpg"
+                  src={verifications.twitter ? "./x.png" : "./x-dark.jpg"}
                   className="w-6 h-6 object-contain block dark:hidden"
                 />
                 <img
@@ -139,7 +187,7 @@ export default function VerificationPage() {
                 />
               </div>
             }
-            onClick={() => window.open(X_URL, "_blank")}
+            onClick={() => handleVerify("twitter", X_URL)}
           />
 
           {/* DISCORD */}
@@ -147,11 +195,11 @@ export default function VerificationPage() {
             title={t("verification.discord_title")}
             subtitle={t("verification.discord_sub")}
             reward={t("verification.reward")}
-            buttonText={t("verification.join")}
+            buttonText={verifications.discord ? t("verification.discord_title") + " ✓" : t("verification.join")}
             icon={
               <div className="relative w-6 h-6">
                 <img
-                  src="./discord-dark.png"
+                  src={verifications.discord ? "./discord.png" : "./discord-dark.png"}
                   className="w-6 h-6 object-contain block dark:hidden"
                 />
                 <img
@@ -160,7 +208,7 @@ export default function VerificationPage() {
                 />
               </div>
             }
-            onClick={() => window.open(DISCORD_URL, "_blank")}
+            onClick={() => handleVerify("discord", DISCORD_URL)}
           />
 
         </div>

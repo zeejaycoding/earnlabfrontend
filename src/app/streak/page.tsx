@@ -7,6 +7,7 @@ import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
 import { useTranslation } from "react-i18next";
 
+const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 const REWARDS = [
   { id: 1, amount: "$0.50", color: "text-[#14A990]" },
@@ -19,8 +20,52 @@ const REWARDS = [
 
 export default function StreakPage() {
   const router = useRouter();
-  const [timeLeft, setTimeLeft] = useState("24h 45m 23s");
-   const { t } = useTranslation();
+  const [timeLeft, setTimeLeft] = useState("--h --m --s");
+  const [streakDays, setStreakDays] = useState(0);
+  const [claimableDay, setClaimableDay] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
+
+  const getToken = () =>
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) { setLoading(false); return; }
+    fetch(`${apiBase}/api/v1/rewards/streaks`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((r) => r.json().catch(() => ({})))
+      .then((data) => {
+        if (data && data.streakDays !== undefined) {
+          setStreakDays(data.streakDays ?? 0);
+          if (Array.isArray(data.boxes)) {
+            const claimable = data.boxes.find((b: any) => b.claimable);
+            setClaimableDay(claimable ? claimable.day : null);
+          }
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  // Countdown timer to midnight UTC
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      const midnight = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1));
+      const diff = midnight.getTime() - now.getTime();
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setTimeLeft(`${h}h ${m.toString().padStart(2, "0")}m ${s.toString().padStart(2, "0")}s`);
+    };
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const progress = Math.min((streakDays / 7) * 100, 100);
 
   return (
     <div className="min-h-screen bg-[#0D0F1E] text-white flex flex-col">
@@ -59,8 +104,8 @@ export default function StreakPage() {
               {REWARDS.map((reward) => (
                 <div 
                   key={reward.id}
-                  className={`min-w-[130px] h-[160px] rounded-2xl bg-[#151828] border ${reward.highlight ? 'border-[#F59E0B]' : 'border-[#1E2F3F]'} flex flex-col items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl`}
-                  style={{ boxShadow: reward.highlight ? '0 0 20px rgba(245, 158, 11, 0.1)' : 'none' }}
+                  className={`min-w-[130px] h-[160px] rounded-2xl bg-[#151828] border ${reward.highlight || claimableDay === reward.id ? 'border-[#F59E0B]' : 'border-[#1E2F3F]'} flex flex-col items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl`}
+                  style={{ boxShadow: reward.highlight || claimableDay === reward.id ? '0 0 20px rgba(245, 158, 11, 0.1)' : 'none' }}
                 >
                   <div className="w-16 h-16 rounded-full bg-[#1E2F3F]/50 flex items-center justify-center text-[#0AC07D]">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
@@ -81,7 +126,7 @@ export default function StreakPage() {
           {/* Progress Bar */}
           <div className="w-full max-w-[900px] mb-8">
             <div className="relative h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
-              <div className="absolute left-0 top-0 h-full w-[60%] bg-[#14A990] shadow-[0_0_10px_#14A990]" />
+              <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${progress}%` }} />
             </div>
             <div className="flex justify-between mt-3">
               <span className="px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold">$0</span>
