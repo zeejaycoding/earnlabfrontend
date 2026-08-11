@@ -255,7 +255,7 @@ const HOMEPAGEComponent = () => {
         </section>
 
         {/* ── Stat cards ── */}
-<section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4 mt-4 sm:mt-5">        
+<section className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-4 mt-4 sm:mt-5">        
     <StatCard label={t("homepage.dailyStreak")} value={String(streakDays)} hint={t("homepage.slightlyHigher")} icon={<StreakIcon />} />
           <StatCard label={t("homepage.dailyBonus")} value={bonusText} hint={t("homepage.slightlyHigher")} icon={<BonusIcon />} />
           <StatCard label={t("homepage.totalEarned")} value={lifetimeEarned} hint={t("homepage.slightlyHigher")} icon={<EarnedIcon />} />
