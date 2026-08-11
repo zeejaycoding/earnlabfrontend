@@ -113,6 +113,12 @@
   "footer": {
     "support": "支持",
     "features": "功能",
+    "platform": "平台",
+    "userCenter": "用户中心",
+    "earn": "赚取",
+    "leaderboard": "排行榜",
+    "account": "账户",
+    "transaction": "交易记录",
     "connect": "联系我们",
 
     "contact": "联系我们",

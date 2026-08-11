@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Globe, Moon, Sun, Gift, User, FileText, HelpCircle, Headphones, Lock, Shield, BarChart2, CircleDollarSign } from "lucide-react";
+import { Globe, Moon, Sun, Gift, User, FileText, HelpCircle, Headphones, Lock, Shield, BarChart2, CircleDollarSign, ArrowUpDown } from "lucide-react";
 import LogoImg from "../../../public/assets/logo.png";
 import { useEffect, useState } from "react";
 import { languages } from "@/lib/languages";
@@ -186,16 +186,17 @@ bg-clip-text text-transparent opacity-90">
           {/* Platform + User Center 2-col */}
           <div className="grid grid-cols-2 gap-x-10 gap-y-1 w-full max-w-[340px]">
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2">{t("footer.support")}</h4>
-              <MobileLink href="/contact"        icon={<CircleDollarSign size={13} />} label={t("footer.contact")}
- />
-              <MobileLink href="/faq" icon={<BarChart2 size={13} />}        label={t("footer.faq")} />
+              <h4 className="text-white font-bold text-sm mb-2">{t("footer.platform")}</h4>
+              <MobileLink href="/earn"        icon={<CircleDollarSign size={13} />} label={t("footer.earn")} />
+              <MobileLink href="/leaderboard" icon={<BarChart2 size={13} />}        label={t("footer.leaderboard")} />
+              <MobileLink href="/rewards"     icon={<Gift size={13} />}             label={t("footer.rewards")} />
             </div>
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2"> {t("footer.features")}</h4>
-              <MobileLink href="/games"      icon={<User size={13} />}        label={t("footer.games")} />
-              <MobileLink href="/rewards" icon={<FileText size={13} />}    label={t("footer.rewards")} />
-              <MobileLink href="/tasks"          icon={<HelpCircle size={13} />}  label={t("footer.tasks")} />
+              <h4 className="text-white font-bold text-sm mb-2">{t("footer.userCenter")}</h4>
+              <MobileLink href="/account"     icon={<User size={13} />}             label={t("footer.account")} />
+              <MobileLink href="/wallet"      icon={<ArrowUpDown size={13} />}      label={t("footer.transaction")} />
+              <MobileLink href="/faq"         icon={<HelpCircle size={13} />}       label={t("footer.faq")} />
+              <MobileLink href="/support"     icon={<Headphones size={13} />}       label={t("footer.support")} />
             </div>
           </div>
 

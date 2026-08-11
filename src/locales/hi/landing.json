@@ -126,6 +126,12 @@
   "footer": {
     "support": "सहायता",
     "features": "विशेषताएँ",
+    "platform": "प्लेटफ़ॉर्म",
+    "userCenter": "यूज़र सेंटर",
+    "earn": "कमाएँ",
+    "leaderboard": "लीडरबोर्ड",
+    "account": "खाता",
+    "transaction": "लेनदेन",
     "connect": "हमसे जुड़ें",
 
     "contact": "संपर्क करें",

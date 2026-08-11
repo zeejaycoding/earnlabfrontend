@@ -127,6 +127,12 @@
   "footer": {
     "support": "Поддержка",
     "features": "Функции",
+    "platform": "Платформа",
+    "userCenter": "Центр пользователя",
+    "earn": "Заработать",
+    "leaderboard": "Таблица лидеров",
+    "account": "Аккаунт",
+    "transaction": "Транзакции",
     "connect": "Связаться с нами",
 
     "contact": "Контакты",

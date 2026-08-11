@@ -132,6 +132,12 @@
 "footer": {
   "support": "Support",
   "features": "Features",
+  "platform": "Platform",
+  "userCenter": "User Center",
+  "earn": "Earn",
+  "leaderboard": "Leaderboard",
+  "account": "Account",
+  "transaction": "Transaction",
   "connect": "Connect With Us",
 
   "contact": "Contact Us",

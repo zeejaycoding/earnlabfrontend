@@ -126,6 +126,12 @@
   "footer": {
     "support": "Supporto",
     "features": "Funzionalità",
+    "platform": "Piattaforma",
+    "userCenter": "Centro utenti",
+    "earn": "Guadagna",
+    "leaderboard": "Classifica",
+    "account": "Account",
+    "transaction": "Transazioni",
     "connect": "Connettiti con noi",
 
     "contact": "Contattaci",

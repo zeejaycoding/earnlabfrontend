@@ -127,6 +127,12 @@
   "footer": {
     "support": "サポート",
     "features": "機能",
+    "platform": "プラットフォーム",
+    "userCenter": "ユーザーセンター",
+    "earn": "稼ぐ",
+    "leaderboard": "ランキング",
+    "account": "アカウント",
+    "transaction": "取引",
     "connect": "お問い合わせ",
 
     "contact": "お問い合わせ",

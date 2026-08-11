@@ -127,6 +127,12 @@
   "footer": {
     "support": "الدعم",
     "features": "المميزات",
+    "platform": "منصة",
+    "userCenter": "مركز المستخدم",
+    "earn": "اربح",
+    "leaderboard": "لوحة الصدارة",
+    "account": "الحساب",
+    "transaction": "المعاملات",
     "connect": "تواصل معنا",
 
     "contact": "اتصل بنا",
