@@ -967,9 +967,9 @@ useEffect(() => {
     </div>
 
     {/* Cards */}
-    <div className="mt-10 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+    <div className="mt-10 sm:mt-20 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0 sm:snap-none">
       {/* Card 1 */}
-      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step1.png"
           alt=""
@@ -994,7 +994,7 @@ useEffect(() => {
       </div>
 
       {/* Card 2 */}
-      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step2.png"
           alt=""
@@ -1019,7 +1019,7 @@ useEffect(() => {
       </div>
 
       {/* Card 3 */}
-      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step3.png"
           alt=""
@@ -1044,7 +1044,7 @@ useEffect(() => {
       </div>
 
       {/* Card 4 */}
-      <div className="relative w-full h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[350px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step4.png"
           alt=""
@@ -1093,7 +1093,7 @@ useEffect(() => {
 
   {/* GRID */}
   {/* GRID */}
-<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
+<div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
   {REWARD_LOGOS.map((item) => (
    <div
   key={item.id}
