@@ -4,7 +4,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
-import FeedBar from "@/Components/HomePage/FeedBar";
 import { useTranslation } from "react-i18next";
 
 const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -68,6 +67,53 @@ function getInitial(name: string): string {
   return (name || "U").charAt(0).toUpperCase();
 }
 
+const DIAMOND_CLIP = "polygon(20% 15%, 80% 15%, 100% 50%, 50% 100%, 0% 50%)";
+
+type BadgeVariant = "locked" | "first" | "second";
+
+function LockIcon({ color }: { color: string }) {
+  return (
+    <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+      <rect x="3.5" y="7" width="9" height="7" rx="1.5" fill={color} />
+      <path d="M5.5 7V5C5.5 3.61929 6.61929 2.5 8 2.5C9.38071 2.5 10.5 3.61929 10.5 5V7" stroke={color} strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="8" cy="10.2" r="1.1" fill="#1A1D2E" />
+    </svg>
+  );
+}
+
+function BadgeDiamond({ variant }: { variant: BadgeVariant }) {
+  if (variant === "locked") {
+    return (
+      <div
+        className="mx-auto w-full max-w-[48px] aspect-square relative"
+        style={{ clipPath: DIAMOND_CLIP, background: "#3E4468" }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{ clipPath: DIAMOND_CLIP, background: "linear-gradient(180deg, #7279B000 0%, #4A5080 100%)" }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <LockIcon color="#6B72A6" />
+        </div>
+      </div>
+    );
+  }
+
+  const fill = variant === "first" ? "#099F86" : "#9F0997";
+  const shadow = variant === "first" ? "#14A9904D" : "#A914174D";
+
+  return (
+    <div
+      className="mx-auto w-full max-w-[48px] aspect-square relative"
+      style={{ clipPath: DIAMOND_CLIP, background: fill, filter: `drop-shadow(0 2px 8px ${shadow})` }}
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        <LockIcon color="#FFFFFF" />
+      </div>
+    </div>
+  );
+}
+
 function countryFlagEmoji(code: string): string {
   if (!code || code.length !== 2) return "";
   const offset = 127397;
@@ -92,15 +138,15 @@ const OfferIcon = () => (
 );
 
 const CheckIcon = () => (
-<img src="/offers-completed.png" alt="Check" style={{ width: 40, height: 40 }} />
+<img src="/offers-completed.png" alt="Check" style={{ width: 31, height: 28 }} />
 );
 
 const WalletIcon = () => (
-<img src="/total-earns.png" alt="Check" style={{ width: 40, height: 40 }} />
+<img src="/total-earns.png" alt="Check" style={{ width: 31, height: 28 }} />
 );
 
 const UsersIcon = () => (
-<img src="/user123.png" alt="Check" style={{ width: 40, height: 40 }} />
+<img src="/user123.png" alt="Check" style={{ width: 31, height: 28 }} />
 );
 
 interface StatCardProps {
@@ -347,9 +393,6 @@ function joinedAgo(dateStr: string): string {
   return (
     <div className="min-h-screen bg-[#0D0F1E] flex flex-col" style={{ background: "#0D0F1E" }}>
         <TopBar />      <TickerBar />
-      <div className="px-[12px] sm:px-4 md:px-6 mt-4">
-        <FeedBar />
-      </div>
         {/* Loading */}
         {loading && (
           <div className="flex flex-1 items-center justify-center py-20">
@@ -378,32 +421,39 @@ function joinedAgo(dateStr: string): string {
                   </div>
                 )}
 
-                {/* Name row */}
-                <div className="flex items-center gap-2">
+                {/* Name + flag + joined */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {flag && <span className="text-base leading-none">{flag}</span>}
                   <span className="font-bold text-[18px] text-white tracking-[0.02em]" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
                     {displayName}
                   </span>
-                  {flag && <span className="text-sm">{flag}</span>}
-                </div>
-
-                {/* Joined */}
-                <div className="flex items-center gap-1">
-                  <div className="rounded-full" style={{ width: 4, height: 4, background: "#8C8FA8", opacity: 0.4 }} />
-                  <span className="font-medium text-[10px] text-[#8C8FA8] tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
-                    {joinedText}
-                  </span>
+                  <div className="flex items-center gap-1">
+                    <div className="rounded-full" style={{ width: 4, height: 4, background: "#8C8FA8", opacity: 0.4 }} />
+                    <span className="font-medium text-[10px] text-[#8C8FA8] tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
+                      {joinedText}
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Level progress */}
-              <div className="flex flex-col gap-3">
+              <div
+                className="flex flex-col gap-3 rounded-[10px] p-4"
+                style={{ background: "#151728", border: "1px solid #1E2133" }}
+              >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1">
-                    <div className="rounded" style={{ width: 16, height: 16, background: "transparent", border: "1px solid #0088FF" }} />
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-[4px] overflow-hidden shrink-0" style={{ width: 22, height: 22, border: "1px solid #0088FF" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/profileimage.png" alt="" className="w-full h-full object-cover" />
+                    </div>
                     <span className="font-medium text-[13px] text-[#0088FF]" style={{ fontFamily: "'Inter', sans-serif" }}>{progression.currentLevel}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <div className="rounded" style={{ width: 16, height: 16, background: "transparent", border: "1px solid #00C8B3" }} />
+                  <div className="flex items-center gap-2">
+                    <div className="rounded-[4px] overflow-hidden shrink-0" style={{ width: 22, height: 22, border: "1px solid #00C8B3" }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/profileimage.png" alt="" className="w-full h-full object-cover" />
+                    </div>
                     <span className="font-medium text-[13px] text-[#00C8B3]" style={{ fontFamily: "'Inter', sans-serif" }}>{nextLevelName}</span>
                   </div>
                 </div>
@@ -514,29 +564,10 @@ function joinedAgo(dateStr: string): string {
               )}
 
               {activeTab === "badges" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-6 md:px-10 pb-10">
-                  {badges.map((badge) => (
-                    <div
-                      key={badge.key}
-                      className="rounded-[10px] p-3 border"
-                      style={{
-                        background: badge.unlocked ? "#151728" : "#121424",
-                        borderColor: badge.unlocked ? "#2A9D8F" : "#2A2D44",
-                        opacity: badge.unlocked ? 1 : 0.5,
-                      }}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-8 h-8 rounded-[6px] flex items-center justify-center rotate-45"
-                          style={{ background: badge.unlocked ? "#14A28A" : "#50536F" }}
-                        >
-                          <span className="-rotate-45 text-sm">{badge.icon}</span>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-white text-sm font-semibold truncate">{badge.label || (badge as any).title}</p>
-                          <p className="text-[#8C8FA8] text-xs">{badge.description}</p>
-                        </div>
-                      </div>
+                <div className="grid grid-cols-8 gap-3 px-6 md:px-10 pb-10">
+                  {Array.from({ length: 24 }).map((_, i) => (
+                    <div key={i}>
+                      <BadgeDiamond variant="locked" />
                     </div>
                   ))}
                 </div>

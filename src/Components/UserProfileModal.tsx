@@ -40,6 +40,53 @@ interface BadgeView {
   icon: string;
 }
 
+const DIAMOND_CLIP = "polygon(20% 15%, 80% 15%, 100% 50%, 50% 100%, 0% 50%)";
+
+type BadgeVariant = "locked" | "first" | "second";
+
+function LockIcon({ color }: { color: string }) {
+  return (
+    <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+      <rect x="3.5" y="7" width="9" height="7" rx="1.5" fill={color} />
+      <path d="M5.5 7V5C5.5 3.61929 6.61929 2.5 8 2.5C9.38071 2.5 10.5 3.61929 10.5 5V7" stroke={color} strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="8" cy="10.2" r="1.1" fill="#1A1D2E" />
+    </svg>
+  );
+}
+
+function BadgeDiamond({ variant }: { variant: BadgeVariant }) {
+  if (variant === "locked") {
+    return (
+      <div
+        className="mx-auto w-full max-w-[48px] aspect-square relative"
+        style={{ clipPath: DIAMOND_CLIP, background: "#3E4468" }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{ clipPath: DIAMOND_CLIP, background: "linear-gradient(180deg, #7279B000 0%, #4A5080 100%)" }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <LockIcon color="#6B72A6" />
+        </div>
+      </div>
+    );
+  }
+
+  const fill = variant === "first" ? "#099F86" : "#9F0997";
+  const shadow = variant === "first" ? "#14A9904D" : "#A914174D";
+
+  return (
+    <div
+      className="mx-auto w-full max-w-[48px] aspect-square relative"
+      style={{ clipPath: DIAMOND_CLIP, background: fill, filter: `drop-shadow(0 2px 8px ${shadow})` }}
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        <LockIcon color="#FFFFFF" />
+      </div>
+    </div>
+  );
+}
+
 interface RecentOffer {
   _id: string;
   title: string;
@@ -657,29 +704,10 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
 
               {/* ── Badges tab ─────────────────────────── */}
               {activeTab === "badges" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4 pb-6">
-                  {badges.map((badge) => (
-                    <div
-                      key={badge.key}
-                      className="rounded-[10px] p-3 border"
-                      style={{
-                        background: badge.unlocked ? "#151728" : "#121424",
-                        borderColor: badge.unlocked ? "#2A9D8F" : "#2A2D44",
-                        opacity: badge.unlocked ? 1 : 0.5,
-                      }}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-8 h-8 rounded-[6px] flex items-center justify-center rotate-45"
-                          style={{ background: badge.unlocked ? "#14A28A" : "#50536F" }}
-                        >
-                          <span className="-rotate-45 text-sm">{badge.icon}</span>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-white text-sm font-semibold truncate">{badge.label || (badge as any).title}</p>
-                          <p className="text-[#8C8FA8] text-xs">{badge.description}</p>
-                        </div>
-                      </div>
+                <div className="grid grid-cols-8 gap-3 px-4 pb-6">
+                  {Array.from({ length: 24 }).map((_, i) => (
+                    <div key={i}>
+                      <BadgeDiamond variant="locked" />
                     </div>
                   ))}
                 </div>

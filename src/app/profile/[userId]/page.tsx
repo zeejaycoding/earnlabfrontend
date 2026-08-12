@@ -1,6 +1,12 @@
-import OwnProfilePage from "@/Components/Profile/OwnProfilePage";
-import { redirect } from "next/navigation";
+export const dynamic = "force-dynamic";
 
-export default function AccountPage() {
-  return <OwnProfilePage />;
+import OwnProfilePage from "@/Components/Profile/OwnProfilePage";
+
+export default async function UserProfilePage({
+  params,
+}: {
+  params: Promise<{ userId: string }>;
+}) {
+  const { userId } = await params;
+  return <OwnProfilePage userId={userId} />;
 }

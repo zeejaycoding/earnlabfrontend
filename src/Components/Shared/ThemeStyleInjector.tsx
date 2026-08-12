@@ -108,6 +108,14 @@ const INLINE_STYLE_BG_MAP: [string, string][] = [
   ["#26293E", "#EBEDF5"],
   ["#30334A", "#DDE0EE"],
   ["#2A2D40", "#DDE0EE"],
+  ["#2A2D44", "#EBEDF5"],
+  ["#3E4468", "#DDE0EE"],
+  ["#4A5080", "#C8CBD9"],
+  ["#121424", "#F5F6FA"],
+  ["#121428", "#F5F6FA"],
+  ["#2A2D3E", "#EBEDF5"],
+  ["#2B2F45", "#EBEDF5"],
+  ["#31364B", "#DDE0EE"],
 ];
 
 /** Gradient class patterns → light gradient */
@@ -148,15 +156,26 @@ function applyLight(el: HTMLElement) {
 
   // ── 2. Inline style background overrides ──
   const inlineStyle = el.getAttribute("style") || "";
+  const inlineLower = inlineStyle.toLowerCase();
   for (const [darkHex, lightColor] of INLINE_STYLE_BG_MAP) {
-    if (inlineStyle.toLowerCase().includes(darkHex.toLowerCase())) {
-      if (!el.hasAttribute(DATA_ATTR)) {
-        el.setAttribute(DATA_ATTR, el.style.backgroundColor || "");
+    const hexLower = darkHex.toLowerCase();
+    if (inlineLower.includes(hexLower)) {
+      // Only override if the hex is used in a background/border property, not just border-only
+      const hasBg = inlineLower.includes("background") || inlineLower.includes("bgcolor");
+      const hasBorder = inlineLower.includes("border");
+      // If element has ONLY border (no background), skip background override
+      if (hasBorder && !hasBg) {
+        // Only update border-color, not background
+        continue;
       }
-      el.style.setProperty("background-color", lightColor, "important");
-      // Handle `background` shorthand too
-      if (inlineStyle.includes("background:") || inlineStyle.includes("background :")) {
-        el.style.setProperty("background", lightColor, "important");
+      if (hasBg) {
+        if (!el.hasAttribute(DATA_ATTR)) {
+          el.setAttribute(DATA_ATTR, el.style.backgroundColor || "");
+        }
+        el.style.setProperty("background-color", lightColor, "important");
+        if (inlineLower.includes("background:") || inlineLower.includes("background :")) {
+          el.style.setProperty("background", lightColor, "important");
+        }
       }
       break;
     }
