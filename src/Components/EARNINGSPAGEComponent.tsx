@@ -872,7 +872,7 @@ const SectionHeader: React.FC<{
       )}
 
       {(onPrev || onNext) && (
-        <div className="flex items-center gap-[8px] bg-[#1E2133] border border-[#262F3E] px-2.5 py-[5px] rounded-[9px]">
+        <div className="flex items-center gap-[8px] bg-[#1E2133] border border-[#262F3E] px-2.5 py-[5px] rounded-[9px] max-sm:hidden">
           <button
             type="button"
             onClick={onPrev}
@@ -898,7 +898,7 @@ const SectionHeader: React.FC<{
         type="button"
         onClick={onViewAll}
         disabled={!onViewAll}
-        className="w-full sm:w-auto px-4 py-[8px] rounded-[8px] text-white font-bold text-[14px] leading-4 whitespace-nowrap transition-all hover:brightness-110 active:scale-95"
+        className="w-full sm:w-auto px-4 py-[8px] rounded-[8px] text-white font-bold text-[14px] leading-4 whitespace-nowrap transition-all hover:brightness-110 active:scale-95 max-sm:hidden"
         aria-label={`${t("earningsPage.categories.viewAll")} ${title}`}
         style={{ background: "linear-gradient(135deg,#0AC07D,#14A290)", boxShadow: "0 7px 19px rgba(20,169,144,0.3)" }}
       >

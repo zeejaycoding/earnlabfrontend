@@ -753,7 +753,7 @@ if (!token) {
                 />
               </div>
 
-              <div className="mt-4 flex flex-wrap items-center gap-2">
+              <div className="hidden md:flex mt-4 flex-wrap items-center gap-2">
                 {([
                   ["all", t("account1.all")],
                   ["offers", t("account1.offers")],
@@ -783,7 +783,7 @@ if (!token) {
                 </button>
               </div>
 
-              <div className="mt-3 overflow-hidden rounded-[8px] border border-gray-200 dark:border-[#1E2133]">
+              <div className="hidden md:block mt-3 overflow-hidden rounded-[8px] border border-gray-200 dark:border-[#1E2133]">
                 <div className="grid grid-cols-[1.9fr_1fr_0.9fr_0.8fr_1fr_0.7fr] items-center bg-gray-100 dark:bg-[#0B0D1B] px-3 py-2 text-[12px] text-gray-500 dark:text-[#8C8FA8]">
                   <span> {t("account1.name")}</span>
                   <span>{t("account1.date")}</span>
