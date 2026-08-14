@@ -558,7 +558,7 @@ function joinedAgo(dateStr: string): string {
               )}
 
               {activeTab === "badges" && (
-                <div className="grid grid-cols-8 gap-3 px-6 md:px-10 pb-10">
+                <div className="grid grid-cols-5 md:grid-cols-8 gap-3 px-6 md:px-10 pb-10">
                   {Array.from({ length: 24 }).map((_, i) => (
                     <div key={i}>
                       <BadgeDiamond variant="locked" />

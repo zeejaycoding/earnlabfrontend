@@ -143,8 +143,8 @@ function OfferCard({ title, img, amount, desc, trackingUrl }: { title: string; i
 
       {/* Content */}
       <div className="p-4 flex flex-col gap-3">
-        <div className="flex items-center justify-between gap-2">
-          <h3 className="text-white text-[17px] font-bold truncate flex-1">{title}</h3>
+        <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-white text-[17px] font-bold truncate text-center sm:text-left sm:flex-1 sm:min-w-0">{title}</h3>
           <span className="flex-shrink-0 text-sm font-bold px-3 py-1 rounded-full bg-[#1E2133] text-[#0AC07D]">
             {amount}
           </span>

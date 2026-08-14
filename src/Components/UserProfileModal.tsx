@@ -680,7 +680,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
 
               {/* ── Badges tab ─────────────────────────── */}
               {activeTab === "badges" && (
-                <div className="grid grid-cols-8 gap-3 px-4 pb-6">
+                <div className="grid grid-cols-5 md:grid-cols-8 gap-3 px-4 pb-6">
                   {Array.from({ length: 24 }).map((_, i) => (
                     <div key={i}>
                       <BadgeDiamond variant="locked" />
