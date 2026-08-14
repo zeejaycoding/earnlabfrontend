@@ -51,41 +51,51 @@ function StatCard({
   icon: React.ReactNode;
 }) {
   return (
-    
     <div
       className="
         relative overflow-hidden rounded-[14px] sm:rounded-[16px]
-        border border-[#1E2F3F] bg-[#0C1320]
+        border border-[#30334A] bg-[#151728]
         p-3 sm:p-5
         min-h-[118px] sm:min-h-[145px]
         shadow-[0_24px_80px_rgba(10,192,125,0.10)]
       "
     >
-      {/* glow */}
-      <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 bg-gradient-to-t from-[#0CF69D]/8 to-transparent pointer-events-none" />
-
       {/* label */}
-      <p className="relative text-[#8C9DB6] text-[10px] sm:text-xs font-semibold mb-2 sm:mb-4 tracking-wide leading-tight">
+      <p
+        className="relative text-[#B3B6C7] text-[14px] font-bold mb-2 sm:mb-3 tracking-wide leading-tight"
+        style={{ fontFamily: "var(--font-nunito-sans)" }}
+      >
         {label}
       </p>
 
-      {/* icon + value */}
-      <div className="relative flex items-center gap-2 sm:gap-3 min-h-[42px] sm:min-h-[50px] overflow-hidden">
-        <div className="flex items-center justify-center w-[40px] sm:w-[52px] shrink-0">
-          {icon}
+      {/* inner box */}
+      <div className="relative rounded-[10px] sm:rounded-[12px] p-2 sm:p-3 bg-[linear-gradient(180deg,#01776D00_0%,#01776D_100%)]">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center justify-center w-[34px] sm:w-[44px] shrink-0">
+            {icon}
+          </div>
+
+          <p
+            className="text-white text-[14px] font-semibold leading-none truncate"
+            style={{ fontFamily: "var(--font-dm-sans)" }}
+          >
+            {value}
+          </p>
         </div>
 
-        <p className="text-white text-[18px] sm:text-[30px] font-semibold leading-none truncate">
-          {value}
-        </p>
-      </div>
+        {/* divider */}
+        <div className="relative h-[1px] bg-[#24384C] mt-2 sm:mt-3 mb-2 sm:mb-3" />
 
-      {/* hint */}
-      {hint && (
-        <p className="relative mt-2 sm:mt-4 text-[#7EE6CA] text-[11px] sm:text-sm leading-snug line-clamp-2">
-          {hint}
-        </p>
-      )}
+        {/* hint */}
+        {hint && (
+          <p
+            className="relative text-[#A5ADB1] text-[13px] font-medium leading-snug line-clamp-2"
+            style={{ fontFamily: "var(--font-nunito-sans)" }}
+          >
+            {hint}
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -135,7 +145,7 @@ function OfferCard({ title, img, amount, desc, trackingUrl }: { title: string; i
       <div className="p-4 flex flex-col gap-3">
         <div className="flex items-center justify-between gap-2">
           <h3 className="text-white text-[17px] font-bold truncate flex-1">{title}</h3>
-          <span className="flex-shrink-0 text-sm font-bold px-3 py-1 rounded-full bg-[#0D1E18] border border-[#1A3D2B] text-[#0AC07D]">
+          <span className="flex-shrink-0 text-sm font-bold px-3 py-1 rounded-full bg-[#1E2133] text-[#0AC07D]">
             {amount}
           </span>
         </div>

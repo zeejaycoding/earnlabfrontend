@@ -270,7 +270,7 @@ const TaskModal: React.FC<TaskModalProps> = ({
                   <div className="flex-1 bg-[#111A30] rounded-xl px-3 py-3 flex flex-col gap-2">
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center"
-                      style={{ background: "linear-gradient(180deg, #099F86 0%, #FFFFFF00 100%)", boxShadow: "0 2px 8px #00000040" }}
+                      style={{ background: "#18233C" }}
                     >
                       <FaUsers className="text-[#099F86] text-sm" />
                     </div>
@@ -286,7 +286,7 @@ const TaskModal: React.FC<TaskModalProps> = ({
                   <div className="flex-1 bg-[#111A30] rounded-xl px-3 py-3 flex flex-col gap-2">
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center"
-                      style={{ background: "linear-gradient(180deg, #099F86 0%, #FFFFFF00 100%)", boxShadow: "0 2px 8px #00000040" }}
+                      style={{ background: "#18233C" }}
                     >
                       <FaClipboardList className="text-[#099F86] text-sm" />
                     </div>

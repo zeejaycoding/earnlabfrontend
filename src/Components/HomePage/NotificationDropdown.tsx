@@ -33,8 +33,8 @@ function mapCategory(type: string): Category {
 function BellIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M10 2.5C7.23858 2.5 5 4.73858 5 7.5V12.5L3.5 14H16.5L15 12.5V7.5C15 4.73858 12.7614 2.5 10 2.5Z" fill="white" className="dark:fill-white fill-white" />
-      <path d="M8.5 14.5C8.5 15.3284 9.17157 16 10 16C10.8284 16 11.5 15.3284 11.5 14.5" stroke="white" strokeWidth="1.5" className="dark:stroke-white stroke-white" />
+      <path d="M10 2.5C7.23858 2.5 5 4.73858 5 7.5V12.5L3.5 14H16.5L15 12.5V7.5C15 4.73858 12.7614 2.5 10 2.5Z" fill="#14A28A" />
+      <path d="M8.5 14.5C8.5 15.3284 9.17157 16 10 16C10.8284 16 11.5 15.3284 11.5 14.5" stroke="#14A28A" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -125,7 +125,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
           className="flex items-center gap-3 px-4 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
         >
           <div
-            className="flex items-center justify-center rounded-[8px] bg-[#14A28A] shrink-0"
+            className="flex items-center justify-center shrink-0"
             style={{ width: 36, height: 36 }}
           >
             <BellIcon />
@@ -185,7 +185,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
                   className="rounded-[8px] p-3 flex gap-3 bg-white dark:bg-[#151728] border border-gray-200 dark:border-[#1E2133]"
                 >
                   <div
-                    className="flex items-center justify-center rounded-[6px] bg-[#14A28A] shrink-0"
+                    className="flex items-center justify-center shrink-0"
                     style={{ width: 32, height: 32 }}
                   >
                     <BellIcon />

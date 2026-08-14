@@ -27,7 +27,7 @@ const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText
     </div>
 
     <div className="relative z-10 flex items-center justify-between mt-6">
-      <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+      <div className="w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
         {icon}
       </div>
       

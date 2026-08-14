@@ -318,13 +318,22 @@ export default function SignInModal({
                 {loading ? t("signin.signing_in") : t("signin.signin")}
               </button>
 
-              <div className="flex items-center gap-3 my-5">
-                <div className="h-px flex-1 bg-[#1E2238]" />
-                <span className="text-[#7D8099] text-[30px] leading-none">{t("signin.or")}</span>
-                <div className="h-px flex-1 bg-[#1E2238]" />
+                            <div className="flex items-center justify-center gap-1 text-[16px] leading-6 text-[#6B6E8A] mt-6">
+                <span>{t("signin.no_account")}</span>
+                <button
+                  onClick={() => {
+                    onClose();
+                    onSignUp();
+                  }}
+                  className="text-white font-semibold hover:text-[#0BBFA0] transition-colors"
+                >
+                  {t("signin.signup")}
+                </button>
               </div>
 
-              <div className="flex flex-col gap-3">
+
+
+              <div className="flex flex-col gap-3 mt-4">
                 <button
                   type="button"
                   className="w-full h-[48px] bg-[#151828] border border-[#1E2238] rounded-[10px] flex items-center justify-center gap-3 hover:border-[#0BBFA055] hover:bg-[#1A1E32] transition-all"
@@ -359,18 +368,7 @@ export default function SignInModal({
                 </button>
               </div>
 
-              <div className="flex items-center justify-center gap-1 text-[16px] leading-6 text-[#6B6E8A] mt-6">
-                <span>{t("signin.no_account")}</span>
-                <button
-                  onClick={() => {
-                    onClose();
-                    onSignUp();
-                  }}
-                  className="text-white font-semibold hover:text-[#0BBFA0] transition-colors"
-                >
-                  {t("signin.signup")}
-                </button>
-              </div>
+
 
               <div className="flex flex-col items-center gap-2 mt-5 md:mt-6">
                 <div className="flex items-center gap-1">

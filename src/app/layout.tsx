@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, DM_Sans, Manrope, Inter } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Manrope, Inter, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import ToastClient from "@/Components/ToastClient";
 import { SocketProvider } from "@/contexts/SocketProvider";
@@ -40,6 +40,12 @@ const manrope = Manrope({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -83,7 +89,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${manrope.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${manrope.variable} ${inter.variable} ${nunitoSans.variable} antialiased`}
       >
         <FacebookFragmentFix />
         <ThemeStyleInjector />

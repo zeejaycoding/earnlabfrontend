@@ -259,7 +259,7 @@ const BottomNavigation: React.FC = () => {
                 className={`flex flex-col items-center justify-center flex-1 h-full gap-[3px] transition-colors duration-200 ${
                   displayActive
                     ? "text-[#0AC07D]"
-                    : "text-[#6B6E8A] hover:text-[#B3B6C7]"
+                    : "text-[#6B6E8A]"
                 }`}
               >
                 <div

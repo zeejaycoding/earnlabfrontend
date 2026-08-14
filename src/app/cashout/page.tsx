@@ -65,7 +65,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative overflow-hidden rounded-[16px] flex flex-col hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[145px] sm:min-h-[170px]"
+      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[145px] sm:min-h-[170px]"
       style={{ border: "1px solid rgba(255,255,255,0.1)", background: card.gradient }}
     >
       {/* Dot grid — concentrated in center, fading to edges */}
@@ -89,28 +89,20 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
         </span>
       )}
 
-      {/* Top: logo icon + brand name */}
-      <div className={`relative z-10 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 ${card.badge ? "pt-9 sm:pt-10" : "pt-3 sm:pt-4"}`}>
-        <div className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center">
+      {/* Logo + title — top centered */}
+      <div className={`relative z-10 flex flex-col items-center text-center gap-1.5 sm:gap-2 px-3 ${card.badge ? "pt-9 sm:pt-10" : "pt-3 sm:pt-4"}`}>
+        <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 flex items-center justify-center">
           <Image
             src={card.logoSrc}
             alt={card.brandName}
-            width={32}
-            height={32}
+            width={40}
+            height={40}
             className="object-contain w-full h-full"
           />
         </div>
-        <span className="text-gray-900 dark:text-white font-bold text-[13px] sm:text-[17px] leading-tight truncate">
-          {card.brandName}
-        </span>
-      </div>
-
-      {/* Middle — dot pattern fills this */}
-      <div className="flex-1 min-h-[40px]" />
-
-      {/* Bottom: name + subtitle */}
-      <div className="relative z-10 pb-3 sm:pb-4 text-center px-2 sm:px-3">
-        <p className="text-gray-900 dark:text-white font-semibold text-[12px] sm:text-[15px]">{card.name}</p>
+        <p className="text-gray-900 dark:text-white font-bold text-[28px] leading-none">
+          {card.name}
+        </p>
         {card.subtitle && (
           <p className="text-gray-600 dark:text-white/65 text-[10px] sm:text-[11px] mt-0.5 hidden sm:block">{card.subtitle}</p>
         )}
@@ -247,14 +239,20 @@ const meta = useMemo(() => {
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4" onClick={close}>
       <div className="w-full max-w-[400px] rounded-2xl border border-gray-200 dark:border-[#23353E] bg-white dark:bg-[#0F1D24] p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="flex items-center justify-between mb-5">
-<h3>
-  {t("cashout_page.modal.title", {
-    name: card?.name
-  })}
-</h3>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center">
+              <Image src={card?.logoSrc} alt={card?.name ?? ""} width={32} height={32} className="object-contain w-full h-full" />
+            </div>
+            <h3 className="text-gray-900 dark:text-white text-[18px] sm:text-[20px] font-bold truncate">
+              {t("cashout_page.modal.title", {
+                name: card?.name
+              })}
+            </h3>
+          </div>
           <button onClick={close} className="text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white"><X size={20} /></button>
         </div>
+        <div className="h-[1px] bg-gray-200 dark:bg-[#1F3A46] mb-5" />
         <div className="bg-[#14A990]/10 border border-[#14A990]/20 rounded-full px-4 py-2 mb-5 flex items-center gap-2">
           <div className="w-4 h-4 rounded-full bg-[#14A990] flex items-center justify-center text-[10px] font-bold text-gray-900 dark:text-white">!</div>
           <p className="text-[#14A990] text-xs font-semibold">{t("cashout_page.modal.minimum_withdrawal")}</p>
@@ -265,7 +263,7 @@ const meta = useMemo(() => {
             <div className="relative">
               <input type="text" value={destination} onChange={e => setDestination(e.target.value)} placeholder={meta.placeholder}
                 className="w-full bg-gray-50 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] rounded-lg px-4 py-3 text-gray-900 dark:text-white text-sm outline-none focus:border-[#14A990]/50" />
-              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#23353E] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.save")}</button>
+              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#0C1822] border border-gray-200 dark:border-[#284C5B] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.save")}</button>
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
@@ -277,10 +275,11 @@ const meta = useMemo(() => {
               <input type="number" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} placeholder={t("cashout_page.modal.amount_placeholder")}
                 className="w-full bg-gray-50 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] rounded-lg px-4 py-3 text-gray-900 dark:text-white text-sm outline-none focus:border-[#14A990]/50" />
               <button type="button" onClick={() => setAmount((userBalance / 100).toString())}
-                className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#23353E] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.max")}</button>
+                className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#0C1822] border border-gray-200 dark:border-[#284C5B] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.max")}</button>
             </div>
           </div>
-{meta.method === "crypto" && cryptoInfo ? (
+          <div className="h-[1px] bg-gray-200 dark:bg-[#1E2133]" />
+          {meta.method === "crypto" && cryptoInfo ? (
   <div className="flex flex-col gap-1.5">
     <label className="text-gray-500 dark:text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
     <div className="rounded-lg border border-gray-200 dark:border-[#23353E] bg-gray-50 dark:bg-[#15242C] overflow-hidden">

@@ -92,8 +92,8 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
             onClick={() => handleNavClick(item.path)}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors duration-200 ${
               active
-                ? "text-[#0AC07D] bg-[#0AC07D]/10"
-                : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1E2133]"
+                ? "text-[#0AC07D]"
+                : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white"
             }`}
           >
             <Image
@@ -115,8 +115,8 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
           onClick={() => setMenuOpen(!menuOpen)}
           className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors duration-200 ${
             menuOpen
-              ? "text-[#0AC07D] bg-[#0AC07D]/10"
-              : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1E2133]"
+              ? "text-[#0AC07D]"
+              : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white"
           }`}
         >
           <Image

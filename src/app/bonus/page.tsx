@@ -138,9 +138,9 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
     </span>
   </div>
 </div>
-<p className="text-[#8C9DB6] text-center font-bold text-sm sm:text-base mb-8">
+<p className="text-[#FFFFF] text-center font-bold text-sm sm:text-base mb-8">
    {t("bonus_page.reward_label")}{" "}
-  <span className="text-[#0AC07D]">
+  <span className="text-[#FFFFF]">
    {t("bonus_page.reward_highlight")}
   </span>
 </p>

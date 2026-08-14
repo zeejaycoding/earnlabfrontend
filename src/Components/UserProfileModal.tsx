@@ -152,20 +152,15 @@ interface StatCardProps {
 }
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, wide }) => (
   <div
-    className="flex flex-col items-start gap-2 rounded-[10px] bg-[#151728] p-3"
-    style={{ minWidth: wide ? 142 : 126, flex: wide ? "0 0 142px" : "0 0 126px" }}
+    className="flex flex-col gap-2 rounded-[10px] p-4 bg-white dark:bg-[#151728] border border-gray-200 dark:border-[#1E2133]"
   >
-    <div className="flex items-center justify-center rounded-[4px] bg-[#14A28A]" style={{ width: 30, height: 28 }}>
-      {icon}
-    </div>
-    <div className="flex flex-col gap-1">
-      <span className="font-[Manrope] font-bold text-[16px] leading-[34px] text-white tracking-[0.02em]">
-        {value}
-      </span>
-      <span className="font-[Inter] font-medium text-[12px] leading-[21px] text-[#6B6E8A] tracking-[-0.03em]">
-        {label}
-      </span>
-    </div>
+    {icon}
+    <span className="font-bold text-[20px] text-gray-900 dark:text-white" style={{ fontFamily: "'Manrope', sans-serif" }}>
+      {value}
+    </span>
+    <span className="text-[12px] text-gray-500 dark:text-[#8C8FA8]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      {label}
+    </span>
   </div>
 );
 
@@ -184,26 +179,15 @@ const CloseIcon = () => (
 );
 
 const CheckIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <path d="M2 7L5.5 10.5L12 4" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
+  <img src="/offers-completed.png" alt="Offers completed" style={{ width: 31, height: 28 }} />
 );
 
 const WalletIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <rect x="1" y="3" width="12" height="9" rx="1.5" stroke="white" strokeWidth="1.5" />
-    <path d="M1 6H13" stroke="white" strokeWidth="1.5" />
-    <circle cx="10" cy="9" r="1" fill="white" />
-  </svg>
+  <img src="/total-earns.png" alt="Total earnings" style={{ width: 31, height: 28 }} />
 );
 
 const UsersIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <circle cx="5" cy="4" r="2.5" stroke="white" strokeWidth="1.5" />
-    <path d="M1 12C1 9.79086 2.79086 8 5 8C7.20914 8 9 9.79086 9 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M10 6C11.1046 6 12 5.10457 12 4C12 2.89543 11.1046 2 10 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M12 9C12.8284 9.45948 13.5 10.1716 13.5 11.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
+  <img src="/user123.png" alt="Users referred" style={{ width: 31, height: 28 }} />
 );
 
 const DollarIcon = () => (
@@ -333,21 +317,18 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
     >
       {/* Panel */}
       <div
-        className="relative flex w-full max-w-[640px] max-h-[88vh] flex-col overflow-y-auto rounded-2xl border border-[#1E2133] shadow-2xl"
-        style={{
-          background: "#0D0F1E",
-        }}
+        className="relative flex w-full max-w-[640px] max-h-[88vh] flex-col overflow-y-auto rounded-2xl border border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#151728] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ── Header ─────────────────────────────────────── */}
         <div
-          className="flex items-center gap-[10px] px-4 shrink-0"
-          style={{ height: 68, borderBottom: "1px solid #1E2133" }}
+          className="flex items-center gap-[10px] px-4 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
+          style={{ height: 68 }}
         >
           <div className="flex items-center gap-2 flex-1 min-w-0">
             <ProfileFillIcon />
             <span
-              className="font-[Manrope] font-bold text-[20px] text-white tracking-[0.02em] truncate"
+              className="font-[Manrope] font-bold text-[20px] text-gray-900 dark:text-white tracking-[0.02em] truncate"
               style={{ lineHeight: "34px" }}
             >
               User profile
@@ -373,8 +354,8 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
         {!loading && isPrivate && (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 py-20">
             <div className="text-5xl">🔒</div>
-            <p className="text-white font-semibold text-lg">Private Profile</p>
-            <p className="text-[#8C8FA8] text-sm text-center px-8">
+            <p className="text-gray-900 dark:text-white font-semibold text-lg">Private Profile</p>
+            <p className="text-gray-500 dark:text-[#8C8FA8] text-sm text-center px-8">
               This user has set their profile to private.
             </p>
           </div>
@@ -385,8 +366,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
           <>
             {/* ── Profile Info ──────────────────────────── */}
             <div
-              className="flex flex-col gap-4 px-4 py-4 shrink-0"
-              style={{ borderBottom: "1px solid #151728" }}
+              className="flex flex-col gap-4 px-4 py-4 shrink-0 border-b border-gray-200 dark:border-[#151728]"
             >
               {/* Avatar + name + meta */}
               <div className="flex flex-col gap-2">
@@ -413,33 +393,27 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                   </div>
                 )}
 
-                {/* Name row */}
-                <div className="flex items-center gap-1">
+                {/* Name + flag + joined */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {flag && <span className="text-base leading-none">{flag}</span>}
                   <span
-                    className="font-[Manrope] font-bold text-[18px] text-white tracking-[0.02em]"
+                    className="font-[Manrope] font-bold text-[18px] text-gray-900 dark:text-white tracking-[0.02em]"
                     style={{ lineHeight: "34px" }}
                   >
                     {displayName}
                   </span>
-                  {flag && (
-                    <div className="flex items-center gap-1">
-                      <span className="text-sm">{flag}</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Joined */}
-                <div className="flex items-center gap-1">
-                  <div
-                    className="rounded-full"
-                    style={{ width: 4, height: 4, background: "#8C8FA8", opacity: 0.4 }}
-                  />
-                  <span
-                    className="font-[Inter] font-medium text-[10px] text-[#8C8FA8] tracking-[-0.03em]"
-                    style={{ lineHeight: "21px" }}
-                  >
-                    {joinedText}
-                  </span>
+                  <div className="flex items-center gap-1">
+                    <div
+                      className="rounded-full"
+                      style={{ width: 4, height: 4, background: "#8C8FA8", opacity: 0.4 }}
+                    />
+                    <span
+                      className="font-[Inter] font-medium text-[10px] text-gray-500 dark:text-[#8C8FA8] tracking-[-0.03em]"
+                      style={{ lineHeight: "21px" }}
+                    >
+                      {joinedText}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -449,9 +423,12 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <div
-                      className="rounded"
-                      style={{ width: 16, height: 16, background: "transparent", border: "1px solid #0088FF" }}
-                    />
+                      className="rounded-[4px] overflow-hidden shrink-0"
+                      style={{ width: 22, height: 22, border: "1px solid #0088FF" }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/profileimage.png" alt="" className="w-full h-full object-cover" />
+                    </div>
                     <span
                       className="font-[Inter] font-medium text-[13px] text-[#0088FF] tracking-[-0.03em]"
                       style={{ lineHeight: "21px" }}
@@ -461,9 +438,12 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                   </div>
                   <div className="flex items-center gap-1">
                     <div
-                      className="rounded"
-                      style={{ width: 16, height: 16, background: "transparent", border: "1px solid #00C8B3" }}
-                    />
+                      className="rounded-[4px] overflow-hidden shrink-0"
+                      style={{ width: 22, height: 22, border: "1px solid #00C8B3" }}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/profileimage.png" alt="" className="w-full h-full object-cover" />
+                    </div>
                     <span
                       className="font-[Inter] font-medium text-[13px] text-[#00C8B3] tracking-[-0.03em]"
                       style={{ lineHeight: "21px" }}
@@ -475,8 +455,8 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
 
                 {/* Progress bar */}
                 <div
-                  className="relative rounded-[20px] w-full"
-                  style={{ height: 6, background: "#1E2133" }}
+                  className="relative rounded-[20px] w-full bg-gray-200 dark:bg-[#1E2133]"
+                  style={{ height: 6 }}
                 >
                   <div
                     className="absolute left-0 top-0 h-full rounded-[20px]"
@@ -487,13 +467,13 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                 {/* XP numbers */}
                 <div className="flex items-center justify-between">
                   <span
-                    className="font-[Inter] font-medium text-[12px] text-[#6B6E8A] tracking-[-0.03em]"
+                    className="font-[Inter] font-medium text-[12px] text-gray-500 dark:text-[#6B6E8A] tracking-[-0.03em]"
                     style={{ lineHeight: "21px" }}
                   >
                     {progression.progressCurrent.toLocaleString()}
                   </span>
                   <span
-                    className="font-[Inter] font-medium text-[12px] text-[#6B6E8A] tracking-[-0.03em]"
+                    className="font-[Inter] font-medium text-[12px] text-gray-500 dark:text-[#6B6E8A] tracking-[-0.03em]"
                     style={{ lineHeight: "21px" }}
                   >
                     {(progression.progressTarget ?? progression.activityScore).toLocaleString()}
@@ -503,17 +483,15 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
 
               {/* Mute user button */}
               <div
-                className="flex items-center justify-center rounded-[5px] w-full cursor-pointer select-none"
+                className="flex items-center justify-center rounded-[5px] w-full cursor-pointer select-none bg-gray-100 dark:bg-[#151728] border border-gray-200 dark:border-[#26293E]"
                 style={{
                   height: 48,
-                  background: "#151728",
-                  border: "1px solid #26293E",
                 }}
               >
                 <div className="flex items-center gap-1">
                   <MuteIcon />
                   <span
-                    className="font-[Inter] font-medium text-[14px] text-white tracking-[-0.03em]"
+                    className="font-[Inter] font-medium text-[14px] text-gray-700 dark:text-white tracking-[-0.03em]"
                     style={{ lineHeight: "21px" }}
                   >
                     Mute user
@@ -527,8 +505,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
               {/* Tab bar */}
               <div className="flex items-start px-4 pt-2">
                 <div
-                  className="flex items-center gap-2 rounded-[20px] p-1"
-                  style={{ background: "#151728" }}
+                  className="flex items-center gap-2 rounded-[20px] p-1 bg-gray-100 dark:bg-[#151728]"
                 >
                   {(["all", "badges"] as const).map((tab) => (
                     <button
@@ -537,12 +514,12 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                       className="flex items-center justify-center rounded-[15px] transition-colors"
                       style={{
                         padding: "8px 20px",
-                        background: activeTab === tab ? "#14A28A" : "#151728",
+                        background: activeTab === tab ? "#14A28A" : undefined,
                         minWidth: 95,
                       }}
                     >
                       <span
-                        className="font-[Manrope] font-semibold text-[14px] text-white tracking-[0.02em]"
+                        className={`font-[Manrope] font-semibold text-[14px] tracking-[0.02em] ${activeTab === tab ? "text-white" : "text-gray-600 dark:text-white"}`}
                         style={{ lineHeight: "34px" }}
                       >
                         {tab === "all" ? "All" : "Badges"}
@@ -557,14 +534,13 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                 <>
                   {/* Statistics */}
                   <div
-                    className="flex flex-col gap-4 px-4 py-3"
-                    style={{ borderBottom: "1px solid #1E2133" }}
+                    className="flex flex-col gap-4 px-4 py-3 border-b border-gray-200 dark:border-[#1E2133]"
                   >
                     {/* Section header */}
                     <div className="flex items-center gap-2">
                       <ChartIcon />
                       <span
-                        className="font-[Manrope] font-bold text-[16px] text-white tracking-[0.02em] flex-1"
+                        className="font-[Manrope] font-bold text-[16px] text-gray-900 dark:text-white tracking-[0.02em] flex-1"
                         style={{ lineHeight: "34px" }}
                       >
                         Statistics
@@ -572,7 +548,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                     </div>
 
                     {/* Stat cards row */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="grid grid-cols-2 gap-3">
                       <StatCard
                         icon={<CheckIcon />}
                         value={stats.offersCompleted.toLocaleString()}
@@ -604,7 +580,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                     <div className="flex items-center gap-2">
                       <OfferIcon />
                       <span
-                        className="font-[Manrope] font-bold text-[16px] text-white tracking-[0.02em] flex-1"
+                        className="font-[Manrope] font-bold text-[16px] text-gray-900 dark:text-white tracking-[0.02em] flex-1"
                         style={{ lineHeight: "34px" }}
                       >
                         Offers
@@ -615,13 +591,13 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                     <div className="flex flex-col w-full">
                       {/* Header row */}
                       <div
-                        className="flex items-center px-2 gap-4"
-                        style={{ height: 37, borderBottom: "1px solid #1E2133" }}
+                        className="flex items-center px-2 gap-4 border-b border-gray-200 dark:border-[#1E2133]"
+                        style={{ height: 37 }}
                       >
                         {["Name", "Reward", "Time"].map((col, i) => (
                           <span
                             key={col}
-                            className="font-[Inter] font-medium text-[14px] text-[#8C8FA8] tracking-[-0.03em]"
+                            className="font-[Inter] font-medium text-[14px] text-gray-500 dark:text-[#8C8FA8] tracking-[-0.03em]"
                             style={{
                               lineHeight: "21px",
                               flex: 1,
@@ -635,7 +611,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
 
                       {/* Data rows */}
                       {recentOffers.length === 0 ? (
-                        <div className="py-8 text-center text-[#8C8FA8] text-sm">
+                        <div className="py-8 text-center text-gray-500 dark:text-[#8C8FA8] text-sm">
                           No offers to display
                         </div>
                       ) : (
@@ -645,7 +621,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                             className="flex items-center px-2 gap-4"
                             style={{
                               height: 47,
-                              background: idx % 2 === 1 ? "#151728" : "transparent",
+                              background: idx % 2 === 1 ? undefined : "transparent",
                             }}
                           >
                             {/* Name cell */}
@@ -660,14 +636,14 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                                 />
                               ) : (
                                 <div
-                                  className="shrink-0 rounded flex items-center justify-center"
-                                  style={{ width: 23, height: 23, background: "#26293E" }}
+                                  className="shrink-0 rounded flex items-center justify-center bg-gray-100 dark:bg-[#26293E]"
+                                  style={{ width: 23, height: 23 }}
                                 >
                                   <OfferIcon />
                                 </div>
                               )}
                               <span
-                                className="font-[Inter] font-medium text-[13px] text-white tracking-[-0.03em] truncate"
+                                className="font-[Inter] font-medium text-[13px] text-gray-900 dark:text-white tracking-[-0.03em] truncate"
                                 style={{ lineHeight: "21px" }}
                               >
                                 {offer.title}
@@ -678,7 +654,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                             <div className="flex items-center justify-center gap-1" style={{ flex: 1 }}>
                               <DollarIcon />
                               <span
-                                className="font-[Inter] font-medium text-[13px] text-white tracking-[-0.03em]"
+                                className="font-[Inter] font-medium text-[13px] text-gray-900 dark:text-white tracking-[-0.03em]"
                                 style={{ lineHeight: "21px" }}
                               >
                                 {(offer.rewardCents / 100).toFixed(2)}
@@ -688,7 +664,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
                             {/* Time cell */}
                             <div className="flex items-center justify-end" style={{ flex: 1 }}>
                               <span
-                                className="font-[Inter] font-medium text-[12px] text-[#6B6E8A] tracking-[-0.03em] text-right"
+                                className="font-[Inter] font-medium text-[12px] text-gray-500 dark:text-[#6B6E8A] tracking-[-0.03em] text-right"
                                 style={{ lineHeight: "21px" }}
                               >
                                 {timeAgo(offer.completedAt)}
@@ -719,7 +695,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
         {/* No profile */}
         {!loading && !isPrivate && !profile && (
           <div className="flex flex-1 items-center justify-center">
-            <p className="text-[#8C8FA8]">Select a user to view profile</p>
+            <p className="text-gray-500 dark:text-[#8C8FA8]">Select a user to view profile</p>
           </div>
         )}
       </div>

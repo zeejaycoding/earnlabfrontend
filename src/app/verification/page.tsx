@@ -46,7 +46,7 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
     />
 
     <div className="relative z-10 flex items-center gap-5">
-      <div className="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] flex items-center justify-center group-hover:scale-110 transition-transform">
+      <div className="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-[#1C4750] border border-gray-200 dark:border-[#23353E] flex items-center justify-center group-hover:scale-110 transition-transform">
         {icon}
       </div>
 

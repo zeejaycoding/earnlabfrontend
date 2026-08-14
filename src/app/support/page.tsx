@@ -300,7 +300,7 @@ export default function SupportPage() {
         >
           {/* "In need of help?" status bar */}
           <div
-            className="flex flex-col items-center gap-3 px-4 py-5 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
+            className="flex flex-col items-center gap-3 px-4 py-5 shrink-0 border-b border-gray-200 dark:border-[#1E2133] bg-gray-100 dark:bg-[#151728]"
           >
             <p
               className="font-bold text-[18px] text-gray-900 dark:text-white"
@@ -319,11 +319,11 @@ export default function SupportPage() {
             </div>
             <a
               href="/faq"
-              className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-gray-100 dark:hover:bg-[#1E2133] bg-gray-100 dark:bg-[#151728] border border-gray-200 dark:border-[#26293E]"
+              className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-gray-200 dark:hover:bg-[#26293E] bg-gray-200 dark:bg-[#1E2133] border border-gray-200 dark:border-[#26293E]"
             >
               <IcoFAQ />
               <span
-                className="text-gray-900 dark:text-white text-sm font-medium"
+                className="text-gray-900 dark:text-[#B3B6C7] text-sm font-medium"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {t("support.faq")}
