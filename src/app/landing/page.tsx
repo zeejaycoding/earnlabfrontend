@@ -800,10 +800,10 @@ useEffect(() => {
       {/* ═══════ HERO ═══════ */}
 <section className="bg-[#0D0F1E] py-6 sm:py-8">
   <div
-    className="relative mx-auto w-full max-w-[1360px] lg:min-h-[620px] rounded-[20px] sm:rounded-[40px] bg-cover bg-center bg-no-repeat"
+    className="relative mx-auto w-full max-w-[1360px] min-h-[500px] lg:min-h-[620px] rounded-[20px] sm:rounded-[40px] bg-cover bg-center bg-no-repeat flex items-center"
     style={{ backgroundImage: "url('/landing-page.png')" }}
   >
-    <div className="flex flex-col lg:flex-row items-center justify-between px-5 sm:px-8 lg:px-[80px] py-8 lg:py-0 gap-6 lg:gap-4">
+    <div className="flex flex-col lg:flex-row items-center justify-between px-5 sm:px-8 lg:px-[80px] py-8 lg:py-0 gap-6 lg:gap-4 w-full">
   {/* Left Content */}
   <div className="max-w-[620px] text-center lg:text-left">
     <h1
@@ -847,7 +847,7 @@ useEffect(() => {
       className="text-white text-[18px] sm:text-[22px] font-semibold"
       style={{ fontFamily: "DM Sans" }}
     >
-       {t("hero.cta")}
+       {t("hero.cta-1")}!
     </h2>
 
     <p
@@ -1249,8 +1249,8 @@ alt={testimonial.name}
             <span className="text-[#18C2A3]">{t("stats.title_rest")}</span>
           </h2>
           <div className="bg-white dark:bg-[#111324] rounded-2xl px-4 sm:px-8 py-10 sm:py-16 border border-[#EBEDF5] dark:border-0">
-            <div className="divide-y divide-[#EBEDF5] dark:divide-[#26293E] sm:divide-y-0 sm:grid sm:grid-cols-4 sm:gap-8">
-              <div className="py-6 first:pt-0 sm:py-0">
+            <div className="sm:grid sm:grid-cols-4 sm:gap-0">
+              <div className="py-6 sm:py-0 sm:pr-8">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/earned.png" alt="Total rewards earned" />
@@ -1259,7 +1259,7 @@ alt={testimonial.name}
                   label={t("stats.total_rewards")}
                 />
               </div>
-              <div className="py-6 sm:py-0">
+              <div className="py-6 sm:py-0 sm:px-8 sm:border-l sm:border-[#27293F]">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/average.png" alt="Average money earned" />
@@ -1268,7 +1268,7 @@ alt={testimonial.name}
                   label={t("stats.average")}
                 />
               </div>
-              <div className="py-6 sm:py-0">
+              <div className="py-6 sm:py-0 sm:px-8 sm:border-l sm:border-[#27293F]">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/users.png" alt="Total users" />
@@ -1277,7 +1277,7 @@ alt={testimonial.name}
                   label={t("stats.users")}
                 />
               </div>
-              <div className="py-6 last:pb-0 sm:py-0">
+              <div className="py-6 sm:py-0 sm:pl-8 sm:border-l sm:border-[#27293F]">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/tasks.png" alt="Tasks completed" />

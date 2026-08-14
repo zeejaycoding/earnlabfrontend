@@ -60,7 +60,7 @@ function HeadsetIcon() {
 function XIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path d="M1 1L11 11M1 11L11 1" stroke="#1E2133" strokeWidth="2" strokeLinecap="round" />
+      <path className="stroke-gray-700 dark:stroke-[#1E2133]" d="M1 1L11 11M1 11L11 1" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -68,14 +68,14 @@ function XIcon() {
 function FAQIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="7" stroke="#8C8FA8" strokeWidth="1.5" />
+      <circle className="stroke-gray-500 dark:stroke-[#8C8FA8]" cx="8" cy="8" r="7" strokeWidth="1.5" />
       <path
+        className="stroke-gray-500 dark:stroke-[#8C8FA8]"
         d="M6.5 6C6.5 5.17157 7.17157 4.5 8 4.5C8.82843 4.5 9.5 5.17157 9.5 6C9.5 6.82843 8.82843 7.5 8 7.5V9"
-        stroke="#8C8FA8"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
-      <circle cx="8" cy="11" r="0.75" fill="#8C8FA8" />
+      <circle className="fill-gray-500 dark:fill-[#8C8FA8]" cx="8" cy="11" r="0.75" />
     </svg>
   );
 }
@@ -83,10 +83,10 @@ function FAQIcon() {
 function EmojiIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="10" cy="10" r="8.5" stroke="#50536F" strokeWidth="1.5" />
-      <path d="M7 12C7 12 8 14 10 14C12 14 13 12 13 12" stroke="#50536F" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="7.5" cy="8.5" r="1" fill="#50536F" />
-      <circle cx="12.5" cy="8.5" r="1" fill="#50536F" />
+      <circle className="stroke-gray-500 dark:stroke-[#50536F]" cx="10" cy="10" r="8.5" strokeWidth="1.5" />
+      <path className="stroke-gray-500 dark:stroke-[#50536F]" d="M7 12C7 12 8 14 10 14C12 14 13 12 13 12" strokeWidth="1.5" strokeLinecap="round" />
+      <circle className="fill-gray-500 dark:fill-[#50536F]" cx="7.5" cy="8.5" r="1" />
+      <circle className="fill-gray-500 dark:fill-[#50536F]" cx="12.5" cy="8.5" r="1" />
     </svg>
   );
 }
@@ -95,8 +95,8 @@ function AttachIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
       <path
+        className="stroke-gray-500 dark:stroke-[#50536F]"
         d="M17 9.5L10 16.5C8.34315 18.1569 5.65685 18.1569 4 16.5C2.34315 14.8431 2.34315 12.1569 4 10.5L10.5 4C11.6046 2.89543 13.3954 2.89543 14.5 4C15.6046 5.10457 15.6046 6.89543 14.5 8L8.5 14C7.94772 14.5523 7.05228 14.5523 6.5 14C5.94772 13.4477 5.94772 12.5523 6.5 12L12 6.5"
-        stroke="#50536F"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -286,14 +286,13 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[10000] flex justify-end bg-black/50" onClick={onClose} style={{ height: "100dvh" }}>
       <div
-        className="flex flex-col overflow-hidden w-full sm:max-w-[380px]"
-        style={{ height: "100dvh", background: "#0D0F1E" }}
+        className="flex flex-col overflow-hidden w-full sm:max-w-[380px] bg-gray-50 dark:bg-[#0D0F1E]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
-          className="flex items-center gap-3 px-4 shrink-0"
-          style={{ height: 68, borderBottom: "1px solid #1E2133" }}
+          className="flex items-center gap-3 px-4 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
+          style={{ height: 68 }}
         >
           <div
             className="flex items-center justify-center rounded-[8px] bg-[#14A28A] shrink-0"
@@ -302,14 +301,14 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             <HeadsetIcon />
           </div>
           <span
-            className="font-bold text-[20px] text-white flex-1 tracking-[0.02em]"
+            className="font-bold text-[20px] text-gray-900 dark:text-white flex-1 tracking-[0.02em]"
             style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}
           >
             {t("supportChat.header.title")}
           </span>
           <button
             onClick={onClose}
-            className="flex items-center justify-center rounded-[5px] bg-[#8C8FA8] shrink-0 hover:bg-[#a0a3bb] transition-colors"
+            className="flex items-center justify-center rounded-[5px] bg-gray-300 dark:bg-[#8C8FA8] shrink-0 hover:bg-gray-400 dark:hover:bg-[#a0a3bb] transition-colors"
             style={{ width: 24, height: 24 }}
             aria-label= {t("supportChat.header.close")}
           >
@@ -319,11 +318,10 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
 
         {/* In need of help section */}
         <div
-          className="flex flex-col items-center gap-3 px-4 py-6 shrink-0"
-          style={{ borderBottom: "1px solid #1E2133" }}
+          className="flex flex-col items-center gap-3 px-4 py-6 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
         >
           <p
-            className="font-bold text-[18px] text-white"
+            className="font-bold text-[18px] text-gray-900 dark:text-white"
             style={{ fontFamily: "'Manrope', sans-serif" }}
           >
              {t("supportChat.helpSection.title")}
@@ -339,13 +337,12 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
           </div>
           <a
             href="/faq"
-            className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-[#1E2133]"
-            style={{ background: "#151728", border: "1px solid #26293E" }}
+            className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-gray-200 dark:hover:bg-[#1E2133] bg-gray-100 dark:bg-[#151728] border border-gray-200 dark:border-[#26293E]"
             onClick={onClose}
           >
             <FAQIcon />
             <span
-              className="text-white text-sm font-medium"
+              className="text-gray-900 dark:text-white text-sm font-medium"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {t("supportChat.helpSection.faq")}
@@ -363,28 +360,28 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <div
-                className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0"
-                style={{ width: 32, height: 32, background: "#151728" }}
+                className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0 bg-gray-100 dark:bg-[#151728]"
+                style={{ width: 32, height: 32 }}
               >
                 <Image src={LogoImg} alt="LabWards" width={24} height={24} className="object-contain" />
               </div>
               <span
-                className="text-white text-sm font-semibold"
+                className="text-gray-900 dark:text-white text-sm font-semibold"
                 style={{ fontFamily: "'Manrope', sans-serif" }}
               >
                 LabWards
               </span>
-              <div className="w-1 h-1 rounded-full bg-[#8C8FA8] opacity-50" />
-              <span className="text-[#8C8FA8] text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <div className="w-1 h-1 rounded-full bg-gray-400 dark:bg-[#8C8FA8] opacity-50" />
+              <span className="text-gray-500 dark:text-[#8C8FA8] text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {now}
               </span>
             </div>
             <div
-              className="rounded-[10px_10px_10px_0px] p-3 ml-2"
-              style={{ background: "#151728", maxWidth: "90%" }}
+              className="rounded-[10px_10px_10px_0px] p-3 ml-2 bg-gray-100 dark:bg-[#151728]"
+              style={{ maxWidth: "90%" }}
             >
               <p
-                className="text-white text-[13px] leading-[1.6]"
+                className="text-gray-900 dark:text-white text-[13px] leading-[1.6]"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {WELCOME_MESSAGE}
@@ -398,7 +395,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             const isSystem = msg.senderRole === "system";
             if (isSystem) {
               return (
-                <p key={msg._id || idx} className="text-[#8C8FA8] text-xs text-center">
+                <p key={msg._id || idx} className="text-gray-500 dark:text-[#8C8FA8] text-xs text-center">
                   {msg.text}
                 </p>
               );
@@ -407,26 +404,26 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
               <div key={msg._id || idx} className={`flex flex-col gap-1 ${isUser ? "items-end" : "items-start"}`}>
                 {!isUser && (
                   <div className="flex items-center gap-2">
-                    <div className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0" style={{ width: 24, height: 24, background: "#151728" }}>
+                    <div className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0 bg-gray-100 dark:bg-[#151728]" style={{ width: 24, height: 24 }}>
                       <Image src={LogoImg} alt="Support" width={18} height={18} className="object-contain" />
                     </div>
-                    <span className="text-[#8C8FA8] text-xs">{t("supportChat.header.title")}</span>
+                    <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">{t("supportChat.header.title")}</span>
                     {msg.createdAt && (
-                      <span className="text-[#8C8FA8] text-xs">
+                      <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">
                         {new Date(msg.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                       </span>
                     )}
                   </div>
                 )}
                 <div
-                  className="rounded-[10px] p-3"
                   style={{
-                    background: isUser ? "#14A28A" : "#151728",
+                    background: isUser ? "#14A28A" : undefined,
                     maxWidth: "80%",
                     borderRadius: isUser ? "10px 10px 0px 10px" : "10px 10px 10px 0px",
                   }}
+                  className={`rounded-[10px] p-3 ${!isUser ? "bg-gray-100 dark:bg-[#151728]" : ""}`}
                 >
-                  <p className="text-white text-[13px] leading-[1.6]" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <p className="text-gray-900 dark:text-white text-[13px] leading-[1.6]" style={{ fontFamily: "'Inter', sans-serif" }}>
                     {msg.text}
                   </p>
                 </div>
@@ -437,8 +434,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
 
         {/* Input */}
         <div
-          className="flex items-center gap-2 px-4 py-4 shrink-0"
-          style={{ borderTop: "1px solid #1E2133", background: "#0D0F1E" }}
+          className="flex items-center gap-2 px-4 py-4 shrink-0 border-t border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#0D0F1E]"
         >
           <button className="shrink-0">
             <EmojiIcon />
@@ -453,7 +449,7 @@ const SupportChat: React.FC<SupportChatProps> = ({ isOpen, onClose }) => {
             onKeyDown={handleKeyDown}
             placeholder={t("supportChat.input.placeholder")}
             disabled={sending}
-            className="flex-1 bg-transparent outline-none text-white placeholder-[#50536F] text-[14px]"
+            className="flex-1 bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#50536F] text-[14px]"
             style={{ fontFamily: "'Manrope', sans-serif" }}
           />
           <button
