@@ -101,6 +101,8 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 const formatCurrency = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 
+const CASHOUT_THRESHOLD_CENTS = 50;
+
 const formatDateLabel = (value?: string) => {
   if (!value) return "—";
   const date = new Date(value);
@@ -147,6 +149,26 @@ const MetricCard = ({
     <p className="text-[12px] text-gray-500 dark:text-[#6B6E8A]" style={{ fontFamily: "var(--font-dm-sans)" }}>
       {label}
     </p>
+  </div>
+);
+
+const InfoRow = ({
+  label,
+  prefix,
+  value,
+}: {
+  label: string;
+  prefix?: string;
+  value: string;
+}) => (
+  <div className="flex items-center justify-between px-2 py-3">
+    <span className="text-[14px] font-medium text-[#8C8FA8]" style={{ fontFamily: "var(--font-inter)" }}>
+      {label}
+    </span>
+    <span className="text-[14px] font-medium text-white" style={{ fontFamily: "var(--font-inter)" }}>
+      {prefix && <span className="text-[#18C3A7]">{prefix}</span>}
+      {value}
+    </span>
   </div>
 );
 
@@ -570,7 +592,7 @@ if (!token) {
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-2">
             <section className="rounded-[10px] border border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#111324] p-4">
-              <div className="flex items-start justify-between gap-3">
+              <div className="hidden md:flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="relative h-[86px] w-[106px] rounded-[11px] bg-[#6155F5]">
                     {profile?.avatarUrl ? (
@@ -614,7 +636,47 @@ if (!token) {
                 </button>
               </div>
 
-              <div className="mt-4 border-t border-gray-200 dark:border-[#1E2133]">
+              <div className="md:hidden flex flex-col items-center pt-2">
+                <div className="relative h-[86px] w-[106px] rounded-[11px] bg-[#6155F5]">
+                  {profile?.avatarUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={profile.avatarUrl}
+                      alt={profile.displayName}
+                      className="h-full w-full rounded-[11px] object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="text-[56px] font-bold leading-none text-white" style={{ fontFamily: "var(--font-inter)" }}>
+                        {(profile?.displayName || "U").charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#111324] bg-[#FF2D55] text-[12px]"
+                    aria-label={t("account1.changeprofilepic")}
+                    onClick={() => toast.info(t("account1.avataruploadchange"))}
+                  >
+                    📷
+                  </button>
+                </div>
+                <p
+                  className="mt-3 text-center text-[28px] sm:text-[32px] font-bold leading-[1.25] text-white break-words"
+                  style={{ fontFamily: "var(--font-manrope)" }}
+                >
+                  {profile?.displayName || t("account1.muhammadh")}
+                </p>
+                <button
+                  type="button"
+                  className="mt-3 rounded-full border border-gray-200 dark:border-[#26293E] bg-gray-100 dark:bg-[#151728] px-5 py-2 text-[13px] text-gray-700 dark:text-white hover:border-gray-300 dark:hover:border-[#30334A]"
+                  onClick={() => router.push(`/profile/${profile?.username || profile?.id}`)}
+                >
+                  {t("account1.viewProfile")}
+                </button>
+              </div>
+
+              <div className="hidden md:block mt-4 border-t border-gray-200 dark:border-[#1E2133]">
                 <div className="flex items-center justify-between border-b border-gray-200 dark:border-[#1E2133] px-2 py-2">
                   <span className="text-[15px] text-gray-500 dark:text-[#8C8FA8]">{t("account1.labwardId")}</span>
                   <span className="text-[16px] font-semibold text-gray-900 dark:text-white">
@@ -633,7 +695,42 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="md:hidden mt-4 border-t border-[#1E2133]">
+                <InfoRow
+                  label={t("account1.totalEarned")}
+                  prefix="$"
+                  value={formatCurrency(accountTotals.totalEarnings).replace("$", "")}
+                />
+                <div className="h-px bg-[#1E2133]" />
+                <InfoRow
+                  label={t("account1.cashoutThreshold")}
+                  prefix="$"
+                  value={formatCurrency(CASHOUT_THRESHOLD_CENTS).replace("$", "")}
+                />
+                <div className="h-px bg-[#1E2133]" />
+                <InfoRow
+                  label={t("account1.completedOffers")}
+                  value={String(stats.offersCompleted)}
+                />
+                <div className="h-px bg-[#1E2133]" />
+                <InfoRow
+                  label={t("account1.labwardId")}
+                  value={deriveLabwardId(profile?.id || "")}
+                />
+                <div className="h-px bg-[#1E2133]" />
+                <InfoRow
+                  label={t("account1.level")}
+                  value={
+                    stats.offersCompleted > 50
+                      ? t("account1.gold")
+                      : stats.offersCompleted > 15
+                        ? t("account1.silver")
+                        : t("account1.bronze")
+                  }
+                />
+              </div>
+
+              <div className="hidden md:grid mt-4 grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <MetricCard
                   value={formatCurrency(accountTotals.availableBalance)}
                   label={t("account1.availableBalance")}
@@ -768,10 +865,11 @@ if (!token) {
                     readOnly
                     className="w-full bg-transparent px-1 text-[18px] text-gray-900 dark:text-white outline-none"
                   />
-                  <span className="inline-flex items-center gap-1 rounded-[8px] bg-gray-200 dark:bg-[#26293E] px-3 py-2 text-[14px] text-gray-700 dark:text-white">
+                  <span className="hidden md:inline-flex items-center gap-1 rounded-[8px] bg-gray-200 dark:bg-[#26293E] px-3 py-2 text-[14px] text-gray-700 dark:text-white">
                     <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#18C3A7] text-[10px] text-black">✓</span>
                     {t("account1.verified")}
                   </span>
+                  <span className="md:hidden inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#18C3A7] text-[10px] text-black">✓</span>
                   <button
                     type="button"
                     onClick={() => toast.info(t("account1.securitySettings"))}
@@ -858,7 +956,7 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="border-b border-gray-200 dark:border-[#1E2133] py-4">
+              <div className="hidden md:block border-b border-gray-200 dark:border-[#1E2133] py-4">
                 <div className="mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
                   <Users className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>

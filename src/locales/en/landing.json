@@ -2079,6 +2079,9 @@
     "availableBalance": "Available balance",
     "onHold": "On Hold",
     "totalEarnings": "Total Earnings",
+    "totalEarned": "Total Earned",
+    "cashoutThreshold": "Cashout Threshold",
+    "completedOffers": "Completed Offers",
     "withdrawn": "Withdrawn",
     "completedPayouts": "Completed payouts",
 
