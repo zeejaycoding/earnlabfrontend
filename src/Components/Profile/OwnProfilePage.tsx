@@ -158,18 +158,13 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ icon, value, label, wide }) => (
   <div
-    className="flex flex-col gap-2 rounded-[10px] p-4"
-    style={{
-      background: "#151728",
-      border: "1px solid #1E2133",
-      width: "100%",
-    }}
+    className="flex flex-col gap-2 rounded-[10px] p-4 bg-white dark:bg-[#151728] border border-gray-200 dark:border-[#1E2133]"
   >
     {icon}
-    <span className="font-bold text-[20px] text-white" style={{ fontFamily: "'Manrope', sans-serif" }}>
+    <span className="font-bold text-[20px] text-gray-900 dark:text-white" style={{ fontFamily: "'Manrope', sans-serif" }}>
       {value}
     </span>
-    <span className="text-[12px] text-[#8C8FA8]" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <span className="text-[12px] text-gray-500 dark:text-[#8C8FA8]" style={{ fontFamily: "'Inter', sans-serif" }}>
       {label}
     </span>
   </div>
@@ -391,7 +386,7 @@ function joinedAgo(dateStr: string): string {
   const nextLevelName = progression.nextLevel || t("profile.max");
 
   return (
-    <div className="min-h-screen bg-[#0D0F1E] flex flex-col" style={{ background: "#0D0F1E" }}>
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0D0F1E] flex flex-col">
         <TopBar />      <TickerBar />
         {/* Loading */}
         {loading && (
@@ -404,7 +399,7 @@ function joinedAgo(dateStr: string): string {
         {!loading && profile && (
           <>
             {/* Profile Info */}
-            <div className="flex flex-col gap-4 px-6 md:px-10 py-6 shrink-0" style={{ borderBottom: "1px solid #151728" }}>
+            <div className="flex flex-col gap-4 px-6 md:px-10 py-6 shrink-0 border-b border-gray-200 dark:border-[#151728]">
               <div className="flex flex-col gap-2">
                 {/* Avatar */}
                 {profile.avatarUrl ? (
@@ -424,12 +419,12 @@ function joinedAgo(dateStr: string): string {
                 {/* Name + flag + joined */}
                 <div className="flex items-center gap-2 flex-wrap">
                   {flag && <span className="text-base leading-none">{flag}</span>}
-                  <span className="font-bold text-[18px] text-white tracking-[0.02em]" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
+                  <span className="font-bold text-[18px] text-gray-900 dark:text-white tracking-[0.02em]" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
                     {displayName}
                   </span>
                   <div className="flex items-center gap-1">
                     <div className="rounded-full" style={{ width: 4, height: 4, background: "#8C8FA8", opacity: 0.4 }} />
-                    <span className="font-medium text-[10px] text-[#8C8FA8] tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
+                    <span className="font-medium text-[10px] text-gray-500 dark:text-[#8C8FA8] tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
                       {joinedText}
                     </span>
                   </div>
@@ -438,8 +433,7 @@ function joinedAgo(dateStr: string): string {
 
               {/* Level progress */}
               <div
-                className="flex flex-col gap-3 rounded-[10px] p-4"
-                style={{ background: "#151728", border: "1px solid #1E2133" }}
+                className="flex flex-col gap-3 rounded-[10px] p-4 bg-white dark:bg-[#151728] border border-gray-200 dark:border-[#1E2133]"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -457,12 +451,12 @@ function joinedAgo(dateStr: string): string {
                     <span className="font-medium text-[13px] text-[#00C8B3]" style={{ fontFamily: "'Inter', sans-serif" }}>{nextLevelName}</span>
                   </div>
                 </div>
-                <div className="relative rounded-[20px] w-full" style={{ height: 6, background: "#1E2133" }}>
-                  <div className="absolute left-0 top-0 h-full rounded-[20px]" style={{ width: `${progressPct}%`, background: "#0088FF" }} />
+                <div className="relative rounded-[20px] w-full h-[6px] bg-gray-200 dark:bg-[#1E2133]">
+                  <div className="absolute left-0 top-0 h-full rounded-[20px] bg-[#0088FF]" style={{ width: `${progressPct}%` }} />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-[12px] text-[#6B6E8A]" style={{ fontFamily: "'Inter', sans-serif" }}>{progression.progressCurrent.toLocaleString()}</span>
-                  <span className="font-medium text-[12px] text-[#6B6E8A]" style={{ fontFamily: "'Inter', sans-serif" }}>{(progression.progressTarget ?? progression.activityScore).toLocaleString()}</span>
+                  <span className="font-medium text-[12px] text-gray-500 dark:text-[#6B6E8A]" style={{ fontFamily: "'Inter', sans-serif" }}>{progression.progressCurrent.toLocaleString()}</span>
+                  <span className="font-medium text-[12px] text-gray-500 dark:text-[#6B6E8A]" style={{ fontFamily: "'Inter', sans-serif" }}>{(progression.progressTarget ?? progression.activityScore).toLocaleString()}</span>
                 </div>
               </div>
             </div>
@@ -470,15 +464,15 @@ function joinedAgo(dateStr: string): string {
             {/* Tabs */}
             <div className="flex flex-col gap-3 shrink-0">
               <div className="flex items-start px-6 md:px-10 pt-4">
-                <div className="flex items-center gap-2 rounded-[20px] p-1" style={{ background: "#151728" }}>
+                <div className="flex items-center gap-2 rounded-[20px] p-1 bg-gray-100 dark:bg-[#151728]">
                   {(["all", "badges"] as const).map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className="flex items-center justify-center rounded-[15px] transition-colors"
-                      style={{ padding: "8px 20px", background: activeTab === tab ? "#14A28A" : "#151728", minWidth: 95 }}
+                      style={{ padding: "8px 20px", background: activeTab === tab ? "#14A28A" : undefined, minWidth: 95 }}
                     >
-                      <span className="font-semibold text-[14px] text-white tracking-[0.02em]" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
+                      <span className={`font-semibold text-[14px] tracking-[0.02em] ${activeTab === tab ? "text-white" : "text-gray-600 dark:text-white"}`} style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
                         {tab === "all" ? t("profile.all") : t("profile.badges")}
                       </span>
                     </button>
@@ -489,10 +483,10 @@ function joinedAgo(dateStr: string): string {
               {activeTab === "all" && (
                 <>
                   {/* Statistics */}
-                  <div className="flex flex-col gap-4 px-6 md:px-10 py-4" style={{ borderBottom: "1px solid #1E2133" }}>
+                  <div className="flex flex-col gap-4 px-6 md:px-10 py-4 border-b border-gray-200 dark:border-[#1E2133]">
                     <div className="flex items-center gap-2">
                       <ChartIcon />
-                      <span className="font-bold text-[16px] text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
+                      <span className="font-bold text-[16px] text-gray-900 dark:text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
                         {t("profile.statistics")}
                       </span>
                     </div>
@@ -508,16 +502,16 @@ function joinedAgo(dateStr: string): string {
                   <div className="flex flex-col gap-3 px-6 md:px-10 pb-10">
                     <div className="flex items-center gap-2">
                       <OfferIcon />
-                      <span className="font-bold text-[16px] text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
+                      <span className="font-bold text-[16px] text-gray-900 dark:text-white tracking-[0.02em] flex-1" style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}>
                         {t("profile.offers")}
                       </span>
                     </div>
                     <div className="flex flex-col w-full">
-                      <div className="flex items-center px-2 gap-4" style={{ height: 37, borderBottom: "1px solid #1E2133" }}>
+                      <div className="flex items-center px-2 gap-4 h-[37px] border-b border-gray-200 dark:border-[#1E2133]">
                         {[t("others.name"), t("profile.reward"), t("profile.time")].map((col, i) => (
                           <span
                             key={col}
-                            className="font-medium text-[14px] text-[#8C8FA8] tracking-[-0.03em]"
+                            className="font-medium text-[14px] text-gray-500 dark:text-[#8C8FA8] tracking-[-0.03em]"
                             style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px", flex: 1, textAlign: i === 0 ? "left" : i === 1 ? "center" : "right" }}
                           >
                             {col}
@@ -525,34 +519,34 @@ function joinedAgo(dateStr: string): string {
                         ))}
                       </div>
                       {recentOffers.length === 0 ? (
-                        <div className="py-8 text-center text-[#8C8FA8] text-sm">{t("profile.noOffers")}</div>
+                        <div className="py-8 text-center text-gray-500 dark:text-[#8C8FA8] text-sm">{t("profile.noOffers")}</div>
                       ) : (
                         recentOffers.map((offer, idx) => (
                           <div
                             key={offer._id}
-                            className="flex items-center px-2 gap-4"
-                            style={{ height: 47, background: idx % 2 === 1 ? "#151728" : "transparent" }}
+                            className="flex items-center px-2 gap-4 h-[47px]"
+                            style={{ background: idx % 2 === 1 ? undefined : "transparent" }}
                           >
                             <div className="flex items-center gap-2 flex-1 min-w-0">
                               {offer.imageUrl ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img src={offer.imageUrl} alt={offer.title} className="rounded shrink-0" style={{ width: 23, height: 23 }} />
                               ) : (
-                                <div className="shrink-0 rounded flex items-center justify-center" style={{ width: 23, height: 23, background: "#26293E" }}>
-                                  <span className="text-[#8C8FA8] text-[8px] font-bold">{offer.provider?.charAt(0)?.toUpperCase() || "O"}</span>
+                                <div className="shrink-0 rounded flex items-center justify-center w-[23px] h-[23px] bg-gray-200 dark:bg-[#26293E]">
+                                  <span className="text-gray-500 dark:text-[#8C8FA8] text-[8px] font-bold">{offer.provider?.charAt(0)?.toUpperCase() || "O"}</span>
                                 </div>
                               )}
-                              <span className="font-medium text-[13px] text-white tracking-[-0.03em] truncate" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
+                              <span className="font-medium text-[13px] text-gray-900 dark:text-white tracking-[-0.03em] truncate" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
                                 {offer.title}
                               </span>
                             </div>
                             <div className="flex items-center justify-center gap-1 flex-1">
                               <div className="w-3 h-3 rounded-full bg-[#14A28A]" />
-                              <span className="font-medium text-[13px] text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                              <span className="font-medium text-[13px] text-gray-900 dark:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
                                 {(offer.rewardCents / 100).toFixed(2)}
                               </span>
                             </div>
-                            <span className="font-medium text-[12px] text-[#8C8FA8] text-right flex-1 tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
+                            <span className="font-medium text-[12px] text-gray-500 dark:text-[#8C8FA8] text-right flex-1 tracking-[-0.03em]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: "21px" }}>
                               {timeAgo(offer.completedAt)}
                             </span>
                           </div>
@@ -578,13 +572,13 @@ function joinedAgo(dateStr: string): string {
 
         {!loading && isPrivateProfile && (
           <div className="flex flex-1 items-center justify-center py-20">
-            <p className="text-[#8C8FA8]">{t("profile.privateProfile")}</p>
+            <p className="text-gray-500 dark:text-[#8C8FA8]">{t("profile.privateProfile")}</p>
           </div>
         )}
 
         {!loading && !isPrivateProfile && !profile && (
           <div className="flex flex-1 items-center justify-center py-20">
-            <p className="text-[#8C8FA8]">{userId ? t("profile.couldNotLoadUser") : t("profile.couldNotLoadProfile")}</p>
+            <p className="text-gray-500 dark:text-[#8C8FA8]">{userId ? t("profile.couldNotLoadUser") : t("profile.couldNotLoadProfile")}</p>
           </div>
         )}
     </div>

@@ -9,7 +9,7 @@ export default function LeaderBoardMain() {
         <>
             <TopBar />
             <PageNavigation />
-            <main className="min-h-screen bg-[#0A0C1A] pb-20 lg:pb-0">
+            <main className="min-h-screen bg-gray-50 dark:bg-[#0A0C1A] pb-20 lg:pb-0">
                 {/* Page Content */}
                 <LeaderBoard />
             </main>

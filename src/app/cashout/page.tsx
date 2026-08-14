@@ -100,7 +100,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
             className="object-contain w-full h-full"
           />
         </div>
-        <span className="text-white font-bold text-[13px] sm:text-[17px] leading-tight truncate">
+        <span className="text-gray-900 dark:text-white font-bold text-[13px] sm:text-[17px] leading-tight truncate">
           {card.brandName}
         </span>
       </div>
@@ -110,9 +110,9 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
 
       {/* Bottom: name + subtitle */}
       <div className="relative z-10 pb-3 sm:pb-4 text-center px-2 sm:px-3">
-        <p className="text-white font-semibold text-[12px] sm:text-[15px]">{card.name}</p>
+        <p className="text-gray-900 dark:text-white font-semibold text-[12px] sm:text-[15px]">{card.name}</p>
         {card.subtitle && (
-          <p className="text-white/65 text-[10px] sm:text-[11px] mt-0.5 hidden sm:block">{card.subtitle}</p>
+          <p className="text-gray-600 dark:text-white/65 text-[10px] sm:text-[11px] mt-0.5 hidden sm:block">{card.subtitle}</p>
         )}
       </div>
 
@@ -128,7 +128,7 @@ function Section({ title, cards, onCardClick }: { title: string; cards: CashoutC
 
   return (
     <section className="flex flex-col gap-3 sm:gap-4">
-      <h2 className="text-white font-bold text-[20px] sm:text-[22px]">{title}</h2>
+      <h2 className="text-gray-900 dark:text-white font-bold text-[20px] sm:text-[22px]">{title}</h2>
       <div className={gridClass}>
         {cards.map(c => <Card key={c.id} card={c} onClick={() => onCardClick(c)} />)}
       </div>
@@ -246,76 +246,76 @@ const meta = useMemo(() => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4" onClick={close}>
-      <div className="w-full max-w-[400px] rounded-2xl border border-[#23353E] bg-[#0F1D24] p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
+      <div className="w-full max-w-[400px] rounded-2xl border border-gray-200 dark:border-[#23353E] bg-white dark:bg-[#0F1D24] p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
         <div className="flex items-center justify-between mb-5">
 <h3>
   {t("cashout_page.modal.title", {
     name: card?.name
   })}
 </h3>
-          <button onClick={close} className="text-[#8C8FA8] hover:text-white"><X size={20} /></button>
+          <button onClick={close} className="text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white"><X size={20} /></button>
         </div>
         <div className="bg-[#14A990]/10 border border-[#14A990]/20 rounded-full px-4 py-2 mb-5 flex items-center gap-2">
-          <div className="w-4 h-4 rounded-full bg-[#14A990] flex items-center justify-center text-[10px] font-bold text-white">!</div>
+          <div className="w-4 h-4 rounded-full bg-[#14A990] flex items-center justify-center text-[10px] font-bold text-gray-900 dark:text-white">!</div>
           <p className="text-[#14A990] text-xs font-semibold">{t("cashout_page.modal.minimum_withdrawal")}</p>
         </div>
         <form onSubmit={submit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-[#8C8FA8] text-xs font-semibold">{meta.label}</label>
+            <label className="text-gray-500 dark:text-[#8C8FA8] text-xs font-semibold">{meta.label}</label>
             <div className="relative">
               <input type="text" value={destination} onChange={e => setDestination(e.target.value)} placeholder={meta.placeholder}
-                className="w-full bg-[#15242C] border border-[#23353E] rounded-lg px-4 py-3 text-white text-sm outline-none focus:border-[#14A990]/50" />
-              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">{t("cashout_page.modal.save")}</button>
+                className="w-full bg-gray-50 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] rounded-lg px-4 py-3 text-gray-900 dark:text-white text-sm outline-none focus:border-[#14A990]/50" />
+              <button type="button" className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#23353E] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.save")}</button>
             </div>
           </div>
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.amount")}</label>
-              <span className="text-[#8C8FA8] text-[10px]">{t("cashout_page.modal.balance")}: ${(userBalance / 100).toFixed(2)}</span>
+              <label className="text-gray-500 dark:text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.amount")}</label>
+              <span className="text-gray-500 dark:text-[#8C8FA8] text-[10px]">{t("cashout_page.modal.balance")}: ${(userBalance / 100).toFixed(2)}</span>
             </div>
             <div className="relative">
               <input type="number" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} placeholder={t("cashout_page.modal.amount_placeholder")}
-                className="w-full bg-[#15242C] border border-[#23353E] rounded-lg px-4 py-3 text-white text-sm outline-none focus:border-[#14A990]/50" />
+                className="w-full bg-gray-50 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] rounded-lg px-4 py-3 text-gray-900 dark:text-white text-sm outline-none focus:border-[#14A990]/50" />
               <button type="button" onClick={() => setAmount((userBalance / 100).toString())}
-                className="absolute right-2 top-1.5 px-3 py-1.5 bg-[#23353E] hover:bg-[#2C414C] rounded-md text-white text-[11px] font-bold">{t("cashout_page.modal.max")}</button>
+                className="absolute right-2 top-1.5 px-3 py-1.5 bg-gray-200 dark:bg-[#23353E] hover:bg-gray-300 dark:hover:bg-[#2C414C] rounded-md text-gray-700 dark:text-white text-[11px] font-bold">{t("cashout_page.modal.max")}</button>
             </div>
           </div>
 {meta.method === "crypto" && cryptoInfo ? (
   <div className="flex flex-col gap-1.5">
-    <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
-    <div className="rounded-lg border border-[#23353E] bg-[#15242C] overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
-        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.payment_rate", {
+    <label className="text-gray-500 dark:text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
+    <div className="rounded-lg border border-gray-200 dark:border-[#23353E] bg-gray-50 dark:bg-[#15242C] overflow-hidden">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-[#23353E]">
+        <span className="text-gray-500 dark:text-[#8C8FA8] text-sm">{t("cashout_page.modal.payment_rate", {
   ticker: cryptoInfo.ticker,
 })}</span>
-        <span className="text-white text-sm font-medium">${cryptoInfo.approxPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+        <span className="text-gray-900 dark:text-white text-sm font-medium">${cryptoInfo.approxPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
       </div>
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#23353E]">
-        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.transaction_fee", {
+      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-[#23353E]">
+        <span className="text-gray-500 dark:text-[#8C8FA8] text-sm">{t("cashout_page.modal.transaction_fee", {
   percent: cryptoInfo.networkFeePercent,
 })}</span>
-        <span className="text-white text-sm font-medium">${feeAmount.toFixed(2)}</span>
+        <span className="text-gray-900 dark:text-white text-sm font-medium">${feeAmount.toFixed(2)}</span>
       </div>
       <div className="flex items-center justify-between px-4 py-3">
-        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.you_receive")}</span>
-        <span className="text-[#FFFFFF] text-sm font-medium">{cryptoInfo.ticker} {cryptoValue}</span>
+        <span className="text-gray-500 dark:text-[#8C8FA8] text-sm">{t("cashout_page.modal.you_receive")}</span>
+        <span className="text-gray-900 dark:text-[#FFFFFF] text-sm font-medium">{cryptoInfo.ticker} {cryptoValue}</span>
       </div>
     </div>
   </div>
 ) : meta.method === "paypal" || meta.method === "bank_transfer" ? (
   <div className="flex flex-col gap-1.5">
-    <label className="text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
-    <div className="rounded-lg border border-[#23353E] bg-[#15242C] overflow-hidden">
+    <label className="text-gray-500 dark:text-[#8C8FA8] text-xs font-semibold">{t("cashout_page.modal.transaction_details")}</label>
+    <div className="rounded-lg border border-gray-200 dark:border-[#23353E] bg-gray-50 dark:bg-[#15242C] overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3">
-        <span className="text-[#8C8FA8] text-sm">{t("cashout_page.modal.fee")}</span>
-        <span className="text-white text-sm font-medium">{t("cashout_page.modal.free")}</span>
+        <span className="text-gray-500 dark:text-[#8C8FA8] text-sm">{t("cashout_page.modal.fee")}</span>
+        <span className="text-gray-900 dark:text-white text-sm font-medium">{t("cashout_page.modal.free")}</span>
       </div>
     </div>
   </div>
 ) : null}
 
           <button type="submit" disabled={submitting}
-            className="w-full h-12 rounded-lg text-white text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-50 hover:opacity-90 transition-opacity"
+            className="w-full h-12 rounded-lg text-gray-900 dark:text-white text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-50 hover:opacity-90 transition-opacity"
             style={{ background: "linear-gradient(135deg,#0AC07D,#14A990)", boxShadow: "0 8px 24px rgba(10,192,125,0.3)" }}>
             <IcoCashoutBtn />
             {submitting ? t("cashout_page.modal.submitting") : t("cashout_page.topbar.cashout")}
@@ -378,7 +378,7 @@ const GIFTCARDS: CashoutCard[] = [
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-[#0B0D1F] text-gray-900 dark:text-white">
 
       <TopBar />
 

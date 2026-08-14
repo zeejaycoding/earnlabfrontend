@@ -167,17 +167,17 @@ const LeaderBoard = () => {
                 };
             default:
                 return {
-                    bg: 'bg-[#1A1D2E]',
-                    border: 'border-[#2A2D3E]',
-                    text: 'text-white',
-                    badge: 'bg-[#252840]',
+                    bg: 'bg-white dark:bg-[#1A1D2E]',
+                    border: 'border-gray-200 dark:border-[#2A2D3E]',
+                    text: 'text-gray-900 dark:text-white',
+                    badge: 'bg-gray-100 dark:bg-[#252840]',
                     icon: '',
                 };
         }
     };
 
     return (
-        <div className="relative min-h-screen bg-[#0A0C1A] text-white pb-20 sm:pb-6">
+        <div className="relative min-h-screen bg-gray-50 dark:bg-[#0A0C1A] text-gray-900 dark:text-white pb-20 sm:pb-6">
             {/* Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <Image
@@ -193,21 +193,21 @@ const LeaderBoard = () => {
                 
                 {/* Header */}
                 <div className="mb-4 sm:mb-6">
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white flex items-center gap-2">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                         <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
                         {t("leaderboard.title")}
                     </h1>
-                    <p className="text-xs sm:text-sm text-[#9CA3AF] mt-1">
+                    <p className="text-xs sm:text-sm text-gray-500 dark:text-[#9CA3AF] mt-1">
                         {t("leaderboard.subtitle")}
                     </p>
                 </div>
 
                 {/* Timer Card */}
-                <div className="bg-[#1A1D2E]/80 border border-[#2A2D3E] rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+                <div className="bg-white/80 dark:bg-[#1A1D2E]/80 border border-gray-200 dark:border-[#2A2D3E] rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
                     <div className="flex items-center gap-2 sm:gap-3">
                         <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                         <div>
-                            <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.competitionEnds")}</p>
+                            <p className="text-[10px] sm:text-xs text-gray-500 dark:text-[#9CA3AF]">{t("leaderboard.competitionEnds")}</p>
                             <p className="text-sm sm:text-base font-bold text-emerald-400">
                                 {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
                             </p>
@@ -217,23 +217,23 @@ const LeaderBoard = () => {
 
                 {/* Stats Row */}
                 <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
-                    <div className="bg-[#1A1D2E]/80 border border-[#2A2D3E] rounded-lg p-3">
+                    <div className="bg-white/80 dark:bg-[#1A1D2E]/80 border border-gray-200 dark:border-[#2A2D3E] rounded-lg p-3">
                         <div className="flex items-center gap-2">
                             <Crown className="w-4 h-4 text-yellow-400" />
                             <div>
-                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.topEarner")}</p>
-                                <p className="text-xs sm:text-sm font-semibold text-white truncate">
+                                <p className="text-[10px] sm:text-xs text-gray-500 dark:text-[#9CA3AF]">{t("leaderboard.topEarner")}</p>
+                                <p className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white truncate">
                                     {topWinners[0]?.name || "---"}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="bg-[#1A1D2E]/80 border border-[#2A2D3E] rounded-lg p-3">
+                    <div className="bg-white/80 dark:bg-[#1A1D2E]/80 border border-gray-200 dark:border-[#2A2D3E] rounded-lg p-3">
                         <div className="flex items-center gap-2">
                             <Users className="w-4 h-4 text-blue-400" />
                             <div>
-                                <p className="text-[10px] sm:text-xs text-[#9CA3AF]">{t("leaderboard.participants")}</p>
-                                <p className="text-xs sm:text-sm font-semibold text-white">
+                                <p className="text-[10px] sm:text-xs text-gray-500 dark:text-[#9CA3AF]">{t("leaderboard.participants")}</p>
+                                <p className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">
                                     {leaderboardData.length}
                                 </p>
                             </div>
@@ -243,7 +243,7 @@ const LeaderBoard = () => {
 
                 {/* Top 3 Section */}
                 <div className="mb-4 sm:mb-6">
-                    <h2 className="text-sm sm:text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                         <Medal className="w-4 h-4 text-yellow-400" />
                         {t("leaderboard.topWinners")}
                     </h2>
@@ -286,7 +286,7 @@ const LeaderBoard = () => {
                                                 {winner.name}
                                                 {isCurrentUser && <span className="ml-1 text-[10px] text-emerald-400">(You)</span>}
                                             </p>
-                                            <p className="text-[10px] sm:text-xs text-[#9CA3AF]">
+                                            <p className="text-[10px] sm:text-xs text-gray-500 dark:text-[#9CA3AF]">
                                                 #{winner.rank} • {winner.points.toLocaleString()} {t("leaderboard.points")}
                                             </p>
                                         </div>
@@ -307,7 +307,7 @@ const LeaderBoard = () => {
                 {/* Full Rankings */}
                 {otherPlayers.length > 0 && (
                     <div>
-                        <h2 className="text-sm sm:text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <h2 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                             <TrendingUp className="w-4 h-4 text-emerald-400" />
                             {t("leaderboard.fullRankings")}
                         </h2>
@@ -321,22 +321,22 @@ const LeaderBoard = () => {
                                         type="button"
                                         key={player.rank}
                                         onClick={() => handleUserClick(player)}
-                                        className={`w-full text-left flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#252840] ${
+                                        className={`w-full text-left flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-gray-100 dark:hover:bg-[#252840] ${
                                             isCurrentUser 
                                                 ? 'bg-emerald-500/10 border border-emerald-500/30' 
-                                                : 'bg-[#1A1D2E]/60 border border-[#2A2D3E]/50'
+                                                : 'bg-white dark:bg-[#1A1D2E]/60 border border-gray-200 dark:border-[#2A2D3E]/50'
                                         }`}
                                         aria-label={`Open ${player.name} leaderboard progress`}
                                     >
                                         {/* Rank */}
                                         <div className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-md flex items-center justify-center text-xs sm:text-sm font-bold ${
-                                            isCurrentUser ? 'bg-emerald-500 text-white' : 'bg-[#252840] text-[#9CA3AF]'
+                                            isCurrentUser ? 'bg-emerald-500 text-white' : 'bg-gray-100 dark:bg-[#252840] text-gray-500 dark:text-[#9CA3AF]'
                                         }`}>
                                             {player.rank}
                                         </div>
                                         
                                         {/* Avatar */}
-                                        <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#2A2D3E]">
+                                        <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-gray-200 dark:border-[#2A2D3E]">
                                             <Image
                                                 src={player.avatarUrl || "/assets/avatar.png"}
                                                 alt={player.name}
@@ -348,10 +348,10 @@ const LeaderBoard = () => {
                                         
                                         {/* Name & Points */}
                                         <div className="flex-1 min-w-0">
-                                            <p className={`text-xs sm:text-sm font-medium truncate ${isCurrentUser ? 'text-emerald-400' : 'text-white'}`}>
+                                            <p className={`text-xs sm:text-sm font-medium truncate ${isCurrentUser ? 'text-emerald-400' : 'text-gray-900 dark:text-white'}`}>
                                                 {player.name}
                                             </p>
-                                            <p className="text-[10px] sm:text-xs text-[#9CA3AF]">
+                                            <p className="text-[10px] sm:text-xs text-gray-500 dark:text-[#9CA3AF]">
                                                 {player.points.toLocaleString()} {t("leaderboard.pts")}
                                             </p>
                                         </div>

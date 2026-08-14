@@ -93,7 +93,7 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors duration-200 ${
               active
                 ? "text-[#0AC07D] bg-[#0AC07D]/10"
-                : "text-[#8C8FA8] hover:text-white hover:bg-[#1E2133]"
+                : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1E2133]"
             }`}
           >
             <Image
@@ -116,7 +116,7 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
           className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors duration-200 ${
             menuOpen
               ? "text-[#0AC07D] bg-[#0AC07D]/10"
-              : "text-[#8C8FA8] hover:text-white hover:bg-[#1E2133]"
+              : "text-gray-500 dark:text-[#8C8FA8] hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1E2133]"
           }`}
         >
           <Image
@@ -132,8 +132,7 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
 
         {menuOpen && (
           <div
-            className="absolute top-full left-0 mt-2 w-56 rounded-xl shadow-2xl z-50 overflow-hidden border border-[#2A2D3E] py-1"
-            style={{ backgroundColor: "#1E2133" }}
+            className="absolute top-full left-0 mt-2 w-56 rounded-xl shadow-2xl z-50 overflow-hidden border border-gray-200 dark:border-[#2A2D3E] py-1 bg-white dark:bg-[#1E2133]"
           >
             {menuItems.map((item) => (
               <button
@@ -146,7 +145,7 @@ const DesktopNavLinks: React.FC<DesktopNavLinksProps> = ({ variant, onSignUp }) 
                     router.push(item.path);
                   }
                 }}
-                className="flex items-center gap-3 px-4 py-2.5 w-full text-left transition-colors hover:bg-[#151728] text-[#B3B6C7] hover:text-white"
+                className="flex items-center gap-3 px-4 py-2.5 w-full text-left transition-colors hover:bg-gray-100 dark:hover:bg-[#151728] text-gray-600 dark:text-[#B3B6C7] hover:text-gray-900 dark:hover:text-white"
               >
                 {item.icon}
                 <span className="text-sm font-medium">{item.label}</span>

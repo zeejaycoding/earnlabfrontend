@@ -124,7 +124,7 @@ const MiniBars = ({ active }: { active: number }) => (
     {Array.from({ length: 15 }).map((_, index) => (
       <span
         key={index}
-        className={`w-[3px] h-[10px] rounded-[2px] ${index < active ? "bg-[#18C3A7]" : "bg-[#26293E]"}`}
+        className={`w-[3px] h-[10px] rounded-[2px] ${index < active ? "bg-[#18C3A7]" : "bg-gray-200 dark:bg-[#26293E]"}`}
       />
     ))}
   </div>
@@ -139,12 +139,12 @@ const MetricCard = ({
   label: string;
   activeBars: number;
 }) => (
-  <div className="rounded-[10px] border border-[#1E2133] bg-[#151728] px-3 py-2">
+  <div className="rounded-[10px] border border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#151728] px-3 py-2">
     <MiniBars active={activeBars} />
-    <p className="mt-2 text-[22px] font-semibold text-white leading-[1.1]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+    <p className="mt-2 text-[22px] font-semibold text-gray-900 dark:text-white leading-[1.1]" style={{ fontFamily: "var(--font-dm-sans)" }}>
       {value}
     </p>
-    <p className="text-[12px] text-[#6B6E8A]" style={{ fontFamily: "var(--font-dm-sans)" }}>
+    <p className="text-[12px] text-gray-500 dark:text-[#6B6E8A]" style={{ fontFamily: "var(--font-dm-sans)" }}>
       {label}
     </p>
   </div>
@@ -540,7 +540,7 @@ if (!token) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0D0F1E] text-white">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0D0F1E] text-gray-900 dark:text-white">
       <TopBar />
       <TickerBar />
 
@@ -557,7 +557,7 @@ if (!token) {
 
       <main className="mx-auto w-full max-w-[1312px] px-4 py-6 md:px-8">
         <h1
-          className="text-[30px] font-bold tracking-[0.02em] text-white"
+          className="text-[30px] font-bold tracking-[0.02em] text-gray-900 dark:text-white"
           style={{ fontFamily: "var(--font-manrope)" }}
         >
           {t("account1.title")}
@@ -569,7 +569,7 @@ if (!token) {
           </div>
         ) : (
           <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-2">
-            <section className="rounded-[10px] border border-[#1E2133] bg-[#111324] p-4">
+            <section className="rounded-[10px] border border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#111324] p-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="relative h-[86px] w-[106px] rounded-[11px] bg-[#6155F5]">
@@ -607,23 +607,23 @@ if (!token) {
 
                 <button
                   type="button"
-                  className="rounded-full border border-[#26293E] bg-[#151728] px-5 py-2 text-[13px] text-white hover:border-[#30334A]"
+                  className="rounded-full border border-gray-200 dark:border-[#26293E] bg-gray-100 dark:bg-[#151728] px-5 py-2 text-[13px] text-gray-700 dark:text-white hover:border-gray-300 dark:hover:border-[#30334A]"
                   onClick={() => router.push(`/profile/${profile?.username || profile?.id}`)}
                 >
                   {t("account1.viewProfile")}
                 </button>
               </div>
 
-              <div className="mt-4 border-t border-[#1E2133]">
-                <div className="flex items-center justify-between border-b border-[#1E2133] px-2 py-2">
-                  <span className="text-[15px] text-[#8C8FA8]">{t("account1.labwardId")}</span>
-                  <span className="text-[16px] font-semibold text-white">
+              <div className="mt-4 border-t border-gray-200 dark:border-[#1E2133]">
+                <div className="flex items-center justify-between border-b border-gray-200 dark:border-[#1E2133] px-2 py-2">
+                  <span className="text-[15px] text-gray-500 dark:text-[#8C8FA8]">{t("account1.labwardId")}</span>
+                  <span className="text-[16px] font-semibold text-gray-900 dark:text-white">
                     {deriveLabwardId(profile?.id || "")}
                   </span>
                 </div>
                 <div className="flex items-center justify-between px-2 py-2">
-                  <span className="text-[15px] text-[#8C8FA8]">{t("account1.level")}</span>
-                  <span className="rounded-[6px] border border-[#0088FF] bg-[#0D1325] px-2 py-[2px] text-[12px] text-[#7FCBFF]">
+                  <span className="text-[15px] text-gray-500 dark:text-[#8C8FA8]">{t("account1.level")}</span>
+                  <span className="rounded-[6px] border border-blue-300 dark:border-[#0088FF] bg-blue-50 dark:bg-[#0D1325] px-2 py-[2px] text-[12px] text-blue-600 dark:text-[#7FCBFF]">
                     {stats.offersCompleted > 50
                       ? t("account1.gold")
                       : stats.offersCompleted > 15
@@ -671,7 +671,7 @@ if (!token) {
                     className={`rounded-full border px-4 py-[6px] text-[13px] transition-colors ${
                       historyFilter === value
                         ? "border-[#18C3A7] bg-[#18C3A7] text-white"
-                        : "border-[#26293E] bg-[#151728] text-white hover:border-[#3A3D55]"
+                        : "border-gray-200 dark:border-[#26293E] bg-gray-100 dark:bg-[#151728] text-gray-700 dark:text-white hover:border-gray-300 dark:hover:border-[#3A3D55]"
                     }`}
                   >
                     {label}
@@ -679,15 +679,15 @@ if (!token) {
                 ))}
                 <button
                   type="button"
-                  className="ml-auto rounded-full border border-[#26293E] bg-[#151728] px-4 py-[6px] text-[13px] text-white hover:border-[#3A3D55]"
+                  className="ml-auto rounded-full border border-gray-200 dark:border-[#26293E] bg-gray-100 dark:bg-[#151728] px-4 py-[6px] text-[13px] text-gray-700 dark:text-white hover:border-gray-300 dark:hover:border-[#3A3D55]"
                   onClick={() => toast.info(t("account1.csv"))}
                 >
                   {t("account1.exportCsv")}
                 </button>
               </div>
 
-              <div className="mt-3 overflow-hidden rounded-[8px] border border-[#1E2133]">
-                <div className="grid grid-cols-[1.9fr_1fr_0.9fr_0.8fr_1fr_0.7fr] items-center bg-[#0B0D1B] px-3 py-2 text-[12px] text-[#8C8FA8]">
+              <div className="mt-3 overflow-hidden rounded-[8px] border border-gray-200 dark:border-[#1E2133]">
+                <div className="grid grid-cols-[1.9fr_1fr_0.9fr_0.8fr_1fr_0.7fr] items-center bg-gray-100 dark:bg-[#0B0D1B] px-3 py-2 text-[12px] text-gray-500 dark:text-[#8C8FA8]">
                   <span> {t("account1.name")}</span>
                   <span>{t("account1.date")}</span>
                   <span>{t("account1.type")}</span>
@@ -700,18 +700,18 @@ if (!token) {
                   <div
                     key={row.id}
                     className={`grid grid-cols-[1.9fr_1fr_0.9fr_0.8fr_1fr_0.7fr] items-center px-3 py-2 text-[12px] ${
-                      index % 2 === 0 ? "bg-[#151728]" : "bg-[#121527]"
+                      index % 2 === 0 ? "bg-white dark:bg-[#151728]" : "bg-gray-50 dark:bg-[#121527]"
                     }`}
                   >
-                    <span className="truncate text-white">{row.name}</span>
-                    <span className="text-white">{row.date}</span>
-                    <span className="text-white">{row.type === "reward" ?  t("account1.reward") : row.type}</span>
-                    <span className="text-white">{formatCurrency(row.amountCents)}</span>
+                    <span className="truncate text-gray-900 dark:text-white">{row.name}</span>
+                    <span className="text-gray-900 dark:text-white">{row.date}</span>
+                    <span className="text-gray-900 dark:text-white">{row.type === "reward" ?  t("account1.reward") : row.type}</span>
+                    <span className="text-gray-900 dark:text-white">{formatCurrency(row.amountCents)}</span>
                     <span>
                       <span className={`inline-flex rounded-full px-3 py-1 text-[11px] ${
                         row.status === "completed"
-                          ? "bg-[#091E1F] text-[#18C3A7]"
-                          : "bg-[#1E1A0A] text-[#F5A623]"
+                          ? "bg-emerald-50 dark:bg-[#091E1F] text-emerald-600 dark:text-[#18C3A7]"
+                          : "bg-amber-50 dark:bg-[#1E1A0A] text-amber-600 dark:text-[#F5A623]"
                       }`}>
                         {row.status === "completed" ? t("account1.completed") : t("account1.pending")}
                       </span>
@@ -719,7 +719,7 @@ if (!token) {
                     <span className="flex justify-end">
                       <button
                         type="button"
-                        className="text-white/90 hover:text-white"
+                        className="text-gray-500 dark:text-white/90 hover:text-gray-700 dark:hover:text-white"
                         onClick={() => {
                           if (row.href) {
                             window.location.href = row.href;
@@ -735,21 +735,21 @@ if (!token) {
               </div>
             </section>
 
-            <section className="rounded-[10px] border border-[#1E2133] bg-[#111324] p-4">
-              <div className="border-b border-[#1E2133] pb-4">
-                <div className="mb-4 flex items-center gap-2 text-white">
+            <section className="rounded-[10px] border border-gray-200 dark:border-[#1E2133] bg-white dark:bg-[#111324] p-4">
+              <div className="border-b border-gray-200 dark:border-[#1E2133] pb-4">
+                <div className="mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
                   <UserRound className="h-5 w-5 text-[#14A28A]" />
                   <h2 className="text-[26px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
                     {t("account1.profileInfo")}
                   </h2>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.username")}</label>
-                <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
+                <label className="mb-1 block text-[15px] text-gray-500 dark:text-[#6B6E8A]">{t("account1.username")}</label>
+                <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] p-2">
                   <input
                     value={usernameDraft}
                     onChange={(event) => setUsernameDraft(event.target.value)}
-                    className="w-full bg-transparent px-1 text-[18px] text-white outline-none"
+                    className="w-full bg-transparent px-1 text-[18px] text-gray-900 dark:text-white outline-none"
                   />
                   <button
                     type="button"
@@ -761,14 +761,14 @@ if (!token) {
                   </button>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.emailAddress")}</label>
-                <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
+                <label className="mb-1 block text-[15px] text-gray-500 dark:text-[#6B6E8A]">{t("account1.emailAddress")}</label>
+                <div className="mb-3 flex items-center gap-2 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] p-2">
                   <input
                     value={profile?.email || "bustinjieb@gmail.com"}
                     readOnly
-                    className="w-full bg-transparent px-1 text-[18px] text-white outline-none"
+                    className="w-full bg-transparent px-1 text-[18px] text-gray-900 dark:text-white outline-none"
                   />
-                  <span className="inline-flex items-center gap-1 rounded-[8px] bg-[#26293E] px-3 py-2 text-[14px] text-white">
+                  <span className="inline-flex items-center gap-1 rounded-[8px] bg-gray-200 dark:bg-[#26293E] px-3 py-2 text-[14px] text-gray-700 dark:text-white">
                     <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#18C3A7] text-[10px] text-black">✓</span>
                     {t("account1.verified")}
                   </span>
@@ -781,12 +781,12 @@ if (!token) {
                   </button>
                 </div>
 
-                <label className="mb-1 block text-[15px] text-[#6B6E8A]">{t("account1.publicStatus")}</label>
-                <div className="flex items-center gap-2 rounded-[10px] border border-[#262A3A] bg-[#151828] p-2">
+                <label className="mb-1 block text-[15px] text-gray-500 dark:text-[#6B6E8A]">{t("account1.publicStatus")}</label>
+                <div className="flex items-center gap-2 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] p-2">
                   <input
                     value={publicStatusDraft}
                     onChange={(event) => setPublicStatusDraft(event.target.value)}
-                    className="w-full bg-transparent px-1 text-[18px] text-white outline-none"
+                    className="w-full bg-transparent px-1 text-[18px] text-gray-900 dark:text-white outline-none"
                   />
                   <button
                     type="button"
@@ -799,8 +799,8 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="border-b border-[#1E2133] py-4">
-                <div className="mb-3 flex items-center gap-2 text-white">
+              <div className="border-b border-gray-200 dark:border-[#1E2133] py-4">
+                <div className="mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
                   <Mail className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
                     {t("account1.emailNotifications")}
@@ -811,11 +811,11 @@ if (!token) {
                   {notificationSettings.map((item) => (
                     <div
                       key={item.key}
-                      className="flex items-center gap-3 rounded-[10px] border border-[#262A3A] bg-[#151828] px-3 py-3"
+                      className="flex items-center gap-3 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] px-3 py-3"
                     >
                       <div className="min-w-0 flex-1">
-                        <p className="text-[16px] text-white">{item.title}</p>
-                        <p className="text-[15px] text-[#6B6E8A]">{item.subtitle}</p>
+                        <p className="text-[16px] text-gray-900 dark:text-white">{item.title}</p>
+                        <p className="text-[15px] text-gray-500 dark:text-[#6B6E8A]">{item.subtitle}</p>
                       </div>
                       <Switch
                         enabled={item.enabled}
@@ -826,16 +826,16 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="border-b border-[#1E2133] py-4">
-                <div className="mb-3 flex items-center gap-2 text-white">
+              <div className="border-b border-gray-200 dark:border-[#1E2133] py-4">
+                <div className="mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
                   <LinkIcon className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
                     {t("account1.connections")}
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-3 rounded-[10px] border border-[#262A3A] bg-[#151828] px-3 py-3">
-                  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-[6px] bg-[#1E2133]">
+                <div className="flex items-center gap-3 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] px-3 py-3">
+                  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-[6px] bg-gray-200 dark:bg-[#1E2133]">
                     <Image
                       src="/assets/worldcoin.png"
                       alt="Worldcoin"
@@ -845,8 +845,8 @@ if (!token) {
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-[16px] text-white">{t("account1.worldcoin")}</p>
-                    <p className="text-[15px] text-[#6B6E8A]">{t("account1.notConnected")}</p>
+                    <p className="text-[16px] text-gray-900 dark:text-white">{t("account1.worldcoin")}</p>
+                    <p className="text-[15px] text-gray-500 dark:text-[#6B6E8A]">{t("account1.notConnected")}</p>
                   </div>
                   <button
                     type="button"
@@ -858,24 +858,24 @@ if (!token) {
                 </div>
               </div>
 
-              <div className="border-b border-[#1E2133] py-4">
-                <div className="mb-3 flex items-center gap-2 text-white">
+              <div className="border-b border-gray-200 dark:border-[#1E2133] py-4">
+                <div className="mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
                   <Users className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
                     {t("account1.referral")}
                   </h3>
                 </div>
 
-                <div className="rounded-[10px] border border-[#262A3A] bg-[#151828] px-3 py-3">
-                  <p className="text-[16px] text-white">{t("account1.totalInvitee")}</p>
-                  <p className="text-[15px] text-[#6B6E8A]">
+                <div className="rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] px-3 py-3">
+                  <p className="text-[16px] text-gray-900 dark:text-white">{t("account1.totalInvitee")}</p>
+                  <p className="text-[15px] text-gray-500 dark:text-[#6B6E8A]">
                     {stats.referralCount > 0 ? `${stats.referralCount} referrals` : t("account1.noReferrals")}
                   </p>
                 </div>
               </div>
 
               <div className="py-4">
-                <div className="mb-3 flex items-center gap-2 text-white">
+                <div className="mb-3 flex items-center gap-2 text-gray-900 dark:text-white">
                   <MessageSquareOff className="h-5 w-5 text-[#14A28A]" />
                   <h3 className="text-[20px] font-bold" style={{ fontFamily: "var(--font-manrope)", fontSize: "20px" }}>
                     {t("account1.mutedUsers")}
@@ -886,15 +886,15 @@ if (!token) {
                   {mutedUsers.map((user) => (
                     <div
                       key={user.id}
-                      className="flex items-center gap-3 rounded-[10px] border border-[#262A3A] bg-[#151828] px-3 py-3"
+                      className="flex items-center gap-3 rounded-[10px] border border-gray-200 dark:border-[#262A3A] bg-gray-50 dark:bg-[#151828] px-3 py-3"
                     >
-                      <div className="flex h-10 w-10 items-center justify-center rounded-[6px] bg-[#1E2133] text-[20px]">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-[6px] bg-gray-200 dark:bg-[#1E2133] text-[20px]">
                         {user.avatar}
                       </div>
-                      <p className="min-w-0 flex-1 truncate text-[16px] text-white">{user.name}</p>
+                      <p className="min-w-0 flex-1 truncate text-[16px] text-gray-900 dark:text-white">{user.name}</p>
                       <button
                         type="button"
-                        className="text-white hover:text-[#18C3A7]"
+                        className="text-gray-500 dark:text-white hover:text-[#18C3A7]"
                         onClick={() => handleUnmuteUser(user.id)}
                         aria-label={`{t("account1.unmute")} ${user.name}`}
                       >
@@ -906,7 +906,7 @@ if (!token) {
 
                 <button
                   type="button"
-                  className="mt-4 w-full rounded-[5px] border border-[#26293E] bg-[#151728] py-3 text-[14px] text-[#FF383C] hover:opacity-90"
+                  className="mt-4 w-full rounded-[5px] border border-gray-200 dark:border-[#26293E] bg-gray-50 dark:bg-[#151728] py-3 text-[14px] text-[#FF383C] hover:opacity-90"
                   onClick={() => toast.warn(t("account1.delacc"))}
                 >
                   {t("account1.deleteAccount")}

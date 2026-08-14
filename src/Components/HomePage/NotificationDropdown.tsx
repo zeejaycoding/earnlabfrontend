@@ -33,8 +33,8 @@ function mapCategory(type: string): Category {
 function BellIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M10 2.5C7.23858 2.5 5 4.73858 5 7.5V12.5L3.5 14H16.5L15 12.5V7.5C15 4.73858 12.7614 2.5 10 2.5Z" fill="white" />
-      <path d="M8.5 14.5C8.5 15.3284 9.17157 16 10 16C10.8284 16 11.5 15.3284 11.5 14.5" stroke="white" strokeWidth="1.5" />
+      <path d="M10 2.5C7.23858 2.5 5 4.73858 5 7.5V12.5L3.5 14H16.5L15 12.5V7.5C15 4.73858 12.7614 2.5 10 2.5Z" fill="white" className="dark:fill-white fill-white" />
+      <path d="M8.5 14.5C8.5 15.3284 9.17157 16 10 16C10.8284 16 11.5 15.3284 11.5 14.5" stroke="white" strokeWidth="1.5" className="dark:stroke-white stroke-white" />
     </svg>
   );
 }
@@ -42,7 +42,7 @@ function BellIcon() {
 function XIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path d="M1 1L11 11M1 11L11 1" stroke="#1E2133" strokeWidth="2" strokeLinecap="round" />
+      <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-gray-700 dark:text-[#1E2133]" />
     </svg>
   );
 }
@@ -117,14 +117,12 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={onClose}>
       <div
-        className="relative flex flex-col overflow-hidden w-full sm:max-w-[380px]"
-        style={{ height: "100%", background: "#0D0F1E" }}
+        className="relative flex flex-col overflow-hidden w-full sm:max-w-[380px] bg-gray-50 dark:bg-[#0D0F1E]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
-          className="flex items-center gap-3 px-4 shrink-0"
-          style={{ height: 68, borderBottom: "1px solid #1E2133" }}
+          className="flex items-center gap-3 px-4 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
         >
           <div
             className="flex items-center justify-center rounded-[8px] bg-[#14A28A] shrink-0"
@@ -133,14 +131,14 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
             <BellIcon />
           </div>
           <span
-            className="font-bold text-[20px] text-white flex-1 tracking-[0.02em]"
+            className="font-bold text-[20px] text-gray-900 dark:text-white flex-1 tracking-[0.02em]"
             style={{ fontFamily: "'Manrope', sans-serif", lineHeight: "34px" }}
           >
             {t("notifications")}
           </span>
           <button
             onClick={onClose}
-            className="flex items-center justify-center rounded-[5px] bg-[#8C8FA8] shrink-0 hover:bg-[#a0a3bb] transition-colors"
+            className="flex items-center justify-center rounded-[5px] bg-gray-300 dark:bg-[#8C8FA8] shrink-0 hover:bg-gray-400 dark:hover:bg-[#a0a3bb] transition-colors text-gray-700 dark:text-[#1E2133]"
             style={{ width: 24, height: 24 }}
             aria-label="Close"
           >
@@ -154,27 +152,26 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="rounded-[8px] px-3 py-1.5 text-[13px] font-medium transition-colors"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                background: activeCategory === cat ? "#14A28A" : "#151728",
-                color: "white",
-                border: activeCategory === cat ? "none" : "1px solid #1E2133",
-              }}
+              className={`rounded-[8px] px-3 py-1.5 text-[13px] font-medium transition-colors ${
+                activeCategory === cat
+                  ? "bg-[#14A28A] text-white border-none"
+                  : "bg-gray-100 dark:bg-[#151728] text-gray-700 dark:text-white border border-gray-200 dark:border-[#1E2133]"
+              }`}
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        <div style={{ height: 1, background: "#1E2133", margin: "0 16px" }} />
+        <div className="h-px bg-gray-200 dark:bg-[#1E2133] mx-4" />
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto flex flex-col">
           {filtered.length === 0 ? (
             <div className="flex-1 flex items-end justify-center pb-16">
               <p
-                className="text-[#8C8FA8] text-sm"
+                className="text-gray-500 dark:text-[#8C8FA8] text-sm"
                 style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "-0.03em" }}
               >
                 {t("no_new_notifications")}
@@ -185,8 +182,7 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
               {filtered.map((n) => (
                 <div
                   key={n.id}
-                  className="rounded-[8px] p-3 flex gap-3"
-                  style={{ background: "#151728", border: "1px solid #1E2133" }}
+                  className="rounded-[8px] p-3 flex gap-3 bg-white dark:bg-[#151728] border border-gray-200 dark:border-[#1E2133]"
                 >
                   <div
                     className="flex items-center justify-center rounded-[6px] bg-[#14A28A] shrink-0"
@@ -195,11 +191,11 @@ const NotificationDropdown: React.FC<Props> = ({ onClose }) => {
                     <BellIcon />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-white text-sm font-semibold truncate">{n.title}</p>
-                    <p className="text-[#8C8FA8] text-xs mt-0.5 line-clamp-2">{n.message}</p>
+                    <p className="text-gray-900 dark:text-white text-sm font-semibold truncate">{n.title}</p>
+                    <p className="text-gray-500 dark:text-[#8C8FA8] text-xs mt-0.5 line-clamp-2">{n.message}</p>
                   </div>
                   <span
-                    className="text-[#8C8FA8] text-[11px] shrink-0 mt-0.5"
+                    className="text-gray-500 dark:text-[#8C8FA8] text-[11px] shrink-0 mt-0.5"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {n.time}

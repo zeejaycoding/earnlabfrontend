@@ -139,10 +139,9 @@ return (
     {/* Dropdown */}
     <div
   className="
-    absolute top-[60px] w-64 rounded-xl shadow-2xl z-50 overflow-hidden border border-[#2A2D3E]
-    right-4 rtl:right-auto rtl:left-4
+    absolute top-[60px] w-64 rounded-xl shadow-2xl z-50 overflow-hidden border border-gray-200 dark:border-[#2A2D3E]
+    right-4 rtl:right-auto rtl:left-4 bg-white dark:bg-[#1E2133]
   "
-  style={{ backgroundColor: "#1E2133" }}
   onClick={(e) => e.stopPropagation()}
 >
       {/* Items */}
@@ -151,8 +150,7 @@ return (
           <button
             key={tile.id}
             onClick={() => handleTileClick(tile)}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all hover:opacity-90"
-            style={{ backgroundColor: "#151728", color: "#B3B6C7" }}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all hover:opacity-90 bg-gray-50 dark:bg-[#151728] text-gray-600 dark:text-[#B3B6C7]"
           >
             {/* Icon */}
             <span className="w-5 h-5 flex items-center justify-center">

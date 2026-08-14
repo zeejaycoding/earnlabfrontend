@@ -278,7 +278,7 @@ export default function SupportPage() {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0D1F] text-white">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-[#0B0D1F] text-gray-900 dark:text-white">
 
       <TopBar />
 
@@ -287,26 +287,23 @@ export default function SupportPage() {
       {/* ── Main content ────────────────────────────────────────── */}
       <main className="flex-1 flex flex-col max-w-[1440px] w-full mx-auto px-4 sm:px-6 md:px-16 py-5 sm:py-8">
         {/* Heading */}
-        <h1 className="text-white font-bold text-[26px] sm:text-[30px] md:text-[34px] tracking-tight mb-5">
+        <h1 className="text-gray-900 dark:text-white font-bold text-[26px] sm:text-[30px] md:text-[34px] tracking-tight mb-5">
           {t("support.title")}
         </h1>
 
         {/* Chat container */}
         <div
-          className="flex-1 flex flex-col rounded-[16px] overflow-hidden"
+          className="flex-1 flex flex-col rounded-[16px] overflow-hidden bg-white dark:bg-[#0D0F1E] border border-gray-200 dark:border-[#1E2133]"
           style={{
-            background: "#0D0F1E",
-            border: "1px solid #1E2133",
             minHeight: 480,
           }}
         >
           {/* "In need of help?" status bar */}
           <div
-            className="flex flex-col items-center gap-3 px-4 py-5 shrink-0"
-            style={{ borderBottom: "1px solid #1E2133" }}
+            className="flex flex-col items-center gap-3 px-4 py-5 shrink-0 border-b border-gray-200 dark:border-[#1E2133]"
           >
             <p
-              className="font-bold text-[18px] text-white"
+              className="font-bold text-[18px] text-gray-900 dark:text-white"
               style={{ fontFamily: "'Manrope', sans-serif" }}
             >
               {t("support.helpTitle")}
@@ -322,12 +319,11 @@ export default function SupportPage() {
             </div>
             <a
               href="/faq"
-              className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-[#1E2133]"
-              style={{ background: "#151728", border: "1px solid #26293E" }}
+              className="flex items-center gap-2 rounded-[8px] px-5 py-2 transition-colors hover:bg-gray-100 dark:hover:bg-[#1E2133] bg-gray-100 dark:bg-[#151728] border border-gray-200 dark:border-[#26293E]"
             >
               <IcoFAQ />
               <span
-                className="text-white text-sm font-medium"
+                className="text-gray-900 dark:text-white text-sm font-medium"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {t("support.faq")}
@@ -348,8 +344,7 @@ export default function SupportPage() {
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <div
-                  className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0"
-                  style={{ width: 32, height: 32, background: "#151728" }}
+                  className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0 w-8 h-8 bg-gray-100 dark:bg-[#151728]"
                 >
                   <Image
                     src={LogoImg}
@@ -369,11 +364,11 @@ export default function SupportPage() {
                 <span className="text-[#8C8FA8] text-xs">{now}</span>
               </div>
               <div
-                className="rounded-[10px_10px_10px_0px] p-3 ml-2"
-                style={{ background: "#151728", maxWidth: "min(90%, 520px)" }}
+                className="rounded-[10px_10px_10px_0px] p-3 ml-2 bg-gray-100 dark:bg-[#151728]"
+                style={{ maxWidth: "min(90%, 520px)" }}
               >
                 <p
-                  className="text-white text-[13px] leading-[1.6]"
+                  className="text-gray-900 dark:text-white text-[13px] leading-[1.6]"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {WELCOME_MESSAGE}
@@ -389,7 +384,7 @@ export default function SupportPage() {
                 return (
                   <p
                     key={msg._id || idx}
-                    className="text-[#8C8FA8] text-xs text-center"
+                    className="text-gray-500 dark:text-[#8C8FA8] text-xs text-center"
                   >
                     {msg.text}
                   </p>
@@ -403,8 +398,7 @@ export default function SupportPage() {
                   {!isUser && (
                     <div className="flex items-center gap-2">
                       <div
-                        className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0"
-                        style={{ width: 24, height: 24, background: "#151728" }}
+                        className="flex items-center justify-center rounded-[6px] overflow-hidden shrink-0 w-6 h-6 bg-gray-100 dark:bg-[#151728]"
                       >
                         <Image
                           src={LogoImg}
@@ -414,11 +408,11 @@ export default function SupportPage() {
                           className="object-contain"
                         />
                       </div>
-                      <span className="text-[#8C8FA8] text-xs">
+                      <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">
                         {t("support.supportLabel")}
                       </span>
                       {msg.createdAt && (
-                        <span className="text-[#8C8FA8] text-xs">
+                        <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">
                           {new Date(msg.createdAt).toLocaleTimeString([], {
                             hour: "2-digit",
                             minute: "2-digit",
@@ -429,21 +423,21 @@ export default function SupportPage() {
                   )}
                   {isUser && msg.createdAt && (
                     <div className="flex items-center gap-2">
-                      <span className="text-[#8C8FA8] text-xs">
+                      <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">
                         {new Date(msg.createdAt).toLocaleTimeString([], {
                           hour: "2-digit",
                           minute: "2-digit",
                         })}
                       </span>
-                      <span className="text-[#8C8FA8] text-xs">
+                      <span className="text-gray-500 dark:text-[#8C8FA8] text-xs">
                         {profileInitial}
                       </span>
                     </div>
                   )}
                   <div
-                    className="p-3"
+                    className={`p-3 ${isUser ? "" : "bg-gray-100 dark:bg-[#151728]"}`}
                     style={{
-                      background: isUser ? "#14A28A" : "#151728",
+                      background: isUser ? "#14A28A" : undefined,
                       maxWidth: "min(80%, 520px)",
                       borderRadius: isUser
                         ? "10px 10px 0px 10px"
@@ -451,7 +445,7 @@ export default function SupportPage() {
                     }}
                   >
                     <p
-                      className="text-white text-[13px] leading-[1.6]"
+                      className={`text-[13px] leading-[1.6] ${isUser ? "text-white" : "text-gray-900 dark:text-white"}`}
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                       {msg.text}
@@ -464,8 +458,7 @@ export default function SupportPage() {
 
           {/* Input bar */}
           <div
-            className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-4 shrink-0"
-            style={{ borderTop: "1px solid #1E2133", background: "#0D0F1E" }}
+            className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-4 shrink-0 border-t border-gray-200 dark:border-[#1E2133] bg-gray-50 dark:bg-[#0D0F1E]"
           >
             <button className="shrink-0" aria-label="Emoji">
               <IcoEmoji />
@@ -480,7 +473,7 @@ export default function SupportPage() {
               onKeyDown={handleKey}
               placeholder={t("support.messagePlaceholder")}
               disabled={sending}
-              className="flex-1 bg-transparent outline-none text-white placeholder-[#50536F] text-[14px]"
+              className="flex-1 bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-[#50536F] text-[14px]"
               style={{ fontFamily: "'Manrope', sans-serif" }}
             />
             <button

@@ -68,7 +68,7 @@ export default function StreakPage() {
   const progress = Math.min((streakDays / 7) * 100, 100);
 
   return (
-    <div className="min-h-screen bg-[#0D0F1E] text-white flex flex-col">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0D0F1E] text-gray-900 dark:text-white flex flex-col">
       <TopBar />
       <TickerBar />
 
@@ -76,7 +76,7 @@ export default function StreakPage() {
         <div className="flex items-center gap-4 mb-10">
           <button 
             onClick={() => router.back()}
-            className="w-10 h-10 rounded-full bg-[#15242C] border border-[#23353E] flex items-center justify-center text-white hover:bg-[#1E2F3F] transition-colors"
+            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-[#15242C] border border-gray-200 dark:border-[#23353E] flex items-center justify-center text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-[#1E2F3F] transition-colors"
           >
             <ArrowLeft size={20} />
           </button>
@@ -85,8 +85,8 @@ export default function StreakPage() {
 
         <div className="flex flex-col items-center">
           {/* Timer Badge */}
-          <div className="bg-[#151828] border border-[#1E2F3F] rounded-lg px-4 py-2 text-sm mb-8">
-            <span className="text-[#8C9DB6]"> {t("streak.reset_in")}{" "} </span>
+          <div className="bg-white dark:bg-[#151828] border border-gray-200 dark:border-[#1E2F3F] rounded-lg px-4 py-2 text-sm mb-8">
+            <span className="text-gray-500 dark:text-[#8C9DB6]"> {t("streak.reset_in")}{" "} </span>
             <span className="text-[#0AC07D] font-bold">{timeLeft}</span>
           </div>
 
@@ -94,7 +94,7 @@ export default function StreakPage() {
           <div className="relative w-full max-w-[900px] flex flex-col items-center mb-12">
             {/* Top Pointer */}
             <div className="mb-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-gray-300 dark:text-white">
                 <path d="M12 21l-12-18h24z" transform="rotate(180 12 12)" />
               </svg>
             </div>
@@ -104,10 +104,10 @@ export default function StreakPage() {
               {REWARDS.map((reward) => (
                 <div 
                   key={reward.id}
-                  className={`min-w-[130px] h-[160px] rounded-2xl bg-[#151828] border ${reward.highlight || claimableDay === reward.id ? 'border-[#F59E0B]' : 'border-[#1E2F3F]'} flex flex-col items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl`}
+                  className={`min-w-[130px] h-[160px] rounded-2xl bg-white dark:bg-[#151828] border ${reward.highlight || claimableDay === reward.id ? 'border-[#F59E0B]' : 'border-gray-200 dark:border-[#1E2F3F]'} flex flex-col items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl`}
                   style={{ boxShadow: reward.highlight || claimableDay === reward.id ? '0 0 20px rgba(245, 158, 11, 0.1)' : 'none' }}
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#1E2F3F]/50 flex items-center justify-center text-[#0AC07D]">
+                  <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-[#1E2F3F]/50 flex items-center justify-center text-[#0AC07D]">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
                   </div>
                   <span className={`text-xl font-black ${reward.color}`}>{reward.amount}</span>
@@ -117,7 +117,7 @@ export default function StreakPage() {
 
             {/* Bottom Pointer */}
             <div className="mt-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-gray-300 dark:text-white">
                 <path d="M12 21l-12-18h24z" />
               </svg>
             </div>
@@ -125,7 +125,7 @@ export default function StreakPage() {
 
           {/* Progress Bar */}
           <div className="w-full max-w-[900px] mb-8">
-            <div className="relative h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
+            <div className="relative h-2 bg-gray-100 dark:bg-[#151828] rounded-full overflow-hidden border border-gray-200 dark:border-[#1E2F3F]">
               <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${progress}%` }} />
             </div>
             <div className="flex justify-between mt-3">
@@ -134,7 +134,7 @@ export default function StreakPage() {
             </div>
           </div>
 
-          <p className="text-[#8C9DB6] text-center font-bold text-sm sm:text-base mb-8">
+          <p className="text-gray-500 dark:text-[#8C9DB6] text-center font-bold text-sm sm:text-base mb-8">
              {t("streak.description")} <span className="text-[#0AC07D]"> {t("streak.description_sec")}</span>
           </p>
 

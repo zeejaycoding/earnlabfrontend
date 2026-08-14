@@ -77,13 +77,13 @@ export default function Notification() {
     return (
         <>
             <TopBar />
-            <main className="md:p-6 p-3 bg-[#1E2133] min-h-screen">
+            <main className="md:p-6 p-3 bg-gray-50 dark:bg-[#1E2133] min-h-screen">
                 <div className="overflow-x-auto scrollbar-hide">
                     <div className="flex gap-4 md:min-w-max">
                         {notifications.map((item) => (
                             <div
                                 key={item.id}
-                                className="flex items-center cursor-pointer gap-3 bg-[#26293E] text-white rounded-lg md:px-6 md:py-4 px-4 py-3 md:min-w-[250px] min-w-[200px] shadow-md"
+                                className="flex items-center cursor-pointer gap-3 bg-white dark:bg-[#26293E] text-gray-900 dark:text-white rounded-lg md:px-6 md:py-4 px-4 py-3 md:min-w-[250px] min-w-[200px] shadow-md border border-gray-100 dark:border-transparent"
                             >
                                 <div className="flex-shrink-0">
                                     <Image

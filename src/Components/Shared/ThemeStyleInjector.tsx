@@ -88,6 +88,10 @@ const TEXT_CLASS_MAP: Record<string, string> = {
   "text-[#8C8FA8]": "#4A4D6A",
   "text-[#6B6E8A]": "#5E6180",
   "text-[#B4B6C9]": "#5A5D7A",
+  "text-[#E7FFFA]": "#3A6B63",
+  "text-[#7EE6CA]": "#0D9E86",
+  "text-[#9093AC]": "#4A4D6A",
+  "text-[#9CA3AF]": "#5A5D7A",
 };
 
 /** Inline `style` background hex → light colour (substring match on style attr) */
@@ -206,6 +210,14 @@ function applyLight(el: HTMLElement) {
     }
   }
 
+  // ── 4b. Inline style color overrides ──
+  if (inlineLower.includes("color:") && !el.hasAttribute(DATA_ATTR_COLOR)) {
+    if (inlineLower.includes("color: #ffffff") || inlineLower.includes("color:#ffffff") || inlineLower.includes("color: white")) {
+      el.setAttribute(DATA_ATTR_COLOR, el.style.color || "");
+      el.style.setProperty("color", "#1A1D2E", "important");
+    }
+  }
+
   // ── 5. SVG stop-color overrides ──
   if (el.tagName === "stop") {
     const stopColor = el.getAttribute("stop-color") || el.getAttribute("stopColor") || "";
@@ -227,6 +239,14 @@ function applyLight(el: HTMLElement) {
     if (fill && fill !== "none" && fill !== "currentColor" && !fill.startsWith("url(") && isDarkHex(fill)) {
       el.setAttribute("data-orig-fill", fill);
       el.setAttribute("fill", "#E8EAF2");
+    }
+    // SVG stroke="white" → dark text in light mode
+    const stroke = el.getAttribute("stroke") || "";
+    if (stroke === "white" || stroke === "#ffffff" || stroke === "#FFFFFF") {
+      if (!el.hasAttribute("data-orig-stroke")) {
+        el.setAttribute("data-orig-stroke", stroke);
+      }
+      el.setAttribute("stroke", "#1A1D2E");
     }
   }
 }
@@ -256,6 +276,11 @@ function removeLight(el: HTMLElement) {
     el.setAttribute("fill", el.getAttribute("data-orig-fill")!);
     el.removeAttribute("data-orig-fill");
   }
+  // Restore SVG strokes
+  if (el.hasAttribute("data-orig-stroke")) {
+    el.setAttribute("stroke", el.getAttribute("data-orig-stroke")!);
+    el.removeAttribute("data-orig-stroke");
+  }
 }
 
 /** Walk all elements in the document and apply/remove light overrides */
@@ -272,12 +297,130 @@ function applyThemeToAll(isLight: boolean) {
 
 export default function ThemeStyleInjector() {
   const [mounted, setMounted] = useState(false);
+  const styleRef = useState<{ el: HTMLStyleElement | null }>({ el: null })[0];
 
   useEffect(() => {
     // Delay execution until after hydration is completely finished
     const timer = setTimeout(() => setMounted(true), 50);
     return () => clearTimeout(timer);
   }, []);
+
+  // Inject/remove hover CSS for light mode
+  useEffect(() => {
+    if (!mounted) return;
+
+    const HOVER_CSS = `
+      /* ── Hover background overrides ── */
+      html:not(.dark) .hover\\:bg-\\[\\#1E2133\\]:hover { background-color: #E8EAF2 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#26293E\\]:hover { background-color: #EBEDF5 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#30334A\\]:hover { background-color: #DDE0EE !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#151728\\]:hover { background-color: #FFFFFF !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#1A1D2E\\]:hover { background-color: #FFFFFF !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#252840\\]:hover { background-color: #EBEDF5 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#3E4468\\]:hover { background-color: #DDE0EE !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#0A0C1A\\]:hover { background-color: #F0F2F8 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#0D0F1E\\]:hover { background-color: #F0F2F8 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#16192E\\]:hover { background-color: #E8EAF2 !important; }
+      html:not(.dark) .hover\\:bg-\\[\\#0AC07D\\]/10:hover { background-color: rgba(10,192,125,0.15) !important; }
+      /* ── Hover text overrides ── */
+      html:not(.dark) .hover\\:text-white:hover { color: #1A1D2E !important; }
+      html:not(.dark) .hover\\:text-\\[\\#B3B6C7\\]:hover { color: #4A4D6A !important; }
+      html:not(.dark) .hover\\:text-\\[\\#8C8FA8\\]:hover { color: #4A4D6A !important; }
+      html:not(.dark) .hover\\:text-\\[\\#9CA3AF\\]:hover { color: #4A4D6A !important; }
+      html:not(.dark) .hover\\:text-emerald-300:hover { color: #0D9E86 !important; }
+      /* ── Inline style background overrides ── */
+      html:not(.dark) [style*="background-color: #1E2133"] { background-color: #E8EAF2 !important; }
+      html:not(.dark) [style*="background-color: #151728"] { background-color: #FFFFFF !important; }
+      html:not(.dark) [style*="background-color: #26293E"] { background-color: #EBEDF5 !important; }
+      html:not(.dark) [style*="background: #1E2133"] { background: #E8EAF2 !important; }
+      html:not(.dark) [style*="background: #151728"] { background: #FFFFFF !important; }
+      html:not(.dark) [style*="background: #26293E"] { background: #EBEDF5 !important; }
+      html:not(.dark) [style*="background-color: #3E4468"] { background-color: #DDE0EE !important; }
+      html:not(.dark) [style*="background: #3E4468"] { background: #DDE0EE !important; }
+      html:not(.dark) [style*="background-color: #4A5080"] { background-color: #C8CBD9 !important; }
+      html:not(.dark) [style*="background-color: #14162A"] { background-color: #E8EAF2 !important; }
+      html:not(.dark) [style*="background: #14162A"] { background: #E8EAF2 !important; }
+      html:not(.dark) [style*="background-color: #0A0C1A"] { background-color: #F0F2F8 !important; }
+      html:not(.dark) [style*="background: #0A0C1A"] { background: #F0F2F8 !important; }
+      html:not(.dark) [style*="background-color: #0D0F1E"] { background-color: #F0F2F8 !important; }
+      html:not(.dark) [style*="background: #0D0F1E"] { background: #F0F2F8 !important; }
+      html:not(.dark) [style*="background-color: #16192E"] { background-color: #E8EAF2 !important; }
+      html:not(.dark) [style*="background: #16192E"] { background: #E8EAF2 !important; }
+      /* ── Tailwind bg class overrides ── */
+      html:not(.dark) .bg-\\[\\#1E2133\\] { background-color: #E8EAF2 !important; }
+      html:not(.dark) .bg-\\[\\#14162A\\] { background-color: #E8EAF2 !important; }
+      html:not(.dark) .bg-\\[\\#151728\\] { background-color: #FFFFFF !important; }
+      html:not(.dark) .bg-\\[\\#0A0C1A\\] { background-color: #F0F2F8 !important; }
+      html:not(.dark) .bg-\\[\\#0D0F1E\\] { background-color: #F0F2F8 !important; }
+      html:not(.dark) .bg-\\[\\#0D0F1E\\]/50 { background-color: rgba(240,242,248,0.5) !important; }
+      html:not(.dark) .bg-\\[\\#16192E\\] { background-color: #E8EAF2 !important; }
+      html:not(.dark) .bg-\\[\\#252840\\] { background-color: #EBEDF5 !important; }
+      html:not(.dark) .bg-\\[\\#0AC07D\\]/10 { background-color: rgba(10,192,125,0.1) !important; }
+      /* ── Tailwind gradient class overrides ── */
+      html:not(.dark) .from-\\[\\#1A1D2E\\] { --tw-gradient-from: #E8EAF2 !important; }
+      html:not(.dark) .to-\\[\\#151728\\] { --tw-gradient-to: #FFFFFF !important; }
+      html:not(.dark) .from-\\[\\#0A0C1A\\] { --tw-gradient-from: #F0F2F8 !important; }
+      html:not(.dark) .via-\\[\\#0D0F1E\\] { --tw-gradient-via: #F0F2F8 !important; }
+      html:not(.dark) .to-\\[\\#0A0C1A\\] { --tw-gradient-to: #F0F2F8 !important; }
+      html:not(.dark) .from-\\[\\#0D0F1E\\] { --tw-gradient-from: #F0F2F8 !important; }
+      html:not(.dark) .to-\\[\\#0D0F1E\\] { --tw-gradient-to: #F0F2F8 !important; }
+      html:not(.dark) .bg-gradient-to-b { --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+      html:not(.dark) .bg-gradient-to-r { --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important; }
+      /* ── Tailwind border class overrides ── */
+      html:not(.dark) .border-\\[\\#30334A\\] { border-color: #DDE0EE !important; }
+      html:not(.dark) .border-\\[\\#1E2133\\] { border-color: #F5F6FA !important; }
+      html:not(.dark) .border-\\[\\#2A2D3E\\] { border-color: #EBEDF5 !important; }
+      html:not(.dark) .border-\\[\\#2A2D44\\] { border-color: #EBEDF5 !important; }
+      html:not(.dark) .border-\\[\\#374151\\] { border-color: #DDE0EE !important; }
+      /* ── Inline style color overrides ── */
+      html:not(.dark) [style*="color: #B3B6C7"] { color: #4A4D6A !important; }
+      html:not(.dark) [style*="color:#B3B6C7"] { color: #4A4D6A !important; }
+      html:not(.dark) [style*="color: #FFFFFF"] { color: #1A1D2E !important; }
+      html:not(.dark) [style*="color:#FFFFFF"] { color: #1A1D2E !important; }
+      html:not(.dark) [style*="color: #8C8FA8"] { color: #5A5D7A !important; }
+      html:not(.dark) [style*="color:#8C8FA8"] { color: #5A5D7A !important; }
+      html:not(.dark) [style*="color: #9CA3AF"] { color: #5A5D7A !important; }
+      html:not(.dark) [style*="color:#9CA3AF"] { color: #5A5D7A !important; }
+      /* ── Gradient border overrides (emerald/cyan/purple/pink) ── */
+      html:not(.dark) .border-emerald-500/30 { border-color: rgba(16,185,129,0.4) !important; }
+      html:not(.dark) .hover\\:border-emerald-500/60:hover { border-color: rgba(16,185,129,0.6) !important; }
+      /* ── Text color overrides for white text on dark bg ── */
+      html:not(.dark) .text-white { color: #1A1D2E !important; }
+    `;
+
+    const isLight = !document.documentElement.classList.contains("dark");
+
+    if (isLight && !styleRef.el) {
+      const style = document.createElement("style");
+      style.id = "theme-light-hover-overrides";
+      style.textContent = HOVER_CSS;
+      document.head.appendChild(style);
+      styleRef.el = style;
+    } else if (!isLight && styleRef.el) {
+      styleRef.el.remove();
+      styleRef.el = null;
+    }
+
+    const observer = new MutationObserver(() => {
+      const light = !document.documentElement.classList.contains("dark");
+      if (light && !styleRef.el) {
+        const style = document.createElement("style");
+        style.id = "theme-light-hover-overrides";
+        style.textContent = HOVER_CSS;
+        document.head.appendChild(style);
+        styleRef.el = style;
+      } else if (!light && styleRef.el) {
+        styleRef.el.remove();
+        styleRef.el = null;
+      }
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+    return () => {
+      observer.disconnect();
+      if (styleRef.el) { styleRef.el.remove(); styleRef.el = null; }
+    };
+  }, [mounted]);
 
   useEffect(() => {
     if (!mounted) return;
