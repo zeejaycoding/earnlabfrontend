@@ -806,7 +806,7 @@ useEffect(() => {
   {/* Left Content */}
   <div className="max-w-[620px] text-center lg:text-left">
     <h1
-      className="text-[28px] sm:text-[40px] lg:text-[60px] leading-[36px] sm:leading-[50px] lg:leading-[72px] font-semibold text-white"
+      className="text-[34px] sm:text-[44px] lg:text-[64px] leading-[40px] sm:leading-[54px] lg:leading-[76px] font-semibold text-white"
       style={{ fontFamily: "DM Sans" }}
     >
       {t("hero.title_highlight")}
@@ -1099,7 +1099,7 @@ useEffect(() => {
    className="rounded-[15px] w-full h-[72.7px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[12px] sm:px-[30px] lg:px-[40px] py-[10px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
   style={{ backgroundColor: item.bg }}
 >
-  <div className="w-9 h-9 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
+  <div className="w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
     <img
       src={item.src}
       alt=""
