@@ -1,24 +1,12 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { toast } from "@/utils/toast";
 import { useTranslation } from "react-i18next";
 import ServeyWalls from "@/Components/Servey/ServeyWalls";
 import TickerBar from "@/Components/Shared/TickerBar";
 import TopBar from "@/Components/Topbar";
-
-const IcoHeadset = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M3 12C3 7.03 7.03 3 12 3s9 4.03 9 9v5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2v-1a7 7 0 0 0-14 0v1h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5"
-      stroke="white"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-  </svg>
-);
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
@@ -69,8 +57,6 @@ const COMPLETION_ENDPOINTS = [
 
 /* ══════════════════════════════════════════════════════════════════ */
 export default function SurveysPage() {
-  const router = useRouter();
-
   /* survey state */
   const [providers, setProviders] = useState<SurveyProvider[]>([]);
   const [activeId, setActiveId] = useState("");
@@ -406,21 +392,6 @@ export default function SurveysPage() {
           <ServeyWalls />
         </main>
       )}
-
-      {/* ── Floating Support Button ──────────────────────────────── */}
-      <button
-        onClick={() => router.push("/support")}
-        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center justify-center rounded-full hover:scale-105 transition-transform"
-        style={{
-          width: 52,
-          height: 52,
-          background: "linear-gradient(135deg, #0AC07D 0%, #0BBFA0 100%)",
-          boxShadow: "0 8px 24px rgba(10,192,125,0.45)",
-        }}
-        aria-label={t("support.title")}
-      >
-        <IcoHeadset />
-      </button>
     </div>
   );
 }

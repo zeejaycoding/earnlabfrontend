@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Play, Disc } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import TopBar from "@/Components/Topbar";
 import TickerBar from "@/Components/Shared/TickerBar";
 import { useTranslation } from "react-i18next";
@@ -93,16 +93,16 @@ export default function BonusPage() {
             </div>
 
             {/* Carousel */}
-            <div className="flex items-center justify-between w-full py-4 overflow-x-auto scrollbar-hide px-2">
+            <div className="flex items-center w-full py-4 overflow-x-auto scrollbar-hide px-3 gap-2 sm:gap-4">
               {REWARDS.map((reward) => (
                 <div 
                   key={reward.id}
-className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
+className={`w-full max-w-[73.61px] h-[64px] sm:max-w-none sm:w-[15%] sm:min-w-[120px] sm:h-[180px] rounded-2xl border ${
   reward.highlight
     ? "border-[#F59E0B] bg-gradient-to-b from-[#3A2A12] via-[#241B0F] to-[#18120A]"
     : "border-[#1E2F3F] bg-[#151828]"
-} flex flex-col items-center justify-center gap-4 transition-all hover:scale-[1.02] shadow-xl shrink-0`}                >
-<div className="w-20 h-20 flex items-center justify-center">
+} flex flex-col items-center justify-center gap-1 sm:gap-4 transition-all hover:scale-[1.02] shadow-xl shrink-0`}                >
+<div className="w-8 h-8 sm:w-20 sm:h-20 flex items-center justify-center">
   <img
     src={reward.image}
     alt={reward.amount}
@@ -110,7 +110,7 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
       reward.highlight ? "animate-spin-slow" : ""
     } ${claims[reward.id] ? "opacity-40" : ""}`}
   />
-</div>                  <span className={`text-xl font-black ${reward.color}`}>{reward.amount}</span>
+</div>                  <span className={`text-[10px] sm:text-xl font-black ${reward.color}`}>{reward.amount}</span>
                 </div>
               ))}
             </div>
@@ -125,22 +125,17 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
 
 {/* Progress Bar */}
 <div className="w-full mb-8 px-2">
-    <div className="relative h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
-    <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${Math.min(progress, 100)}%` }} />
-  </div>
-
-  <div className="flex justify-between mt-3">
-    <span className="px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold">
-      $0
-    </span>
-    <span className="px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold">
-      $2
-    </span>
+  <div className="relative">
+    <div className="h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
+      <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${Math.min(progress, 100)}%` }} />
+    </div>
+    <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold whitespace-nowrap">$0</span>
+    <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold whitespace-nowrap">$2</span>
   </div>
 </div>
 <p className="text-[#FFFFF] text-center font-bold text-sm sm:text-base mb-8">
    {t("bonus_page.reward_label")}{" "}
-  <span className="text-[#FFFFF]">
+  <span className="text-[#73DFCE]">
    {t("bonus_page.reward_highlight")}
   </span>
 </p>
@@ -161,14 +156,6 @@ className={`w-[15%] min-w-[120px] h-[180px] rounded-2xl border ${
 
         </div>
       </main>
-
-
-      {/* Floating Support Button */}
-      <div className="fixed bottom-8 right-8 z-40">
-        <button className="w-16 h-16 rounded-full bg-[#14A990] flex items-center justify-center text-white shadow-2xl shadow-[#14A990]/40 hover:scale-110 transition-transform">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><circle cx="12" cy="11" r="3"></circle><path d="M7 16c0-2 2-3 5-3s5 1 5 3"></path></svg>
-        </button>
-      </div>
     </div>
   );
 }
