@@ -25,10 +25,6 @@ const GIFT_CARDS = [
   { id: "steam", name: "Steam", logoSrc: "/assets/cb.png", gradient: "linear-gradient(135deg,#0A8C63,#10A479)" },
   { id: "xbox", name: "Xbox", logoSrc: "/assets/n.png", gradient: "linear-gradient(135deg,#107C10,#1DB954)" },
   { id: "playstation", name: "PlayStation", logoSrc: "/assets/play.png", gradient: "linear-gradient(135deg,#3B9627,#52B338)" },
-  { id: "netflix", name: "Netflix", logoSrc: "/assets/net.png", gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)" },
-  { id: "spotify", name: "Spotify", logoSrc: "/assets/spot.png", gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)" },
-  { id: "roblox", name: "Roblox", logoSrc: "/assets/rob.png", gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)" },
-  { id: "nintendo", name: "Nintendo", logoSrc: "/assets/n.png", gradient: "linear-gradient(135deg,#E60012,#FF2D2D)" },
 ];
 
 const COUNTRIES = [
@@ -238,6 +234,7 @@ export default function GiftCardRedemptionModal({
   const [selectedCountry, setSelectedCountry] = useState(COUNTRIES.find(c => c.code === "US") || COUNTRIES[0]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fetchedDenomination, setFetchedDenomination] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const activeCardInfo = selectedCardData || GIFT_CARDS.find((c) => c.id === internalSelectedCard) || null;
@@ -253,9 +250,35 @@ export default function GiftCardRedemptionModal({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (!activeCardId) { setFetchedDenomination(null); return; }
+    const fetchDenoms = async () => {
+      try {
+        const api = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+        const res = await fetch(`${api}/api/v1/giftcard/denominations/${activeCardId}`);
+        const data = await res.json();
+        if (res.ok && data.denominations?.length > 0) {
+          setFetchedDenomination(data.denominations[0]);
+        } else {
+          setFetchedDenomination(10);
+        }
+      } catch {
+        setFetchedDenomination(10);
+      }
+    };
+    fetchDenoms();
+  }, [activeCardId]);
+
   const handleRedeem = async () => {
     if (!activeCardId) {
       toast.error("No card selected");
+      return;
+    }
+
+    const denomination = fetchedDenomination || 10;
+    const availableBalance = userBalance / 100;
+    if (availableBalance < denomination) {
+      toast.error(`Insufficient balance. You need $${denomination} but only have $${availableBalance.toFixed(2)}`);
       return;
     }
 
@@ -269,7 +292,7 @@ export default function GiftCardRedemptionModal({
 
       const payload = {
         giftCardType: activeCardId,
-        denomination: 10,
+        denomination,
         currency: "USD",
         country: selectedCountry.code,
       };

@@ -65,7 +65,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[176.5px]"
+      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[200px]"
       style={{ border: "1px solid rgba(255,255,255,0.1)", background: card.gradient }}
     >
       {/* Dot grid — concentrated in center, fading to edges */}
@@ -377,9 +377,9 @@ const POPULAR: CashoutCard[] = [
 
 const GIFTCARDS: CashoutCard[] = [
   { id: "amazon",      name: t("cards_cc.amazon"),     brandName: t("cards_cc.amazon"),     logoSrc: "/assets/amazon.png", gradient: "linear-gradient(135deg,#2C14A6,#3F21C4)", category: "giftcard" },
-  { id: "itunes",      name: t("cards_cc.app_stores"), brandName: t("cards_cc.app_stores"),     logoSrc: "/itunes.png",  gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "giftcard" },
-  { id: "spotify",     name: t("cards_cc.spotify"),    brandName: t("cards_cc.spotify"),    logoSrc: "/assets/spot.png",   gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "giftcard" },
-  { id: "playstation", name: t("cards_cc.playstations"),brandName: t("cards_cc.playstations"),logoSrc: "/assets/play.png",  gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "giftcard" },
+  { id: "apple_itunes", name: "iTunes",                brandName: "iTunes",                 logoSrc: "/itunes.png",       gradient: "linear-gradient(135deg,#B87B0B,#D99A1C)", category: "giftcard" },
+  { id: "google_play", name: "Spotify",                brandName: "Spotify",                logoSrc: "/assets/spot.png",   gradient: "linear-gradient(135deg,#B61D1D,#D12D2D)", category: "giftcard" },
+  { id: "playstation", name: t("cards_cc.playstations"),brandName: t("cards_cc.playstations"),logoSrc: "/assets/play.png",   gradient: "linear-gradient(135deg,#3B9627,#52B338)", category: "giftcard" },
   { id: "steam",       name: t("cards_cc.steam"),      brandName: t("cards_cc.steam"),      logoSrc: "/assets/cb.png",     gradient: "linear-gradient(135deg,#0A8C63,#10A479)", category: "giftcard" },
 ];
 
