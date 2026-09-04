@@ -117,7 +117,7 @@ const CookieIcon = () => (
 
 const MobileLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => {
   return (
-    <Link href={href} className="flex items-center gap-2 text-[#8C9DB6] hover:text-white transition-colors text-sm py-1">
+    <Link href={href} className="flex items-center gap-2 text-white hover:text-white transition-colors text-sm py-1">
       <span className="text-[#8C8FA8] flex-shrink-0">{icon}</span>
       {label}
     </Link>
@@ -255,13 +255,13 @@ bg-clip-text text-transparent opacity-90">
           {/* Platform + User Center 2-col */}
           <div className="grid grid-cols-2 gap-x-10 gap-y-1 w-full max-w-[340px]">
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2">{t("footer.platform")}</h4>
+              <h4 className="text-[#6B6E8A] font-bold text-sm mb-2">{t("footer.platform")}</h4>
               <MobileLink href="/earn"        icon={<MoneyBagIcon />}                  label={t("footer.earn")} />
               <MobileLink href="/leaderboard" icon={<CupStarIcon />}                  label={t("footer.leaderboard")} />
               <MobileLink href="/rewards"     icon={<GiftBoldIcon />}                 label={t("footer.rewards")} />
             </div>
             <div className="flex flex-col gap-0.5">
-              <h4 className="text-white font-bold text-sm mb-2">{t("footer.userCenter")}</h4>
+              <h4 className="text-[#6B6E8A] font-bold text-sm mb-2">{t("footer.userCenter")}</h4>
               <MobileLink href="/account"     icon={<UserIcon />}                     label={t("footer.account")} />
               <MobileLink href="/wallet"      icon={<DocTextIcon />}                  label={t("footer.transaction")} />
               <MobileLink href="/faq"         icon={<FaqQuestionIcon />}              label={t("footer.faq")} />
@@ -271,10 +271,10 @@ bg-clip-text text-transparent opacity-90">
 
           {/* Terms — centred */}
           <div className="flex flex-col items-center gap-1">
-            <h4 className="text-white font-bold text-sm mb-2">{t("footer.terms")}</h4>
+            <h4 className="text-[#6B6E8A] font-bold text-sm mb-2">{t("footer.terms")}</h4>
             <MobileLink href="/terms"   icon={<LegalIcon />}       label={t("footer.service_terms")} />
             <MobileLink href="/privacy" icon={<PrivacyTipIcon />}  label={t("footer.privacy")} />
-            <MobileLink href="/cookies" icon={<CookieIcon />}      label={t("footer.cookie_policy")} />
+            <MobileLink href="/cookies" icon={<CookieIcon />}      label={t("footer.cookie")} />
           </div>
 
           {/* Bottom bar */}
