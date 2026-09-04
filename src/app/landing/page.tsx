@@ -24,14 +24,14 @@ const FAQItem = ({
 }) => (
   <button
     onClick={onClick}
-    className="w-full text-left border-b border-[#EBEDF5] dark:border-[#26293E] pb-5 mb-5 last:border-0 last:mb-0 last:pb-0 bg-transparent cursor-pointer group"
+    className="w-full text-left border-0 pb-5 mb-3 last:border-0 last:mb-0 last:pb-0 bg-[#16182A] rounded-xl p-4 cursor-pointer group"
   >
     <div className="flex justify-between items-center">
-      <span className="text-[#1A1D2E] dark:text-white font-semibold text-base group-hover:text-[#18C2A3] transition-colors duration-200">{q}</span>
-      <span className={`text-xl ml-4 w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${open ? 'bg-[#18C2A3] text-white' : 'bg-[#EBEDF5] dark:bg-[#26293E] text-[#4A4D6A] dark:text-[#B3B6C7]'}`}>{open ? '+' : '—'}</span>
+      <span className="text-white font-semibold text-base group-hover:text-[#18C2A3] transition-colors duration-200">{q}</span>
+      <span className="text-xl ml-4 w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-[#B3B6C7]">{open ? '+' : '−'}</span>
     </div>
     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0 mt-0'}`}>
-      <p className="text-[#5E6180] dark:text-[#6B6E8A] text-sm leading-relaxed">{a}</p>
+      <p className="text-[#B3B6C7] text-sm leading-relaxed">{a}</p>
     </div>
   </button>
 );
@@ -111,7 +111,7 @@ const StatCard = ({
   label: string;
 }) => (
   <div className="flex flex-col items-center gap-3 sm:gap-4">
-    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[#099F86] flex items-center justify-center shadow-[0_9px_24px_rgba(20,169,144,0.3)]">
+    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#099F86] flex items-center justify-center shadow-[0_9px_24px_rgba(20,169,144,0.3)]">
       {icon}
     </div>
     <h3 className="text-[#0AC07D] text-2xl sm:text-4xl font-bold">{value}</h3>
@@ -797,7 +797,7 @@ useEffect(() => {
       <TickerBar />
 
       {/* ═══════ HERO ═══════ */}
-<section className="bg-[#0D0F1E] py-6 sm:py-8">
+<section className="py-6 sm:py-8">
   <div
     className="relative mx-auto w-full max-w-[1360px] min-h-[500px] lg:min-h-[620px] rounded-[20px] sm:rounded-[40px] bg-cover bg-center bg-no-repeat flex items-center"
     style={{ backgroundImage: "url('/landing-page.png')" }}
@@ -946,7 +946,7 @@ useEffect(() => {
 </section>
 
       {/* ═══════ HOW IT WORKS ═══════ */}
-<section className="bg-[#0D0F1E] py-14 sm:py-24">
+<section className="py-14 sm:py-24">
   <div className="max-w-[1360px] mx-auto px-4">
     {/* Heading */}
     <div className="text-center">
@@ -968,7 +968,7 @@ useEffect(() => {
     {/* Cards */}
     <div className="mt-10 sm:mt-20 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0 sm:snap-none">
       {/* Card 1 */}
-      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-[82%] sm:w-full shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step1.png"
           alt=""
@@ -993,7 +993,7 @@ useEffect(() => {
       </div>
 
       {/* Card 2 */}
-      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-[82%] sm:w-full shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step2.png"
           alt=""
@@ -1018,7 +1018,7 @@ useEffect(() => {
       </div>
 
       {/* Card 3 */}
-      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-[82%] sm:w-full shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step3.png"
           alt=""
@@ -1043,7 +1043,7 @@ useEffect(() => {
       </div>
 
       {/* Card 4 */}
-      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-[82%] sm:w-full shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step4.png"
           alt=""
@@ -1096,10 +1096,10 @@ useEffect(() => {
   {REWARD_LOGOS.map((item) => (
    <div
   key={item.id}
-  className="rounded-[15px] w-full h-[120px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[20px] sm:px-[30px] lg:px-[40px] py-[24px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
+   className="rounded-[15px] w-full h-[72.7px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[20px] sm:px-[30px] lg:px-[40px] py-[10px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
   style={{ backgroundColor: item.bg }}
 >
-  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
+  <div className="w-7 h-7 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
     <img
       src={item.src}
       alt=""
@@ -1116,13 +1116,13 @@ useEffect(() => {
 
 
       {/* ═══════ TESTIMONIALS ═══════ */}
-      <section className="py-14 sm:py-20 bg-[#E8EAF2] dark:bg-[#111324]">
+      <section className="py-14 sm:py-20">
         <div className="max-w-[1312px] mx-auto px-4">
           <h2 className="text-3xl sm:text-5xl font-semibold text-center tracking-tight mb-10 sm:mb-14 text-[#1A1D2E] dark:text-white">
             {t("testimonials.title_highlight")}          </h2>
 
-          {/* Cards — 3 visible at once on desktop */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
+          {/* Cards — 3 visible at once on desktop, horizontal scroll on mobile */}
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 lg:snap-none mb-10 sm:mb-12">
             {[0, 1, 2].map((offset) => {
               const testimonial =
   TESTIMONIALS[
@@ -1132,7 +1132,7 @@ useEffect(() => {
                 <div
                   key={`${testimonial.name}-${offset}`}
 
-                  className="rounded-2xl border border-[#EBEDF5] dark:border-[#252840] p-6 sm:p-7 flex flex-col gap-4 bg-white dark:bg-[#161828]"
+                  className="rounded-2xl border border-[#EBEDF5] dark:border-[#252840] p-6 sm:p-7 flex flex-col gap-4 bg-white dark:bg-[#161828] snap-start shrink-0 w-[85%] lg:w-auto"
                 >
                   {/* Avatar + name */}
                   <div className="flex items-center gap-3">
@@ -1247,9 +1247,9 @@ alt={testimonial.name}
             {t("stats.title_highlight")}{' '}
             <span className="text-[#18C2A3]">{t("stats.title_rest")}</span>
           </h2>
-          <div className="bg-white dark:bg-[#111324] rounded-2xl px-4 sm:px-8 py-10 sm:py-16 border border-[#EBEDF5] dark:border-0">
+          <div className="rounded-2xl px-4 sm:px-8 py-10 sm:py-16">
             <div className="sm:grid sm:grid-cols-4 sm:gap-0">
-              <div className="py-6 sm:py-0 sm:pr-8">
+              <div className="py-6 sm:py-0 sm:pr-8 border-b border-[#27293F] sm:border-b-0">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/earned.png" alt="Total rewards earned" />
@@ -1258,7 +1258,7 @@ alt={testimonial.name}
                   label={t("stats.total_rewards")}
                 />
               </div>
-              <div className="py-6 sm:py-0 sm:px-8 sm:border-l sm:border-[#27293F]">
+              <div className="py-6 sm:py-0 sm:px-8 border-b border-[#27293F] sm:border-b-0 sm:border-l sm:border-[#27293F]">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/average.png" alt="Average money earned" />
@@ -1267,7 +1267,7 @@ alt={testimonial.name}
                   label={t("stats.average")}
                 />
               </div>
-              <div className="py-6 sm:py-0 sm:px-8 sm:border-l sm:border-[#27293F]">
+              <div className="py-6 sm:py-0 sm:px-8 border-b border-[#27293F] sm:border-b-0 sm:border-l sm:border-[#27293F]">
                 <StatCard
                   icon={
                     <img width="28" height="28" src="/users.png" alt="Total users" />
@@ -1291,7 +1291,7 @@ alt={testimonial.name}
       </section>
 
 {/* ═══════ FAQ + REWARDS WRAPPER (SMOOTH CONTINUOUS WAVE) ═══════ */}
-<div className="relative bg-gradient-to-b from-[#F0F2F8] via-[#E8EAF2] to-[#F0F2F8] dark:from-[#0D0F1E] dark:via-[#101324] dark:to-[#0D0F1E] overflow-hidden">
+<div className="relative">
   {/* ───────── TOP SMOOTH BLEND (from cards → FAQ) ───────── */}
   <div className="absolute top-0 left-0 w-full z-0">
     <svg
@@ -1323,8 +1323,8 @@ alt={testimonial.name}
   <div className="relative z-10">
 
     {/* ═══════ FAQ ═══════ */}
-    <section className="max-w-[1312px] mx-auto px-4 py-10 sm:py-20">
-      <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-8 sm:mb-12 text-[#1A1D2E] dark:text-white">
+    <section className="max-w-[1312px] mx-auto px-4 pt-10 pb-16 sm:pt-20 sm:pb-20">
+      <h2 className="text-3xl sm:text-5xl font-semibold text-center mb-8 sm:mb-12 text-white">
         {t("faq.title_highlight")}
       </h2>
 
@@ -1333,7 +1333,7 @@ alt={testimonial.name}
           <img src="/faqitem.png" className="w-full rounded-2xl" />
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 pb-10">
           {faqData.map((item, i) => (
             <FAQItem
               key={i}
@@ -1353,17 +1353,19 @@ alt={testimonial.name}
 
     {/* ═══════ CTA SECTION ═══════ */}
       <section className="max-w-[1312px] mx-auto px-4 py-10 sm:py-16">
-        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#1a3a2e] to-[#111324]">
+        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
+          <div className="absolute inset-0 bg-[#007546]"></div>
           <img
             src="/cta-2.png"
             alt=""
-            className="w-full h-[250px] sm:h-[350px] object-cover opacity-60"
+            className="w-full h-[250px] sm:h-[350px] object-cover relative mix-blend-overlay opacity-50"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#007546] via-[#007546cc] to-[#00754600]"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 animate-fadeInUp">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
               {t("cta.title_highlight")}
             </h2>
-            <p className="text-[#B3B6C7] text-sm sm:text-base max-w-[520px] mb-5 sm:mb-8 leading-relaxed">
+            <p className="text-[#FFFFFF] text-sm sm:text-base max-w-[520px] mb-5 sm:mb-8 leading-relaxed">
                {t("cta.desc")}
             </p>
             <button onClick={() => setShowSignUp(true)} className="inline-block px-8 sm:px-10 py-3 sm:py-4 rounded-full bg-[#0D0F1E] dark:bg-white text-white dark:text-[#0D0F1E] font-bold text-sm sm:text-base hover:bg-[#18C2A3] hover:text-white transition-colors duration-300 hover:shadow-[0_0_30px_rgba(24,194,163,0.4)]">
