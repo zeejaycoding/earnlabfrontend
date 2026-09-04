@@ -541,14 +541,13 @@ const faqData = [
 const REWARD_LOGOS = [
   { id: 1, src: "/visa.png", bg: "#0619B9" },
   { id: 2, src: "/bitcoin.png", bg: "#D85F02" },
-  { id: 3, src: "/skrill.png", bg: "#04A07C" },
-  { id: 4, src: "/cib_cashapp.png", bg: "#0391C0" },
-  { id: 5, src: "/apple.png", bg: "#FFFFFF" },
-  { id: 6, src: "/worlcoin-2.png", bg: "#FFFFFF" },
-  { id: 7, src: "/googleplay.png", bg: "#D802C3" },
-  { id: 8, src: "/nike.png", bg: "#D82902" },
-  { id: 9, src: "/mastercard.png", bg: "#1126D5" },
-  { id: 10, src: "/roblox.png", bg: "#8A11D5" },
+  { id: 3, src: "/simple-icons_solana.png", bg: "#04A07C" },
+  { id: 4, src: "/worlcoin-2.png", bg: "#FFFFFF" },
+  { id: 5, src: "/googleplay.png", bg: "#D802C3" },
+  { id: 6, src: "/nike.png", bg: "#D82902" },
+  { id: 7, src: "/steam.png", bg: "#1126D5" },
+  { id: 8, src: "/roblox.png", bg: "#8A11D5" },
+  { id: 9, src: "/cib_cashapp.png", bg: "#0391C0" },
 ];
 
 
@@ -969,14 +968,14 @@ useEffect(() => {
     {/* Cards */}
     <div className="mt-10 sm:mt-20 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0 sm:snap-none">
       {/* Card 1 */}
-      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step1.png"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-       <div className="absolute bottom-3 left-3 right-8 max-sm:text-center max-sm:left-3 max-sm:right-3">
+       <div className="absolute bottom-3 left-3 right-8 text-left">
           <h3
             className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
@@ -994,14 +993,14 @@ useEffect(() => {
       </div>
 
       {/* Card 2 */}
-      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step2.png"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-       <div className="absolute bottom-3 left-3 right-8 max-sm:text-center max-sm:left-3 max-sm:right-3">
+       <div className="absolute bottom-3 left-3 right-8 text-left">
           <h3
             className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
@@ -1019,14 +1018,14 @@ useEffect(() => {
       </div>
 
       {/* Card 3 */}
-      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step3.png"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute bottom-3 left-3 right-8 max-sm:text-center max-sm:left-3 max-sm:right-3">
+        <div className="absolute bottom-3 left-3 right-8 text-left">
           <h3
             className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
@@ -1044,14 +1043,14 @@ useEffect(() => {
       </div>
 
       {/* Card 4 */}
-      <div className="relative w-full min-w-[260px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
+      <div className="relative w-full min-w-[150px] sm:min-w-0 shrink-0 snap-center h-[512px] sm:h-[420px] lg:h-[512px] overflow-hidden rounded-[20px] lg:rounded-[28px]">
         <img
           src="/step4.png"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-       <div className="absolute bottom-3 left-3 right-8 max-sm:text-center max-sm:left-3 max-sm:right-3">
+       <div className="absolute bottom-3 left-3 right-8 text-left">
           <h3
             className="text-white text-[18px] sm:text-[20px] lg:text-[24px] font-bold"
             style={{ fontFamily: "Manrope" }}
