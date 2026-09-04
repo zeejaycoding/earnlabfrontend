@@ -91,21 +91,46 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
 
       {/* Logo + title — top centered */}
       <div className={`relative z-10 flex flex-col items-center text-center gap-1.5 sm:gap-2 px-3 ${card.badge ? "pt-9 sm:pt-10" : "pt-3 sm:pt-4"}`}>
-        <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 flex items-center justify-center">
-          <Image
-            src={card.logoSrc}
-            alt={card.brandName}
-            width={40}
-            height={40}
-            className="object-contain w-full h-full"
-          />
+        {/* Mobile: icon + name in same line */}
+        <div className="flex sm:hidden items-center gap-1.5">
+          <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+            <Image
+              src={card.logoSrc}
+              alt={card.brandName}
+              width={24}
+              height={24}
+              className="object-contain w-full h-full"
+            />
+          </div>
+          <p className="text-gray-900 dark:text-white font-bold text-[26px] leading-none">
+            {card.name}
+          </p>
         </div>
-        <p className="text-gray-900 dark:text-white font-bold text-[28px] leading-none">
+        {/* Desktop: icon stacked above name */}
+        <div className="hidden sm:flex flex-col items-center gap-2">
+          <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center">
+            <Image
+              src={card.logoSrc}
+              alt={card.brandName}
+              width={40}
+              height={40}
+              className="object-contain w-full h-full"
+            />
+          </div>
+          <p className="text-gray-900 dark:text-white font-bold text-[28px] leading-none">
+            {card.name}
+          </p>
+          {card.subtitle && (
+            <p className="text-gray-600 dark:text-white/65 text-[10px] sm:text-[11px] mt-0.5">{card.subtitle}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile: name repeated at bottom */}
+      <div className="relative z-10 flex sm:hidden items-center justify-center pb-3 mt-auto">
+        <p className="text-gray-900 dark:text-white font-bold text-[16px] leading-none">
           {card.name}
         </p>
-        {card.subtitle && (
-          <p className="text-gray-600 dark:text-white/65 text-[10px] sm:text-[11px] mt-0.5 hidden sm:block">{card.subtitle}</p>
-        )}
       </div>
 
       {/* Inner ring */}
@@ -411,6 +436,7 @@ const GIFTCARDS: CashoutCard[] = [
         onClose={() => { setGiftOpen(false); setSelectedCard(null); }}
         userBalance={balanceCents}
         onRedemptionComplete={() => { setGiftOpen(false); setSelectedCard(null); }}
+        selectedCardData={selectedCard && selectedCard.category === "giftcard" ? { id: selectedCard.id, name: selectedCard.name, logoSrc: selectedCard.logoSrc, gradient: selectedCard.gradient } : null}
       />
     </div>
   );
