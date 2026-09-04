@@ -114,7 +114,7 @@ const StatCard = ({
     <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#099F86] flex items-center justify-center shadow-[0_9px_24px_rgba(20,169,144,0.3)]">
       {icon}
     </div>
-    <h3 className="text-[#0AC07D] text-2xl sm:text-4xl font-bold">{value}</h3>
+    <h3 className="text-[#099F86] text-[32px] sm:text-4xl font-bold" style={{ fontFamily: "DM Sans" }}>{value}</h3>
     <p className="text-[#4A4D6A] dark:text-[#8C8FA8] text-xs sm:text-sm text-center">{label}</p>
   </div>
 );
@@ -1092,14 +1092,14 @@ useEffect(() => {
 
   {/* GRID */}
   {/* GRID */}
-<div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-5">
+<div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-1.5 sm:gap-5">
   {REWARD_LOGOS.map((item) => (
    <div
   key={item.id}
-   className="rounded-[15px] w-full h-[72.7px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[20px] sm:px-[30px] lg:px-[40px] py-[10px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
+   className="rounded-[15px] w-full h-[72.7px] sm:h-[140px] lg:h-[164px] flex items-center justify-center px-[12px] sm:px-[30px] lg:px-[40px] py-[10px] sm:py-[30px] lg:py-[38px] hover:scale-105 transition-transform duration-300"
   style={{ backgroundColor: item.bg }}
 >
-  <div className="w-7 h-7 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
+  <div className="w-9 h-9 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
     <img
       src={item.src}
       alt=""
