@@ -37,7 +37,7 @@ function TickerItem({
   amount: string;
 }) {
   return (
-    <div className="flex items-center gap-2 sm:gap-3 bg-[#1A1D2E] rounded-md sm:rounded-lg px-2 sm:px-[14px] py-1.5 sm:py-2 min-w-max border border-[#2A2D3E]">
+    <div className="flex items-center gap-2 sm:gap-3 bg-[#1A1D2E] rounded-md sm:rounded-lg px-3 sm:px-[14px] py-2.5 sm:py-3 min-w-max border border-[#2A2D3E]">
       <div className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] flex items-center justify-center">
         <Image src={logoSrc} alt={value} width={24} height={24} className="w-full h-full object-contain" />
       </div>
@@ -137,7 +137,7 @@ export default function TickerBar() {
 
   return (
     <div className="w-full bg-[#0D0F1E] overflow-hidden border-b border-[#1E2133] pointer-events-none">
-      <div className="flex animate-scroll-left flex-row gap-[15px] px-4 py-2 sm:py-3 w-max">
+      <div className="flex animate-scroll-left flex-row gap-[15px] px-4 py-3 sm:py-4 w-max">
         {tickerItems.map((item, i) => (
           <TickerItem
             key={`${item.value}-${item.amount}-${i}`}

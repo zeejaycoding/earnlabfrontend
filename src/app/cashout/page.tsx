@@ -65,7 +65,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[145px] sm:min-h-[170px]"
+      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[176.5px]"
       style={{ border: "1px solid rgba(255,255,255,0.1)", background: card.gradient }}
     >
       {/* Dot grid — concentrated in center, fading to edges */}
@@ -407,6 +407,8 @@ const GIFTCARDS: CashoutCard[] = [
       <TopBar />
 
       <TickerBar />
+
+      <div className="w-full h-px" style={{ background: "#1E2133" }} />
 
       {/* ── Sections ─────────────────────────────────────────────── */}
       <main className="flex-1 max-w-[1440px] w-full mx-auto px-3 sm:px-6 md:px-16 py-4 sm:py-8 flex flex-col gap-6 sm:gap-10">
