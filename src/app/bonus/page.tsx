@@ -124,16 +124,20 @@ className={`w-full max-w-[73.61px] h-[64px] sm:max-w-none sm:w-[15%] sm:min-w-[1
           </div>
 
 {/* Progress Bar */}
-<div className="w-full mb-8 px-2">
+<div className="w-[85%] max-w-[520px] mx-auto mb-8 px-2">
   <div className="relative">
     <div className="h-2 bg-[#151828] rounded-full overflow-hidden border border-[#1E2F3F]">
       <div className="absolute left-0 top-0 h-full transition-all duration-500 bg-[#14A990] shadow-[0_0_10px_#14A990]" style={{ width: `${Math.min(progress, 100)}%` }} />
     </div>
-    <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold whitespace-nowrap">$0</span>
-    <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 px-3 py-1 bg-[#14A990] rounded-full text-[10px] font-bold whitespace-nowrap">$2</span>
+    <span className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#FFFFFF00] via-[#FFFFFF00] to-[#FFFFFF] p-[1.5px]">
+      <span className="flex items-center justify-center px-4 py-2 rounded-full bg-[#099F86] bg-gradient-to-r from-[#099F86] via-[#099F86] to-[#FFFFFF00] text-xs sm:text-sm font-bold text-white whitespace-nowrap">$0</span>
+    </span>
+    <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-r from-[#FFFFFF00] via-[#FFFFFF00] to-[#FFFFFF] p-[1.5px]">
+      <span className="flex items-center justify-center px-4 py-2 rounded-full bg-[#099F86] bg-gradient-to-r from-[#099F86] via-[#099F86] to-[#FFFFFF00] text-xs sm:text-sm font-bold text-white whitespace-nowrap">$2</span>
+    </span>
   </div>
 </div>
-<p className="text-[#FFFFF] text-center font-bold text-sm sm:text-base mb-8">
+<p className="text-[#FFFFF] text-center font-bold text-lg sm:text-xl mb-8">
    {t("bonus_page.reward_label")}{" "}
   <span className="text-[#73DFCE]">
    {t("bonus_page.reward_highlight")}
