@@ -292,7 +292,7 @@ const SIGNUPComponent = () => {
               {[0,1,2,3].map((i) => (
                 <svg key={i} width="24" height="24" viewBox="0 0 24 24">
                   <rect width="24" height="24" rx="3" fill="#00B67A" />
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" />
+                  <path d="M17.227 16.67l2.19 6.742-7.413-5.388 5.223-1.354zM24 9.31h-9.165L12.005.589l-2.84 8.723L0 9.3l7.422 5.397-2.84 8.714 7.422-5.388 4.583-3.326L24 9.311z" fill="white" />
                 </svg>
               ))}
               {/* half star */}
@@ -302,7 +302,7 @@ const SIGNUPComponent = () => {
                   <rect x="0" y="0" width="12" height="24" />
                 </clipPath>
                 <rect width="24" height="24" rx="3" fill="#00B67A" clipPath="url(#half-clip)" />
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="white" />
+                <path d="M17.227 16.67l2.19 6.742-7.413-5.388 5.223-1.354zM24 9.31h-9.165L12.005.589l-2.84 8.723L0 9.3l7.422 5.397-2.84 8.714 7.422-5.388 4.583-3.326L24 9.311z" fill="white" />
               </svg>
             </div>
             <p className="text-[#B3B6C7] text-[13px] font-bold">
