@@ -148,7 +148,7 @@ className={`w-full max-w-[73.61px] h-[64px] sm:max-w-none sm:w-[15%] sm:min-w-[1
   <button
       onClick={() => router.push("/signup")}
 
-    className="px-10 py-4 rounded-xl text-white font-bold text-lg transition-all hover:brightness-110 active:scale-[0.95] flex items-center gap-3 shadow-2xl shadow-[#14A990]/40"
+    className="px-10 py-4 rounded-xl text-white font-bold text-lg transition-all hover:brightness-110 active:scale-[0.95] flex items-center gap-3 shadow-2xl shadow-[#14A9904D]"
     style={{
       background:
         "linear-gradient(135deg, #0AC07D 0%, #14A290 100%)",
