@@ -196,8 +196,6 @@ const BottomNavigation: React.FC = () => {
     return pathname === path || pathname.startsWith(path + "/");
   };
 
-  if (!isAuthenticated) return null;
-
   return (
     <>
       {/* Mobile Menu Overlay */}
