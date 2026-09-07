@@ -102,7 +102,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
               className="object-contain w-full h-full"
             />
           </div>
-          <p className="text-gray-900 dark:text-white font-bold text-[26px] leading-none">
+          <p className="text-gray-900 dark:text-white font-bold text-[24px] leading-none">
             {card.name}
           </p>
         </div>
