@@ -298,7 +298,7 @@ export default function SurveysPage() {
           </div>
 
           {/* Question + Input + Buttons — centered in remaining space */}
-          <div className="flex-1 flex flex-col items-center justify-center gap-5 sm:gap-8 w-full min-w-0">
+          <div className="flex-1 flex flex-col items-center justify-start sm:justify-center gap-5 sm:gap-8 w-full min-w-0 pt-4 sm:pt-0">
             {/* Question */}
             <h1 className="w-full text-center text-[17px] sm:text-[24px] md:text-[30px] font-bold leading-snug break-words px-1">
               {question.prompt}
@@ -321,16 +321,11 @@ export default function SurveysPage() {
                 type="button"
                 onClick={goPrev}
                 disabled={stepIndex === 0 || busy}
-                className="flex items-center gap-1.5 px-4 sm:px-5 py-[8px] sm:py-[9px] rounded-[8px] text-[13px] sm:text-[14px] font-semibold text-white border border-[#2A2D3E] bg-[#151728] hover:border-[#0AC07D]/50 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className={`flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-[9px] rounded-[8px] bg-[#1E2133] text-[18px] transition-all ${stepIndex === 0 || busy ? "text-[#6B6E8A] cursor-not-allowed" : "text-white hover:opacity-90"}`}
+                style={{ fontFamily: "DM Sans, sans-serif", fontWeight: 500 }}
               >
-                <svg width="6" height="11" viewBox="0 0 7 12" fill="none">
-                  <path
-                    d="M6 1L1 6l5 5"
-                    stroke="white"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill={stepIndex === 0 || busy ? "#B3B6C7" : "#FFFFFF"} style={{ transform: "rotate(-90deg)" }}>
+                  <path d="M3 19h18a1.002 1.002 0 0 0 .823-1.569l-9-13c-.373-.539-1.271-.539-1.645 0l-9 13A.999.999 0 0 0 3 19" />
                 </svg>
                 {t("survey.buttons.back")}
               </button>
@@ -339,16 +334,12 @@ export default function SurveysPage() {
                 type="button"
                 onClick={goNext}
                 disabled={busy}
-                className="flex items-center gap-1.5 px-4 sm:px-5 py-[8px] sm:py-[9px] rounded-[8px] text-[13px] sm:text-[14px] font-semibold text-white disabled:opacity-60 disabled:cursor-not-allowed transition-all hover:opacity-90"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #0AC07D 0%, #0BBFA0 100%)",
-                  boxShadow: "0 6px 18px rgba(10,192,125,0.3)",
-                }}
+                className={`flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-[9px] rounded-[8px] bg-[#1E2133] text-[18px] transition-all ${busy ? "text-[#6B6E8A] cursor-not-allowed" : "text-white hover:opacity-90"}`}
+                style={{ fontFamily: "DM Sans, sans-serif", fontWeight: 500 }}
               >
                 {submitting ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin text-[#B3B6C7]" />
                     {t("survey.buttons.submitting")}
                   </>
                 ) : (
@@ -356,14 +347,8 @@ export default function SurveysPage() {
                     {stepIndex === QUESTIONS.length - 1
                       ? t("survey.buttons.startSurvey")
                       : t("survey.buttons.next")}
-                    <svg width="6" height="11" viewBox="0 0 7 12" fill="none">
-                      <path
-                        d="M1 1l5 5-5 5"
-                        stroke="white"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF" style={{ transform: "rotate(90deg)" }}>
+                      <path d="M3 19h18a1.002 1.002 0 0 0 .823-1.569l-9-13c-.373-.539-1.271-.539-1.645 0l-9 13A.999.999 0 0 0 3 19" />
                     </svg>
                   </>
                 )}
