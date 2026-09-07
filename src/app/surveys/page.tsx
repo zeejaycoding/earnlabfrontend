@@ -286,7 +286,7 @@ export default function SurveysPage() {
             <span className="text-[#8C8FA8] text-sm font-medium">
               {stepIndex}/{totalSteps}
             </span>
-            <div className="mt-2 w-full h-[5px] sm:h-[6px] rounded-full bg-[#1E2133] overflow-hidden">
+            <div className="mt-2 w-[361px] h-[15px] sm:w-full sm:h-[6px] mx-auto sm:mx-0 rounded-full bg-[#1E2133] overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-300"
                 style={{
