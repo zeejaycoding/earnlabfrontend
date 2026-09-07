@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import TickerBar from "@/Components/Shared/TickerBar";
 
 interface UserProfile {
   uuid: string;
@@ -40,16 +41,20 @@ interface BadgeView {
   icon: string;
 }
 
-const DIAMOND_CLIP = "polygon(20% 15%, 80% 15%, 100% 50%, 50% 100%, 0% 50%)";
-
 type BadgeVariant = "locked" | "first" | "second";
 
-function LockIcon({ color }: { color: string }) {
+const DIAMOND_PATH =
+  "M18 4a1 1 0 0 1 .783.378l.074.108l3 5a1 1 0 0 1-.032 1.078l-.08.103l-8.53 9.533a1.7 1.7 0 0 1-1.215.51c-.4 0-.785-.14-1.11-.417l-.135-.126l-8.5-9.5A1 1 0 0 1 2.083 9.6l.06-.115l3.013-5.022l.064-.09a1 1 0 0 1 .155-.154l.089-.064l.088-.05l.05-.023l.06-.025l.109-.032l.112-.02L6 4zM9.114 7.943a1 1 0 0 0-1.371.343l-.6 1l-.06.116a1 1 0 0 0 .177 1.07l2 2.2l.09.088a1 1 0 0 0 1.323-.02l.087-.09a1 1 0 0 0-.02-1.323l-1.501-1.65l.218-.363l.055-.103a1 1 0 0 0-.398-1.268";
+
+function Diamond({ color, shadow }: { color: string; shadow?: string }) {
   return (
-    <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-      <rect x="3.5" y="7" width="9" height="7" rx="1.5" fill={color} />
-      <path d="M5.5 7V5C5.5 3.61929 6.61929 2.5 8 2.5C9.38071 2.5 10.5 3.61929 10.5 5V7" stroke={color} strokeWidth="1.4" strokeLinecap="round" />
-      <circle cx="8" cy="10.2" r="1.1" fill="#1A1D2E" />
+    <svg
+      viewBox="0 0 24 24"
+      fill={color}
+      className="block mx-auto w-[68px] h-[55.5px] md:w-[22px] md:h-[22px]"
+      style={shadow ? { filter: `drop-shadow(0 2px 8px ${shadow})` } : undefined}
+    >
+      <path d={DIAMOND_PATH} />
     </svg>
   );
 }
@@ -57,17 +62,8 @@ function LockIcon({ color }: { color: string }) {
 function BadgeDiamond({ variant }: { variant: BadgeVariant }) {
   if (variant === "locked") {
     return (
-      <div
-        className="mx-auto w-full max-w-[48px] aspect-square relative"
-        style={{ clipPath: DIAMOND_CLIP, background: "#3E4468" }}
-      >
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: DIAMOND_CLIP, background: "linear-gradient(180deg, #7279B000 0%, #4A5080 100%)" }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <LockIcon color="#6B72A6" />
-        </div>
+      <div className="mx-auto w-full max-w-[48px] aspect-square flex items-center justify-center">
+        <Diamond color="#3E4468" />
       </div>
     );
   }
@@ -76,13 +72,8 @@ function BadgeDiamond({ variant }: { variant: BadgeVariant }) {
   const shadow = variant === "first" ? "#14A9904D" : "#A914174D";
 
   return (
-    <div
-      className="mx-auto w-full max-w-[48px] aspect-square relative"
-      style={{ clipPath: DIAMOND_CLIP, background: fill, filter: `drop-shadow(0 2px 8px ${shadow})` }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center">
-        <LockIcon color="#FFFFFF" />
-      </div>
+    <div className="mx-auto w-full max-w-[48px] aspect-square flex items-center justify-center">
+      <Diamond color={fill} shadow={shadow} />
     </div>
   );
 }
@@ -341,6 +332,11 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ userId, isOpen, onC
           >
             <CloseIcon />
           </button>
+        </div>
+
+        {/* Ticker */}
+        <div className="shrink-0">
+          <TickerBar />
         </div>
 
         {/* Loading */}
