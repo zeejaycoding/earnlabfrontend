@@ -846,7 +846,7 @@ useEffect(() => {
       className="text-white text-[18px] sm:text-[22px] font-semibold"
       style={{ fontFamily: "DM Sans" }}
     >
-       {t("hero.cta-1")}!
+       {t("cta.button")}!
     </h2>
 
     <p
