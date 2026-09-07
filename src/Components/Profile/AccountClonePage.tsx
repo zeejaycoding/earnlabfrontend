@@ -939,7 +939,14 @@ if (!token) {
                       alt="Worldcoin"
                       width={28}
                       height={28}
-                      className="h-7 w-7 object-contain invert brightness-200 mix-blend-screen"
+                      className="hidden dark:block h-7 w-7 object-contain invert brightness-200 mix-blend-screen"
+                    />
+                    <Image
+                      src="/worlcoin-2.png"
+                      alt="Worldcoin"
+                      width={28}
+                      height={28}
+                      className="dark:hidden h-7 w-7 object-contain"
                     />
                   </div>
                   <div className="min-w-0 flex-1">
