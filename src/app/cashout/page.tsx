@@ -65,7 +65,7 @@ function Card({ card, onClick }: { card: CashoutCard; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[200px]"
+      className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[250px] sm:min-h-[200px]"
       style={{ border: "1px solid rgba(255,255,255,0.1)", background: card.gradient }}
     >
       {/* Dot grid — concentrated in center, fading to edges */}

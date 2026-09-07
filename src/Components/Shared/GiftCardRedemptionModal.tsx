@@ -359,7 +359,7 @@ export default function GiftCardRedemptionModal({
                 <button
                   key={card.id}
                   onClick={() => setInternalSelectedCard(card.id)}
-                  className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[145px] sm:min-h-[170px]"
+                  className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start hover:scale-[1.02] transition-transform active:scale-[0.98] w-full min-h-[180px] sm:min-h-[170px]"
                   style={{ border: "1px solid rgba(255,255,255,0.1)", background: card.gradient }}
                 >
                   <div className="absolute inset-0 pointer-events-none"
@@ -463,7 +463,7 @@ export default function GiftCardRedemptionModal({
                 {[0, 1].map((i) => (
                   <div
                     key={i}
-                    className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start w-[calc(50%-6px)] sm:w-[176.5px] h-[160px] sm:h-[215px]"
+                    className="relative overflow-hidden rounded-[16px] flex flex-col items-center justify-start w-[calc(50%-6px)] sm:w-[176.5px] h-[200px] sm:h-[215px]"
                     style={{ border: "1px solid rgba(255,255,255,0.1)", background: activeCardInfo?.gradient }}
                   >
                     <div className="absolute inset-0 pointer-events-none"
