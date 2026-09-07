@@ -11,9 +11,10 @@ interface BonusCardProps {
   buttonText: string;
   onClick?: () => void;
   accentColor?: string;
+  iconBoxClass?: string;
 }
 
-const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText, onClick, accentColor = "#14A990" }) => (
+const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText, onClick, accentColor = "#14A990", iconBoxClass = "w-28 h-28 sm:w-36 sm:h-36" }) => (
   <div className="relative overflow-hidden rounded-[28px] border border-[#1E2F3F] bg-[#0C1320] p-7 group transition-all hover:translate-y-[-4px] min-h-[220px] flex flex-col justify-between w-full">
     {/* Subtle Pattern Overlay */}
     <div 
@@ -27,7 +28,7 @@ const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText
     </div>
 
     <div className="relative z-10 flex items-center justify-between mt-6">
-      <div className="w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+      <div className={`${iconBoxClass} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
         {icon}
       </div>
       
@@ -72,6 +73,7 @@ const BonusSection: React.FC = () => {
           buttonText={t("bonus.streak.button")}
           accentColor="#0AC07D"
           onClick={() => router.push("/streak")}
+          iconBoxClass="w-[150px] h-[85px] sm:w-[190px] sm:h-[105px]"
           icon={<
             img src="/streak.png" alt="Streak" className="w-full h-full object-contain" /
           >

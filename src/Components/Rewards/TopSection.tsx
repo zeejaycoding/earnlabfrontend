@@ -269,9 +269,9 @@ const TopSection = () => {
                                 <div className="bg-[#26293E] rounded-md w-full flex justify-center py-10">
                                     {typeof image === "string" ? (
                                         // eslint-disable-next-line @next/next/no-img-element
-                                        <img src={image} alt={`day-${day}`} style={{ width: 150, height: 60, objectFit: 'contain' }} />
+                                        <img src={image} alt={`day-${day}`} className="w-[160px] h-[120px] sm:w-[150px] sm:h-[60px] object-contain" />
                                     ) : (
-                                        <Image src={image} alt={`day-${day}`} width={150} height={60} className="mb-4" />
+                                        <Image src={image} alt={`day-${day}`} width={150} height={60} className="mb-4 w-[160px] h-[120px] sm:w-[150px] sm:h-[60px] object-contain" />
                                     )}
                                 </div>
                                 <p className="text-md font-medium py-3">Day {day}</p>
