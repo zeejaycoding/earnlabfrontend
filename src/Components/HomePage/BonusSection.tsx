@@ -15,10 +15,20 @@ interface BonusCardProps {
 }
 
 const BonusCard: React.FC<BonusCardProps> = ({ title, subtitle, icon, buttonText, onClick, accentColor = "#14A990", iconBoxClass = "w-28 h-28 sm:w-36 sm:h-36" }) => (
-  <div className="relative overflow-hidden rounded-[28px] border border-[#1E2F3F] bg-[#0C1320] p-7 group transition-all hover:translate-y-[-4px] min-h-[220px] flex flex-col justify-between w-full">
-    {/* Subtle Pattern Overlay */}
+  <div className="relative overflow-hidden rounded-[28px] border border-[#3A7E59] bg-[#0C343F] md:bg-[#0C1320] p-7 group transition-all hover:translate-y-[-4px] min-h-[220px] flex flex-col justify-between w-full">
+    {/* Blue dot pattern — mobile (right half only, like cashout cards) */}
     <div 
-      className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+      className="absolute inset-0 md:hidden pointer-events-none" 
+      style={{
+        backgroundImage: "radial-gradient(rgba(56,189,248,0.45) 1px, transparent 1px)",
+        backgroundSize: "8px 8px",
+        WebkitMaskImage: "linear-gradient(to left, black 0%, transparent 55%)",
+        maskImage: "linear-gradient(to left, black 0%, transparent 55%)",
+      }}
+    />
+    {/* Subtle white pattern — desktop */}
+    <div 
+      className="absolute inset-0 hidden md:block opacity-[0.05] pointer-events-none" 
       style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}
     />
     
